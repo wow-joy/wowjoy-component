@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent  } from 'react';
 import style from './Btn.scss';
-class Btn extends Component {
+class Btn extends PureComponent  {
     render() {
         return (
             <div className={style.wrap}>

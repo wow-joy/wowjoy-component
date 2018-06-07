@@ -1,0 +1,16 @@
+.wrap{
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  &>header{
+    height: 64px;
+    line-height: 64px;
+    width: 100%;
+  }
+  &>footer{
+    height: 64px;
+    line-height: 64px;
+    width: 100%;
+  }
+}

@@ -1,16 +1,22 @@
-import React, { Component } from 'react';
-import Components from '../../../src'
+import React, { Component } from "react";
+import Components from "../../../lib";
+// import Components from "../../../src";
+
+const PROPS = {
+  header: {
+    content: 2
+  }
+};
 
 class Detail extends Component {
   render() {
     const { match } = this.props;
     const ComponentItem = Components[match.params.name];
-    return (
-      <div>
-        This is Detail!
-        <ComponentItem />
-      </div>
-    );
+    if (ComponentItem) {
+      return <ComponentItem {...PROPS} />;
+    }
+
+    return <div>ComponentItem not found</div>;
   }
 }
 

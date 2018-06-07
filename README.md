@@ -4,6 +4,10 @@
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
 
+## 开发文档
+https://github.com/manglobe/wowjoy-component/blob/master/CONTRIBUTING.md
+
+
 Describe wowjoy-component here.
 
 [build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
