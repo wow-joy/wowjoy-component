@@ -1,0 +1,11 @@
+.btn {
+  background: #fff;
+  border-color: #06aea6;
+  color: #06aea6;
+  &:hover{
+    background: #F0FFFD;
+  }
+  &:active{
+    background: #D8F6F5;
+  }
+}

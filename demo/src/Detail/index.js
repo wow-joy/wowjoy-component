@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Components from "../../../lib";
+import Components from "@lib";
 // import Components from "../../../src";
 
 const PROPS = {

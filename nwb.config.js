@@ -7,6 +7,12 @@ module.exports = {
     umd: false
   },
   webpack: {
+    aliases:{
+      '@src': path.resolve('src'),
+      '@lib': path.resolve('lib'),
+      '@es': path.resolve('es'),
+      '@media': path.resolve('src/media'),
+    },
     rules: {
       'sass-css': {
         modules: true,

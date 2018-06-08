@@ -1,10 +1,17 @@
 import React, { PureComponent } from "react";
 import style from "./Basic.scss";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class Layout extends PureComponent {
   render() {
-    const { className, header, asideLeft, main, asideRight, footer } = this.props;
+    const {
+      className,
+      header,
+      asideLeft,
+      main,
+      asideRight,
+      footer
+    } = this.props;
     return (
       <main className={`${style.wrap} ${className}`}>
         {header && (
@@ -27,25 +34,25 @@ class Layout extends PureComponent {
 
 Layout.propTypes = {
   className: PropTypes.string,
-  header: PropTypes.shape({
-    className: PropTypes.string,
-    content: PropTypes.node
-  }),
-  asideLeft: PropTypes.shape({
-    className: PropTypes.string,
-    content: PropTypes.node
-  }),
-  main: PropTypes.shape({
-    className: PropTypes.string,
-    content: PropTypes.node
-  }),
-  asideRight: PropTypes.shape({
-    className: PropTypes.string,
-    content: PropTypes.node
-  }),
-  footer: PropTypes.shape({
-    className: PropTypes.string,
-    content: PropTypes.node
-  }),
-}
+  header: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ]),
+  asideLeft: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ]),
+  main: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ]),
+  asideRight: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ]),
+  footer: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ])
+};
 export default Layout;
