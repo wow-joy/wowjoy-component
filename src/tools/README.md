@@ -45,6 +45,7 @@ class Foo  extends Component {
 | properties |     | 组件 props |     object     |        |
 
 `二级参数` `settings`
+
 | 参数 | 子属性 | 描述 | 类型 | 默认值 |
 | ---------- | --- | :--------- | :------------: | :----: |
 | settings | className | 组件包裹的样式 | ReactComponent | |
