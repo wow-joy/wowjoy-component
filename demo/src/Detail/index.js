@@ -13,7 +13,7 @@ class Detail extends Component {
     const { match } = this.props;
     const ComponentItem = Components[match.params.name];
     if (ComponentItem) {
-      return <ComponentItem {...PROPS} />;
+      return <ComponentItem {...PROPS} >ComponentItem</ComponentItem>;
     }
 
     return <div>ComponentItem not found</div>;
