@@ -8,6 +8,13 @@ import Layout, {
   Type1 as Layout_1,
   Type2 as Layout_2
 } from "./components/Layout";
+import Message, {
+  Doubt as Message_doubt,
+  Error as Message_error,
+  Info as Message_info,
+  Success as Message_success,
+  Warn as Message_warn
+} from "./components/Message";
 
 const Components = {
   Btn,
@@ -18,7 +25,29 @@ const Components = {
 
   Layout,
   Layout_1,
-  Layout_2
+  Layout_2,
+
+  Message,
+  Message_doubt,
+  Message_error,
+  Message_info,
+  Message_success,
+  Message_warn
 };
-export { Btn, Btn_1, Btn_2, Btn_3, Btn_disabled, Layout, Layout_1, Layout_2 };
+export {
+  Btn,
+  Btn_1,
+  Btn_2,
+  Btn_3,
+  Btn_disabled,
+  Layout,
+  Layout_1,
+  Layout_2,
+  Message,
+  Message_doubt,
+  Message_error,
+  Message_info,
+  Message_success,
+  Message_warn
+};
 export default Components;

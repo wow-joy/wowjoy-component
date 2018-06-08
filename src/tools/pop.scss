@@ -1,0 +1,78 @@
+.layer{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 1000;
+  background: rgba(0,0,0,0.6);
+}
+
+.popBox{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1001;
+}
+
+.hide{
+  opacity: 0;
+  display: none;
+}
+
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%,-150%);
+    opacity: 0;
+  }
+  to{
+    transform: translate(-50%,-50%);
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translate(-50%,50%);
+    opacity: 0;
+  }
+  to{
+    transform: translate(-50%,-50%);
+    opacity: 1;
+  }
+}
+@keyframes slideLeft {
+  from {
+    transform: translate(-150%,-50%);
+    opacity: 0;
+  }
+  to{
+    transform: translate(-50%,-50%);
+    opacity: 1;
+  }
+}
+@keyframes slideRight {
+  from {
+    transform: translate(50%,-50%);
+    opacity: 0;
+  }
+  to{
+    transform: translate(-50%,-50%);
+    opacity: 1;
+  }
+}
+
+.slideDown{
+  animation: slideDown 0.6s;
+}
+.slideUp{
+  animation: slideUp 0.6s;
+}
+.slideLeft{
+  animation: slideLeft 0.6s;
+}
+.slideRight{
+  animation: slideRight 0.6s;
+}

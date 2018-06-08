@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import Components from "@lib";
-// import Components from "../../../src";
+// import Components from "@lib";
+import Components from "@src";
+import pop from "@src/tools/pop";
+
 
 const PROPS = {
   header: {
@@ -9,13 +11,24 @@ const PROPS = {
 };
 
 class Detail extends Component {
+  
+  componentDidMount() {
+    const Item= Components['Message_warn']
+    let comp = pop(Item)({
+      className: '',
+      // layer:true,
+      // autoClose: 500
+      animeType: 'slideLeft'
+    })
+  }
+  
   render() {
     const { match } = this.props;
-    const ComponentItem = Components[match.params.name];
+    const name = match.params.name.replace(/^(.)(.*)$/,(match, $1,$2)=>$1.toUpperCase() + $2)
+    const ComponentItem = Components[name];
     if (ComponentItem) {
       return <ComponentItem {...PROPS} >ComponentItem</ComponentItem>;
     }
-
     return <div>ComponentItem not found</div>;
   }
 }

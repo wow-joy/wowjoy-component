@@ -13,4 +13,5 @@ const Hoc = initSetting => OldComponent => {
     }
   };
 };
+// TODO: 提取Hoc 到公用方法
 export default Hoc;

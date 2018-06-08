@@ -1,0 +1,26 @@
+# Message
+
+提示组件
+
+_建议结合 pop 工具使用_ []
+
+## 使用
+
+- 基础用法
+
+```
+import React from 'react'
+import { Layout_info as Message } from 'wowjoy-component'
+/* import { Info as Message } from 'wowjoy-component/components/Message' */  // 按需加载
+
+const Foo = () => <Message />
+```
+
+## APIs
+
+| 属性      | 子属性 | 描述                            |   类型   | 默认值 |
+| --------- | ------ | :------------------------------ | :------: | :----: |
+| className |        | 顶层样式 class                  |  string  |        |
+| icon      |        | 图标                            |   node   |        |
+| content   |        | 内容                            |   node   |        |
+| onClose   |        | 关闭事件， 为空时不显示关闭按钮 | function |        |

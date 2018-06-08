@@ -6,11 +6,10 @@ import {withRouter} from 'react-router-dom'
 class Btn extends PureComponent {
   clickHandle = e => {
     const { onClick, to } = this.props;
-    let allowRoute = true;
-    if (onClick) {
-      allowRoute = onClick(e) !== false;
+    if(onClick&&onClick(e) === false){
+      return ;
     }
-    if (to && allowRoute) {
+    if (to) {
       this.props.history.push(to);
     }
   };
