@@ -1,26 +1,14 @@
 import React, { Component } from "react";
 // import Components from "@lib";
 import Components from "@src";
-import pop from "@src/tools/pop";
+// import pop from "@src/tools/pop";
 
 
 const PROPS = {
-  header: {
-    content: 2
-  }
+
 };
 
 class Detail extends Component {
-  
-  componentDidMount() {
-    const Item= Components['Message_warn']
-    let comp = pop(Item)({
-      className: '',
-      // layer:true,
-      // autoClose: 500
-      animeType: 'slideLeft'
-    })
-  }
   
   render() {
     const { match } = this.props;
