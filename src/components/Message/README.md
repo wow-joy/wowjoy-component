@@ -2,7 +2,7 @@
 
 提示组件
 
-_建议结合 pop 工具使用_ []
+_建议结合 pop 工具使用_ [https://github.com/wow-joy/wowjoy-component/tree/master/src/tools/pop]
 
 ## 使用
 
@@ -10,7 +10,7 @@ _建议结合 pop 工具使用_ []
 
 ```
 import React from 'react'
-import { Layout_info as Message } from 'wowjoy-component'
+import { Message_info as Message } from 'wowjoy-component'
 /* import { Info as Message } from 'wowjoy-component/components/Message' */  // 按需加载
 
 const Foo = () => <Message />

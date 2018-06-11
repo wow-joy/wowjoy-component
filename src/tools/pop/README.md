@@ -8,7 +8,7 @@
 
 ```
 import React, { Component } from "react";
-import { Layout_info as Message } from 'wowjoy-component'
+import { Message_info as Message } from 'wowjoy-component'
 import pop from "wowjoy-component/tools/pop";
 
 class Foo  extends Component {
