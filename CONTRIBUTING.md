@@ -4,7 +4,7 @@
 
 ## 安装 
 
-- `git clone git@github.com:manglobe/wowjoy-component.git`
+- `git clone git@github.com:wow-joy/wowjoy-component.git`
 - `npm install` or  `yarn`
 
 ## Demo 开发
