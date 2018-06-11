@@ -38,11 +38,11 @@ const read = (src, callback) => {
 };
 
 const write = (targetSrc, data) => {
-  console.log(`创建文件 ${targetSrc}`);
   const writeData = src => {
-    if (/^template\./.test(path.basename(src))) {
+    if (/^template\./i.test(path.basename(src))) {
       src = path.resolve(src, `../${componentName}${path.extname(src)}`);
     }
+    console.log(`创建文件 ${src}`);
     fs.writeFile(src, data, { flag: "w+" }, errs => {
       if (errs) {
         throw errs;
