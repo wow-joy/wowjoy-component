@@ -35,7 +35,7 @@ class Foo  extends Component {
 }
 ```
 
-## params
+## Params
 
 `一级参数`
 
@@ -46,21 +46,22 @@ class Foo  extends Component {
 
 `二级参数` `settings`
 
-| 参数 | 子属性 | 描述 | 类型 | 默认值 |
-| ---------- | --- | :--------- | :------------: | :----: |
-| settings | className | 组件包裹的样式 | ReactComponent | |
-| | container | 指定输出容器， 默认为 body | DOM node | |
-| | animeType | 动画方式。<br> 可选值: `slideDown`, `slideUp`, `slideLeft`, `slideRight` | string | `slideDown` |
-| | layer | 有无蒙层 | boolean | |
-| | layerClassName | 蒙层额外样式 | string | |
-| | autoClose | 自动关闭的等候时间 | number | |
-| | onClose | 关闭事件句柄，`return false` 可以阻止关闭事件 | function | |
+| 参数     | 子属性         | 描述                                                                     |      类型      |   默认值    |
+| -------- | -------------- | :----------------------------------------------------------------------- | :------------: | :---------: |
+| settings | className      | 组件包裹的样式                                                           | ReactComponent |             |
+|          | container      | 指定输出容器， 默认为 body                                               |    DOM node    |             |
+|          | animeShow      | 动画方式。<br> 可选值: `slide`+ `(Down|In|Left|Right)` + `In` |     string     | `slideDown` |
+|          | animeHide      | 动画方式。<br> 可选值: `slide`+ `(Down|In|Left|Right)` + `Out` |     string     | `slideDown` |
+|          | layer          | 有无蒙层                                                                 |    boolean     |             |
+|          | layerClassName | 蒙层额外样式                                                             |     string     |             |
+|          | autoClose      | 自动关闭的等候时间                                                       |     number     |             |
+|          | onClose        | 关闭事件句柄，`return false` 可以阻止关闭事件                            |    function    |             |
 
-## APIs
+## Return {ref,show,hide,destroy}
 
-| 属性      | 子属性 | 描述                            |   类型   | 默认值 |
-| --------- | ------ | :------------------------------ | :------: | :----: |
-| className |        | 顶层样式 class                  |  string  |        |
-| icon      |        | 图标                            |   node   |        |
-| content   |        | 内容                            |   node   |        |
-| onClose   |        | 关闭事件， 为空时不显示关闭按钮 | function |        |
+| 属性    |     | 描述                                 |   类型   | 默认值 |
+| ------- | --- | :----------------------------------- | :------: | :----: |
+| ref     |     | 返回内部组件 ref，注意这是个异步赋值 |  string  |        |
+| show    |     | 弹层临时显示                         | function |        |
+| hide    |     | 弹层临时显示                         | function |        |
+| destroy |     | 弹层销毁                             | function |        |

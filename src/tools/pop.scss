@@ -1,4 +1,4 @@
-.layer{
+.layer {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -6,73 +6,146 @@
   right: 0;
   overflow: hidden;
   z-index: 1000;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
 }
 
-.popBox{
+.popBox {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   z-index: 1001;
 }
 
-.hide{
+.hide {
   opacity: 0;
   display: none;
 }
 
-
-@keyframes slideDown {
+@keyframes slideDownIn {
   from {
-    transform: translate(-50%,-150%);
+    transform: translate(-50%, -150%);
     opacity: 0;
   }
-  to{
-    transform: translate(-50%,-50%);
+  to {
+    transform: translate(-50%, -50%);
     opacity: 1;
-  }
-}
-@keyframes slideUp {
-  from {
-    transform: translate(-50%,50%);
-    opacity: 0;
-  }
-  to{
-    transform: translate(-50%,-50%);
-    opacity: 1;
-  }
-}
-@keyframes slideLeft {
-  from {
-    transform: translate(-150%,-50%);
-    opacity: 0;
-  }
-  to{
-    transform: translate(-50%,-50%);
-    opacity: 1;
-  }
-}
-@keyframes slideRight {
-  from {
-    transform: translate(50%,-50%);
-    opacity: 0;
-  }
-  to{
-    transform: translate(-50%,-50%);
-    opacity: 1;
+    display: block;
   }
 }
 
-.slideDown{
-  animation: slideDown 0.6s;
+@keyframes slideUpIn {
+  from {
+    transform: translate(-50%, 50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    display: block;
+  }
 }
-.slideUp{
-  animation: slideUp 0.6s;
+
+@keyframes slideLeftIn {
+  from {
+    transform: translate(-150%, -50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    display: block;
+  }
 }
-.slideLeft{
-  animation: slideLeft 0.6s;
+
+@keyframes slideRightIn {
+  from {
+    transform: translate(50%, -50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    display: block;
+  }
 }
-.slideRight{
-  animation: slideRight 0.6s;
+
+.slideDownIn {
+  animation: slideDownIn 0.6s forwards;
+}
+
+.slideUpIn {
+  animation: slideUpIn 0.6s forwards;
+}
+
+.slideLeftIn {
+  animation: slideLeftIn 0.6s forwards;
+}
+
+.slideRightIn {
+  animation: slideRightIn 0.6s forwards;
+}
+
+@keyframes slideDownOut {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, 50%);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes slideUpOut {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -150%);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes slideLeftOut {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(50%, -50%);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes slideRightOut {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-150%, -50%);
+    opacity: 0;
+    display: none;
+  }
+}
+
+.slideDownOut {
+  animation: slideDownOut 0.6s forwards;
+}
+
+.slideUpOut {
+  animation: slideUpOut 0.6s forwards;
+}
+
+.slideLeftOut {
+  animation: slideLeftOut 0.6s forwards;
+}
+
+.slideRightOut {
+  animation: slideRightOut 0.6s forwards;
 }
