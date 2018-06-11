@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import style from "./pop.scss";
-import pubSub from './pubSub';
+import pubSub from '../pubSub';
 /**
  *  抛出组件到指定dom
  *  @param component 指定组件
