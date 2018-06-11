@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import Components from "@src";
 import pop from "@src/tools/pop";
 
-
 const PROPS = {
 
 };
