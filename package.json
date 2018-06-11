@@ -11,6 +11,7 @@
     "umd"
   ],
   "scripts": {
+    "create": "node scripts/createComponent.js",
     "build": "nwb build-react-component --copy-files",
     "clean": "nwb clean-module && nwb clean-demo",
     "start": "nwb serve-react-demo",

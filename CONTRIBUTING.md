@@ -10,7 +10,7 @@
 ## Demo 开发
 
 - `npm start` 启动一个热重载站点运行在 [http://localhost:3000](http://localhost:3000)
-
+- `npm run create -- [name]` 自动初始化一个名为`[name]`的组件
 ## 测试
 **测试功能暂未完善**
 - `npm test` will run the tests once.
