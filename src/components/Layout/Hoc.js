@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 const Hoc = initSetting => OldComponent => {
-  return class extends PureComponent {
+  return class extends Component {
     render() {
       let { className } = this.props;
       const initedProps = { className };
