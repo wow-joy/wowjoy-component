@@ -12,6 +12,10 @@ or
 ```
 yarn add wowjoy-component
 ```
+## 特殊说明
+- 请安装svgr 解析svg
+- 请在webpack内加入sass编译配置
+- 若提示peerComponents未安装，请安装
 
 
 ## 开发文档

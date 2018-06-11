@@ -9,7 +9,7 @@
 ```
 import React, { Component } from "react";
 import { Message_info as Message } from 'wowjoy-component'
-import pop from "wowjoy-component/tools/pop";
+import pop from "wowjoy-component/lib/tools/pop";
 
 class Foo  extends Component {
 

@@ -11,7 +11,7 @@ _建议结合 pop 工具使用_ [https://github.com/wow-joy/wowjoy-component/tre
 ```
 import React from 'react'
 import { Message_info as Message } from 'wowjoy-component'
-/* import { Info as Message } from 'wowjoy-component/components/Message' */  // 按需加载
+/* import { Info as Message } from 'wowjoy-component/lib/components/Message' */  // 按需加载
 
 const Foo = () => <Message />
 ```
