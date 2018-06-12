@@ -1,6 +1,6 @@
 ## 前提
 
-[Node.js](http://nodejs.org/) = v8.x; Node 10会遇到node-sass安装失败, 已联系nwb-sass作者处理ing……
+[Node.js](http://nodejs.org/) >= v8.x
 
 ## 安装 
 
