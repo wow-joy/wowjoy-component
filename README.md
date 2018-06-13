@@ -23,9 +23,8 @@ https://github.com/manglobe/wowjoy-component/blob/master/CONTRIBUTING.md
 
 
 ## 组件文档
-`Btn`:  https://github.com/manglobe/wowjoy-component/tree/master/src/components/Btn
 
-`Layout`:  https://github.com/manglobe/wowjoy-component/tree/master/src/components/Layout
+请进入相应文件夹内部查看
 
 [build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
 [build]: https://travis-ci.org/user/repo

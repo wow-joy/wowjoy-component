@@ -9,11 +9,11 @@ class Message extends PureComponent {
     }
   };
   render() {
-    const { className, icon, content, onClose } = this.props;
+    const { className, icon, children, onClose } = this.props;
     return (
       <div className={`${style.wrap} ${className}`}>
         {icon}
-        {content}
+        {children}
         {onClose && <i onClose={this.closeHandle} />}
       </div>
     );
@@ -23,7 +23,7 @@ class Message extends PureComponent {
 Message.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.node,
-  content: PropTypes.node,
+  children: PropTypes.node,
   onClose: PropTypes.func
 };
 export default Message;

@@ -15,6 +15,17 @@ import Message, {
   Success as Message_success,
   Warn as Message_warn
 } from "./components/Message";
+import Dialog, {
+  Type1 as Dialog_1,
+  Confirm as Dialog_confirm,
+  Alert as Dialog_alert,
+
+  // Doubt as Message_doubt,
+  // Error as Message_error,
+  // Info as Message_info,
+  // Success as Message_success,
+  // Warn as Message_warn
+} from "./components/Dialog";
 
 const Components = {
   Btn,
@@ -32,7 +43,12 @@ const Components = {
   Message_error,
   Message_info,
   Message_success,
-  Message_warn
+  Message_warn,
+  
+  Dialog,
+  Dialog_1,
+  Dialog_confirm,
+  Dialog_alert,
 };
 export {
   Btn,
@@ -48,6 +64,10 @@ export {
   Message_error,
   Message_info,
   Message_success,
-  Message_warn
+  Message_warn,
+  Dialog,
+  Dialog_1,
+  Dialog_confirm,
+  Dialog_alert,
 };
 export default Components;
