@@ -2,7 +2,7 @@
 
 提示组件
 
-_建议结合 pop 工具使用_ [https://github.com/wow-joy/wowjoy-component/tree/master/src/tools/pop]
+_建议结合 `pop` 工具使用_ [https://github.com/wow-joy/wowjoy-component/tree/master/src/tools/pop]
 
 ## 使用
 
