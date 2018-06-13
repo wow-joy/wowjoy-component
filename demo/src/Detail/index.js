@@ -5,15 +5,6 @@ import Components from "@src";
 // import { Warn } from '@lib/components/Message'
 // import pop from "wowjoy-component/lib/tools/pop";
 const PROPS = {
-<<<<<<< HEAD
-
-=======
-  // header: ()=><div>123</div>,
-  // header: false,
-  // btns: [Btn_1],
-  btnsText: ["我知道了"],
-  onClick : (e, index)=>console.log(e, index)
->>>>>>> feature/dialog
 };
 
 class Detail extends Component {
