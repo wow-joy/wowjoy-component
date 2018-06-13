@@ -4,12 +4,8 @@ import Components from "@src";
 // import pop from "@src/tools/pop";
 // import { Warn } from '@lib/components/Message'
 // import pop from "wowjoy-component/lib/tools/pop";
-import { Btn_1, Btn_2, Btn_3 } from "@src";
 const PROPS = {
-  header: 123,
-  // btns: [<span>1</span> , <span>2</span>]
-  btnEle: [Btn_2,Btn_2],
-  btnText: ["xx", "bb"]
+
 };
 
 class Detail extends Component {
