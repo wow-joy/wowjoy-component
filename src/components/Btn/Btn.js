@@ -26,6 +26,7 @@ class Btn extends PureComponent {
 Btn.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,
+  children: PropTypes.node,
   to: PropTypes.string
 };
 export default withRouter(Btn);

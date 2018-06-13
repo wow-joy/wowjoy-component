@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import style from "./pop.scss";
-import pubSub from '../pubSub';
+import pubSub from "../pubSub";
 /**
  *  抛出组件到指定dom
  *  @param component 指定组件
- *  @param properties 组件props
  *
  *  二级参数
  *  @param {className} 组件包裹的样式
@@ -16,10 +15,10 @@ import pubSub from '../pubSub';
  *  @param {autoClose} 自动关闭的等候时间
  *  @param {onClose} 关闭事件句柄，`return false` 可以阻止关闭事件
  *
- *  @returns { ref, show, hide, destroy }
+ *  @returns {  show, hide, destroy }
  */
 
-const pop = (Component, properties) => ({
+const pop = Component => ({
   className,
   container,
   animeShow,
@@ -29,14 +28,13 @@ const pop = (Component, properties) => ({
   autoClose,
   onClose
 }) => {
-  const props = properties || {};
   const popBox = document.createElement("div");
   popBox.className =
     style.popBox + " " + style[animeShow || "slideDownIn"] + " " + className;
   const containerDom = container || document.body; // 输出容器， 默认body
   let layerDom; // 定义蒙层
-  const animteEndCallbacks = new pubSub() // 动画回调 @returns {add, remove, clear, publish}
-  popBox.addEventListener("webkitAnimationEnd", animteEndCallbacks.publish)
+  const animteEndCallbacks = new pubSub(); // 动画回调 @returns {add, remove, clear, publish}
+  popBox.addEventListener("webkitAnimationEnd", animteEndCallbacks.publish);
 
   const eventHandle = {
     // 定义实例事件句柄
@@ -51,9 +49,9 @@ const pop = (Component, properties) => ({
       if (layer) {
         const layerHide = () => {
           layerDom.classList.add(style.hide);
-          animteEndCallbacks.remove(layerHide)
+          animteEndCallbacks.remove(layerHide);
         };
-        animteEndCallbacks.add(layerHide)
+        animteEndCallbacks.add(layerHide);
       }
       popBox.classList.remove(style[animeShow || "slideDownIn"]);
       popBox.classList.add(style[animeHide || "slideUpOut"]);
@@ -68,10 +66,10 @@ const pop = (Component, properties) => ({
         } else {
           popBox.parentNode.removeChild(popBox);
         }
-        animteEndCallbacks.remove(destroy)
+        animteEndCallbacks.remove(destroy);
         ReactDOM.unmountComponentAtNode(popBox);
       };
-      animteEndCallbacks.add(destroy)
+      animteEndCallbacks.add(destroy);
       eventHandle.hide();
     }
   };
@@ -89,10 +87,7 @@ const pop = (Component, properties) => ({
   }
 
   let popObj = { ...eventHandle };
-  const ref = targetRef => {
-    popObj.ref = targetRef;
-  };
-  ReactDOM.render(<Component {...props} ref={ref} />, popBox);
+  ReactDOM.render(Component, popBox);
   if (autoClose) {
     setTimeout(popObj.destroy, autoClose);
   }
