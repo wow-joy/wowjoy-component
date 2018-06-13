@@ -10,37 +10,11 @@ _建议结合 `pop` 工具使用_ [https://github.com/wow-joy/wowjoy-component/t
 
 ```
 import React from 'react'
-import Btn, { Btn_1} from 'wowjoy-component'
-/* import { Type1 as Btn } from 'wowjoy-component/lib/components/Btn' */  // 按需加载
+import Dialog, { Dialog_alert} from 'wowjoy-component'
+/* import { Type1 as Dialog } from 'wowjoy-component/lib/components/Dialog' */  // 按需加载
 
-const Foo = () => <Btn to={'/list'} > 跳转到list </Btn>
-const Foo1 = () => <Btn_1 onClick={()=>console.log(1)} > 点击打印1 </Btn>
-```
-
-- Hoc 自定义默认状态
-
-```
-// file A
-import React from 'react'
-import Btn, { Hoc } from 'wowjoy-component/lib/components/Btn'
-import style from './style.scss'
-
-const setting = {
-  className: style.btn,
-}
-
-const A = () => Hoc(setting)(Btn)
-
-//输出A为默认配置
-export default A
-```
-
-```
-// file B
-import React from 'react'
-import A from './A.js'
-
-const B=()=><A onClick={()=>alert(1)}>点击alert1</A>
+const Foo = () => <Dialog> 这是一个对话框 </Dialog>
+const Foo1 = () => <Dialog_alert onClick={()=>alert(1)} > 这是一个提示框 </Dialog_alert>
 ```
 
 ## APIs
