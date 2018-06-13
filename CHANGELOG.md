@@ -1,4 +1,17 @@
 
+## 1.4.0 (2018/6/11)
+### feature
+- 新增dialog组件 
+### bug fix 
+- 修复了初始化脚本的一个引用异常
+### refactor
+- pop方法不再接受两个参数，而是直接接受一个实例化的组件作为参数
+- Message组件从props.content接收内容，修改为props.children接收
+- 自动初始化脚本，现在会额外初始化一份readme.md
+### docs
+- 修改了上述改动的相应文档
+- 修复几个文档的文案异常
+
 ## 1.3.3 (2018/6/11)
 - 删除了nwb-sass包
 - 修复node v10.x支持
