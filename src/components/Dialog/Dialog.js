@@ -11,38 +11,44 @@ class Dialog extends PureComponent {
   };
   clickHandle = (e, index) => {
     const { onClick } = this.props;
-    if (onClick&&onClick(e, index) === false) {
+    if (onClick && onClick(e, index) === false) {
       return;
     }
     this.closeHandle();
   };
   render() {
-    const { className, header, children, btnText, btnEle } = this.props;
-    // 检测是否为React element,并返回
-    const returnReactEle = input => {
-      if (input && input.$$typeof === Symbol.for("react.element")) {
-        return input;
-      } else {
-        return false;
-      }
-    };
-
+    const {
+      className,
+      header,
+      headerText,
+      children,
+      btnsText,
+      btns,
+      showCloseBtn = true
+    } = this.props;
     if (!this.state.visible) {
       return null;
     }
+    const Header =
+      header && header !== true
+        ? header
+        : () => <div className={style.header} />;
+
     const Btn_default = [Btn_1, Btn_3];
 
     return (
       <div className={`${style.wrap} ${className}`}>
-        <div className={style.closeBtn} onClick={this.closeHandle}>
-          X
-        </div>
-        {returnReactEle(header) || <div className={style.header}>{header}</div>}
-        {/* {returnReactEle(content) || <span>{content}</span>} */}
+        {showCloseBtn && (
+          <div className={style.closeBtn} onClick={this.closeHandle}>
+            X
+          </div>
+        )}
+        {header !== false && <Header>{headerText}</Header>}
+
         <section className={style.content}>{children}</section>
         <div className={style.btns}>
-          {(btnText || ["提交", "取消"]).map((ele, index) => {
-            const Btn = btnEle && btnEle[index] || Btn_default[index] || Btn_1;
+          {(btnsText || ["提交", "取消"]).map((ele, index) => {
+            const Btn = (btns && btns[index]) || Btn_default[index] || Btn_1;
             return (
               <Btn
                 className={style.btnItem}
@@ -61,9 +67,12 @@ class Dialog extends PureComponent {
 
 Dialog.propTypes = {
   className: PropTypes.string,
-  header: PropTypes.node,
+  header: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  headerText: PropTypes.string,
   children: PropTypes.node,
-  btnText: PropTypes.array,
-  btnEle: PropTypes.array
+  btnsText: PropTypes.array,
+  btns: PropTypes.array,
+  onClick: PropTypes.func,
+  showCloseBtn: PropTypes.bool
 };
 export default Dialog;

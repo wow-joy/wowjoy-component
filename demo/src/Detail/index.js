@@ -6,10 +6,11 @@ import Components from "@src";
 // import pop from "wowjoy-component/lib/tools/pop";
 import { Btn_1, Btn_2, Btn_3 } from "@src";
 const PROPS = {
-  header: 123,
-  // btns: [<span>1</span> , <span>2</span>]
-  btnEle: [Btn_2,Btn_2],
-  btnText: ["xx", "bb"]
+  // header: ()=><div>123</div>,
+  // header: false,
+  // btns: [Btn_1],
+  btnsText: ["我知道了"],
+  onClick : (e, index)=>console.log(e, index)
 };
 
 class Detail extends Component {
