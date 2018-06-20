@@ -4,10 +4,13 @@ import Components from "@src";
 // import pop from "@src/tools/pop";
 // import { Warn } from '@lib/components/Message'
 // import pop from "wowjoy-component/lib/tools/pop";
-import createForm, { bindForm } from "@src/tools/createForm";
+import createForm from "@src/tools/forms";
 const PROPS = {};
 
 class Detail extends Component {
+  state = {
+    value: 0
+  };
   componentDidMount() {
     // const ComponentItem = Components[this.name];
     // const popNode = pop(Warn, {content:'asd', onClose:()=>{alert('close')}})({
@@ -19,24 +22,24 @@ class Detail extends Component {
   }
 
   render() {
-    const { match, formHandle } = this.props;
+    const { match, formHandle, bindForm } = this.props;
+    window.formHandle = formHandle;
     const name = match.params.name.replace(
       /^(.)(.*)$/,
       (match, $1, $2) => $1.toUpperCase() + $2
     );
     this.name = name;
     const ComponentItem = Components[name];
-    console.log(formHandle);
     return (
       <input
-        {...bindForm(formHandle)({
+        {...bindForm({
           name: "xx",
-          onChange: () => console.log(1),
-          value: 2,
-          initValue: "yy",
-          rules: v => v === '1'
+          onChange: e => this.setState({ value: e.target.value }),
+          value: this.state.value,
+          // defaultValue:  this.state.value,
+          rules: v => v === "1"
         })}
-        onBlur={() => console.log(formHandle.validate())}
+        // onBlur={e => console.log(this.setState({ value: 2 }))}
         type="text"
       />
     );
