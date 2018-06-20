@@ -19,4 +19,4 @@ class Detail extends Component {
   }
 }
 
-export default createForm(Detail);
+export default Detail;
