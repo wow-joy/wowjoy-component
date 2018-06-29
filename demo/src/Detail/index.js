@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Components from "@src";
-const PROPS = {};
+const PROPS = {
+  controllers: [1, 2, 3].map(ele => <span key={1}>{ele}</span>),
+  // hideOthers: true
+};
 
 class Detail extends Component {
   render() {
@@ -13,7 +16,7 @@ class Detail extends Component {
     const ComponentItem = Components[name];
 
     if (ComponentItem) {
-      return <ComponentItem {...PROPS}>ComponentItem</ComponentItem>;
+      return <ComponentItem {...PROPS}>ComponentItem <span>x</span></ComponentItem>;
     }
     return <div>ComponentItem not found</div>;
   }
