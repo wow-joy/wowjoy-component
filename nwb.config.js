@@ -48,7 +48,7 @@ module.exports = {
       //   localIdentName: '[name]__[local]__[hash:base64:5]'
       // },
       svg: {
-        use: ["svgr/webpack", "url-loader"]
+        use: ["@svgr/webpack", "url-loader"]
       }
     }
   }
