@@ -11,10 +11,7 @@ const Hoc = initSetting => OldComponent => {
         } else {
           initedProps[ele] = this.props[ele]
             ? {
-                className:
-                  this.props[ele].className ||
-                  "" + " " + initSetting[ele].className ||
-                  "",
+                styles: this.props[ele].styles || initSetting[ele].styles,
                 content: this.props[ele].content || initSetting[ele].content
               }
             : initSetting[ele];

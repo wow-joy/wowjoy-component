@@ -1,5 +1,7 @@
-import style from './disabled.scss'
 const initSetting = {
-  className: style.btn
+  styles: `background: #e8e8e8;
+  border-color: #dcdcdc;
+  color: #ccc;
+  cursor: not-allowed;`
 }
 export default initSetting;

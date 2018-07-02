@@ -1,5 +1,11 @@
-import style from './type1.scss'
 const initSetting = {
-  className: style.btn
+  styles: `background: #06aea6;
+  color: #fff;
+  &:hover{
+    background: #1AC3BB;
+  }
+  &:active{
+    background: #3E8A86;
+  }`
 }
 export default initSetting;

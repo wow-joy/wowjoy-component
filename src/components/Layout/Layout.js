@@ -1,11 +1,43 @@
 import React, { PureComponent } from "react";
-import style from "./Basic.scss";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+const Wrap = styled.main`
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  & > header {
+    height: 64px;
+    line-height: 64px;
+    width: 100%;
+  }
+  & > footer {
+    height: 64px;
+    line-height: 64px;
+    width: 100%;
+  }
+  ${props => props.styles};
+`;
 
+const Header = styled.header`
+  ${props => props.styles};
+`;
+const AsideLeft = styled.aside`
+  ${props => props.styles};
+`;
+const Main = styled.article`
+  ${props => props.styles};
+`;
+const AsideRight = styled.aside`
+  ${props => props.styles};
+`;
+const Footer = styled.footer`
+  ${props => props.styles};
+`;
 class Layout extends PureComponent {
   render() {
     const {
-      className,
+      styles,
       header,
       asideLeft,
       main,
@@ -13,46 +45,33 @@ class Layout extends PureComponent {
       footer
     } = this.props;
     return (
-      <main className={`${style.wrap} ${className}`}>
-        {header && (
-          <header className={header.className}>{header.content}</header>
-        )}
+      <Wrap styles={styles}>
+        {header && <Header styles={header.styles}>{header.content}</Header>}
         {asideLeft && (
-          <aside className={asideLeft.className}>{asideLeft.content}</aside>
+          <AsideLeft styles={asideLeft.styles}>
+            {asideLeft.content}
+          </AsideLeft>
         )}
-        {main && <article className={main.className}>{main.content}</article>}
+        {main && <Main styles={main.styles}>{main.content}</Main>}
         {asideRight && (
-          <aside className={asideRight.className}>{asideRight.content}</aside>
+          <AsideRight styles={asideRight.styles}>
+            {asideRight.content}
+          </AsideRight>
         )}
         {footer && (
-          <footer className={footer.className}>{footer.content}</footer>
+          <Footer styles={footer.styles}>{footer.content}</Footer>
         )}
-      </main>
+      </Wrap>
     );
   }
 }
 
 Layout.propTypes = {
-  className: PropTypes.string,
-  header: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ]),
-  asideLeft: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ]),
-  main: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ]),
-  asideRight: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ]),
-  footer: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ])
+  styles: PropTypes.string,
+  header: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  asideLeft: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  main: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  asideRight: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  footer: PropTypes.oneOfType([PropTypes.bool, PropTypes.object])
 };
 export default Layout;

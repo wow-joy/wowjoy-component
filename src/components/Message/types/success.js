@@ -1,6 +1,7 @@
-import style from './success.scss'
 const initSetting = {
-  className: style.message,
-  content: '成功的提示信息'
-}
+  className: `background: #ecfbfb;
+  border-color: #c6eae8;
+  color: #666;`,
+  content: "成功的提示信息"
+};
 export default initSetting;

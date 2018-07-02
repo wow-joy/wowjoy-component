@@ -1,6 +1,11 @@
 import React, { PureComponent } from "react";
-import style from "./Tabs.scss";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+const Wrap = styled.div`
+  width: 100%;
+  height: 100%;
+  ${props => props.styles};
+`;
 class Tabs extends PureComponent {
   state = {
     currentTab: this.props.initValue
@@ -23,21 +28,21 @@ class Tabs extends PureComponent {
 
   render() {
     let {
-      className,
+      styles,
       controllers = [],
       children = [],
       useHover,
-      hideOthers,
+      hideOthers
     } = this.props;
 
-    const currentIndex = this.state.currentTab
+    const currentIndex = this.state.currentTab;
 
     if (children.constructor.name !== "Array") {
       children = [children];
     }
 
     return (
-      <div className={`${style.wrap} ${className}`}>
+      <Wrap styles={styles}>
         <nav>
           {controllers.map((ele, index) => (
             <span
@@ -66,13 +71,13 @@ class Tabs extends PureComponent {
               );
             })}
         </section>
-      </div>
+      </Wrap>
     );
   }
 }
 
 Tabs.propTypes = {
-  className: PropTypes.string,
+  styles: PropTypes.string,
   controllers: PropTypes.array,
   useHover: PropTypes.bool,
   hideOthers: PropTypes.bool,

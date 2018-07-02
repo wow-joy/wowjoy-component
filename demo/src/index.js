@@ -6,9 +6,21 @@ import List from "./List";
 import Detail from "./Detail";
 import "../../src/media/common.css";
 import { Layout_2 as Layout } from "@src";
-import style from './index.scss';
-import { ReactComponent as Logo } from "@media/logo.svg";
+import styled from "styled-components";
+import { ReactComponent as Svg } from "@media/logo.svg";
 
+const Title = styled.h1`
+  text-align: center;
+  color: #fff;
+`;
+const Logo = styled(Svg)`
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  path {
+    fill: #fff;
+  }
+`;
 class Routers extends Component {
   render() {
     return (
@@ -33,10 +45,10 @@ class Demo extends Component {
       <Layout
         header={{
           content: (
-            <h1 className={style.title}>
-              <Logo className={style.logo} />
+            <Title>
+              <Logo />
               wowjoy-component Demo Home
-            </h1>
+            </Title>
           )
         }}
         asideLeft={false}

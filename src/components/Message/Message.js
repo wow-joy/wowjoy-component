@@ -1,17 +1,25 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import style from "./Message.scss";
+import styled from 'styled-components';
+const Wrap = styled.div`
+  width: 480px;
+  height: 36px;
+  line-height: 36px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  ${props=>props.styles}
+`;
 class Message extends PureComponent {
-  closeHandle = (e) => {
+  closeHandle = e => {
     const { onClose } = this.props;
-    if(onClose&&onClose(e) === false){
-      return ;
+    if (onClose && onClose(e) === false) {
+      return;
     }
   };
   render() {
-    const { className, icon, children, onClose } = this.props;
+    const { styles, icon, children, onClose } = this.props;
     return (
-      <div className={`${style.wrap} ${className}`}>
+      <div styles={styles}>
         {icon}
         {children}
         {onClose && <i onClose={this.closeHandle} />}
@@ -21,7 +29,7 @@ class Message extends PureComponent {
 }
 
 Message.propTypes = {
-  className: PropTypes.string,
+  styles: PropTypes.string,
   icon: PropTypes.node,
   children: PropTypes.node,
   onClose: PropTypes.func

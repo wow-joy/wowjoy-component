@@ -20,11 +20,10 @@ const Foo = () => <Layout />
 // file A
 import React from 'react'
 import Layout, { Hoc } from 'wowjoy-component/lib/components/Layout'
-import style from './style.scss'
 
 const setting = {
     header: {
-        className: style.header,
+        styles: style.header,
         content: 2
     }
 }
@@ -34,6 +33,7 @@ const A = () => Hoc(setting)(Layout)
 //输出A为默认配置
 export default A
 ```
+
 ```
 // file B
 import React from 'react'
@@ -44,22 +44,21 @@ const B=()=><A header={{content: <span>2</span> }}/>
 
 ## APIs
 
-| 属性 | 子属性 | 描述 | 类型 | 默认值 | 
-| - | - | :- | :-: | :-: | 
-| className | | 顶层样式class | string | |
-| header | | 页眉。为空时默认不显示（下同）| object | |
-|   | className | 样式 | string | |
-|   | content | 内容 | node | |
-| asideLeft | | 左侧导航 | object | |
-|   | className | 样式 | string | |
-|   | content | 内容 | node | |
-| main | | 主体内容 | object | |
-|   | className | 样式 | string | |
-|   | content | 内容 | node | |
-| asideRight | | 右侧导航 | object | |
-|   | className | 样式 | string | |
-|   | content | 内容 | node | |
-| footer | | 页脚 | object | |
-|   | className | 样式 | string | |
-|   | content | 内容 | node | |
-
+| 属性       | 子属性    | 描述                           |  类型  | 默认值 |
+| ---------- | --------- | :----------------------------- | :----: | :----: |
+| styles  |           | 顶层样式 class                 | string |        |
+| header     |           | 页眉。为空时默认不显示（下同） | object |        |
+|            | styles | 样式                           | string |        |
+|            | content   | 内容                           |  node  |        |
+| asideLeft  |           | 左侧导航                       | object |        |
+|            | styles | 样式                           | string |        |
+|            | content   | 内容                           |  node  |        |
+| main       |           | 主体内容                       | object |        |
+|            | styles | 样式                           | string |        |
+|            | content   | 内容                           |  node  |        |
+| asideRight |           | 右侧导航                       | object |        |
+|            | styles | 样式                           | string |        |
+|            | content   | 内容                           |  node  |        |
+| footer     |           | 页脚                           | object |        |
+|            | styles | 样式                           | string |        |
+|            | content   | 内容                           |  node  |        |
