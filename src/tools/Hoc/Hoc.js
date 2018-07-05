@@ -9,13 +9,13 @@ import React, { Component } from "react";
 const Hoc = initSetting => OldComponent => {
   return class extends Component {
     render() {
-      let { className, styles } = this.props;
+      let { className, defaultStyles } = this.props;
       // 为组件添加默认样式处理，className属性使用叠加处理，其余属性使用覆盖处理
       const initedProps = {
         ...initSetting,
         ...this.props,
         className: initSetting.className + " " + className,
-        styles: initSetting.styles + styles
+        defaultStyles: initSetting.defaultStyles + defaultStyles
       };
       return <OldComponent {...initedProps} />;
     }

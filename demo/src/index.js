@@ -43,19 +43,15 @@ class Demo extends Component {
   render() {
     return (
       <Layout
-        header={{
-          content: (
-            <Title>
-              <Logo />
-              wowjoy-component Demo Home
-            </Title>
-          )
-        }}
+        header={
+          <Title>
+            <Logo />
+            wowjoy-component Demo Home
+          </Title>
+        }
         asideLeft={false}
         asideRight={false}
-        main={{
-          content: <Routers />
-        }}
+        main={<Routers />}
       />
     );
   }

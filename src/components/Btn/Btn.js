@@ -13,7 +13,7 @@ const Button = styled.span`
   vertical-align: middle;
   line-height: 36px;
   user-select: none;
-  ${props=>props.styles}
+  ${props=>props.defaultStyles}
 `;
 class Btn extends PureComponent {
   clickHandle = e => {
@@ -26,9 +26,9 @@ class Btn extends PureComponent {
     }
   };
   render() {
-    const { styles, children, className } = this.props;
+    const { defaultStyles, children, className } = this.props;
     return (
-      <Button styles={styles} onClick={this.clickHandle} className={className}>
+      <Button defaultStyles={defaultStyles} onClick={this.clickHandle} className={className}>
         {children}
       </Button>
     );
@@ -37,7 +37,7 @@ class Btn extends PureComponent {
 
 Btn.propTypes = {
   className: PropTypes.string,
-  styles: PropTypes.string,
+  defaultStyles: PropTypes.string,
   onClick: PropTypes.func,
   children: PropTypes.node,
   to: PropTypes.string

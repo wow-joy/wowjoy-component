@@ -1,5 +1,5 @@
 import Layout from "./Layout";
-import Hoc from "./Hoc";
+import Hoc from '../../tools/Hoc';
 import type1 from "./types/type1";
 import type2 from "./types/type2";
 export { Hoc };

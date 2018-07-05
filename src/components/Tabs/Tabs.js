@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Wrap = styled.div`
   width: 100%;
   height: 100%;
-  ${props => props.styles};
+  ${props => props.defaultStyles};
 `;
 class Tabs extends PureComponent {
   state = {
@@ -28,7 +28,8 @@ class Tabs extends PureComponent {
 
   render() {
     let {
-      styles,
+      className,
+      defaultStyles,
       controllers = [],
       children = [],
       useHover,
@@ -42,7 +43,7 @@ class Tabs extends PureComponent {
     }
 
     return (
-      <Wrap styles={styles}>
+      <Wrap defaultStyles={defaultStyles} className={className}>
         <nav>
           {controllers.map((ele, index) => (
             <span
@@ -77,7 +78,8 @@ class Tabs extends PureComponent {
 }
 
 Tabs.propTypes = {
-  styles: PropTypes.string,
+  className: PropTypes.string,
+  defaultStyles: PropTypes.string,
   controllers: PropTypes.array,
   useHover: PropTypes.bool,
   hideOthers: PropTypes.bool,

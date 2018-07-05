@@ -1,5 +1,5 @@
 const initSetting = {
-  className: `display: flex;
+  defaultStyles: `display: flex;
   flex-direction: column;
   &>nav {
     align-self: baseline;

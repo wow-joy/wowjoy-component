@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Btn_1 as Btn } from "@src";
-import { Link } from 'react-router-dom';
 class Home extends Component {
   render() {
     return (

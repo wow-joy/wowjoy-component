@@ -17,6 +17,18 @@ module.exports = {
       svg: {
         use: ["@svgr/webpack", "url-loader"]
       }
-    }
+    },
+    // config(config) {
+    //   return {
+    //     ...config,
+    //     externals: {
+    //       "styled-components": {
+    //         commonjs: "styled-components",
+    //         commonjs2: "styled-components",
+    //         amd: "styled-components"
+    //       }
+    //     }
+    //   };
+    // }
   }
 };

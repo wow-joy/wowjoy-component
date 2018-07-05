@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-const styles = `
+const defaultStyles = `
     &>div:first-child{
       color: #fff;
     }
@@ -17,7 +17,7 @@ const Header = styled.div`
   padding: 0 10px;
 `;
 const initSetting = {
-  styles: styles,
-  header: () => <Header />
+  defaultStyles: defaultStyles,
+  header: Header
 };
 export default initSetting;

@@ -1,6 +1,6 @@
-# Template
+# Pop
 
-Template 组件
+Pop 组件
 
 ## 使用
 
@@ -8,9 +8,9 @@ Template 组件
 
 ```
 import React from 'react'
-import Template from 'wowjoy-component'
+import Pop from 'wowjoy-component'
 
-const Foo = () => <Template></Template>
+const Foo = () => <Pop></Pop>
 ```
 
 ## APIs

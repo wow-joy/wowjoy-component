@@ -7,7 +7,7 @@ const Wrap = styled.div`
   line-height: 36px;
   border: 1px solid transparent;
   font-size: 12px;
-  ${props=>props.styles}
+  ${props=>props.defaultStyles}
 `;
 class Message extends PureComponent {
   closeHandle = e => {
@@ -17,19 +17,20 @@ class Message extends PureComponent {
     }
   };
   render() {
-    const { styles, icon, children, onClose } = this.props;
+    const { className, defaultStyles, icon, children, onClose } = this.props;
     return (
-      <div styles={styles}>
+      <Wrap defaultStyles={defaultStyles} className={className}>
         {icon}
         {children}
         {onClose && <i onClose={this.closeHandle} />}
-      </div>
+      </Wrap>
     );
   }
 }
 
 Message.propTypes = {
-  styles: PropTypes.string,
+  className: PropTypes.string,
+  defaultStyles: PropTypes.string,
   icon: PropTypes.node,
   children: PropTypes.node,
   onClose: PropTypes.func

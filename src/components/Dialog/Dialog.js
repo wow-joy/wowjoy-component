@@ -9,6 +9,7 @@ const Wrap = styled.div`
   background: #fff;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
   padding-bottom: 24px;
+  ${props=>props.defaultStyles}
 `;
 
 const CloseBtn = styled.div`
@@ -53,10 +54,6 @@ const Btns = styled.div`
   display: block;
   text-align: center;
 `;
-const BtnItem = (Btn)=> styled(Btn)`
-  margin: 0 5px;
-  min-width: 130px;
-`;
 
 class Dialog extends PureComponent {
   state = {
@@ -74,7 +71,8 @@ class Dialog extends PureComponent {
   };
   render() {
     const {
-      styles,
+      defaultStyles,
+      className,
       header,
       headerText,
       children,
@@ -90,16 +88,20 @@ class Dialog extends PureComponent {
     const Btn_default = [Btn_1, Btn_3];
 
     return (
-      <Wrap styles={styles}>
+      <Wrap defaultStyles={defaultStyles} className={className}>
         {showCloseBtn && <CloseBtn onClick={this.closeHandle}>X</CloseBtn>}
         {header !== false && <Header>{headerText}</Header>}
 
         <Content>{children}</Content>
         <Btns>
           {(btnsText || ["提交", "取消"]).map((ele, index) => {
-            const Btn = BtnItem((btns && btns[index]) || Btn_default[index] || Btn_1);
+            const Btn = (btns && btns[index]) || Btn_default[index] || Btn_1;
             return (
-              <Btn key={index} onClick={e => this.clickHandle(e, index)}>
+              <Btn
+                key={index}
+                onClick={e => this.clickHandle(e, index)}
+                defaultStyles={`margin: 0 5px;min-width: 130px;`}
+              >
                 {ele}
               </Btn>
             );
@@ -111,7 +113,8 @@ class Dialog extends PureComponent {
 }
 
 Dialog.propTypes = {
-  style: PropTypes.string,
+  defaultStyles: PropTypes.string,
+  className: PropTypes.string,
   header: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   headerText: PropTypes.string,
   children: PropTypes.node,

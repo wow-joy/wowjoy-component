@@ -1,5 +1,5 @@
 const initSetting = {
-  className: `
+  defaultStyles: `
   background: #FFF4F2;
   border-color: #F2D2CE;
   color: #F04631;`,

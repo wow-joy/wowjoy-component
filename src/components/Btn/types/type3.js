@@ -1,5 +1,5 @@
 const initSetting = {
-  styles: `background: #f5f5f5;
+  defaultStyles: `background: #f5f5f5;
   border-color: #dcdcdc;
   color: #666;
   &:hover {
