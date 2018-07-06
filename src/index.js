@@ -18,12 +18,10 @@ import Message, {
 import Dialog, {
   Type1 as Dialog_1,
   Confirm as Dialog_confirm,
-  Alert as Dialog_alert,
+  Alert as Dialog_alert
 } from "./components/Dialog";
-import Tabs, {
-  Type1 as Tabs_1, 
-  Type2 as Tabs_2, 
-} from "./components/Tabs";
+import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs";
+import Pop from "./components/Pop";
 
 const Components = {
   Btn,
@@ -42,7 +40,7 @@ const Components = {
   Message_info,
   Message_success,
   Message_warn,
-  
+
   Dialog,
   Dialog_1,
   Dialog_confirm,
@@ -51,6 +49,8 @@ const Components = {
   Tabs,
   Tabs_1,
   Tabs_2,
+
+  Pop,
 };
 export {
   Btn,
@@ -74,5 +74,6 @@ export {
   Tabs,
   Tabs_1,
   Tabs_2,
+  Pop,
 };
 export default Components;

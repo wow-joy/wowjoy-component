@@ -8,8 +8,7 @@
 
 ```
 import React from 'react'
-import Btn, { Btn_1} from 'wowjoy-component'
-/* import { Type1 as Btn } from 'wowjoy-component/lib/components/Btn' */  // 按需加载
+import { Btn, Btn_1} from 'wowjoy-component'
 
 const Foo = () => <Btn to={'/list'} > 跳转到list </Btn>
 const Foo1 = () => <Btn_1 onClick={()=>console.log(1)} > 点击打印1 </Btn>
@@ -20,7 +19,8 @@ const Foo1 = () => <Btn_1 onClick={()=>console.log(1)} > 点击打印1 </Btn>
 ```
 // file A
 import React from 'react'
-import Btn, { Hoc } from 'wowjoy-component/lib/components/Btn'
+import { Btn }  from 'wowjoy-component/lib/components/Btn'
+import { Hoc } from 'wowjoy-component/lib/tools'
 
 const setting = {
   defaultStyles: `background: #06aea6;

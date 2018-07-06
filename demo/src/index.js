@@ -57,4 +57,9 @@ class Demo extends Component {
   }
 }
 
-render(<Demo />, document.querySelector("#demo"));
+render(
+  <BrowserRouter>
+    <Demo />
+  </BrowserRouter>,
+  document.querySelector("#demo")
+);

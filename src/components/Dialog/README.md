@@ -2,7 +2,8 @@
 
 对话框组件
 
-_建议结合 `pop` 工具使用_ [https://github.com/wow-joy/wowjoy-component/tree/master/src/tools/pop]
+_建议结合 `Pop` 组件使用_ [https://github.com/wow-joy/wowjoy-component/tree/master/src/components/Pop]
+_也可结合 `pop`工具使用_ [https://github.com/wow-joy/wowjoy-component/tree/master/src/tools/pop]
 
 ## 使用
 
@@ -10,8 +11,7 @@ _建议结合 `pop` 工具使用_ [https://github.com/wow-joy/wowjoy-component/t
 
 ```
 import React from 'react'
-import Dialog, { Dialog_alert} from 'wowjoy-component'
-/* import { Type1 as Dialog } from 'wowjoy-component/lib/components/Dialog' */  // 按需加载
+import { Dialog, Dialog_alert } from 'wowjoy-component'
 
 const Foo = () => <Dialog> 这是一个对话框 </Dialog>
 const Foo1 = () => <Dialog_alert onClick={()=>alert(1)} > 这是一个提示框 </Dialog_alert>

@@ -2,7 +2,6 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
-import { keyframes } from "styled-components";
 
 const Layer = styled.div`
   opacity: ${props => (props.visible ? 1 : 0)};
@@ -45,7 +44,6 @@ class Pop extends PureComponent {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.visible !== this.props.visible) {
-      console.log(nextProps.visible);
       this.setState({ visible: nextProps.visible });
     }
   }
@@ -59,66 +57,62 @@ class Pop extends PureComponent {
         x: e.pageX,
         y: e.pageY
       };
-      // 100ms 内发生过点击事件，则从点击位置动画展示
-      // 否则直接 zoom 展示
-      // 这样可以兼容非点击方式展开
       setTimeout(() => (mousePosition = {}));
     });
     mousePositionEventBinded = true;
   }
-  // transitionEndHandle = e => {
-  //   e.target.style.display = this.state.visible ? `block` : `none`;
-  // };
-  closeHandle = e => {
-    e.preventDefault();
-    e.stopPropagation();
+  closeHandle = () => {
     const { onClose } = this.props;
     if (onClose && onClose() === false) {
       return;
     }
-    console.log(1);
     this.setState({ visible: false });
+  };
+  layerClick = e => {
+    e.stopPropagation();
+    if (e.target === this.layerRef) {
+      this.closeHandle();
+    }
   };
   render() {
     const {
-      visible,
       defaultStyles,
       className,
-      animeShow,
-      animeHide,
-      container,
-      layer,
-      onClose,
+      container = document.body,
+      layer = true,
       children,
-      autoClose
+      autoClose = false
     } = this.props;
-    // if (!this.state.visible) {
-    //   return null;
-    // }
+
     if (this.state.visible && autoClose) {
-      setTimeout(() => this.setState({ visible: false }), autoClose);
+      setTimeout(this.closeHandle, autoClose);
     }
+
     return createPortal(
       <Layer
-        ref={el => (this.LayerRef = el)}
-        onTransitionEnd={this.transitionEndHandle}
+        innerRef={el => (this.layerRef = el)}
         visible={this.state.visible}
         defaultStyles={defaultStyles}
         className={className}
         layer={layer}
-        onClick={this.closeHandle}
+        onClick={this.layerClick}
       >
         <PopBox visible={this.state.visible} mousePosition={mousePosition}>
           {children}
         </PopBox>;
       </Layer>,
-      container || document.body
+      container
     );
   }
 }
 
 Pop.propTypes = {
   className: PropTypes.string,
-  defaultStyles: PropTypes.string
+  defaultStyles: PropTypes.string,
+  container: PropTypes.node,
+  visible: PropTypes.bool,
+  layer: PropTypes.bool,
+  onClose: PropTypes.func,
+  autoClose: PropTypes.oneOfType([PropTypes.number, PropTypes.bool])
 };
 export default Pop;

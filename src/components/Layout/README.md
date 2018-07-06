@@ -9,7 +9,6 @@
 ```
 import React from 'react'
 import { Layout_1 as Layout } from 'wowjoy-component'
-/* import { Type1 as Layout } from 'wowjoy-component/lib/components/Layout' */  // 按需加载
 
 const Foo = () => <Layout />
 ```
@@ -19,7 +18,8 @@ const Foo = () => <Layout />
 ```
 // file A
 import React from 'react'
-import Layout, { Hoc } from 'wowjoy-component/lib/components/Layout'
+import { Layout } from 'wowjoy-component/'
+import { Hoc } from 'wowjoy-component/lib/tools'
 
 const setting = {
     header: {

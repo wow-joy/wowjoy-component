@@ -8,7 +8,7 @@
 
 ```
 import React, { Component } from "react";
-import createForm from "wowjoy-component/lib/tools/forms";
+import { createForm } from "wowjoy-component/lib/tools";
 
 class Foo  extends Component {
   state = {
