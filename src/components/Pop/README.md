@@ -25,5 +25,5 @@ const Foo = () => <Pop>
 | visible       | 是否可见                                                                         |     bool     |               |
 | container     | 弹出到的目标 Dom                                                                 |   DomNode    | document.body |
 | layer         | 是否显示覆盖灰层                                                                 |     bool     |     true      |
-| onClose       | 灰层点击回调， return false 会阻止关闭。 \n 请注意：灰层的点击事件默认阻止了冒泡 |     func     |               |
+| onClose       | 灰层点击回调， return false 会阻止关闭。  |     func     |               |
 | autoClose     | 自动关闭时间                                                                     | number, bool |     false     |

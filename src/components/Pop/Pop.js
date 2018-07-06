@@ -2,8 +2,10 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
+import { pubSub } from "../../tools";
 
 const Layer = styled.div`
+  display: none;
   opacity: ${props => (props.visible ? 1 : 0)};
   transition: 0.3s;
   position: absolute;
@@ -12,10 +14,10 @@ const Layer = styled.div`
   left: 0;
   right: 0;
   overflow: hidden;
-  z-index: ${props => (props.visible ? 1000 : -1000)};
+  z-index: 1000;
   background: ${props =>
     props.layer ? "rgba(0, 0, 0, 0.6)" : "rgba(0, 0, 0, 0)"};
-  pointer-events: ${props => (props.layer && props.visible ? "all" : "none")};
+  pointer-events: ${props => (props.layer ? "all" : "none")};
   ${props => props.defaultStyles};
 `;
 const PopBox = styled.div`
@@ -27,12 +29,13 @@ const PopBox = styled.div`
   z-index: 1001;
   transition: 0.3s;
   transform-origin: ${props =>
-    `${props.mousePosition.x - window.innerWidth / 2}px ${props.mousePosition
-      .y -
-      window.innerHeight / 2}px`};
+    `${
+      props.mousePosition.x ? props.mousePosition.x - window.innerWidth / 2 : 0
+    }px ${
+      props.mousePosition.y ? props.mousePosition.y - window.innerHeight / 2 : 0
+    }px`};
 `;
 
-let mousePosition = { x: 497, y: 650 };
 let mousePositionEventBinded;
 class Pop extends PureComponent {
   constructor(props) {
@@ -41,37 +44,53 @@ class Pop extends PureComponent {
       visible: props.visible
     };
   }
-
+  transitionendCallbacks = new pubSub(); // 动画回调 @returns {add, remove, clear, publish}
+  mousePosition = { x: 0, y: 0 };
   componentWillReceiveProps(nextProps) {
     if (nextProps.visible !== this.props.visible) {
-      this.setState({ visible: nextProps.visible });
+      if (nextProps.visible) {
+        this.layerRef.style.display = "block";
+        this.transitionendCallbacks.clear();
+      }
+      // TODO: async event makes 2th render
+      setTimeout(() => {
+        this.setState({ visible: nextProps.visible });
+      });
     }
   }
+
   componentDidMount() {
     if (mousePositionEventBinded) {
       return;
     }
     // 只有点击事件支持从鼠标位置动画展开
     window.addEventListener("click", e => {
-      mousePosition = {
-        x: e.pageX,
-        y: e.pageY
-      };
-      setTimeout(() => (mousePosition = {}));
+      if (!this.state.visible) {
+        this.mousePosition = {
+          x: e.pageX,
+          y: e.pageY
+        };
+      }
     });
     mousePositionEventBinded = true;
   }
-  closeHandle = () => {
+  transitionEndHandle = () => {
+    this.transitionendCallbacks.publish();
+  };
+  closeHandle = e => {
     const { onClose } = this.props;
-    if (onClose && onClose() === false) {
+    if (onClose && onClose(e) === false) {
       return;
     }
+    this.transitionendCallbacks.add(
+      () => (this.layerRef.style.display = "none")
+    );
     this.setState({ visible: false });
   };
   layerClick = e => {
     e.stopPropagation();
     if (e.target === this.layerRef) {
-      this.closeHandle();
+      this.closeHandle(e);
     }
   };
   render() {
@@ -83,13 +102,14 @@ class Pop extends PureComponent {
       children,
       autoClose = false
     } = this.props;
-
+    console.log('render')
     if (this.state.visible && autoClose) {
       setTimeout(this.closeHandle, autoClose);
     }
 
     return createPortal(
       <Layer
+        onTransitionEnd={this.transitionEndHandle}
         innerRef={el => (this.layerRef = el)}
         visible={this.state.visible}
         defaultStyles={defaultStyles}
@@ -97,7 +117,7 @@ class Pop extends PureComponent {
         layer={layer}
         onClick={this.layerClick}
       >
-        <PopBox visible={this.state.visible} mousePosition={mousePosition}>
+        <PopBox visible={this.state.visible} mousePosition={this.mousePosition}>
           {children}
         </PopBox>;
       </Layer>,
