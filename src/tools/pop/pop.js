@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 // import style from "./pop.css";
 import pubSub from "../pubSub";
 import styled from "styled-components";
-import { createPortal, render } from "react-dom";
-const style = {}
+import { render } from "react-dom";
 /**
  *  抛出组件到指定dom
  *  @param component 指定组件
@@ -12,9 +11,7 @@ const style = {}
  *  二级参数
  *  @param {className} 组件包裹的样式
  *  @param {container} 指定输出容器， 默认为body
- *  @param {animeShow} 动画方式
  *  @param {layer} 有无蒙层
- *  @param {layerClassName} 蒙层额外样式
  *  @param {autoClose} 自动关闭的等候时间
  *  @param {onClose} 关闭事件句柄，`return false` 可以阻止关闭事件
  *
@@ -36,140 +33,90 @@ const Layer = styled.div`
   right: 0;
   overflow: hidden;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.6);
+  ${props =>
+    props.layer
+      ? `background: rgba(0, 0, 0, 0.6);pointer-event:all`
+      : `background: rgba(0, 0, 0, 0);pointer-event:none`};
 `;
 class PopWrap extends Component {
   render() {
-    const {
-      className,
-      animeShow,
-      animeHide,
-      container,
-      layer,
-      layerClassName,
-      autoClose,
-      onClose,
-      children
-    } = this.props;
-    const Main = <Wrap className={className}>{children}</Wrap>;
+    const { className, layer = true, closeHandle, children } = this.props;
+    const Main = <Wrap>{children}</Wrap>;
 
-    return layer ? <Layer className={layerClassName}>{Main}</Layer> : Main;
-
-    // if (!layer) {
-    //   return Main;
-    // } else {
-    //   return <Layer className={layerClassName}>{Main}</Layer>;
-    // }
+    return layer ? (
+      <Layer layer={layer} className={className} onClick={closeHandle}>
+        {Main}
+      </Layer>
+    ) : (
+      Main
+    );
   }
 }
 
 const pop = Component =>
   function({
     className,
-    container = document.getElementById('demo'),
-    animeShow,
-    animeHide,
+    container = document.body,
     layer,
-    layerClassName,
     autoClose,
     onClose
   }) {
     const popDisplayDom = document.createElement("div");
-    // container.appendChild(popDisplayDom);
-    const ref = createPortal(
+    popDisplayDom.style.transition = "0.3s";
+    container.appendChild(popDisplayDom);
+    const transitionendCallbacks = new pubSub(); // 动画回调 @returns {add, remove, clear, publish}
+    popDisplayDom.addEventListener(
+      "transitionend",
+      transitionendCallbacks.publish
+    );
+
+    const eventHandle = {
+      show() {
+        popDisplayDom.style.display = "block";
+        transitionendCallbacks.clear();
+        setTimeout(() => (popDisplayDom.style.opacity = 1));
+      },
+      hide() {
+        if (onClose && onClose() === false) {
+          return false;
+        }
+        transitionendCallbacks.add(
+          () => (popDisplayDom.style.display = "none")
+        );
+        popDisplayDom.style.opacity = 0;
+      },
+      destroy() {
+        if (this.hide() === false) {
+          return false;
+        }
+        const destroy = () => {
+          ReactDOM.unmountComponentAtNode(popDisplayDom);
+          popDisplayDom.parentNode.removeChild(popDisplayDom);
+        };
+        transitionendCallbacks.add(destroy);
+        eventHandle.hide();
+      }
+    };
+
+    render(
       <PopWrap
         {...{
           container,
           className,
-          animeShow,
-          animeHide,
-          layer,
-          layerClassName,
-          autoClose,
-          onClose
+          layer
         }}
+        closeHandle={eventHandle.hide}
       >
         {Component}
       </PopWrap>,
       popDisplayDom
     );
-    console.log(ref);
-  };
-
-const pop1 = Component => ({
-  className,
-  container,
-  animeShow,
-  animeHide,
-  layer,
-  layerClassName,
-  autoClose,
-  onClose
-}) => {
-  const popBox = document.createElement("div");
-  popBox.className =
-    style.popBox + " " + style[animeShow || "slideDownIn"] + " " + className;
-  const containerDom = container || document.body; // 输出容器， 默认body
-  let layerDom; // 定义蒙层
-  const animteEndCallbacks = new pubSub(); // 动画回调 @returns {add, remove, clear, publish}
-  popBox.addEventListener("webkitAnimationEnd", animteEndCallbacks.publish);
-
-  const eventHandle = {
-    // 定义实例事件句柄
-    show() {
-      if (layer) {
-        layerDom.classList.remove(style.hide);
-      }
-      popBox.classList.remove(style[animeHide || "slideUpOut"]);
-      popBox.classList.add(style[animeShow || "slideDownIn"]);
-    },
-    hide() {
-      if (layer) {
-        const layerHide = () => {
-          layerDom.classList.add(style.hide);
-          animteEndCallbacks.remove(layerHide);
-        };
-        animteEndCallbacks.add(layerHide);
-      }
-      popBox.classList.remove(style[animeShow || "slideDownIn"]);
-      popBox.classList.add(style[animeHide || "slideUpOut"]);
-    },
-    destroy() {
-      if (onClose && onClose() === false) {
-        return;
-      }
-      const destroy = () => {
-        if (layer) {
-          layerDom.parentNode.removeChild(layerDom);
-        } else {
-          popBox.parentNode.removeChild(popBox);
-        }
-        animteEndCallbacks.remove(destroy);
-        ReactDOM.unmountComponentAtNode(popBox);
-      };
-      animteEndCallbacks.add(destroy);
-      eventHandle.hide();
+    if (autoClose) {
+      setTimeout(eventHandle.hide, autoClose);
     }
-  };
-
-  if (layer) {
-    layerDom = document.createElement("div");
-    layerDom.className = style.layer + " " + layerClassName;
-    layerDom.onclick = e => {
-      e.target === layerDom && eventHandle.destroy();
+    return {
+      ...eventHandle
     };
-    layerDom.appendChild(popBox);
-    containerDom.appendChild(layerDom);
-  } else {
-    containerDom.appendChild(popBox);
-  }
-
-  let popObj = { ...eventHandle };
-  ReactDOM.render(Component, popBox);
-  if (autoClose) {
-    setTimeout(popObj.destroy, autoClose);
-  }
-  return popObj;
-};
+  };
 
 export default pop;

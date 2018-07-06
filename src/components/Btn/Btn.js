@@ -15,7 +15,7 @@ const Button = styled.span`
   user-select: none;
   ${props=>props.defaultStyles}
 `;
-class Btn extends PureComponent {
+class BtnBase extends PureComponent {
   clickHandle = e => {
     const { onClick, to } = this.props;
     if (onClick && onClick(e) === false) {
@@ -34,7 +34,16 @@ class Btn extends PureComponent {
     );
   }
 }
+class Btn extends PureComponent {
 
+  render(){
+    if(this.props.to) {
+      const RouteBtn = withRouter(BtnBase)
+      return <RouteBtn {...this.props} />
+    }
+    return <BtnBase {...this.props} />
+  }
+}
 Btn.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
@@ -42,4 +51,4 @@ Btn.propTypes = {
   children: PropTypes.node,
   to: PropTypes.string
 };
-export default withRouter(Btn);
+export default Btn;

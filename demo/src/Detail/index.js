@@ -13,9 +13,23 @@ class Detail extends Component {
     );
     this.name = name;
     const ComponentItem = Components[name];
-    pop(<ComponentItem {...PROPS}>ComponentItem</ComponentItem>)({
-      className: "yy",
-      layer: true
+    this.popDom = pop(
+      <ComponentItem
+        {...PROPS}
+        onClick={(e, index) => {
+          if(index === 1){
+            this.popDom.destroy()
+            return false
+          }
+          this.popDom.hide();
+          return false
+        }}
+      >
+        ComponentItem
+      </ComponentItem>
+    )({
+      autoClose: 1000,
+      onClose: ()=>{console.log(1) }
     });
   }
   render() {
@@ -27,7 +41,10 @@ class Detail extends Component {
     this.name = name;
     const ComponentItem = Components[name];
     if (ComponentItem) {
-      return <ComponentItem {...PROPS}>ComponentItem</ComponentItem>;
+      return <ComponentItem {...PROPS} onClick={(e, index) => {
+        this.popDom.show();
+        return false
+      }}>ComponentItem</ComponentItem>;
     }
     return <div>ComponentItem not found</div>;
   }
