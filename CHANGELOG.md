@@ -1,3 +1,25 @@
+# 2.0.0 (2018/7/9)
+<b>因为发生重大破坏性变更 提前升至2.x</b>
+## breaking changes
+- 删除sass-loader, 全面迁移至`styled-components`
+- 重构所有className API, 新增`defaultStyles`字段传递默认样式
+- 删除css-modules
+- 重构pop方法, 修改组件实现, 删除了动画的接口
+- Layout 组件重构, 简化API, 统一HOC实现
+
+### bug fix
+
+- 重构Btn组件的`withRouter`Hoc, 仅当to属性有值时才会引用 (与pop方法冲突))
+
+### feature
+
+- 新增Pop组件, 与轻提示的`pop`方法分离, 允许外部可控, 使用`createPortal`实现, 更符合react官方文档的实现
+
+### docs
+
+- 修改了所有的文档
+
+
 ## 1.6.1 (2018/6/29)
 
 ### refactor
