@@ -20,7 +20,7 @@ const fadeOut = keyframes`
   }
 `;
 const Layer = styled.div`
-  display: none;
+  display: ${props=>props.visible?'block':'none'};
   opacity: 0;
   position: absolute;
   top: 0;
