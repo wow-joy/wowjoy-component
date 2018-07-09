@@ -96,7 +96,7 @@ class Pop extends PureComponent {
     });
     mousePositionEventBinded = true;
   }
-  transitionEndHandle = () => {
+  animationEndHandle = () => {
     this.animationendCallbacks.publish();
   };
   closeHandle = e => {
@@ -133,7 +133,7 @@ class Pop extends PureComponent {
 
     return createPortal(
       <Layer
-        onAnimationEnd={this.transitionEndHandle}
+        onAnimationEnd={this.animationEndHandle}
         innerRef={el => (this.layerRef = el)}
         visible={this.state.visible}
         defaultStyles={defaultStyles}
