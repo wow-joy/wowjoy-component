@@ -1,13 +1,27 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { createPortal } from "react-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { pubSub } from "../../tools";
-
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
 const Layer = styled.div`
   display: none;
-  opacity: ${props => (props.visible ? 1 : 0)};
-  transition: 0.3s;
+  opacity: 0;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -19,6 +33,12 @@ const Layer = styled.div`
     props.layer ? "rgba(0, 0, 0, 0.6)" : "rgba(0, 0, 0, 0)"};
   pointer-events: ${props => (props.layer ? "all" : "none")};
   ${props => props.defaultStyles};
+  &.fadeIn {
+    animation:fadeIn  0.3s forwards;
+  }
+  &.fadeOut {
+    animation:fadeOut  0.3s forwards;
+  }
 `;
 const PopBox = styled.div`
   position: absolute;
@@ -44,14 +64,16 @@ class Pop extends PureComponent {
       visible: props.visible
     };
   }
-  transitionendCallbacks = new pubSub(); // 动画回调 @returns {add, remove, clear, publish}
+  animationendCallbacks = new pubSub(); // 动画回调 @returns {add, remove, clear, publish}
   mousePosition = { x: 0, y: 0 };
   componentWillReceiveProps(nextProps) {
     if (nextProps.visible !== this.props.visible) {
       if (nextProps.visible) {
         this.layerRef.style.display = "block";
-        this.transitionendCallbacks.clear();
+
+        this.animationendCallbacks.clear();
       }
+
       // TODO: async event makes 2th render
       setTimeout(() => {
         this.setState({ visible: nextProps.visible });
@@ -75,15 +97,18 @@ class Pop extends PureComponent {
     mousePositionEventBinded = true;
   }
   transitionEndHandle = () => {
-    this.transitionendCallbacks.publish();
+    this.animationendCallbacks.publish();
   };
   closeHandle = e => {
     const { onClose } = this.props;
     if (onClose && onClose(e) === false) {
       return;
     }
-    this.transitionendCallbacks.add(
-      () => (this.layerRef.style.display = "none")
+    this.animationendCallbacks.add(
+      () => {
+        this.layerRef.style.display = "none"
+        this.layerRef.classList.remove('fadeOut')
+      }
     );
     this.setState({ visible: false });
   };
@@ -102,18 +127,17 @@ class Pop extends PureComponent {
       children,
       autoClose = false
     } = this.props;
-    console.log('render')
     if (this.state.visible && autoClose) {
       setTimeout(this.closeHandle, autoClose);
     }
 
     return createPortal(
       <Layer
-        onTransitionEnd={this.transitionEndHandle}
+        onAnimationEnd={this.transitionEndHandle}
         innerRef={el => (this.layerRef = el)}
         visible={this.state.visible}
         defaultStyles={defaultStyles}
-        className={className}
+        className={`${className} ${this.state.visible? 'fadeIn' : 'fadeOut'}`}
         layer={layer}
         onClick={this.layerClick}
       >

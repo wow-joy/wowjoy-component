@@ -16,7 +16,7 @@ class Detail extends Component {
     this.name = name;
     const ComponentItem = Components[name];
     if (ComponentItem) {
-      return <ComponentItem {...PROPS} visible = {this.state.visible} onClose={()=>this.setState({visible:false})}>ComponentItem</ComponentItem>;
+      return <ComponentItem {...PROPS} visible = {this.state.visible} onClose={()=>this.setState({visible:false})}><div style={{width:'200px', height:'200px', background:'#fff'}}>ComponentItem</div></ComponentItem>;
     }
     return <div>ComponentItem not found</div>;
   }
