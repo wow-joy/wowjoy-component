@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import Components from "@src";
+import Components from "@lib";
 const PROPS = {};
-
 class Detail extends Component {
-  state = {visible:false};
+  state = {visible:true};
   componentDidMount() {
     window.onclick=()=>{console.log(this);this.setState({visible:true})}
   }
@@ -16,7 +15,7 @@ class Detail extends Component {
     this.name = name;
     const ComponentItem = Components[name];
     if (ComponentItem) {
-      return <ComponentItem {...PROPS} visible = {this.state.visible} onClose={()=>this.setState({visible:false})}><div style={{width:'200px', height:'200px', background:'#fff'}}>ComponentItem</div></ComponentItem>;
+      return <ComponentItem {...PROPS} visible = {this.state.visible} onClose={()=>this.setState({visible:false})}>ComponentItem</ComponentItem>;
     }
     return <div>ComponentItem not found</div>;
   }
