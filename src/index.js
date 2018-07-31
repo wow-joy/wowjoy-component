@@ -22,6 +22,7 @@ import Dialog, {
 } from "./components/Dialog";
 import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs";
 import Pop from "./components/Pop";
+import Table from "./components/Table";
 
 const Components = {
   Btn,
@@ -51,6 +52,8 @@ const Components = {
   Tabs_2,
 
   Pop,
+
+  Table,
 };
 export {
   Btn,
@@ -75,5 +78,6 @@ export {
   Tabs_1,
   Tabs_2,
   Pop,
+  Table,
 };
 export default Components;
