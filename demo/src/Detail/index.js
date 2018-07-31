@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Components from "@src";
+import Components from "@lib";
 
 const Td = key => (dataItem, index, colKey) => <td><input key={colKey} defaultValue={dataItem[key]}></input></td>;
 const PROPS = {
