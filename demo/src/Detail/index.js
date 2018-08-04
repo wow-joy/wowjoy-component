@@ -1,38 +1,52 @@
 import React, { Component } from "react";
-import Components from "@lib";
+import Components from "@src";
 
-const Td = key => (dataItem, index, colKey) => <td><input key={colKey} defaultValue={dataItem[key]}></input></td>;
+const X = props => <div>{props.value}</div>;
 const PROPS = {
-  data: [
+  initValue: ["x1"],
+  type: "checkbox",
+  onChange: value => console.log(value),
+  inputRender: props => (
+    <div>
+      {props.value &&
+        props.value.map((ele, index) => <span key={index}>{ele.label}</span>)}
+    </div>
+  ),
+  onBlur: () => false,
+  options: [
     {
-      name: "John Brown",
-      age: 32,
-      address: "New York No. 1 Lake Park",
+      label: <span>x1</span>,
+      labelRender: isActive => (
+        <span>{isActive ? "x1 is active" : "x1 not active"}</span>
+      ),
+      value: "x1"
     },
     {
-      name: "Jim Green",
-      age: 42,
-      address: "London No. 1 Lake Park",
+      label: "x2",
+      value: "x2"
     },
     {
-      name: "Joe Black",
-      age: 32,
-      address: "Sidney No. 1 Lake Park",
+      label: "x3",
+      value: "x3"
+    },
+    {
+      label: "x4",
+      value: "x4"
+    },
+    {
+      label: "x5",
+      value: "x5"
     }
-  ],
-  keyStr: "table1",
-  columnRenders: [(dataItem, index, colKey) => <td key={colKey}><input defaultValue={dataItem['name']}></input></td>,
-  (dataItem, index, colKey) => <td key={colKey}><input defaultValue={dataItem['age']}></input></td>,
-  (dataItem, index, colKey) => <td key={colKey}>{dataItem['address']}</td>,]
+  ]
 };
 
 class Detail extends Component {
   state = { visible: true };
   componentDidMount() {
-    window.onclick = () => {
-      console.log(this);
-      this.setState({ visible: true });
-    };
+    // window.onclick = () => {
+    //   console.log(this);
+    //   this.setState({ visible: true });
+    // };
   }
   render() {
     const { match } = this.props;
@@ -44,11 +58,7 @@ class Detail extends Component {
     const ComponentItem = Components[name];
     if (ComponentItem) {
       return (
-        <ComponentItem
-          {...PROPS}
-          visible={this.state.visible}
-          onClose={() => this.setState({ visible: false })}
-        >
+        <ComponentItem {...PROPS} visible={this.state.visible}>
           ComponentItem
         </ComponentItem>
       );
