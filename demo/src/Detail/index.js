@@ -3,8 +3,9 @@ import Components from "@src";
 
 const X = props => <div>{props.value}</div>;
 const PROPS = {
-  initValue: ["x1"],
+  defaultValue: ["x1"],
   type: "checkbox",
+  value:["x1", "x2"],
   onChange: value => console.log(value),
   inputRender: props => (
     <div>
@@ -58,7 +59,11 @@ class Detail extends Component {
     const ComponentItem = Components[name];
     if (ComponentItem) {
       return (
-        <ComponentItem {...PROPS} visible={this.state.visible}>
+        <ComponentItem {...PROPS} visible={this.state.visible}
+          
+  value={this.state.value||["x1", "x2"]}
+  onChange={ value => this.setState({value: value})}
+        >
           ComponentItem
         </ComponentItem>
       );

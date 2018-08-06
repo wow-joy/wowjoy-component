@@ -68,33 +68,38 @@ const Option = styled.li`
 class Select extends PureComponent {
   state = {
     dropDownVisible: false,
-    value:  this.props.initValue || false
+    value: this.props.value || this.props.defaultValue || false
   };
   blur = e => {
-    if(this.props.onBlur&& (this.props.onBlur() === false)){
-      return 
+    if (this.props.onBlur && this.props.onBlur() === false) {
+      return;
     }
     this.setState({
       dropDownVisible: false
-    })
-  }
+    });
+  };
   componentDidMount() {
-    window.addEventListener('click', this.blur)
+    window.addEventListener("click", this.blur);
   }
-  
+
   componentWillReceiveProps(nextProps) {
-    if (this.state.value === false && nextProps.initValue) {
+    if (this.state.value === false && nextProps.defaultValue) {
       this.setState({
-        value: nextProps.initValue
+        value: nextProps.defaultValue
+      });
+    }
+    if (this.state.value !== nextProps.value) {
+      this.setState({
+        value: nextProps.value
       });
     }
   }
 
-  componentWillUnmount(){
-    window.removeEventListener('click', this.blur)
+  componentWillUnmount() {
+    window.removeEventListener("click", this.blur);
   }
   toggleDropDownMenu = e => {
-    e.stopPropagation()
+    e.stopPropagation();
     this.setState(prevState => {
       if (!prevState.dropDownVisible) {
         this.dropDownNode.style.display = "block";
@@ -107,6 +112,24 @@ class Select extends PureComponent {
 
   stopPropagation = e => e.stopPropagation();
 
+  getNextValue = (optionItem , type) =>{
+    if (type === "radio") {
+      return optionItem.value
+    }
+    if (type === "checkbox") {
+      const toggleValue = (prevState, value) => {
+        const findedIndex = prevState.value.findIndex(ele => ele === value);
+        let midVal = [...prevState.value];
+        findedIndex >= 0 ? midVal.splice(findedIndex, 1) : midVal.push(value);
+        return midVal;
+      };
+      return this.state.value === false
+      ? [optionItem.value]
+      : toggleValue(this.state, optionItem.value);
+    }
+  }
+
+
   selectOption = (optionItem, index) => e => {
     const { type = "radio" } = this.props;
     if (
@@ -116,31 +139,21 @@ class Select extends PureComponent {
       return;
     }
 
+    const nextValue = this.getNextValue(optionItem, type)
+
+    this.props.onChange(nextValue, index, optionItem);
+
+    if(!('value' in this.props)){
+      this.setState({
+        value: nextValue
+      })
+    }
+
     if (type === "radio") {
       this.setState({
-        value: optionItem.value,
         dropDownVisible: false
       });
     }
-    if (type === "checkbox") {
-      const toggleValue = (prevState, value) => {
-          const findedIndex = prevState.value.findIndex(ele=>ele === value);
-          let midVal = [...prevState.value];
-          findedIndex >= 0 ? midVal.splice(findedIndex, 1) : midVal.push(value);
-          return {
-            value: midVal
-          };
-      };
-      this.setState(prevState => {
-        if (prevState.value === false) {
-          return [optionItem.value]
-        } else {
-          return toggleValue(prevState, optionItem.value);
-        }
-      });
-    }
-
-    this.props.onChange(optionItem, index);
   };
 
   animationEndHandle = () => {
@@ -183,7 +196,13 @@ class Select extends PureComponent {
         >
           {options.map((optionItem, index) => (
             <Option key={index} onClick={this.selectOption(optionItem, index)}>
-              {optionItem.labelRender ? optionItem.labelRender(type!=="checkbox"?this.state.value === optionItem.value: this.state.value.includes(optionItem.value)) : optionItem.label}
+              {optionItem.labelRender
+                ? optionItem.labelRender(
+                    type !== "checkbox"
+                      ? this.state.value === optionItem.value
+                      : this.state.value.includes(optionItem.value)
+                  )
+                : optionItem.label}
             </Option>
           ))}
         </DropDown>
@@ -197,8 +216,12 @@ Select.propTypes = {
   defaultStyles: PropTypes.string,
   options: PropTypes.array,
   inputRender: PropTypes.func,
-  initValue: PropTypes.oneOfType([PropTypes.array, PropTypes.number, PropTypes.string]),
+  defaultValue: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.number,
+    PropTypes.string
+  ]),
   type: PropTypes.oneOf(["radio", "checkbox"]),
-  onBlur: PropTypes.func,
+  onBlur: PropTypes.func
 };
 export default Select;

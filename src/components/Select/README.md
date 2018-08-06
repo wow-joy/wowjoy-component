@@ -8,10 +8,10 @@ Select 组件
 
 ```
 import React from 'react'
-import Select from 'wowjoy-component'
+import { Select } from 'wowjoy-component'
 
 const PROPS = {
-  initValue: "x1",
+  defaultValue: "x1",
   onChange: value => console.log(value),
   inputRender: ({value}) => (
     <div>
@@ -57,7 +57,8 @@ const Foo = () => <Select {...PROPS}></Select>
 | children      | 内容                                                                                   |         node          |        |
 | options       | options 选项数据                                                                       |         array         |        |
 | inputRender   | 被选中的展示内容<br/> params:({value}) 被选中的数据                                    |         func          |        |
-| initValue     | 初始化值                                                                               | array\|number\|string |        |
+| defaultValue     | 初始化值                                                                               | array\|number\|string |        |
 | type          | 类型 单选\|复选<br/> 根据 type `radio|checkbox`,value 会展现为 `string\| array`        | 'radio'\| 'checkbox'  |        |
+| onChange      | 值改变事件<br/> params: (value, index, optionItem)                                     |         func          |        |
 | onBlur        | 失焦事件<br/> params: (event) <br/>`return false` 会阻止关闭下拉框                     |         func          |        |
 | onSelect      | 选择事件<br/> params: (optionItem, index) <br/>`return false` 会阻止数据存储及后续事件 |         func          |        |
