@@ -20,7 +20,7 @@ const fadeOut = keyframes`
   }
 `;
 const Layer = styled.div`
-  display: ${props=>props.visible?'block':'none'};
+  display: ${props => (props.visible ? "block" : "none")};
   opacity: 0;
   position: absolute;
   top: 0;
@@ -34,18 +34,17 @@ const Layer = styled.div`
   pointer-events: ${props => (props.layer ? "all" : "none")};
   ${props => props.defaultStyles};
   &.fadeIn {
-    animation:fadeIn  0.3s forwards;
+    animation: fadeIn 0.3s forwards;
   }
   &.fadeOut {
-    animation:fadeOut  0.3s forwards;
+    animation: fadeOut 0.3s forwards;
   }
 `;
 const PopBox = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%)
-    ${props => (props.visible ? "scale(1)" : "scale(0)")};
+  transform: ${p => `${p.translate || "translate(-50%, -50%)"} ${p.visible ? "scale(1)" : "scale(0)"}`};
   z-index: 1001;
   transition: 0.3s;
   transform-origin: ${props =>
@@ -104,12 +103,10 @@ class Pop extends PureComponent {
     if (onClose && onClose(e) === false) {
       return;
     }
-    this.animationendCallbacks.add(
-      () => {
-        this.layerRef.style.display = "none"
-        this.layerRef.classList.remove('fadeOut')
-      }
-    );
+    this.animationendCallbacks.add(() => {
+      this.layerRef.style.display = "none";
+      this.layerRef.classList.remove("fadeOut");
+    });
     this.setState({ visible: false });
   };
   layerClick = e => {
@@ -125,7 +122,8 @@ class Pop extends PureComponent {
       container = document.body,
       layer = true,
       children,
-      autoClose = false
+      autoClose = false,
+      translate
     } = this.props;
     if (this.state.visible && autoClose) {
       setTimeout(this.closeHandle, autoClose);
@@ -137,13 +135,13 @@ class Pop extends PureComponent {
         innerRef={el => (this.layerRef = el)}
         visible={this.state.visible}
         defaultStyles={defaultStyles}
-        className={`${className} ${this.state.visible? 'fadeIn' : 'fadeOut'}`}
+        className={`${className} ${this.state.visible ? "fadeIn" : "fadeOut"}`}
         layer={layer}
         onClick={this.layerClick}
       >
-        <PopBox visible={this.state.visible} mousePosition={this.mousePosition}>
+        <PopBox visible={this.state.visible} mousePosition={this.mousePosition} translate={translate}>
           {children}
-        </PopBox>;
+        </PopBox>
       </Layer>,
       container
     );
@@ -153,6 +151,7 @@ class Pop extends PureComponent {
 Pop.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
+  translate: PropTypes.string,
   container: PropTypes.node,
   visible: PropTypes.bool,
   layer: PropTypes.bool,
