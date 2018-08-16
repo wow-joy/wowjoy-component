@@ -25,6 +25,8 @@ import Pop from "./components/Pop";
 import Table from "./components/Table";
 import Select from "./components/Select";
 import SlideDown from "./components/SlideDown";
+import PopOut from "./components/PopOut";
+import ScrollBox from "./components/ScrollBox";
 
 const Components = {
   Btn,
@@ -58,6 +60,8 @@ const Components = {
   Table,
   Select,
   SlideDown,
+  ScrollBox,
+  PopOut
 };
 export {
   Btn,
@@ -85,5 +89,7 @@ export {
   Table,
   Select,
   SlideDown,
+  ScrollBox,
+  PopOut
 };
 export default Components;

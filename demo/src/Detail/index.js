@@ -69,7 +69,55 @@ class Detail extends Component {
           onChange={ value => {return false}}
           content = {'xxxxx'}
         >
-          ComponentItem
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
+          ComponentItem<br/>
         </ComponentItem>
       );
     }

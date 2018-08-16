@@ -8,6 +8,7 @@ const Wrap = styled.div`
   & > div {
     width: 100%;
     height: 100%;
+    max-height: ${p => (p.height !== undefined ? p.height + "px" : "300px")};
     overflow: scroll;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
@@ -16,8 +17,7 @@ const Wrap = styled.div`
     }
   }
 `;
-const Content = styled.div`
-`;
+const Content = styled.div``;
 const SliderBar = styled.aside`
   position: absolute;
   top: 0;
@@ -50,7 +50,7 @@ class ScrollBox extends PureComponent {
     this.addScrollLisenter();
   }
   render() {
-    const { className, defaultStyles, children } = this.props;
+    const { className, defaultStyles, children, height } = this.props;
     return (
       <Wrap
         innerRef={el => {
@@ -58,6 +58,7 @@ class ScrollBox extends PureComponent {
         }}
         defaultStyles={defaultStyles}
         className={className}
+        height={height}
       >
         <div>
           <Content innerRef={el => (this.contentNode = el)}>{children}</Content>
@@ -132,5 +133,6 @@ ScrollBox.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
   visible: PropTypes.bool,
+  height: PropTypes.number
 };
 export default ScrollBox;
