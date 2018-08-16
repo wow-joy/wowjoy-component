@@ -1,3 +1,24 @@
+## 2.3.0 (2018/8/16)
+
+### bug fix
+
+- 修复Pop组件初始化动画失效
+
+### feature
+
+- 新增ScrollBox 滚动条组件
+- 新增SlideDown 平滑下拉组件
+- 新增PopOut 弹出菜单组件
+- 新增ControllSwitchHoc 高阶函数，根据输入选择返回受控或非受控组件
+- 迁移Pop组件到ControllSwitchHoc管理
+
+### docs
+
+- 更新pop组件的文档
+- 新增ScrollBox组件的文档
+- 新增SlideDown组件的文档
+- 新增PopOut组件的文档
+
 ## 2.2.2 (2018/8/16)
 
 ### bug fix
