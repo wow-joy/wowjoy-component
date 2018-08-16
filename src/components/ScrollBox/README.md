@@ -8,9 +8,9 @@ ScrollBox 组件
 
 ```
 import React from 'react'
-import ScrollBox from 'wowjoy-component'
+import { ScrollBox } from 'wowjoy-component'
 
-const Foo = () => <ScrollBox></ScrollBox>
+const Foo = () => <ScrollBox>这里是要滚动的内容</ScrollBox>
 ```
 
 ## APIs

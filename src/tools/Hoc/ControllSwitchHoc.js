@@ -12,23 +12,21 @@ const ControllSwitchHoc = translate => OldComponent => {
       value: undefined
     };
     render() {
-      const defaultValue = this.props[translate.defaultValue||'defaultValue']
+      const value = this.props[translate.value || "value"];
+      const onChange = this.props[translate.onChange || "onChange"];
+      const defaultValue = this.props[translate.defaultValue || "defaultValue"];
       const componentType = this.checkProps();
-      console.log(componentType)
-      if ((componentType === "controlled")) {
-        return <OldComponent {...this.props} />;
+      if (componentType === "controlled") {
+        return (
+          <OldComponent {...this.props} value={value} onChange={onChange} />
+        );
       }
-      if ((componentType === "uncontrolled")) {
-        console.log(    this.state.value === undefined
-          ? defaultValue
-          : this.state.value)
+      if (componentType === "uncontrolled") {
         return (
           <OldComponent
             {...this.props}
             value={
-              this.state.value === undefined
-                ? defaultValue
-                : this.state.value
+              this.state.value === undefined ? defaultValue : this.state.value
             }
             onChange={this.onChange}
           />
@@ -36,7 +34,7 @@ const ControllSwitchHoc = translate => OldComponent => {
       }
     }
     onChange = (...args) => {
-      const onChange = this.props[translate.onChange||'onChange']
+      const onChange = this.props[translate.onChange || "onChange"];
 
       const propsOnChangeResult = onChange && onChange(...args);
       if (propsOnChangeResult === false) {
@@ -52,12 +50,14 @@ const ControllSwitchHoc = translate => OldComponent => {
       });
     };
     checkProps = () => {
-      const value = this.props[translate.value||'value']
-      const defaultValue = this.props[translate.defaultValue||'defaultValue']
+      const value = this.props[translate.value || "value"];
+      const defaultValue = this.props[translate.defaultValue || "defaultValue"];
+      console.log(value, defaultValue)
       if (value !== undefined && defaultValue !== undefined) {
-        console.warn(
+        console.error(
           OldComponent.name +
             " must be either controlled or uncontrolled (specify either the value prop, or the defaultValue prop, but not both). Decide between using a controlled or uncontrolled input element and remove one of these props. More info: https://fb.me/react-controlled-components"
+            + `\n请不要在 <${OldComponent.name}> 组件内同时声明\`defaultValue\`和\`value\``
         );
         return false;
       }

@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { createPortal } from "react-dom";
 import styled, { keyframes } from "styled-components";
 import { pubSub } from "../../tools";
+import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -44,7 +46,10 @@ const PopBox = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: ${p => `${p.translate || "translate(-50%, -50%)"} ${p.visible ? "scale(1)" : "scale(0)"}`};
+  transform: ${p =>
+    `${p.translate || "translate(-50%, -50%)"} ${
+      p.visible ? "scale(1)" : "scale(0)"
+    }`};
   z-index: 1001;
   transition: 0.3s;
   pointer-events: all;
@@ -58,57 +63,55 @@ const PopBox = styled.div`
 
 let mousePositionEventBinded;
 class Pop extends PureComponent {
-  constructor(props) {
-    super();
-    this.state = {
-      visible: props.visible
-    };
-  }
   animationendCallbacks = new pubSub(); // 动画回调 @returns {add, remove, clear, publish}
   mousePosition = { x: 0, y: 0 };
   componentWillReceiveProps(nextProps) {
-    if (nextProps.visible !== this.props.visible) {
-      if (nextProps.visible) {
+    if (nextProps.value !== this.props.value) {
+      if (nextProps.value) {
         this.layerRef.style.display = "block";
 
         this.animationendCallbacks.clear();
       }
-
-      // TODO: async event makes 2th render
-      setTimeout(() => {
-        this.setState({ visible: nextProps.visible });
-      });
     }
   }
-
+  setMousePosition = e => {
+    if (this.props.value) {
+      return;
+    }
+    this.mousePosition = {
+      x: e.pageX,
+      y: e.pageY
+    };
+  };
   componentDidMount() {
     if (mousePositionEventBinded) {
       return;
     }
+    if (this.props.value) {
+      this.layerRef.style.display = "block";
+    }
     // 只有点击事件支持从鼠标位置动画展开
-    window.addEventListener("click", e => {
-      if (!this.state.visible) {
-        this.mousePosition = {
-          x: e.pageX,
-          y: e.pageY
-        };
-      }
-    });
+    window.addEventListener("click", this.setMousePosition);
     mousePositionEventBinded = true;
   }
+  componentWillUnmount() {
+    window.removeEventListener("click", this.setMousePosition);
+  }
+
   animationEndHandle = () => {
     this.animationendCallbacks.publish();
   };
   closeHandle = e => {
-    const { onClose } = this.props;
+    const { onClose, onChange } = this.props;
     if (onClose && onClose(e) === false) {
       return;
     }
+    onChange && onChange(false);
+
     this.animationendCallbacks.add(() => {
       this.layerRef.style.display = "none";
       this.layerRef.classList.remove("fadeOut");
     });
-    this.setState({ visible: false });
   };
   layerClick = e => {
     e.stopPropagation();
@@ -124,22 +127,27 @@ class Pop extends PureComponent {
       layer = true,
       children,
       autoClose = false,
-      translate
+      translate,
+      value
     } = this.props;
-    if (this.state.visible && autoClose) {
+    if (value && autoClose) {
       setTimeout(this.closeHandle, autoClose);
     }
     return createPortal(
       <Layer
         onAnimationEnd={this.animationEndHandle}
         innerRef={el => (this.layerRef = el)}
-        visible={this.state.visible}
+        visible={value}
         defaultStyles={defaultStyles}
-        className={`${className} ${this.state.visible ? "fadeIn" : "fadeOut"}`}
+        className={`${className} ${value ? "fadeIn" : "fadeOut"}`}
         layer={layer}
         onClick={this.layerClick}
       >
-        <PopBox visible={this.state.visible} mousePosition={this.mousePosition} translate={translate}>
+        <PopBox
+          visible={value}
+          mousePosition={this.mousePosition}
+          translate={translate}
+        >
           {children}
         </PopBox>
       </Layer>,
@@ -153,9 +161,9 @@ Pop.propTypes = {
   defaultStyles: PropTypes.string,
   translate: PropTypes.string,
   container: PropTypes.object,
-  visible: PropTypes.bool,
+  value: PropTypes.bool,
   layer: PropTypes.bool,
   onClose: PropTypes.func,
   autoClose: PropTypes.oneOfType([PropTypes.number, PropTypes.bool])
 };
-export default Pop;
+export default ControllSwitchHoc({ value: "visible" })(Pop);

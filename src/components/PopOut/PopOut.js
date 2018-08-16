@@ -7,6 +7,7 @@ import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 
 const Wrap = styled.div`
   position: relative;
+  ${p => p.defaultStyles};
 `;
 const Content = styled.div`
   background: #eaeaea;
@@ -44,47 +45,45 @@ const PopContent = styled(Pop)`
 `;
 class PopOut extends PureComponent {
   state = {
-    isActive: undefined,
-    inited: false,
-    container: undefined
+    inited: false
   };
   componentDidMount() {
-    this.setState({
-      container: this.popControl
-    });
-    // window.onClick = e=>{
-    //   e.target.
-    // }
-    window.addEventListener("click", this.close);
+    window.addEventListener("click", this.onBlur);
   }
-  wrap;
+  componentWillUnmount() {
+    window.removeEventListener("click", this.onBlur);
+  }
+  wrapNode;
   popControl;
   render() {
-    const { content, children } = this.props;
+    const { className, defaultStyles, content, children, value } = this.props;
     return (
       <Wrap
-        className={this.state.isActive ? "active" : null}
+        className={`${className} ${value ? "active" : null}`}
+        defaultStyles={defaultStyles}
         innerRef={el => {
-          this.wrap = el;
+          this.wrapNode = el;
         }}
       >
         <Content onClick={this.handleClick}>
           {content}
-          {children && (
+          {true && (
             <PopControl
-              isActive={this.state.isActive}
+              isActive={value}
               innerRef={el => {
                 this.popControl = el;
               }}
             >
-              <PopContent
-                visible={this.state.isActive}
-                container={this.state.container}
-                layer={false}
-                translate={"translate(0,0)"}
-              >
-                <ScrollBox visible={this.state.isActive}>{children}</ScrollBox>
-              </PopContent>
+              {this.popControl && (
+                <PopContent
+                  visible={value}
+                  container={this.popControl}
+                  layer={false}
+                  translate={"translate(0,0)"}
+                >
+                  <ScrollBox visible={value}>{children}</ScrollBox>
+                </PopContent>
+              )}
             </PopControl>
           )}
         </Content>
@@ -96,22 +95,31 @@ class PopOut extends PureComponent {
     if (!this.props.children) {
       return false;
     }
-    const nextState = !this.state.isActive;
-    const propsOnChange = this.props.onChange;
-
-    propsOnChange && propsOnChange(nextState);
-    this.setState({
-      isActive: nextState
-    });
+    const { onChange, value } = this.props;
+    const nextValue = !value;
+    onChange && onChange(nextValue);
   };
-  close = e => {
-    if (this.wrap.contains(e.target) || this.state.isActive === undefined) {
-      return;
+
+  onBlur = e => {
+    const { onBlur, value, onChange } = this.props;
+    if (value && !this.wrapNode.contains(e.target)) {
+      if (onBlur && onBlur(e) === false) {
+        return;
+      }
+      onChange && onChange(false);
     }
-    this.setState({
-      isActive: false
-    });
   };
 }
 
-export default PopOut;
+PopOut.propTypes = {
+  className: PropTypes.string,
+  defaultStyles: PropTypes.string,
+  content: PropTypes.node,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
+  value: PropTypes.bool
+};
+export default ControllSwitchHoc({
+  value: "isActive",
+  defaultValue: "defaultIsActive"
+})(PopOut);

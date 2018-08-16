@@ -3,7 +3,9 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 
-const Wrap = styled.div``;
+const Wrap = styled.div`
+  ${p=>p.defaultStyles}
+`;
 const Content = styled.div`
   cursor: pointer;
 `;
@@ -19,10 +21,10 @@ class SlideDown extends PureComponent {
   subHeight;
 
   wrapNode;
-  blur = e => {
-    if (!this.wrapNode.contains(e.target)) {
-      const { onBlur } = this.props;
-      if (onBlur && onBlur() === false) {
+  onBlur = e => {
+    const { onBlur, value } = this.props;
+    if (value && !this.wrapNode.contains(e.target)) {
+      if (onBlur && onBlur(e) === false) {
         return;
       }
       this.slideUp(this.subNode);
@@ -36,18 +38,19 @@ class SlideDown extends PureComponent {
     if (this.props.value) {
       this.subNode.style.display = "block";
     }
-    window.addEventListener("click", this.blur);
+    window.addEventListener("click", this.onBlur);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("click", this.blur);
+    window.removeEventListener("click", this.onBlur);
   }
 
   render() {
-    const { content, children, value } = this.props;
+    const {defaultStyles,className, content, children, value } = this.props;
     return (
       <Wrap
-        className={value ? "active" : null}
+        className={`${className} ${value ? "active" : null}`}
+        defaultStyles={defaultStyles}
         innerRef={el => (this.wrapNode = el)}
       >
         <Content onClick={this.handleClick}>{content}</Content>

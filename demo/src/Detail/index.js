@@ -5,7 +5,7 @@ const X = props => <div>{props.value}</div>;
 const PROPS = {
   defaultValue: ["x1"],
   type: "checkbox",
-  value:["x1", "x2"],
+  // value:["x1", "x2"],
   onChange: value => console.log(value),
   inputRender: props => (
     <div>
@@ -63,10 +63,10 @@ class Detail extends Component {
     if (ComponentItem) {
       return (
         <ComponentItem {...PROPS} visible={this.state.visible}
-          container ={ this.state.container}
-          // value={this.state.value||["x1", "x2"]}
+          container ={this.state.container}
+          value={true}
           defaultIsActive={true}
-          onChange={ value => {return false}}
+          // onChange={ value => {return false}}
           content = {'xxxxx'}
         >
           ComponentItem<br/>

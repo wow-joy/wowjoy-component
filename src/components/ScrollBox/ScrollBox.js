@@ -21,7 +21,7 @@ const Content = styled.div``;
 const SliderBar = styled.aside`
   position: absolute;
   top: 0;
-  right: 5px;
+  right: 0;
   bottom: 0;
   width: 6px;
   overflow: hidden;

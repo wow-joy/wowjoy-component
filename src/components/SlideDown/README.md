@@ -8,9 +8,9 @@ SlideDown 组件
 
 ```
 import React from 'react'
-import SlideDown from 'wowjoy-component'
+import { SlideDown } from 'wowjoy-component'
 
-const Foo = () => <SlideDown></SlideDown>
+const Foo = () => <SlideDown content={<span>点击这里进行控制</span>}>  这里是展示内容 </SlideDown>
 ```
 
 ## APIs
