@@ -1,38 +1,60 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 
 const Wrap = styled.div``;
-const Content = styled.div``;
+const Content = styled.div`
+  cursor: pointer;
+`;
 const SubContent = styled.div`
   display: none;
   transition: 0.4s;
-  ${p => p.isActive && `display: block`};
 `;
 class SlideDown extends PureComponent {
   state = {
-    isActive: false,
     inited: false
   };
   subNode;
   subHeight;
+
+  wrapNode;
+  blur = e => {
+    if (!this.wrapNode.contains(e.target)) {
+      const { onBlur } = this.props;
+      if (onBlur && onBlur() === false) {
+        return;
+      }
+      this.slideUp(this.subNode);
+    }
+  };
   componentDidMount() {
     this.subHeight = this.subNode.scrollHeight;
     this.setState({
       inited: true
     });
+    if (this.props.value) {
+      this.subNode.style.display = "block";
+    }
+    window.addEventListener("click", this.blur);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("click", this.blur);
   }
 
   render() {
-    const { content, children } = this.props;
+    const { content, children, value } = this.props;
     return (
-      <Wrap className={this.state.isActive ? "active" : null}>
+      <Wrap
+        className={value ? "active" : null}
+        innerRef={el => (this.wrapNode = el)}
+      >
         <Content onClick={this.handleClick}>{content}</Content>
         <SubContent
           innerRef={el => {
             this.subNode = el;
           }}
-          isActive={this.state.isActive}
           inited={this.state.inited}
           onTransitionEnd={this.transitionEndHandle}
         >
@@ -50,6 +72,11 @@ class SlideDown extends PureComponent {
     }
   };
   slideDown = targetNode => {
+    const propsOnChange = this.props.onChange;
+    if (propsOnChange && propsOnChange(true) === false) {
+      return;
+    }
+
     targetNode.style.display = "block";
     targetNode.style.overflow = "hidden";
     targetNode.style.height = 0;
@@ -57,9 +84,12 @@ class SlideDown extends PureComponent {
     targetNode.style.height = targetNode.scrollHeight + "px";
   };
   slideUp = targetNode => {
+    const propsOnChange = this.props.onChange;
+    if (propsOnChange && propsOnChange(false) === false) {
+      return;
+    }
     targetNode.style.height = targetNode.clientHeight + "px";
     targetNode.style.overflow = "hidden";
-
     setTimeout(() => {
       targetNode.style.height = 0;
     });
@@ -69,25 +99,24 @@ class SlideDown extends PureComponent {
       return false;
     }
 
-    const nextState = !this.state.isActive;
-    const propsOnChange = this.props.onChange;
+    const nextValue = !this.props.value;
 
-    if (nextState) {
+    if (nextValue) {
       this.slideDown(this.subNode);
     } else {
       this.slideUp(this.subNode);
     }
-    propsOnChange && propsOnChange(nextState);
-    this.setState({
-      isActive: nextState
-    });
   };
 }
 SlideDown.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
   content: PropTypes.node,
-  onChange: PropTypes.node,
-  value: PropTypes.bool,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
+  value: PropTypes.bool
 };
-export default SlideDown;
+export default ControllSwitchHoc({
+  value: "isActive",
+  defaultValue: "defaultIsActive"
+})(SlideDown);

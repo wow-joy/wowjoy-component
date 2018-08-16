@@ -1,27 +1,33 @@
 import React, { PureComponent } from "react";
 /**
  * @description 非受控组件与受控组件的工厂函数
+ * @param translate 转译对象 @example {value: 'state', onChange: 'onChangeState' , defaultValue: 'defaultState' }
  * @param OldComponent 原始组件
  * @returns 新组件
  *
  */
-const ControllSwitchHoc = OldComponent => {
+const ControllSwitchHoc = translate => OldComponent => {
   return class extends PureComponent {
     state = {
       value: undefined
     };
     render() {
-      componentType = this.checkProps();
-      if ((componentType = "controlled")) {
+      const defaultValue = this.props[translate.defaultValue||'defaultValue']
+      const componentType = this.checkProps();
+      console.log(componentType)
+      if ((componentType === "controlled")) {
         return <OldComponent {...this.props} />;
       }
-      if ((componentType = "uncontrolled")) {
+      if ((componentType === "uncontrolled")) {
+        console.log(    this.state.value === undefined
+          ? defaultValue
+          : this.state.value)
         return (
           <OldComponent
             {...this.props}
             value={
               this.state.value === undefined
-                ? this.props.defaultValue
+                ? defaultValue
                 : this.state.value
             }
             onChange={this.onChange}
@@ -30,10 +36,11 @@ const ControllSwitchHoc = OldComponent => {
       }
     }
     onChange = (...args) => {
-      const { onChange } = this.props;
+      const onChange = this.props[translate.onChange||'onChange']
+
       const propsOnChangeResult = onChange && onChange(...args);
       if (propsOnChangeResult === false) {
-        return;
+        return false;
       }
       const isDomNode = args[0].target && args[0].target.nodeType === 1;
       let value = args[0];
@@ -45,7 +52,8 @@ const ControllSwitchHoc = OldComponent => {
       });
     };
     checkProps = () => {
-      const { value, defaultValue } = this.props;
+      const value = this.props[translate.value||'value']
+      const defaultValue = this.props[translate.defaultValue||'defaultValue']
       if (value !== undefined && defaultValue !== undefined) {
         console.warn(
           OldComponent.name +

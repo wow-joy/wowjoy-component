@@ -13,7 +13,7 @@ const PROPS = {
         props.value.map((ele, index) => <span key={index}>{ele.label}</span>)}
     </div>
   ),
-  onBlur: () => false,
+  // onBlur: () => false,
   options: [
     {
       label: <span>x1</span>,
@@ -46,7 +46,6 @@ class Detail extends Component {
   state = { visible: false };
   componentDidMount() {
     window.onclick = () => {
-      console.log(this);
       this.setState({ visible: true });
     };
     this.setState({
@@ -65,8 +64,10 @@ class Detail extends Component {
       return (
         <ComponentItem {...PROPS} visible={this.state.visible}
           container ={ this.state.container}
-          value={this.state.value||["x1", "x2"]}
-          onChange={ value => this.setState({value: value})}
+          // value={this.state.value||["x1", "x2"]}
+          defaultIsActive={true}
+          onChange={ value => {return false}}
+          content = {'xxxxx'}
         >
           ComponentItem
         </ComponentItem>

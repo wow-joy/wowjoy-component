@@ -24,6 +24,7 @@ import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs";
 import Pop from "./components/Pop";
 import Table from "./components/Table";
 import Select from "./components/Select";
+import SlideDown from "./components/SlideDown";
 
 const Components = {
   Btn,
@@ -56,6 +57,7 @@ const Components = {
 
   Table,
   Select,
+  SlideDown,
 };
 export {
   Btn,
@@ -82,5 +84,6 @@ export {
   Pop,
   Table,
   Select,
+  SlideDown,
 };
 export default Components;
