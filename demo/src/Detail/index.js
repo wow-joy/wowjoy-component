@@ -38,16 +38,20 @@ const PROPS = {
       label: "x5",
       value: "x5"
     }
-  ]
+  ],
+  
 };
 
 class Detail extends Component {
-  state = { visible: true };
+  state = { visible: false };
   componentDidMount() {
-    // window.onclick = () => {
-    //   console.log(this);
-    //   this.setState({ visible: true });
-    // };
+    window.onclick = () => {
+      console.log(this);
+      this.setState({ visible: true });
+    };
+    this.setState({
+      container: document.getElementsByTagName('article')[0]
+    })
   }
   render() {
     const { match } = this.props;
@@ -60,9 +64,9 @@ class Detail extends Component {
     if (ComponentItem) {
       return (
         <ComponentItem {...PROPS} visible={this.state.visible}
-          
-  value={this.state.value||["x1", "x2"]}
-  onChange={ value => this.setState({value: value})}
+          container ={ this.state.container}
+          value={this.state.value||["x1", "x2"]}
+          onChange={ value => this.setState({value: value})}
         >
           ComponentItem
         </ComponentItem>

@@ -47,6 +47,7 @@ const PopBox = styled.div`
   transform: ${p => `${p.translate || "translate(-50%, -50%)"} ${p.visible ? "scale(1)" : "scale(0)"}`};
   z-index: 1001;
   transition: 0.3s;
+  pointer-events: all;
   transform-origin: ${props =>
     `${
       props.mousePosition.x ? props.mousePosition.x - window.innerWidth / 2 : 0
@@ -128,7 +129,6 @@ class Pop extends PureComponent {
     if (this.state.visible && autoClose) {
       setTimeout(this.closeHandle, autoClose);
     }
-
     return createPortal(
       <Layer
         onAnimationEnd={this.animationEndHandle}
@@ -152,7 +152,7 @@ Pop.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
   translate: PropTypes.string,
-  container: PropTypes.node,
+  container: PropTypes.object,
   visible: PropTypes.bool,
   layer: PropTypes.bool,
   onClose: PropTypes.func,
