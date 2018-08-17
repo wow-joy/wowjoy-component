@@ -65,6 +65,7 @@ let mousePositionEventBinded;
 class Pop extends PureComponent {
   animationendCallbacks = new pubSub(); // 动画回调 @returns {add, remove, clear, publish}
   mousePosition = { x: 0, y: 0 };
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
       if (nextProps.value) {
@@ -133,7 +134,8 @@ class Pop extends PureComponent {
     if (value && autoClose) {
       setTimeout(this.closeHandle, autoClose);
     }
-    return createPortal(
+
+    const Render = (
       <Layer
         onAnimationEnd={this.animationEndHandle}
         innerRef={el => (this.layerRef = el)}
@@ -150,9 +152,12 @@ class Pop extends PureComponent {
         >
           {children}
         </PopBox>
-      </Layer>,
-      container
+      </Layer>
     );
+    if (container === false) {
+      return Render;
+    }
+    return createPortal(Render, container);
   }
 }
 

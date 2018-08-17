@@ -52,7 +52,6 @@ const ControllSwitchHoc = translate => OldComponent => {
     checkProps = () => {
       const value = this.props[translate.value || "value"];
       const defaultValue = this.props[translate.defaultValue || "defaultValue"];
-      console.log(value, defaultValue)
       if (value !== undefined && defaultValue !== undefined) {
         console.error(
           OldComponent.name +

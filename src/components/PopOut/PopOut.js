@@ -67,23 +67,21 @@ class PopOut extends PureComponent {
       >
         <Content onClick={this.handleClick}>
           {content}
-          {true && (
+          {children && (
             <PopControl
               isActive={value}
               innerRef={el => {
                 this.popControl = el;
               }}
             >
-              {this.popControl && (
                 <PopContent
                   visible={value}
-                  container={this.popControl}
+                  container={false}
                   layer={false}
                   translate={"translate(0,0)"}
                 >
                   <ScrollBox visible={value}>{children}</ScrollBox>
                 </PopContent>
-              )}
             </PopControl>
           )}
         </Content>
