@@ -165,7 +165,7 @@ Pop.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
   translate: PropTypes.string,
-  container: PropTypes.object,
+  container: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   value: PropTypes.bool,
   layer: PropTypes.bool,
   onClose: PropTypes.func,

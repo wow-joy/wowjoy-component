@@ -25,3 +25,9 @@ const Foo = () => <PopOut  content={<span>点击这里进行控制</span>}>  这
 | onBlur          | 失去焦点事件          |  func  |        |
 | isActive        | 是否展开， 受控       |  bool  |        |
 | defaultIsActive | 是否默认展开， 非受控 |  bool  |        |
+
+## classApi
+
+| class                 | 描述           |
+| --------------------- | :------------- |
+| popOut-content\_\_pop | 弹出内容 class |

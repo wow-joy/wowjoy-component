@@ -14,7 +14,8 @@ const Content = styled.div`
   display: flex;
   align-items: center;
 `;
-const PopControl = styled.div`
+const PopControl = styled.i`
+  display: block;
   position: relative;
   margin-left: 8px;
   cursor: pointer;
@@ -74,14 +75,15 @@ class PopOut extends PureComponent {
                 this.popControl = el;
               }}
             >
-                <PopContent
-                  visible={value}
-                  container={false}
-                  layer={false}
-                  translate={"translate(0,0)"}
-                >
-                  <ScrollBox visible={value}>{children}</ScrollBox>
-                </PopContent>
+              <PopContent
+                className={"popOut-content__pop"}
+                visible={value}
+                container={false}
+                layer={false}
+                translate={"translate(0,0)"}
+              >
+                <ScrollBox visible={value}>{children}</ScrollBox>
+              </PopContent>
             </PopControl>
           )}
         </Content>

@@ -38,7 +38,9 @@ class SlideDown extends PureComponent {
     if (this.props.value) {
       this.subNode.style.display = "block";
     }
-    window.addEventListener("click", this.onBlur);
+    setTimeout(()=>{
+      window.addEventListener("click", this.onBlur);
+    })
   }
 
   componentWillUnmount() {
@@ -47,6 +49,7 @@ class SlideDown extends PureComponent {
 
   render() {
     const {defaultStyles,className, content, children, value } = this.props;
+
     return (
       <Wrap
         className={`${className} ${value ? "active" : null}`}
