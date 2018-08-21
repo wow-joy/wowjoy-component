@@ -1,6 +1,6 @@
 {
   "name": "wowjoy-component",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "wowjoy-component React component",
   "main": "lib/index.js",
   "module": "es/index.js",
