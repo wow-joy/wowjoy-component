@@ -1,7 +1,7 @@
 import createForm from "./forms";
 import Hoc from "./Hoc";
 import pop from "./pop";
-import ControllSwitchHoc from "./ControllSwitchHoc";
+import ControllSwitchHoc from "./Hoc/ControllSwitchHoc";
 import pubSub from "./pubSub";
 
 export { createForm, Hoc,ControllSwitchHoc, pop, pubSub };
