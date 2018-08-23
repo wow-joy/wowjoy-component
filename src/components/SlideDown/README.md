@@ -25,3 +25,10 @@ const Foo = () => <SlideDown content={<span>点击这里进行控制</span>}>  �
 | onBlur          | 失去焦点事件          |  func  |        |
 | isActive        | 是否展开， 受控       |  bool  |        |
 | defaultIsActive | 是否默认展开， 非受控 |  bool  |        |
+
+## classApi
+
+| class                     | 描述           |
+| ------------------------- | :------------- |
+| wjc-slideDown-content        | 显示内容 class |
+| wjc-slieDown-subContent | 弹出内容 class |

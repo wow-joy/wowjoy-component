@@ -49,8 +49,8 @@ class Demo extends Component {
             wowjoy-component Demo Home
           </Title>
         }
-        asideLeft={false}
-        asideRight={false}
+        asideLeft={1}
+        asideRight={2}
         main={<Routers />}
       />
     );

@@ -67,7 +67,7 @@ class Detail extends Component {
           value={true}
           defaultIsActive={true}
           // onChange={ value => {return false}}
-          content = {'xxxxx'}
+          content = {['xxxxx','xxxxx1',<span>2</span>]}
         >
           ComponentItem<br/>
           ComponentItem<br/>

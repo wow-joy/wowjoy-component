@@ -10,12 +10,12 @@ const Wrap = styled.div`
   ${p => p.defaultStyles};
 `;
 const Content = styled.div`
-  background: #eaeaea;
   display: flex;
   align-items: center;
 `;
 const PopControl = styled.i`
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   margin-left: 8px;
   cursor: pointer;
@@ -46,10 +46,14 @@ const PopContent = styled(Pop)`
 `;
 class PopOut extends PureComponent {
   state = {
-    inited: false
+    marginLeft: "0"
   };
   componentDidMount() {
     window.addEventListener("click", this.onBlur);
+    this.setState({
+      marginLeft: `${this.popControl.offsetLeft -
+        this.popControl.parentNode.clientWidth}px`
+    });
   }
   componentWillUnmount() {
     window.removeEventListener("click", this.onBlur);
@@ -66,7 +70,7 @@ class PopOut extends PureComponent {
           this.wrapNode = el;
         }}
       >
-        <Content onClick={this.handleClick}>
+        <Content onClick={this.handleClick} className={"wjc-popOut-content"}>
           {content}
           {children && (
             <PopControl
@@ -74,19 +78,19 @@ class PopOut extends PureComponent {
               innerRef={el => {
                 this.popControl = el;
               }}
-            >
-              <PopContent
-                className={"popOut-content__pop"}
-                visible={value}
-                container={false}
-                layer={false}
-                translate={"translate(0,0)"}
-              >
-                <ScrollBox visible={value}>{children}</ScrollBox>
-              </PopContent>
-            </PopControl>
+            />
           )}
         </Content>
+        <PopContent
+          className={"wjc-popOut-subContent"}
+          visible={value}
+          container={false}
+          layer={false}
+          translate={"translate(0,0)"}
+          defaultStyles={`margin-left: ${this.state.marginLeft}`}
+        >
+          <ScrollBox visible={value}>{children}</ScrollBox>
+        </PopContent>
       </Wrap>
     );
   }
@@ -95,6 +99,7 @@ class PopOut extends PureComponent {
     if (!this.props.children) {
       return false;
     }
+
     const { onChange, value } = this.props;
     const nextValue = !value;
     onChange && onChange(nextValue);

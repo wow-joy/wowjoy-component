@@ -4,14 +4,35 @@ import PropTypes from "prop-types";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 
 const Wrap = styled.div`
-  ${p=>p.defaultStyles}
+  ${p => p.defaultStyles};
 `;
 const Content = styled.div`
   cursor: pointer;
+  display: flex;
 `;
 const SubContent = styled.div`
   display: none;
   transition: 0.4s;
+`;
+const Control = styled.i`
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 8px;
+  cursor: pointer;
+  &::after {
+    content: "";
+    transition: 0.3s;
+    border-left: 6px solid currentColor;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    width: 0;
+    height: 0;
+    display: inline-block;
+    transform: rotateZ(0deg);
+    ${p => p.isActive && `transform: rotateZ(90deg);`};
+    vertical-align: middle;
+  }
 `;
 class SlideDown extends PureComponent {
   state = {
@@ -38,9 +59,9 @@ class SlideDown extends PureComponent {
     if (this.props.value) {
       this.subNode.style.display = "block";
     }
-    setTimeout(()=>{
+    setTimeout(() => {
       window.addEventListener("click", this.onBlur);
-    })
+    });
   }
 
   componentWillUnmount() {
@@ -48,7 +69,7 @@ class SlideDown extends PureComponent {
   }
 
   render() {
-    const {defaultStyles,className, content, children, value } = this.props;
+    const { defaultStyles, className, content, children, value } = this.props;
 
     return (
       <Wrap
@@ -56,8 +77,19 @@ class SlideDown extends PureComponent {
         defaultStyles={defaultStyles}
         innerRef={el => (this.wrapNode = el)}
       >
-        <Content onClick={this.handleClick}>{content}</Content>
+        <Content onClick={this.handleClick} className={"wjc-slieDown-content"}>
+          {content}
+          {children && (
+            <Control
+              isActive={value}
+              innerRef={el => {
+                this.popControl = el;
+              }}
+            />
+          )}
+        </Content>
         <SubContent
+          className={"wjc-slieDown-subContent"}
           innerRef={el => {
             this.subNode = el;
           }}
