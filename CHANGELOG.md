@@ -1,146 +1,154 @@
-## 2.3.8 (2018/8/23)
+## 2.3.9 (2018/8/27)
+
+### bug fix
+
+- PopOut 组件增加打开时获得子列表定位的功能
+
+## 2.3.8 (2018/8/27)
 
 ### bug fix
 
 - v2.3.7 publish fail
-## 2.3.7 (2018/8/23)
+
+## 2.3.7 (2018/8/27)
 
 ### bug fix
 
 - PopOut 空判断添加
+
 ## 2.3.6 (2018/8/23)
 
 ### bug fix
 
-- PopOut, SlideDown的错误按钮设计
+- PopOut, SlideDown 的错误按钮设计
 
 ## 2.3.5 (2018/8/21)
 
 ### bug fix
 
-- 修复ControllSwitchHoc路径错误
+- 修复 ControllSwitchHoc 路径错误
 
 ## 2.3.4 (2018/8/21)
 
 ### bug fix
 
-- 修复ControllSwitchHoc无法调用
+- 修复 ControllSwitchHoc 无法调用
 
 ## 2.3.3 (2018/8/20)
 
 ### bug fix
 
-- 修复SlideDown 路由跳转进入异常展示
+- 修复 SlideDown 路由跳转进入异常展示
 
 ## 2.3.1 (2018/8/17)
 
 ### bug fix
 
-- 修复PopOut组件初始化动画失效
-- 修复Pop组件初始化动画失效
-- 修复ControllSwitchHoc未导出
+- 修复 PopOut 组件初始化动画失效
+- 修复 Pop 组件初始化动画失效
+- 修复 ControllSwitchHoc 未导出
 
 ### docs
 
-- 更新Pop组件的文档
-
+- 更新 Pop 组件的文档
 
 ## 2.3.0 (2018/8/16)
 
 ### bug fix
 
-- 修复Pop组件初始化动画失效
+- 修复 Pop 组件初始化动画失效
 
 ### feature
 
-- 新增ScrollBox 滚动条组件
-- 新增SlideDown 平滑下拉组件
-- 新增PopOut 弹出菜单组件
-- 新增ControllSwitchHoc 高阶函数，根据输入选择返回受控或非受控组件
-- 迁移Pop组件到ControllSwitchHoc管理
+- 新增 ScrollBox 滚动条组件
+- 新增 SlideDown 平滑下拉组件
+- 新增 PopOut 弹出菜单组件
+- 新增 ControllSwitchHoc 高阶函数，根据输入选择返回受控或非受控组件
+- 迁移 Pop 组件到 ControllSwitchHoc 管理
 
 ### docs
 
-- 更新pop组件的文档
-- 新增ScrollBox组件的文档
-- 新增SlideDown组件的文档
-- 新增PopOut组件的文档
+- 更新 pop 组件的文档
+- 新增 ScrollBox 组件的文档
+- 新增 SlideDown 组件的文档
+- 新增 PopOut 组件的文档
 
 ## 2.2.2 (2018/8/16)
 
 ### bug fix
 
-- 修复pop组件设置`layer:flase`时引起得无法点击异常
+- 修复 pop 组件设置`layer:flase`时引起得无法点击异常
 
 ### docs
 
-- 更新pop组件的文档
+- 更新 pop 组件的文档
 
 ## 2.2.1 (2018/8/15)
 
 ### bug fix
 
-- 修复pop组件的遗留分号， 新增translate接口 方便定位元素
+- 修复 pop 组件的遗留分号， 新增 translate 接口 方便定位元素
 
 ### docs
 
-- 更新pop组件的文档
+- 更新 pop 组件的文档
+
 ## 2.2.0 (2018/8/6)
 
 ### feature
 
-- 新增Select组件
+- 新增 Select 组件
 
 ### docs
 
-- 新增Select组件的文档
+- 新增 Select 组件的文档
 
 ## 2.1.0 (2018/7/31)
 
 ### feature
 
-- 新增Table组件
+- 新增 Table 组件
 
 ### docs
 
-- 新增Table组件的文档
-
+- 新增 Table 组件的文档
 
 ## 2.0.1 (2018/7/9)
 
 ### bug fix
 
-- 修复Pop组件初始化时无法设置为显示
+- 修复 Pop 组件初始化时无法设置为显示
 
 # 2.0.0 (2018/7/9)
-<b>因为发生重大破坏性变更 提前升至2.x</b>
+
+<b>因为发生重大破坏性变更 提前升至 2.x</b>
+
 ## breaking changes
-- 删除sass-loader, 全面迁移至`styled-components`
-- 重构所有className API, 新增`defaultStyles`字段传递默认样式
-- 删除css-modules
-- 重构pop方法, 修改组件实现, 删除了动画的接口
-- Layout 组件重构, 简化API, 统一HOC实现
+
+- 删除 sass-loader, 全面迁移至`styled-components`
+- 重构所有 className API, 新增`defaultStyles`字段传递默认样式
+- 删除 css-modules
+- 重构 pop 方法, 修改组件实现, 删除了动画的接口
+- Layout 组件重构, 简化 API, 统一 HOC 实现
 
 ### bug fix
 
-- 重构Btn组件的`withRouter`Hoc, 仅当to属性有值时才会引用 (与pop方法冲突))
+- 重构 Btn 组件的`withRouter`Hoc, 仅当 to 属性有值时才会引用 (与 pop 方法冲突))
 
 ### feature
 
-- 新增Pop组件, 与轻提示的`pop`方法分离, 允许外部可控, 使用`createPortal`实现, 更符合react官方文档的实现
+- 新增 Pop 组件, 与轻提示的`pop`方法分离, 允许外部可控, 使用`createPortal`实现, 更符合 react 官方文档的实现
 
 ### docs
 
 - 修改了所有的文档
 
-
 ## 1.6.1 (2018/6/29)
 
 ### refactor
 
-- 更新svgr依赖到 `@svgr/webpack@^2.0.0`
+- 更新 svgr 依赖到 `@svgr/webpack@^2.0.0`
 
- 
 ## 1.6.0 (2018/6/29)
 
 ### feature
@@ -150,6 +158,7 @@
 ### docs
 
 - 新增 tabs 的说明文档
+
 ## 1.5.0 (2018/6/20)
 
 ### feature
