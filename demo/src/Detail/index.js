@@ -48,9 +48,9 @@ class Detail extends Component {
     window.onclick = () => {
       this.setState({ visible: true });
     };
-    this.setState({
-      container: document.getElementsByTagName('article')[0]
-    })
+    // this.setState({
+    //   container: document.getElementsByTagName('article')[0]
+    // })
   }
   render() {
     const { match } = this.props;
@@ -63,7 +63,6 @@ class Detail extends Component {
     if (ComponentItem) {
       return (
         <ComponentItem {...PROPS} visible={this.state.visible}
-          container ={this.state.container}
           value={true}
           defaultIsActive={true}
           // onChange={ value => {return false}}

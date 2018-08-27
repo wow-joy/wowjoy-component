@@ -50,10 +50,20 @@ class PopOut extends PureComponent {
   };
   componentDidMount() {
     window.addEventListener("click", this.onBlur);
-    this.popControl&&this.setState({
-      marginLeft: `${this.popControl.offsetLeft -
-        this.popControl.parentNode.clientWidth}px`
-    });
+    if (this.popControl && this.props.value) {
+      this.setState({
+        marginLeft: `${this.popControl.offsetLeft -
+          this.popControl.parentNode.clientWidth}px`
+      });
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    if (this.popControl && nextProps.value && !this.props.value) {
+      this.setState({
+        marginLeft: `${this.popControl.offsetLeft -
+          this.popControl.parentNode.clientWidth}px`
+      });
+    }
   }
   componentWillUnmount() {
     window.removeEventListener("click", this.onBlur);
