@@ -50,7 +50,7 @@ class PopOut extends PureComponent {
   };
   componentDidMount() {
     window.addEventListener("click", this.onBlur);
-    this.setState({
+    this.popControl&&this.setState({
       marginLeft: `${this.popControl.offsetLeft -
         this.popControl.parentNode.clientWidth}px`
     });
