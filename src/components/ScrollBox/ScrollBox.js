@@ -43,7 +43,7 @@ const ScrollBar = styled.aside`
   bottom: 0;
   width: 6px;
   overflow: hidden;
-  display: ${p => (p.visible ? 'block' : 'none')};
+  display: ${p => (p.visible ? "block" : "none")};
 `;
 const Slider = styled.span`
   display: ${p => (p.height - 0 === 0 ? "none" : " inline-block")};
@@ -69,8 +69,6 @@ class ScrollBox extends Component {
     this.addScrollLisenter();
   }
   render() {
-    console.log(this.contentNodeHeight, "this.contentNodeHeight");
-    console.log(this.state.sliderHeight, "this.state.sliderHeight");
     const {
       className,
       defaultStyles,
