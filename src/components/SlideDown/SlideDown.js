@@ -39,11 +39,12 @@ class SlideDown extends PureComponent {
     inited: false
   };
   subNode;
-  subHeight;
-
   wrapNode;
   onBlur = e => {
     const { onBlur, value } = this.props;
+    if (!this.subNode) {
+      return;
+    }
     if (value && !this.wrapNode.contains(e.target)) {
       if (onBlur && onBlur(e) === false) {
         return;
@@ -52,7 +53,6 @@ class SlideDown extends PureComponent {
     }
   };
   componentDidMount() {
-    this.subHeight = this.subNode.scrollHeight;
     this.setState({
       inited: true
     });
@@ -73,7 +73,7 @@ class SlideDown extends PureComponent {
 
     return (
       <Wrap
-        className={`${className} ${value ? "active" : null}`}
+        className={`${className} ${value ? "open" : ""}`}
         defaultStyles={defaultStyles}
         innerRef={el => (this.wrapNode = el)}
       >
@@ -88,26 +88,33 @@ class SlideDown extends PureComponent {
             />
           )}
         </Content>
-        <SubContent
-          className={"wjc-slieDown-subContent"}
-          innerRef={el => {
-            this.subNode = el;
-          }}
-          inited={this.state.inited}
-          onTransitionEnd={this.transitionEndHandle}
-        >
-          {children}
-        </SubContent>
+        {children && (
+          <SubContent
+            className={"wjc-slieDown-subContent"}
+            innerRef={el => {
+              this.subNode = el;
+            }}
+            inited={this.state.inited}
+            onTransitionEnd={this.transitionEndHandle}
+            onClick={this.onSubClick}
+          >
+            {children}
+          </SubContent>
+        )}
       </Wrap>
     );
   }
   transitionEndHandle = e => {
+    let isSlideDown = false
     if (e.target.style.height === "0px") {
       e.target.style = undefined;
     } else {
       e.target.style.overflow = "visible";
       e.target.style.height = "";
+      isSlideDown = true
     }
+    const { onTransitionEnd } = this.props;
+    onTransitionEnd && onTransitionEnd(isSlideDown);
   };
   slideDown = targetNode => {
     const propsOnChange = this.props.onChange;
@@ -133,7 +140,7 @@ class SlideDown extends PureComponent {
     });
   };
   handleClick = e => {
-    if (!this.props.children) {
+    if (!this.subNode) {
       return false;
     }
 
@@ -145,12 +152,20 @@ class SlideDown extends PureComponent {
       this.slideUp(this.subNode);
     }
   };
+  onSubClick = e => {
+    const { onSubClick } = this.props;
+    if (onSubClick && onSubClick(e) === false) {
+      return;
+    }
+  };
 }
 SlideDown.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
   content: PropTypes.node,
   onChange: PropTypes.func,
+  onSubClick: PropTypes.func,
+  onTransitionEnd: PropTypes.func,
   onBlur: PropTypes.func,
   value: PropTypes.bool
 };

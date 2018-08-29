@@ -1,3 +1,16 @@
+## 2.3.11 (2018/8/29)
+
+### feature
+
+- SlideDown组件增加动画结束事件
+- ScrollBox组件新增hover开关, 修改最大高度接口名称
+
+## 2.3.10 (2018/8/27)
+
+### feature
+
+- SlideDown, PopOut组件增加子菜单点击功能
+
 ## 2.3.9 (2018/8/27)
 
 ### bug fix

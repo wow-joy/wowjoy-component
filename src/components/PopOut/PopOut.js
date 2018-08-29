@@ -74,7 +74,7 @@ class PopOut extends PureComponent {
     const { className, defaultStyles, content, children, value } = this.props;
     return (
       <Wrap
-        className={`${className} ${value ? "active" : null}`}
+        className={`${className} ${value ? "open" : ""}`}
         defaultStyles={defaultStyles}
         innerRef={el => {
           this.wrapNode = el;
@@ -91,16 +91,20 @@ class PopOut extends PureComponent {
             />
           )}
         </Content>
-        <PopContent
-          className={"wjc-popOut-subContent"}
-          visible={value}
-          container={false}
-          layer={false}
-          translate={"translate(0,0)"}
-          defaultStyles={`margin-left: ${this.state.marginLeft}`}
-        >
-          <ScrollBox visible={value}>{children}</ScrollBox>
-        </PopContent>
+        {children && (
+          <PopContent
+            className={"wjc-popOut-subContent"}
+            visible={value}
+            container={false}
+            layer={false}
+            translate={"translate(0,0)"}
+            defaultStyles={`margin-left: ${this.state.marginLeft}`}
+          >
+            <ScrollBox visible={value}>
+              <span onClick={this.onSubClick}>{children}</span>
+            </ScrollBox>
+          </PopContent>
+        )}
       </Wrap>
     );
   }
@@ -114,9 +118,18 @@ class PopOut extends PureComponent {
     const nextValue = !value;
     onChange && onChange(nextValue);
   };
-
+  onSubClick = e => {
+    const { onSubClick, onChange } = this.props;
+    if (onSubClick && onSubClick(e) === false) {
+      return;
+    }
+    onChange && onChange(false);
+  };
   onBlur = e => {
     const { onBlur, value, onChange } = this.props;
+    if (!this.props.children) {
+      return false;
+    }
     if (value && !this.wrapNode.contains(e.target)) {
       if (onBlur && onBlur(e) === false) {
         return;
@@ -131,6 +144,7 @@ PopOut.propTypes = {
   defaultStyles: PropTypes.string,
   content: PropTypes.node,
   onChange: PropTypes.func,
+  onSubClick: PropTypes.func,
   onBlur: PropTypes.func,
   value: PropTypes.bool
 };

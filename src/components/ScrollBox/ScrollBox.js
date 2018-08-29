@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 const Wrap = styled.div`
@@ -8,7 +8,7 @@ const Wrap = styled.div`
   & > div {
     width: 100%;
     height: 100%;
-    max-height: ${p => (p.height !== undefined ? p.height + "px" : "300px")};
+    max-height: ${p => (p.maxHeight !== undefined ? p.maxHeight : "300px")};
     overflow: scroll;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
@@ -16,15 +16,34 @@ const Wrap = styled.div`
       display: none;
     }
   }
+  ${p =>
+    p.hoverControl &&
+    `
+      &>div>.wjc-scroll-bar{
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s;
+        background: rgba(222,222,222,0.3);
+        border-radius: 3px;
+        box-shadow: inset 0 0 3px rgba(150,150,150,0.1);
+      }
+      &:hover{
+        &>div>.wjc-scroll-bar{
+          opacity: 1;
+          pointer-event: all;
+        }
+      }
+    `} ${p => p.defaultStyles};
 `;
 const Content = styled.div``;
-const SliderBar = styled.aside`
+const ScrollBar = styled.aside`
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   width: 6px;
   overflow: hidden;
+  display: ${p => (p.visible ? 'block' : 'none')};
 `;
 const Slider = styled.span`
   display: ${p => (p.height - 0 === 0 ? "none" : " inline-block")};
@@ -34,7 +53,7 @@ const Slider = styled.span`
   height: ${p => p.height + "px"};
   cursor: pointer;
 `;
-class ScrollBox extends PureComponent {
+class ScrollBox extends Component {
   state = {
     sliderHeight: 0
   };
@@ -50,7 +69,15 @@ class ScrollBox extends PureComponent {
     this.addScrollLisenter();
   }
   render() {
-    const { className, defaultStyles, children, height } = this.props;
+    console.log(this.contentNodeHeight, "this.contentNodeHeight");
+    console.log(this.state.sliderHeight, "this.state.sliderHeight");
+    const {
+      className,
+      defaultStyles,
+      children,
+      maxHeight,
+      hoverControl = false
+    } = this.props;
     return (
       <Wrap
         innerRef={el => {
@@ -58,17 +85,21 @@ class ScrollBox extends PureComponent {
         }}
         defaultStyles={defaultStyles}
         className={className}
-        height={height}
+        maxHeight={maxHeight}
+        hoverControl={hoverControl}
       >
         <div>
           <Content innerRef={el => (this.contentNode = el)}>{children}</Content>
-          <SliderBar>
+          <ScrollBar
+            className={"wjc-scroll-bar"}
+            visible={(this.state.sliderHeight || 0 - 0) !== 0}
+          >
             <Slider
               innerRef={el => (this.slideNode = el)}
               height={this.state.sliderHeight || 0}
               onMouseDown={this.startSlide}
             />
-          </SliderBar>
+          </ScrollBar>
         </div>
       </Wrap>
     );
@@ -133,6 +164,7 @@ ScrollBox.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
   visible: PropTypes.bool,
-  height: PropTypes.number
+  hoverControl: PropTypes.bool,
+  maxHeight: PropTypes.string
 };
 export default ScrollBox;
