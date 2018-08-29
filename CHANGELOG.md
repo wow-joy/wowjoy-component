@@ -1,3 +1,9 @@
+## 2.3.12 (2018/8/29)
+
+### bug fix
+
+- clear console.log
+
 ## 2.3.11 (2018/8/29)
 
 ### feature
