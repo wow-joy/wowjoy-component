@@ -63,6 +63,17 @@ class SlideDown extends PureComponent {
       window.addEventListener("click", this.onBlur);
     });
   }
+  componentWillReceiveProps(nexrProps) {
+    const nextValue = nexrProps.value;
+    if (this.props.value === nextValue) {
+      return;
+    }
+    if (nextValue) {
+      this.slideDown(this.subNode);
+    } else {
+      this.slideUp(this.subNode);
+    }
+  }
 
   componentWillUnmount() {
     window.removeEventListener("click", this.onBlur);
@@ -105,13 +116,13 @@ class SlideDown extends PureComponent {
     );
   }
   transitionEndHandle = e => {
-    let isSlideDown = false
+    let isSlideDown = false;
     if (e.target.style.height === "0px") {
       e.target.style = undefined;
     } else {
       e.target.style.overflow = "visible";
       e.target.style.height = "";
-      isSlideDown = true
+      isSlideDown = true;
     }
     const { onTransitionEnd } = this.props;
     onTransitionEnd && onTransitionEnd(isSlideDown);
@@ -143,14 +154,17 @@ class SlideDown extends PureComponent {
     if (!this.subNode) {
       return false;
     }
-
-    const nextValue = !this.props.value;
-
-    if (nextValue) {
-      this.slideDown(this.subNode);
-    } else {
-      this.slideUp(this.subNode);
+    const { onChange } = this.props;
+    if (onChange && onChange(!this.props.value) === false) {
+      return;
     }
+    // const nextValue = !this.props.value;
+
+    // if (nextValue) {
+    //   this.slideDown(this.subNode);
+    // } else {
+    //   this.slideUp(this.subNode);
+    // }
   };
   onSubClick = e => {
     const { onSubClick } = this.props;

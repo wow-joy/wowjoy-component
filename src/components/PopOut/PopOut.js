@@ -113,7 +113,6 @@ class PopOut extends PureComponent {
     if (!this.props.children) {
       return false;
     }
-
     const { onChange, value } = this.props;
     const nextValue = !value;
     onChange && onChange(nextValue);
