@@ -41,15 +41,16 @@ class SlideDown extends PureComponent {
   subNode;
   wrapNode;
   onBlur = e => {
-    const { onBlur, value } = this.props;
+    const { onBlur, value, onChange } = this.props;
     if (!this.subNode) {
       return;
     }
+   
     if (value && !this.wrapNode.contains(e.target)) {
       if (onBlur && onBlur(e) === false) {
         return;
       }
-      this.slideUp(this.subNode);
+      onChange && onChange(false)
     }
   };
   componentDidMount() {

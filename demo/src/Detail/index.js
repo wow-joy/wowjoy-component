@@ -64,7 +64,7 @@ class Detail extends Component {
       return (
         <ComponentItem {...PROPS} visible={this.state.visible}
           value={true}
-          defaultIsActive={true}
+          isActive={true}
           // onChange={ value => {return false}}
           content = {['xxxxx','xxxxx1',<span>2</span>]}
         >

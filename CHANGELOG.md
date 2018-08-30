@@ -1,9 +1,15 @@
+## 2.3.14 (2018/8/30)
+
+### bug fix
+
+- 修复SlideDown组件的onblur事件不受value控制
 ## 2.3.13 (2018/8/30)
 
 ### bug fix
 
 - 修复SlideDown组件的value不完全控制bug
 
+## 2.3.12 (2018/8/29)
 ### bug fix
 
 - clear console.log

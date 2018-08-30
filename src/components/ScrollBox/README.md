@@ -20,7 +20,7 @@ const Foo = () => <ScrollBox>这里是要滚动的内容</ScrollBox>
 | className     | 顶层样式 class                                                                         | string |        |
 | defaultStyles | 顶层默认样式                                                                           | string |        |
 | children      | 内容                                                                                   |  node  |        |
-| maxHeight     | 最大高度 <br>                                                                          | number |  300   |
+| maxHeight     | 最大高度 <br>                                                                          | string |  '300px'   |
 | hoverControl  | 是否 hover 才显示滚动条                                                                |  bool  | false  |
 | visible       | 是否可见，因为需要获取内容高度，当父组件改变 `display:'none' | other`时， 请传递该参数 |  bool  |        |
 
