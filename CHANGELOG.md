@@ -1,3 +1,9 @@
+## 2.3.15 (2018/8/31)
+
+### bug fix
+
+- 修复SlideDown组件的.wjc-slieDown-content class拼写错误
+
 ## 2.3.14 (2018/8/30)
 
 ### bug fix

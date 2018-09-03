@@ -89,7 +89,7 @@ class SlideDown extends PureComponent {
         defaultStyles={defaultStyles}
         innerRef={el => (this.wrapNode = el)}
       >
-        <Content onClick={this.handleClick} className={"wjc-slieDown-content"}>
+        <Content onClick={this.handleClick} className={"wjc-slideDown-content"}>
           {content}
           {children && (
             <Control
