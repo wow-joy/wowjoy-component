@@ -1,21 +1,39 @@
+## 2.4.0 (2018/9/5)
+
+### feature
+
+- 新增 Pagination 组件
+- 优化 Select 组件的控制方式
+
+### bug fix
+
+- 修复 Layout 组件的异常 attrs
+
+### docs
+
+- 新增 Pagination 文档
+- 修复 Layout 文档
+
 ## 2.3.15 (2018/8/31)
 
 ### bug fix
 
-- 修复SlideDown组件的.wjc-slieDown-content class拼写错误
+- 修复 SlideDown 组件的.wjc-slieDown-content class 拼写错误
 
 ## 2.3.14 (2018/8/30)
 
 ### bug fix
 
-- 修复SlideDown组件的onblur事件不受value控制
+- 修复 SlideDown 组件的 onblur 事件不受 value 控制
+
 ## 2.3.13 (2018/8/30)
 
 ### bug fix
 
-- 修复SlideDown组件的value不完全控制bug
+- 修复 SlideDown 组件的 value 不完全控制 bug
 
 ## 2.3.12 (2018/8/29)
+
 ### bug fix
 
 - clear console.log
@@ -24,14 +42,14 @@
 
 ### feature
 
-- SlideDown组件增加动画结束事件
-- ScrollBox组件新增hover开关, 修改最大高度接口名称
+- SlideDown 组件增加动画结束事件
+- ScrollBox 组件新增 hover 开关, 修改最大高度接口名称
 
 ## 2.3.10 (2018/8/27)
 
 ### feature
 
-- SlideDown, PopOut组件增加子菜单点击功能
+- SlideDown, PopOut 组件增加子菜单点击功能
 
 ## 2.3.9 (2018/8/27)
 
