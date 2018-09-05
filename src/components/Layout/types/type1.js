@@ -4,7 +4,7 @@ const style = `
     position: fixed;
     top: 0;
   }
-  &>aside[position=left] {
+  &>.wj-aside__left {
     width: 230px;
     height: 100vh;
     background: #f4f5f6;

@@ -4,8 +4,10 @@ import Components from "@src";
 const X = props => <div>{props.value}</div>;
 const PROPS = {
   size: "32px",
-  total: 100,
-  pageSize: 10,
+  total: 1000,
+  pageSizeList: [10, 20, 30],
+  defaultPageSize: 10,
+  onChange: (...args)=>console.log(args)
 };
 
 class Detail extends Component {
@@ -27,12 +29,7 @@ class Detail extends Component {
     this.name = name;
     const ComponentItem = Components[name];
     if (ComponentItem) {
-      return (
-        <ComponentItem {...PROPS}  
-           
-        >
-        </ComponentItem>
-      );
+      return <ComponentItem {...PROPS} />;
     }
     return <div>ComponentItem not found</div>;
   }

@@ -2,6 +2,9 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import styled, { ThemeProvider } from "styled-components";
 import Select from "../Select";
+import { Type3 as Btn } from "../Btn";
+import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
+
 const Wrap = styled.div`
   display: flex;
   align-items: center;
@@ -16,18 +19,100 @@ const Wrap = styled.div`
 `;
 const PageItem = styled.span`
   display: inline-block;
-  width: ${p => p.theme.size};
+  padding: 0 8px;
+  min-width: ${p => p.theme.size};
   text-align: center;
+  cursor: pointer;
+  &.active {
+    color: #06aea6;
+  }
+  &.wj-fast-jump__prev,
+  &.wj-fast-jump__next {
+    position: relative;
+    &::before {
+      content: "···";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      font-size: 18px;
+      color: #999;
+    }
+  }
+  &.wj-fast-jump__prev:hover {
+    position: relative;
+    &::before {
+      content: "<<";
+      font-size: 12px;
+      color: #06aea6;
+      letter-spacing: -2px;
+      transform: scale(0.8,1.2)
+    }
+  }
+  &.wj-fast-jump__next:hover {
+    position: relative;
+    &::before {
+      content: ">>";
+      font-size: 12px;
+      color: #06aea6;
+      letter-spacing: -2px;
+      transform: scale(0.8,1.2)
+    }
+  }
 `;
 const Left = styled.div`
   width: ${p => p.theme.size};
   border: 1px solid #dbdbdb;
+  cursor: pointer;
+  position: relative;
+  &.disable {
+    cursor: not-allowed;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    margin: auto;
+    border-right: 4px solid #999;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+  }
 `;
 const Right = styled.div`
   width: ${p => p.theme.size};
   border: 1px solid #dbdbdb;
+  cursor: pointer;
+  position: relative;
+  &.disable {
+    cursor: not-allowed;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    margin: auto;
+    border-left: 4px solid #999;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+  }
 `;
-const Count = styled.div``;
+const Count = styled.div`
+  margin: 0 12px;
+`;
 const SelectPageSize = styled(Select)`
   display: inline-block;
   width: auto;
@@ -40,75 +125,155 @@ const SelectPageSize = styled(Select)`
   }
 `;
 const JumpTo = styled.div`
+  display: flex;
+  align-items: center;
   margin: 0 10px;
-  & > input {
+  & > input[type="number"] {
+    height: ${p => p.theme.size};
     background: transparent;
     width: ${p => p.theme.size};
     text-align: center;
     border: 1px solid #dbdbdb;
     margin: 0 7px;
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
   }
 `;
-const Submit = styled.div``;
+const Submit = styled(Btn)`
+  line-height: 32px;
+`;
 class Pagination extends PureComponent {
   state = {
-    currentPage: ""
+    currentPage: "",
+    jumpToValue: "",
+    pageSize: this.props.defaultPageSize
   };
-  SubmitText = "确定";
-  goto = page => e => {
-    // this.props.onChange(page);
-    console.log(page);
-  };
+
+  componentWillMount() {
+    if (!this.props.defaultPageSize) {
+      throw new Error("please set defaultPageSize, 请设置defaultPageSize");
+    }
+    if (!this.props.pageSizeList) {
+      throw new Error("please set pageSizeList, 请设置pageSizeList");
+    }
+  }
 
   render() {
     const {
       className,
       defaultStyles,
       children,
-      currentPage = 5,
-      fastJumpSize = 2,
-      size,
+      viewAble = [
+        "prevNext",
+        "pageList",
+        "total",
+        "pageSizeSelect",
+        "jumpTo",
+        "submit"
+      ],
+      staticStr = ["共", "条", "条/页", "跳至", "页", "确定"],
+      value = 1,
+      siblingViewSize = 2,
+      size = "32px",
       total,
-      pageSize
+      pageSizeList
     } = this.props;
+    const { pageSize } = this.state;
+    const currentPage = value;
     const pageLength = Math.ceil(total / pageSize);
-    const pageArr = this.getPageArr(pageLength, fastJumpSize, currentPage);
-    console.log(pageArr);
+    const pageArr = this.getPageArr(pageLength, siblingViewSize, currentPage);
     return (
       <ThemeProvider theme={{ size: size }}>
         <Wrap defaultStyles={defaultStyles} className={className}>
-          <Left onClick={this.goto(currentPage - 1)} />
-          {pageArr.map(ele => {
-            if (typeof ele == "number") {
+          {viewAble.includes("prevNext") && (
+            <Left
+              onClick={currentPage === 1 ? null : this.goto(currentPage - 1)}
+              className={currentPage === 1 ? "disable" : ""}
+            />
+          )}
+          {viewAble.includes("pageList") &&
+            pageArr.map(ele => {
+              if (typeof ele == "number") {
+                return (
+                  <PageItem
+                    key={ele}
+                    onClick={this.goto(ele)}
+                    className={`wj-page-item ${
+                      ele === currentPage ? "active" : ""
+                    }`}
+                  >
+                    {ele}
+                  </PageItem>
+                );
+              }
               return (
-                <PageItem key={ele} onClick={this.goto(ele)}>
-                  {ele}
-                </PageItem>
+                <PageItem
+                  key={ele}
+                  onClick={this.goto(
+                    ele === "prev"
+                      ? currentPage - siblingViewSize * 2 - 1
+                      : currentPage + siblingViewSize * 2 + 1
+                  )}
+                  title={
+                    ele === "prev"
+                      ? `前进${siblingViewSize * 2 + 1}页`
+                      : `向后${siblingViewSize * 2 + 1}页`
+                  }
+                  className={`wj-fast-jump__${ele}`}
+                />
               );
-            }
-            return <PageItem key={ele}>...</PageItem>;
-          })}
-          <Right onClick={this.goto(currentPage + 1)} />
-          <Count>共{total}条</Count>
-          <SelectPageSize
-            defaultValue={10}
-            inputRender={({ value }) => (value ? value.label : "")}
-            options={[5, 10, 20, 30].map(ele => ({
-              label: `${ele}条/页`,
-              value: ele
-            }))}
-          />
-          <JumpTo>
-            跳至<input defaultValue={1} />页
-          </JumpTo>
-          <Submit>{this.SubmitText}</Submit>
+            })}
+          {viewAble.includes("prevNext") && (
+            <Right
+              onClick={
+                currentPage === pageLength ? null : this.goto(currentPage + 1)
+              }
+              className={currentPage === pageLength ? "disable" : ""}
+            />
+          )}
+          {viewAble.includes("total") && (
+            <Count>{`${staticStr[0]}${total}${staticStr[1]}`}</Count>
+          )}
+          {viewAble.includes("pageSizeSelect") && (
+            <SelectPageSize
+              value={pageSize}
+              inputRender={({ value }) => (value ? value.label : "")}
+              options={pageSizeList.map(ele => ({
+                label: `${ele}${staticStr[2]}`,
+                value: ele
+              }))}
+              onChange={this.changePageSize}
+            />
+          )}
+          {viewAble.includes("jumpTo") && (
+            <JumpTo>
+              {staticStr[3]}
+              <input
+                type="number"
+                onKeyDown={this.keyDownJumpTo}
+                value={this.state.jumpToValue}
+                onChange={this.changeJumpToInput}
+              />
+              {staticStr[4]}
+            </JumpTo>
+          )}
+          {viewAble.includes("submit") && (
+            <Submit onClick={this.submitJumpTo}>{staticStr[5]}</Submit>
+          )}
         </Wrap>
       </ThemeProvider>
     );
   }
-
-  getPageArr = (pageLength, fastJumpSize, currentPage) => {
-    const centerVisibleSize = fastJumpSize * 2 + 1;
+  goto = page => e => {
+    this.props.onChange(page, this.state.pageSize, this.props.total);
+  };
+  getPageArr = (pageLength, siblingViewSize, currentPage) => {
+    const centerVisibleSize = siblingViewSize * 2 + 1;
     if (pageLength <= centerVisibleSize + 4) {
       // 足够显示所有项目时不显示`...`快速跳转
       return Array(pageLength)
@@ -122,25 +287,25 @@ class Pagination extends PureComponent {
           .map((ele, index) => min + index);
       };
 
-      if (currentPage <= 2 + fastJumpSize) {
+      if (currentPage <= 2 + siblingViewSize) {
         let arr = [
           ...fillArr(
             1,
-            Math.max(centerVisibleSize, currentPage + fastJumpSize)
+            Math.max(centerVisibleSize, currentPage + siblingViewSize)
           ),
           "next",
           pageLength
         ];
         return arr;
       }
-      if (currentPage >= pageLength - fastJumpSize - 1) {
+      if (currentPage >= pageLength - siblingViewSize - 1) {
         let arr = [
           1,
           "prev",
           ...fillArr(
             Math.min(
               pageLength - centerVisibleSize + 1,
-              currentPage - fastJumpSize
+              currentPage - siblingViewSize
             ),
             pageLength
           )
@@ -156,17 +321,58 @@ class Pagination extends PureComponent {
       ];
     }
   };
-  onChange = () => {};
+  changePageSize = value => {
+    this.props.onChange(this.props.value || 1, value, this.props.total);
+    this.setState({
+      pageSize: value
+    });
+  };
+  changeJumpToInput = e => {
+    this.setState({
+      jumpToValue: e.target.value
+    });
+  };
+  keyDownJumpTo = e => {
+    if (e.keyCode === 13) {
+      this.submitJumpTo();
+    }
+    if (e.keyCode === 27) {
+      this.clearJumpTo();
+    }
+  };
+  submitJumpTo = () => {
+    if (this.state.jumpToValue === "") {
+      return false;
+    }
+    const { total } = this.props;
+    const { pageSize } = this.state;
+    const pageLength = Math.ceil(total / pageSize);
+    this.goto(Math.min(Math.max(this.state.jumpToValue, 1), pageLength))();
+    this.clearJumpTo();
+  };
+  clearJumpTo = () => {
+    this.setState({
+      jumpToValue: ""
+    });
+  };
 }
 
 Pagination.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
-  currentPage: PropTypes.number,
   size: PropTypes.string,
+  viewAble: PropTypes.array,
+  staticStr: PropTypes.array,
   total: PropTypes.number,
   pageSize: PropTypes.number,
   onChange: PropTypes.func,
-  value: PropTypes.number
+  siblingViewSize: PropTypes.number,
+  value: PropTypes.number,
+  defaultPageSize: PropTypes.number,
+  pageSizeList: PropTypes.array
 };
-export default Pagination;
+
+export default ControllSwitchHoc({
+  value: "currentPage",
+  defaultValue: "defaultCurrentPage"
+})(Pagination);

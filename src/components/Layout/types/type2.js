@@ -4,7 +4,7 @@ const style = `
     position: fixed;
     top: 0;
   }
-  &>aside[position=left]{
+  &>.wj-aside__left{
     width: 180px;
     height: 100vh;
     background: #f4f5f6;
@@ -12,7 +12,7 @@ const style = `
     top: 64px;
     position: fixed;
   }
-  &>aside[position=right]{
+  &>.wj-aside__right{
     width: 180px;
     height: 100vh;
     background: #f4f5f6;

@@ -19,13 +19,9 @@ const Wrap = styled.main`
   ${props => props.defaultStyles};
 `;
 
-const AsideLeft = styled.aside.attrs({
-  position: "left"
-})``;
+const AsideLeft = styled.aside``;
 const Main = styled.article``;
-const AsideRight = styled.aside.attrs({
-  position: "right"
-})``;
+const AsideRight = styled.aside``;
 class Layout extends PureComponent {
   render() {
     const {
@@ -40,9 +36,13 @@ class Layout extends PureComponent {
     return (
       <Wrap defaultStyles={defaultStyles} className={className}>
         {header && <header>{header}</header>}
-        {asideLeft && <AsideLeft>{asideLeft}</AsideLeft>}
+        {asideLeft && (
+          <AsideLeft className={"wj-aside__left"}>{asideLeft}</AsideLeft>
+        )}
         {main && <Main>{main}</Main>}
-        {asideRight && <AsideRight>{asideRight}</AsideRight>}
+        {asideRight && (
+          <AsideRight className={"wj-aside__right"}>{asideRight}</AsideRight>
+        )}
         {footer && <footer>{footer}</footer>}
       </Wrap>
     );

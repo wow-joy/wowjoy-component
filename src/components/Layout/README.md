@@ -44,12 +44,19 @@ const B=()=><A header={{content: <span>2</span> }}/>
 
 ## APIs
 
-| 属性          | 描述                                                                |  类型  | 默认值 |
-| ------------- | :------------------------------------------------------------------ | :----: | :----: |
-| styles        | 顶层样式 class                                                      | string |        |
-| defaultStyles | 顶层默认样式                                                        | string |        |
-| header        | 页眉。为空时默认不显示（下同）                                      |  node  |        |
-| asideLeft     | 左侧导航。 自定义样式时请使用 [postion=left] 作为 css 选择器的标记  |  node  |        |
-| main          | 主体内容                                                            |  node  |        |
-| asideRight    | 右侧导航。 自定义样式时请使用 [postion=right] 作为 css 选择器的标记 |  node  |        |
-| footer        | 页脚                                                                |  node  |        |
+| 属性          | 描述                           |  类型  | 默认值 |
+| ------------- | :----------------------------- | :----: | :----: |
+| styles        | 顶层样式 class                 | string |        |
+| defaultStyles | 顶层默认样式                   | string |        |
+| header        | 页眉。为空时默认不显示（下同） |  node  |        |
+| asideLeft     | 左侧导航。                     |  node  |        |
+| main          | 主体内容                       |  node  |        |
+| asideRight    | 右侧导航。                     |  node  |        |
+| footer        | 页脚                           |  node  |        |
+
+## classApi
+
+| class         | 描述       |
+| ------------- | :--------- |
+| wj-aside__left        | 左侧导航。 |
+| wj-aside__right | 右侧导航。 |
