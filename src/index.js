@@ -27,6 +27,7 @@ import Select from "./components/Select";
 import SlideDown from "./components/SlideDown";
 import PopOut from "./components/PopOut";
 import ScrollBox from "./components/ScrollBox";
+import Pagination from "./components/Pagination";
 
 const Components = {
   Btn,
@@ -61,7 +62,8 @@ const Components = {
   Select,
   SlideDown,
   ScrollBox,
-  PopOut
+  PopOut,
+  Pagination
 };
 export {
   Btn,
@@ -90,6 +92,7 @@ export {
   Select,
   SlideDown,
   ScrollBox,
-  PopOut
+  PopOut,
+  Pagination
 };
 export default Components;

@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import styled, { keyframes } from "styled-components";
-
+import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 const Wrap = styled.div`
   user-select: none;
   border: 1px solid #eaeaea;
@@ -9,7 +9,7 @@ const Wrap = styled.div`
   height: 100%;
   width: 100%;
   background: #fff;
-  padding: 8px 10px;
+  padding: 0 10px;
   position: relative;
   cursor: pointer;
   ${p =>
@@ -33,6 +33,10 @@ const Wrap = styled.div`
   }
 
   ${props => props.defaultStyles};
+`;
+const Content = styled.div`
+  display: flex;
+  align-items: center;
 `;
 const slideDown = keyframes`
   from{ transform: scaleY(0.8); opacity: 0};
@@ -67,8 +71,7 @@ const Option = styled.li`
 
 class Select extends PureComponent {
   state = {
-    dropDownVisible: false,
-    value: this.props.value || this.props.defaultValue || false
+    dropDownVisible: false
   };
   blur = e => {
     if (this.props.onBlur && this.props.onBlur() === false) {
@@ -80,19 +83,6 @@ class Select extends PureComponent {
   };
   componentDidMount() {
     window.addEventListener("click", this.blur);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.state.value === false && nextProps.defaultValue) {
-      this.setState({
-        value: nextProps.defaultValue
-      });
-    }
-    if (this.state.value !== nextProps.value) {
-      this.setState({
-        value: nextProps.value
-      });
-    }
   }
 
   componentWillUnmount() {
@@ -112,23 +102,22 @@ class Select extends PureComponent {
 
   stopPropagation = e => e.stopPropagation();
 
-  getNextValue = (optionItem , type) =>{
+  getNextValue = (optionItem, type) => {
     if (type === "radio") {
-      return optionItem.value
+      return optionItem.value;
     }
     if (type === "checkbox") {
-      const toggleValue = (prevState, value) => {
-        const findedIndex = prevState.value.findIndex(ele => ele === value);
-        let midVal = [...prevState.value];
+      const toggleValue = (prevProps, value) => {
+        const findedIndex = prevProps.value.findIndex(ele => ele === value);
+        let midVal = [...prevProps.value];
         findedIndex >= 0 ? midVal.splice(findedIndex, 1) : midVal.push(value);
         return midVal;
       };
-      return this.state.value === false
-      ? [optionItem.value]
-      : toggleValue(this.state, optionItem.value);
+      return this.props.value === false
+        ? [optionItem.value]
+        : toggleValue(this.props, optionItem.value);
     }
-  }
-
+  };
 
   selectOption = (optionItem, index) => e => {
     const { type = "radio" } = this.props;
@@ -139,15 +128,9 @@ class Select extends PureComponent {
       return;
     }
 
-    const nextValue = this.getNextValue(optionItem, type)
+    const nextValue = this.getNextValue(optionItem, type);
 
     this.props.onChange(nextValue, index, optionItem);
-
-    if(!('value' in this.props)){
-      this.setState({
-        value: nextValue
-      })
-    }
 
     if (type === "radio") {
       this.setState({
@@ -173,11 +156,15 @@ class Select extends PureComponent {
     const InputNode = inputRender;
     const inputNodeValue =
       type === "checkbox"
-        ? (this.state.value || []).map(ele =>
+        ? (this.props.value || []).map(ele =>
             options.find(option => option.value === ele)
           )
-        : options.find(ele => ele.value === this.state.value);
-
+        : options.find(ele => ele.value === this.props.value);
+    const checkIsActive = value => {
+      return type !== "checkbox"
+        ? this.props.value === value
+        : this.props.value.includes(value);
+    };
     return (
       <Wrap
         defaultStyles={defaultStyles}
@@ -185,7 +172,9 @@ class Select extends PureComponent {
         onClick={this.toggleDropDownMenu}
         active={this.state.dropDownVisible}
       >
-        <InputNode value={inputNodeValue} />
+        <Content>
+          <InputNode value={inputNodeValue} />
+        </Content>
         <DropDown
           innerRef={el => {
             this.dropDownNode = el;
@@ -195,13 +184,13 @@ class Select extends PureComponent {
           onAnimationEnd={this.animationEndHandle}
         >
           {options.map((optionItem, index) => (
-            <Option key={index} onClick={this.selectOption(optionItem, index)}>
+            <Option
+              key={optionItem.value}
+              className={checkIsActive(optionItem.value) ? "active" : ""}
+              onClick={this.selectOption(optionItem, index)}
+            >
               {optionItem.labelRender
-                ? optionItem.labelRender(
-                    type !== "checkbox"
-                      ? this.state.value === optionItem.value
-                      : this.state.value.includes(optionItem.value)
-                  )
+                ? optionItem.labelRender(checkIsActive(optionItem.value))
                 : optionItem.label}
             </Option>
           ))}
@@ -216,12 +205,16 @@ Select.propTypes = {
   defaultStyles: PropTypes.string,
   options: PropTypes.array,
   inputRender: PropTypes.func,
-  defaultValue: PropTypes.oneOfType([
+  value: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.number,
     PropTypes.string
   ]),
+  onChange: PropTypes.func,
   type: PropTypes.oneOf(["radio", "checkbox"]),
   onBlur: PropTypes.func
 };
-export default Select;
+export default ControllSwitchHoc({
+  value: "value",
+  defaultValue: "defaultValue"
+})(Select);

@@ -3,43 +3,9 @@ import Components from "@src";
 
 const X = props => <div>{props.value}</div>;
 const PROPS = {
-  defaultValue: ["x1"],
-  type: "checkbox",
-  // value:["x1", "x2"],
-  onChange: value => console.log(value),
-  inputRender: props => (
-    <div>
-      {props.value &&
-        props.value.map((ele, index) => <span key={index}>{ele.label}</span>)}
-    </div>
-  ),
-  // onBlur: () => false,
-  options: [
-    {
-      label: <span>x1</span>,
-      labelRender: isActive => (
-        <span>{isActive ? "x1 is active" : "x1 not active"}</span>
-      ),
-      value: "x1"
-    },
-    {
-      label: "x2",
-      value: "x2"
-    },
-    {
-      label: "x3",
-      value: "x3"
-    },
-    {
-      label: "x4",
-      value: "x4"
-    },
-    {
-      label: "x5",
-      value: "x5"
-    }
-  ],
-  
+  size: "32px",
+  total: 100,
+  pageSize: 10,
 };
 
 class Detail extends Component {
@@ -62,61 +28,9 @@ class Detail extends Component {
     const ComponentItem = Components[name];
     if (ComponentItem) {
       return (
-        <ComponentItem {...PROPS} visible={this.state.visible}
-          value={true}
-          isActive={true}
-          // onChange={ value => {return false}}
-          content = {['xxxxx','xxxxx1',<span>2</span>]}
+        <ComponentItem {...PROPS}  
+           
         >
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
-          ComponentItem<br/>
         </ComponentItem>
       );
     }
