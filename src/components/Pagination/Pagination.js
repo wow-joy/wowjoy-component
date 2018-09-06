@@ -81,7 +81,7 @@ const Left = styled.div`
     width: 0;
     height: 0;
     margin: auto;
-    border-right: 4px solid #999;
+    border-right: 4px solid #ccc;
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
   }
@@ -105,7 +105,7 @@ const Right = styled.div`
     width: 0;
     height: 0;
     margin: auto;
-    border-left: 4px solid #999;
+    border-left: 4px solid #ccc;
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
   }
@@ -120,8 +120,11 @@ const SelectPageSize = styled(Select)`
   &::after {
     right: 10px;
   }
-  li.active {
+  li:hover{
     background: #fffbe0;
+  }
+  li.active {
+    color: #06aea6;
   }
 `;
 const JumpTo = styled.div`
@@ -245,6 +248,7 @@ class Pagination extends PureComponent {
           )}
           {viewAble.includes("pageSizeSelect") && (
             <SelectPageSize
+              className={'wj-page-size__select'}
               value={pageSize}
               inputRender={({ value }) => (value ? value.label : "")}
               options={pageSizeList.map(ele => ({
