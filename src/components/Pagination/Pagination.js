@@ -48,7 +48,7 @@ const PageItem = styled.span`
       font-size: 12px;
       color: #06aea6;
       letter-spacing: -2px;
-      transform: scale(0.8,1.2)
+      transform: scale(0.8, 1.2);
     }
   }
   &.wj-fast-jump__next:hover {
@@ -58,7 +58,7 @@ const PageItem = styled.span`
       font-size: 12px;
       color: #06aea6;
       letter-spacing: -2px;
-      transform: scale(0.8,1.2)
+      transform: scale(0.8, 1.2);
     }
   }
 `;
@@ -193,7 +193,7 @@ class Pagination extends PureComponent {
           {viewAble.includes("prevNext") && (
             <Left
               onClick={currentPage === 1 ? null : this.goto(currentPage - 1)}
-              className={currentPage === 1 ? "disable" : ""}
+              className={`wj-page-prev ${currentPage === 1 ? "disable" : ""}`}
             />
           )}
           {viewAble.includes("pageList") &&
@@ -233,11 +233,15 @@ class Pagination extends PureComponent {
               onClick={
                 currentPage === pageLength ? null : this.goto(currentPage + 1)
               }
-              className={currentPage === pageLength ? "disable" : ""}
+              className={`wj-page-next ${
+                currentPage === pageLength ? "disable" : ""
+              }`}
             />
           )}
           {viewAble.includes("total") && (
-            <Count>{`${staticStr[0]}${total}${staticStr[1]}`}</Count>
+            <Count className={"wj-page-count"}>{`${staticStr[0]}${total}${
+              staticStr[1]
+            }`}</Count>
           )}
           {viewAble.includes("pageSizeSelect") && (
             <SelectPageSize
@@ -251,7 +255,7 @@ class Pagination extends PureComponent {
             />
           )}
           {viewAble.includes("jumpTo") && (
-            <JumpTo>
+            <JumpTo className={"wj-jump-to"}>
               {staticStr[3]}
               <input
                 type="number"
@@ -263,7 +267,12 @@ class Pagination extends PureComponent {
             </JumpTo>
           )}
           {viewAble.includes("submit") && (
-            <Submit onClick={this.submitJumpTo}>{staticStr[5]}</Submit>
+            <Submit
+              className={"wj-jump-to__submit"}
+              onClick={this.submitJumpTo}
+            >
+              {staticStr[5]}
+            </Submit>
           )}
         </Wrap>
       </ThemeProvider>

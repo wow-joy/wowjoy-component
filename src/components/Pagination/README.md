@@ -37,3 +37,16 @@ const Foo = () => <Pagination {...PROPS}></Pagination>
 | currentPage        | 当前所在页， 受控                                                         | number |                                    1                                    |
 | defaultCurrentPage | 初始化当前所在页， 非受控                                                 | number |                                    1                                    |
 | onChange           | 当前页改变事件，pageSize 改变事件<br/>(currentPage, pageSize, total) =>{} |  func  |                                    2                                    |
+
+## classApi
+
+| class                 | 描述             |
+| --------------------- | :--------------- |
+| wj-page-prev          | 上一页           |
+| wj-page-next          | 下一页           |
+| wj-page-item(.active) | 页码(当前页)     |
+| wj-fast-jump\_\_prev  | 左侧快速跳转     |
+| wj-fast-jump\_\_next  | 右侧快速跳转     |
+| wj-page-count         | 总页数           |
+| wj-jump-to            | 快速跳转         |
+| wj-jump-to\_\_submit  | 快速跳转确认按钮 |
