@@ -1,3 +1,10 @@
+## 2.4.2 (2018/9/6)
+
+### feature
+
+- 完善 Pagination 组件 classApi
+- 优化 Pagination 组件 的部分样式
+
 ## 2.4.1 (2018/9/6)
 
 ### feature
