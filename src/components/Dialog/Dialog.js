@@ -56,18 +56,18 @@ const Btns = styled.div`
 `;
 
 class Dialog extends PureComponent {
-  state = {
-    visible: true
-  };
-  closeHandle = () => {
-    this.setState({ visible: false });
-  };
+  // state = {
+  //   visible: true
+  // };
+  // closeHandle = () => {
+  //   this.setState({ visible: false });
+  // };
   clickHandle = (e, index) => {
     const { onClick } = this.props;
     if (onClick && onClick(e, index) === false) {
       return;
     }
-    this.closeHandle();
+    // this.closeHandle();
   };
   render() {
     const {
@@ -80,9 +80,9 @@ class Dialog extends PureComponent {
       btns,
       showCloseBtn = true
     } = this.props;
-    if (!this.state.visible) {
-      return null;
-    }
+    // if (!this.state.visible) {
+    //   return null;
+    // }
     const Header = header && header !== true ? header : () => <HeaderDom />;
 
     const Btn_default = [Btn_1, Btn_3];
