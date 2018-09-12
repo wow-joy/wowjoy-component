@@ -28,8 +28,9 @@ class Detail extends Component {
     );
     this.name = name;
     const ComponentItem = Components[name];
+    
     if (ComponentItem) {
-      return <ComponentItem {...PROPS} />;
+      return <ComponentItem {...PROPS} {...this.state}>1</ComponentItem>;
     }
     return <div>ComponentItem not found</div>;
   }

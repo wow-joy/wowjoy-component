@@ -36,10 +36,10 @@ const Layer = styled.div`
   pointer-events: ${props => (props.layer ? "all" : "none")};
   ${props => props.defaultStyles};
   &.fadeIn {
-    animation: fadeIn 0.3s forwards;
+    animation: ${fadeIn} 0.3s forwards;
   }
   &.fadeOut {
-    animation: fadeOut 0.3s forwards;
+    animation: ${fadeOut} 0.3s forwards;
   }
 `;
 const PopBox = styled.div`

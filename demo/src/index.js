@@ -12,6 +12,7 @@ import { ReactComponent as Svg } from "@media/logo.svg";
 const Title = styled.h1`
   text-align: center;
   color: #fff;
+  background: #06aea6;
 `;
 const Logo = styled(Svg)`
   vertical-align: middle;
@@ -49,9 +50,7 @@ class Demo extends Component {
             wowjoy-component Demo Home
           </Title>
         }
-        asideLeft={1}
-        asideRight={2}
-        main={<Routers />}
+        center={<Routers />}
       />
     );
   }
