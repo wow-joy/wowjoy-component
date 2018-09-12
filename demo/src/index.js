@@ -5,7 +5,7 @@ import Home from "./Home";
 import List from "./List";
 import Detail from "./Detail";
 import "../../src/media/common.css";
-import { Layout_2 as Layout } from "@src";
+import { Layout } from "@src";
 import styled from "styled-components";
 import { ReactComponent as Svg } from "@media/logo.svg";
 
