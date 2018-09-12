@@ -20,7 +20,8 @@ const Wrap = styled.main`
 `;
 
 const AsideLeft = styled.aside``;
-const Main = styled.article``;
+const Main = styled.main``;
+const Center = styled.article``;
 const AsideRight = styled.aside``;
 class Layout extends PureComponent {
   render() {
@@ -29,20 +30,22 @@ class Layout extends PureComponent {
       defaultStyles,
       header,
       asideLeft,
-      main,
+      center,
       asideRight,
       footer
     } = this.props;
     return (
       <Wrap defaultStyles={defaultStyles} className={className}>
         {header && <header>{header}</header>}
-        {asideLeft && (
-          <AsideLeft className={"wj-aside__left"}>{asideLeft}</AsideLeft>
-        )}
-        {main && <Main>{main}</Main>}
-        {asideRight && (
-          <AsideRight className={"wj-aside__right"}>{asideRight}</AsideRight>
-        )}
+        <Main>
+          {asideLeft && (
+            <AsideLeft className={"wj-aside__left"}>{asideLeft}</AsideLeft>
+          )}
+          {center && <Center>{center}</Center>}
+          {asideRight && (
+            <AsideRight className={"wj-aside__right"}>{asideRight}</AsideRight>
+          )}
+        </Main>
         {footer && <footer>{footer}</footer>}
       </Wrap>
     );
@@ -54,7 +57,7 @@ Layout.propTypes = {
   defaultStyles: PropTypes.string,
   header: PropTypes.node,
   asideLeft: PropTypes.node,
-  main: PropTypes.node,
+  center: PropTypes.node,
   asideRight: PropTypes.node,
   footer: PropTypes.node
 };

@@ -4,10 +4,7 @@ import Btn, {
   Type3 as Btn_3,
   Disabled as Btn_disabled
 } from "./components/Btn";
-import Layout, {
-  Type1 as Layout_1,
-  Type2 as Layout_2
-} from "./components/Layout";
+import Layout from "./components/Layout";
 import Message, {
   Doubt as Message_doubt,
   Error as Message_error,
@@ -37,9 +34,6 @@ const Components = {
   Btn_disabled,
 
   Layout,
-  Layout_1,
-  Layout_2,
-
   Message,
   Message_doubt,
   Message_error,
@@ -72,8 +66,6 @@ export {
   Btn_3,
   Btn_disabled,
   Layout,
-  Layout_1,
-  Layout_2,
   Message,
   Message_doubt,
   Message_error,

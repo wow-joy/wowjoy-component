@@ -50,13 +50,13 @@ const B=()=><A header={{content: <span>2</span> }}/>
 | defaultStyles | 顶层默认样式                   | string |        |
 | header        | 页眉。为空时默认不显示（下同） |  node  |        |
 | asideLeft     | 左侧导航。                     |  node  |        |
-| main          | 主体内容                       |  node  |        |
+| center        | 主体内容                       |  node  |        |
 | asideRight    | 右侧导航。                     |  node  |        |
 | footer        | 页脚                           |  node  |        |
 
 ## classApi
 
-| class         | 描述       |
-| ------------- | :--------- |
-| wj-aside__left        | 左侧导航。 |
-| wj-aside__right | 右侧导航。 |
+| class             | 描述       |
+| ----------------- | :--------- |
+| wj-aside\_\_left  | 左侧导航。 |
+| wj-aside\_\_right | 右侧导航。 |

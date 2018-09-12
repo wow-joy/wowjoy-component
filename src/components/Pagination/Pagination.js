@@ -120,7 +120,7 @@ const SelectPageSize = styled(Select)`
   &::after {
     right: 10px;
   }
-  li:hover{
+  li:hover {
     background: #fffbe0;
   }
   li.active {
@@ -148,7 +148,7 @@ const JumpTo = styled.div`
   }
 `;
 const Submit = styled(Btn)`
-  line-height: 32px;
+  line-height: ${p => p.theme.sieze};
 `;
 class Pagination extends PureComponent {
   state = {
@@ -248,7 +248,7 @@ class Pagination extends PureComponent {
           )}
           {viewAble.includes("pageSizeSelect") && (
             <SelectPageSize
-              className={'wj-page-size__select'}
+              className={"wj-page-size__select"}
               value={pageSize}
               inputRender={({ value }) => (value ? value.label : "")}
               options={pageSizeList.map(ele => ({
