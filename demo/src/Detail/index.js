@@ -36,13 +36,13 @@ class Detail extends Component {
     if (ComponentItem) {
       return (
         <ComponentItem {...PROPS} {...this.state} onClose={this.close}>
-          <Dialog
+          {/* <Dialog
             onClick={(e, index) =>
               index === 1 && this.setState({ visible: false })
             }
-          >
+          > */}
             123
-          </Dialog>
+          {/* </Dialog> */}
         </ComponentItem>
       );
     }

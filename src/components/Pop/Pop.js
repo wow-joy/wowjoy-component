@@ -135,7 +135,7 @@ class Pop extends PureComponent {
     const {
       defaultStyles,
       className,
-      container = document.body,
+      getContainer,
       layer = true,
       children,
       autoClose = false,
@@ -162,10 +162,10 @@ class Pop extends PureComponent {
         </PopBox>
       </Layer>
     );
-    if (container === false) {
+    if (getContainer === false) {
       return Render;
     }
-    return createPortal(Render, container);
+    return createPortal(Render, getContainer?getContainer(): document.body);
   }
 }
 
@@ -173,7 +173,7 @@ Pop.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
   translate: PropTypes.string,
-  container: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  getContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   value: PropTypes.bool,
   layer: PropTypes.bool,
   onClose: PropTypes.func,
