@@ -1,3 +1,13 @@
+## 2.4.5 (2018/9/13)
+
+### feature
+
+- 优化 Pop 组件 Dialog 组件， 增加 classApi
+
+### doc
+
+- Pop 组件 Dialog 组件， 增加 classApi
+
 ## 2.4.4 (2018/9/12)
 
 ### bugfix
