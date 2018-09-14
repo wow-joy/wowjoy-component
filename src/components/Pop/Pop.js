@@ -92,11 +92,11 @@ class Pop extends PureComponent {
       this.layerRef.style.display = "none";
     }
     // 只有点击事件支持从鼠标位置动画展开
-    window.addEventListener("click", this.setMousePosition);
+    window.addEventListener("click", this.setMousePosition, true);
     mousePositionEventBinded = true;
   }
   componentWillUnmount() {
-    window.removeEventListener("click", this.setMousePosition);
+    window.removeEventListener("click", this.setMousePosition, true);
   }
 
   animationStartHandle = () => {
