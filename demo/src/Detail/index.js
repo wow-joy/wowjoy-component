@@ -9,6 +9,7 @@ const PROPS = {
   // pageSizeList: [10, 20, 30],
   // defaultPageSize: 10,
   // onChange: (...args) => console.log(args)
+  content: 'xxxxxxxxx'
 };
 
 class Detail extends Component {
@@ -41,7 +42,9 @@ class Detail extends Component {
               index === 1 && this.setState({ visible: false })
             }
           > */}
-            123
+            <div style={{background:'#000', height: '100px'}}>
+              123
+            </div>
           {/* </Dialog> */}
         </ComponentItem>
       );

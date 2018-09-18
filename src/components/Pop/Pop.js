@@ -51,10 +51,9 @@ const PopBox = styled.div`
   transform:${p=> `${p.translate || "translate(-50%, -50%)"} scale(0)`};
 `;
 
-let mousePositionEventBinded;
 class Pop extends PureComponent {
   mousePosition = { x: 0, y: 0 };
-
+  mousePositionEventBinded
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
       if (nextProps.value) {
@@ -83,7 +82,7 @@ class Pop extends PureComponent {
     };
   };
   componentDidMount() {
-    if (mousePositionEventBinded) {
+    if (this.mousePositionEventBinded) {
       return;
     }
     if (this.props.value) {
@@ -93,7 +92,7 @@ class Pop extends PureComponent {
     }
     // 只有点击事件支持从鼠标位置动画展开
     window.addEventListener("click", this.setMousePosition, true);
-    mousePositionEventBinded = true;
+    this.mousePositionEventBinded = true;
   }
   componentWillUnmount() {
     window.removeEventListener("click", this.setMousePosition, true);

@@ -137,7 +137,6 @@ class SlideDown extends PureComponent {
     targetNode.style.display = "block";
     targetNode.style.overflow = "hidden";
     targetNode.style.height = 0;
-
     targetNode.style.height = targetNode.scrollHeight + "px";
   };
   slideUp = targetNode => {
@@ -145,8 +144,8 @@ class SlideDown extends PureComponent {
     if (propsOnChange && propsOnChange(false) === false) {
       return;
     }
-    targetNode.style.height = targetNode.clientHeight + "px";
     targetNode.style.overflow = "hidden";
+    targetNode.style.height = targetNode.clientHeight + "px";
     setTimeout(() => {
       targetNode.style.height = 0;
     });
@@ -159,13 +158,6 @@ class SlideDown extends PureComponent {
     if (onChange && onChange(!this.props.value) === false) {
       return;
     }
-    // const nextValue = !this.props.value;
-
-    // if (nextValue) {
-    //   this.slideDown(this.subNode);
-    // } else {
-    //   this.slideUp(this.subNode);
-    // }
   };
   onSubClick = e => {
     const { onSubClick } = this.props;
