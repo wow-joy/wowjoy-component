@@ -148,7 +148,7 @@ const JumpTo = styled.div`
   }
 `;
 const Submit = styled(Btn)`
-  line-height: ${p => p.theme.sieze};
+  line-height: ${p => p.theme.size};
 `;
 class Pagination extends PureComponent {
   state = {
