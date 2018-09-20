@@ -95,7 +95,7 @@ class PopOut extends PureComponent {
           <PopContent
             className={"wjc-popOut-subContent"}
             visible={value}
-            container={false}
+            getContainer={false}
             layer={false}
             translate={"translate(0,0)"}
             defaultStyles={`margin-left: ${this.state.marginLeft}`}
