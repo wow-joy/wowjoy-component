@@ -98,7 +98,9 @@ class PopOut extends PureComponent {
             getContainer={false}
             layer={false}
             translate={"translate(0,0)"}
-            defaultStyles={`margin-left: ${this.state.marginLeft}`}
+            defaultStyles={`margin-left: ${this.state.marginLeft}; &>div{
+              transform-origin: 0 0 !important;
+            }`}
           >
             <ScrollBox visible={value}>
               <span onClick={this.onSubClick}>{children}</span>
