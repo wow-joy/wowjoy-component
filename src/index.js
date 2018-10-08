@@ -25,6 +25,7 @@ import SlideDown from "./components/SlideDown";
 import PopOut from "./components/PopOut";
 import ScrollBox from "./components/ScrollBox";
 import Pagination from "./components/Pagination";
+import { CheckBox } from "./components/Form";
 
 const Components = {
   Btn,
@@ -57,7 +58,8 @@ const Components = {
   SlideDown,
   ScrollBox,
   PopOut,
-  Pagination
+  Pagination,
+  CheckBox
 };
 export {
   Btn,
@@ -85,6 +87,7 @@ export {
   SlideDown,
   ScrollBox,
   PopOut,
-  Pagination
+  Pagination,
+  CheckBox
 };
 export default Components;

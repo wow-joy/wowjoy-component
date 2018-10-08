@@ -4,12 +4,42 @@ import { Dialog } from "@src";
 
 const X = props => <div>{props.value}</div>;
 const PROPS = {
-  // size: "32px",
-  // total: 1000,
-  // pageSizeList: [10, 20, 30],
-  // defaultPageSize: 10,
-  // onChange: (...args) => console.log(args)
-  content: 'xxxxxxxxx'
+  content: "xxxxxxxxx",
+  columns: [
+    {
+      title: "name",
+      render: (rowEle, rowIndex) => rowEle.name,
+      key: 1
+    },
+    {
+      title: "id",
+      render: (rowEle, rowIndex) => rowEle.key,
+      key: 2
+    },
+    {
+      title: "des",
+      render: (rowEle, rowIndex) => rowEle.des,
+      key: 3
+    }
+  ],
+  data: [
+    {
+      name: "xx1",
+      key: 1,
+      des: "xx_1"
+    },
+    {
+      name: "xx2",
+      key: 2,
+      des: "xx_2"
+    },
+    {
+      name: "xx3",
+      key: 3,
+      des: "xx_3"
+    }
+  ],
+  sort: (a, b) => b.des.match(/\d/)[0] - a.des.match(/\d/)[0]
 };
 
 class Detail extends Component {
@@ -35,19 +65,10 @@ class Detail extends Component {
     const ComponentItem = Components[name];
 
     if (ComponentItem) {
-      return (
-        <ComponentItem {...PROPS} {...this.state} onClose={this.close}>
-          {/* <Dialog
-            onClick={(e, index) =>
-              index === 1 && this.setState({ visible: false })
-            }
-          > */}
-            <div style={{background:'#000', height: '100px'}}>
-              123
-            </div>
-          {/* </Dialog> */}
-        </ComponentItem>
-      );
+      return <ComponentItem {...PROPS} {...this.state} onClose={this.close} >
+      
+          <div style={{width: '10px', height:" 1000px", background: '#000'}}></div>
+      </ComponentItem>;
     }
     return <div>ComponentItem not found</div>;
   }

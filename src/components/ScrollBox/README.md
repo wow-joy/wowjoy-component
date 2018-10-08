@@ -15,14 +15,15 @@ const Foo = () => <ScrollBox>这里是要滚动的内容</ScrollBox>
 
 ## APIs
 
-| 属性          | 描述                                                                                   |  类型  | 默认值 |
-| ------------- | :------------------------------------------------------------------------------------- | :----: | :----: |
-| className     | 顶层样式 class                                                                         | string |        |
-| defaultStyles | 顶层默认样式                                                                           | string |        |
-| children      | 内容                                                                                   |  node  |        |
-| maxHeight     | 最大高度 <br>                                                                          | string |  '300px'   |
-| hoverControl  | 是否 hover 才显示滚动条                                                                |  bool  | false  |
-| visible       | 是否可见，因为需要获取内容高度，当父组件改变 `display:'none' | other`时， 请传递该参数 |  bool  |        |
+| 属性          | 描述                                                                                                                       |  类型  | 默认值  |
+| ------------- | :------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: |
+| className     | 顶层样式 class                                                                                                             | string |         |
+| defaultStyles | 顶层默认样式                                                                                                               | string |         |
+| children      | 内容                                                                                                                       |  node  |         |
+| maxHeight     | 最大高度 <br>                                                                                                              | string | '300px' |
+| maxWidth      | 最大宽度 <br> `仅Chrome | Safari 浏览器生效`                                                                               | string | '100%'  |
+| hoverControl  | 是否 hover 才显示滚动条                                                                                                    |  bool  |  false  |
+| visible       | 是否可见，因为需要获取内容高度，当父组件改变 `display:'none' | other`时， 请传递该参数。 `Chrome | Safari 浏览器 无需设置` |  bool  |         |
 
 ## Pointer
 

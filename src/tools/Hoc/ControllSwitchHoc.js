@@ -6,7 +6,7 @@ import React, { PureComponent } from "react";
  * @returns 新组件
  *
  */
-const ControllSwitchHoc = translate => OldComponent => {
+const ControllSwitchHoc = (translate = {}) => OldComponent => {
   return class extends PureComponent {
     state = {
       value: undefined
@@ -55,8 +55,10 @@ const ControllSwitchHoc = translate => OldComponent => {
       if (value !== undefined && defaultValue !== undefined) {
         console.error(
           OldComponent.name +
-            " must be either controlled or uncontrolled (specify either the value prop, or the defaultValue prop, but not both). Decide between using a controlled or uncontrolled input element and remove one of these props. More info: https://fb.me/react-controlled-components"
-            + `\n请不要在 <${OldComponent.name}> 组件内同时声明\`defaultValue\`和\`value\``
+            " must be either controlled or uncontrolled (specify either the value prop, or the defaultValue prop, but not both). Decide between using a controlled or uncontrolled input element and remove one of these props. More info: https://fb.me/react-controlled-components" +
+            `\n请不要在 <${
+              OldComponent.name
+            }> 组件内同时声明\`defaultValue\`和\`value\``
         );
         return false;
       }

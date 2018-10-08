@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+const isChrome = /(Chrome|Safari)/i.test(window.navigator.userAgent) ;
 const Wrap = styled.div`
   overflow: hidden;
   position: relative;
@@ -9,7 +10,7 @@ const Wrap = styled.div`
     width: 100%;
     height: 100%;
     max-height: ${p => (p.maxHeight !== undefined ? p.maxHeight : "300px")};
-    overflow: scroll;
+    overflow: auto;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
     &::-webkit-scrollbar {
@@ -53,29 +54,97 @@ const Slider = styled.span`
   height: ${p => p.height + "px"};
   cursor: pointer;
 `;
+
+const ChromeScroll = styled.div`
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  & > div {
+    width: 100%;
+    height: 100%;
+    max-height: ${p => (p.maxHeight !== undefined ? p.maxHeight : "300px")};
+    max-width: ${p => (p.maxWidth !== undefined ? p.maxWidth : "100%")};
+    overflow: auto;
+    &::-webkit-scrollbar {
+      transition: 0.3s;
+      border-radius: 3px;
+      background: rgba(222, 222, 222, 0.3);
+      box-shadow: inset 0 0 3px rgba(150, 150, 150, 0.1);
+      width: 6px;
+      transition: 0.3s;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(204, 204, 204, 1);
+      border-radius: 3px;
+      width: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+  }
+  ${p =>
+    p.hoverControl &&
+    `& > div {
+      &::-webkit-scrollbar {
+        background: rgba(222, 222, 222, 0);
+        box-shadow: inset 0 0 3px rgba(150, 150, 150, 0);
+      }
+      &::-webkit-scrollbar-thumb {
+        background: rgba(204, 204, 204, 0);
+      }
+    }
+    &:hover {
+      & > div::-webkit-scrollbar {
+        background: rgba(222, 222, 222, 0.3);
+        box-shadow: inset 0 0 3px rgba(150, 150, 150, 0.1);
+      }
+      & > div::-webkit-scrollbar-thumb {
+        background: rgba(204, 204, 204, 1);
+      }
+    }
+  `};
+`;
 class ScrollBox extends Component {
   state = {
     sliderHeight: 0
   };
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.visible) {
+    if (!isChrome) {
+      if (nextProps.visible) {
+        this.setHeight();
+        this.addScrollLisenter();
+      }
+    }
+  }
+  componentDidMount() {
+    if (!isChrome) {
       this.setHeight();
       this.addScrollLisenter();
     }
   }
-  componentDidMount() {
-    this.setHeight();
-    this.addScrollLisenter();
-  }
+
   render() {
     const {
       className,
       defaultStyles,
       children,
       maxHeight,
+      maxWidth,
       hoverControl = false
     } = this.props;
+    if (isChrome) {
+      return (
+        <ChromeScroll
+          defaultStyles={defaultStyles}
+          className={className}
+          maxHeight={maxHeight}
+          maxWidth={maxWidth}
+          hoverControl={hoverControl}
+        >
+          <div>{children}</div>
+        </ChromeScroll>
+      );
+    }
     return (
       <Wrap
         innerRef={el => {
@@ -102,6 +171,7 @@ class ScrollBox extends Component {
       </Wrap>
     );
   }
+
   slideNode;
   wrapNode;
   wrapNodeHeight;
@@ -163,6 +233,7 @@ ScrollBox.propTypes = {
   defaultStyles: PropTypes.string,
   visible: PropTypes.bool,
   hoverControl: PropTypes.bool,
-  maxHeight: PropTypes.string
+  maxHeight: PropTypes.string,
+  maxWidth: PropTypes.string,
 };
 export default ScrollBox;
