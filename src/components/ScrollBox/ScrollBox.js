@@ -45,6 +45,7 @@ const ScrollBar = styled.aside`
   width: 6px;
   overflow: hidden;
   display: ${p => (p.visible ? "block" : "none")};
+  ${p => p.defaultStyles};
 `;
 const Slider = styled.span`
   display: ${p => (p.height - 0 === 0 ? "none" : " inline-block")};
