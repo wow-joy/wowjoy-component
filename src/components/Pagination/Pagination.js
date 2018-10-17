@@ -153,13 +153,13 @@ const Submit = styled(Btn)`
 class Pagination extends PureComponent {
   state = {
     currentPage: "",
-    jumpToValue: "",
+    jumpToValue: ""
     // pageSize: this.props.defaultPageSize
   };
 
   componentWillMount() {
     if (!this.props.pageSize) {
-      throw new Error("please set pageSize, pageSize");
+      throw new Error("please set pageSize, 请设置pageSize 或 defaultPageSize");
     }
     if (!this.props.pageSizeList) {
       throw new Error("please set pageSizeList, 请设置pageSizeList");
@@ -282,7 +282,8 @@ class Pagination extends PureComponent {
     );
   }
   goto = page => e => {
-    this.props.onChange(page, this.state.pageSize, this.props.total);
+    const { onChange } = this.props;
+    onChange && onChange(page, this.state.pageSize, this.props.total);
   };
   getPageArr = (pageLength, siblingViewSize, currentPage) => {
     const centerVisibleSize = siblingViewSize * 2 + 1;
@@ -334,8 +335,9 @@ class Pagination extends PureComponent {
     }
   };
   changePageSize = value => {
-    this.props.onChange(this.props.value || 1, value, this.props.total);
-    this.props.onPageSizeChange(value);
+    const { onPageSizeChange, onChange } = this.props;
+    onChange && onChange(this.props.value || 1, value, this.props.total);
+    onPageSizeChange && onPageSizeChange(value);
     // this.setState({
     //   pageSize: value
     // });
@@ -389,7 +391,9 @@ export default ControllSwitchHoc({
   value: "pageSize",
   onChange: "onPageSizeChange",
   defaultValue: "defaultPageSize"
-})(ControllSwitchHoc({
-  value: "currentPage",
-  defaultValue: "defaultCurrentPage"
-})(Pagination));
+})(
+  ControllSwitchHoc({
+    value: "currentPage",
+    defaultValue: "defaultCurrentPage"
+  })(Pagination)
+);

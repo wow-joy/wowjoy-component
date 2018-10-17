@@ -1,3 +1,9 @@
+## 2.6.1 (2018/10/17)
+
+### bugfix
+
+- 修复 pagination onChange,onPageSizeChange 的空判断
+
 ## 2.6.0 (2018/10/17)
 
 ### feature
@@ -9,9 +15,7 @@
 ### doc
 
 - 更新 pagination 文档
-- 
-
-
+-
 
 ## 2.5.2 (2018/10/10)
 
