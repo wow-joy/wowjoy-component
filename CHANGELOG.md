@@ -1,3 +1,18 @@
+## 2.6.0 (2018/10/17)
+
+### feature
+
+- rewrite ControllSwitchHoc ,优化命名传递
+- 优化 ControllSwitchHoc 改变而引发的命名替换
+- pagination 组件增加每页数量改变事件 并允许外设每页数量
+
+### doc
+
+- 更新 pagination 文档
+- 
+
+
+
 ## 2.5.2 (2018/10/10)
 
 ### bugfix
