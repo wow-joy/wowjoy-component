@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-const isChrome = /(Chrome|Safari)/i.test(window.navigator.userAgent) ;
+const isChrome = /(Chrome|Safari)/i.test(window.navigator.userAgent);
 const Wrap = styled.div`
   overflow: hidden;
   position: relative;
@@ -45,7 +45,6 @@ const ScrollBar = styled.aside`
   width: 6px;
   overflow: hidden;
   display: ${p => (p.visible ? "block" : "none")};
-  ${p => p.defaultStyles};
 `;
 const Slider = styled.span`
   display: ${p => (p.height - 0 === 0 ? "none" : " inline-block")};
@@ -103,6 +102,7 @@ const ChromeScroll = styled.div`
       }
     }
   `};
+  ${p => p.defaultStyles};
 `;
 class ScrollBox extends Component {
   state = {

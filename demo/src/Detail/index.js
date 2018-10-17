@@ -39,7 +39,10 @@ const PROPS = {
       des: "xx_3"
     }
   ],
-  sort: (a, b) => b.des.match(/\d/)[0] - a.des.match(/\d/)[0]
+  sort: (a, b) => b.des.match(/\d/)[0] - a.des.match(/\d/)[0],
+  defaultPageSize: 10,
+  pageSizeList:[10, 20, 30],
+  total: 300
 };
 
 class Detail extends Component {

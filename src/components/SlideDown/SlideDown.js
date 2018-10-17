@@ -41,12 +41,12 @@ class SlideDown extends PureComponent {
   subNode;
   wrapNode;
   onBlur = e => {
-    const { onBlur, value, onChange } = this.props;
+    const { onBlur, isActive, onChange } = this.props;
     if (!this.subNode) {
       return;
     }
    
-    if (value && !this.wrapNode.contains(e.target)) {
+    if (isActive && !this.wrapNode.contains(e.target)) {
       if (onBlur && onBlur(e) === false) {
         return;
       }
@@ -57,7 +57,7 @@ class SlideDown extends PureComponent {
     this.setState({
       inited: true
     });
-    if (this.props.value) {
+    if (this.props.isActive) {
       this.subNode.style.display = "block";
     }
     setTimeout(() => {
@@ -65,8 +65,8 @@ class SlideDown extends PureComponent {
     });
   }
   componentWillReceiveProps(nexrProps) {
-    const nextValue = nexrProps.value;
-    if (this.props.value === nextValue) {
+    const nextValue = nexrProps.isActive;
+    if (this.props.isActive === nextValue) {
       return;
     }
     if (nextValue) {
@@ -81,11 +81,11 @@ class SlideDown extends PureComponent {
   }
 
   render() {
-    const { defaultStyles, className, content, children, value } = this.props;
+    const { defaultStyles, className, content, children, isActive } = this.props;
 
     return (
       <Wrap
-        className={`${className} ${value ? "open" : ""}`}
+        className={`${className} ${isActive ? "open" : ""}`}
         defaultStyles={defaultStyles}
         innerRef={el => (this.wrapNode = el)}
       >
@@ -93,7 +93,7 @@ class SlideDown extends PureComponent {
           {content}
           {children && (
             <Control
-              isActive={value}
+              isActive={isActive}
               innerRef={el => {
                 this.popControl = el;
               }}
@@ -155,7 +155,7 @@ class SlideDown extends PureComponent {
       return false;
     }
     const { onChange } = this.props;
-    if (onChange && onChange(!this.props.value) === false) {
+    if (onChange && onChange(!this.props.isActive) === false) {
       return;
     }
   };
@@ -174,7 +174,7 @@ SlideDown.propTypes = {
   onSubClick: PropTypes.func,
   onTransitionEnd: PropTypes.func,
   onBlur: PropTypes.func,
-  value: PropTypes.bool
+  isActive: PropTypes.bool
 };
 export default ControllSwitchHoc({
   value: "isActive",

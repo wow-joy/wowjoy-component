@@ -55,8 +55,8 @@ class Pop extends PureComponent {
   mousePosition = { x: 0, y: 0 };
   mousePositionEventBinded
   componentWillReceiveProps(nextProps) {
-    if (nextProps.value !== this.props.value) {
-      if (nextProps.value) {
+    if (nextProps.visible !== this.props.visible) {
+      if (nextProps.visible) {
         this.layerRef.style.display = "block";
         const popBoxWidth = this.popBox.clientWidth
         const popBoxHeight = this.popBox.clientHeight
@@ -73,7 +73,7 @@ class Pop extends PureComponent {
     }
   }
   setMousePosition = e => {
-    if (this.props.value) {
+    if (this.props.visible) {
       return;
     }
     this.mousePosition = {
@@ -85,7 +85,7 @@ class Pop extends PureComponent {
     if (this.mousePositionEventBinded) {
       return;
     }
-    if (this.props.value) {
+    if (this.props.visible) {
       this.layerRef.style.display = "block";
     } else {
       this.layerRef.style.display = "none";
@@ -139,9 +139,9 @@ class Pop extends PureComponent {
       children,
       autoClose = false,
       translate,
-      value
+      visible
     } = this.props;
-    if (value && autoClose) {
+    if (visible && autoClose) {
       setTimeout(this.closeHandle, autoClose);
     }
 
@@ -150,9 +150,9 @@ class Pop extends PureComponent {
         onAnimationStart={this.animationStartHandle}
         onAnimationEnd={this.animationEndHandle}
         innerRef={el => (this.layerRef = el)}
-        visible={value}
+        visible={visible}
         defaultStyles={defaultStyles}
-        className={`${className} ${value ? "fadeIn" : "fadeOut"}`}
+        className={`${className} ${visible ? "fadeIn" : "fadeOut"}`}
         layer={layer}
         onClick={this.layerClick}
       >
@@ -173,7 +173,7 @@ Pop.propTypes = {
   defaultStyles: PropTypes.string,
   translate: PropTypes.string,
   getContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
-  value: PropTypes.bool,
+  visible: PropTypes.bool,
   layer: PropTypes.bool,
   onClose: PropTypes.func,
   autoClose: PropTypes.oneOfType([PropTypes.number, PropTypes.bool])

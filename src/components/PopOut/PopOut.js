@@ -50,7 +50,7 @@ class PopOut extends PureComponent {
   };
   componentDidMount() {
     window.addEventListener("click", this.onBlur);
-    if (this.popControl && this.props.value) {
+    if (this.popControl && this.props.isActive) {
       this.setState({
         marginLeft: `${this.popControl.offsetLeft -
           this.popControl.parentNode.clientWidth}px`
@@ -58,7 +58,7 @@ class PopOut extends PureComponent {
     }
   }
   componentWillReceiveProps(nextProps) {
-    if (this.popControl && nextProps.value && !this.props.value) {
+    if (this.popControl && nextProps.isActive && !this.props.isActive) {
       this.setState({
         marginLeft: `${this.popControl.offsetLeft -
           this.popControl.parentNode.clientWidth}px`
@@ -71,10 +71,10 @@ class PopOut extends PureComponent {
   wrapNode;
   popControl;
   render() {
-    const { className, defaultStyles, content, children, value } = this.props;
+    const { className, defaultStyles, content, children, isActive } = this.props;
     return (
       <Wrap
-        className={`${className} ${value ? "open" : ""}`}
+        className={`${className} ${isActive ? "open" : ""}`}
         defaultStyles={defaultStyles}
         innerRef={el => {
           this.wrapNode = el;
@@ -84,7 +84,7 @@ class PopOut extends PureComponent {
           {content}
           {children && (
             <PopControl
-              isActive={value}
+              isActive={isActive}
               innerRef={el => {
                 this.popControl = el;
               }}
@@ -94,7 +94,7 @@ class PopOut extends PureComponent {
         {children && (
           <PopContent
             className={"wjc-popOut-subContent"}
-            visible={value}
+            visible={isActive}
             getContainer={false}
             layer={false}
             translate={"translate(0,0)"}
@@ -102,7 +102,7 @@ class PopOut extends PureComponent {
               transform-origin: 0 0 !important;
             }`}
           >
-            <ScrollBox visible={value}>
+            <ScrollBox visible={isActive}>
               <span onClick={this.onSubClick}>{children}</span>
             </ScrollBox>
           </PopContent>
@@ -115,8 +115,8 @@ class PopOut extends PureComponent {
     if (!this.props.children) {
       return false;
     }
-    const { onChange, value } = this.props;
-    const nextValue = !value;
+    const { onChange, isActive } = this.props;
+    const nextValue = !isActive;
     onChange && onChange(nextValue);
   };
   onSubClick = e => {
@@ -127,11 +127,11 @@ class PopOut extends PureComponent {
     onChange && onChange(false);
   };
   onBlur = e => {
-    const { onBlur, value, onChange } = this.props;
+    const { onBlur, isActive, onChange } = this.props;
     if (!this.props.children) {
       return false;
     }
-    if (value && !this.wrapNode.contains(e.target)) {
+    if (isActive && !this.wrapNode.contains(e.target)) {
       if (onBlur && onBlur(e) === false) {
         return;
       }
@@ -147,7 +147,7 @@ PopOut.propTypes = {
   onChange: PropTypes.func,
   onSubClick: PropTypes.func,
   onBlur: PropTypes.func,
-  value: PropTypes.bool
+  isActive: PropTypes.bool
 };
 export default ControllSwitchHoc({
   value: "isActive",

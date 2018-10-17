@@ -154,12 +154,12 @@ class Pagination extends PureComponent {
   state = {
     currentPage: "",
     jumpToValue: "",
-    pageSize: this.props.defaultPageSize
+    // pageSize: this.props.defaultPageSize
   };
 
   componentWillMount() {
-    if (!this.props.defaultPageSize) {
-      throw new Error("please set defaultPageSize, 请设置defaultPageSize");
+    if (!this.props.pageSize) {
+      throw new Error("please set pageSize, pageSize");
     }
     if (!this.props.pageSizeList) {
       throw new Error("please set pageSizeList, 请设置pageSizeList");
@@ -170,7 +170,6 @@ class Pagination extends PureComponent {
     const {
       className,
       defaultStyles,
-      children,
       viewAble = [
         "prevNext",
         "pageList",
@@ -180,14 +179,14 @@ class Pagination extends PureComponent {
         "submit"
       ],
       staticStr = ["共", "条", "条/页", "跳至", "页", "确定"],
-      value = 1,
+      currentPage = 1,
       siblingViewSize = 2,
       size = "32px",
       total,
       pageSizeList
     } = this.props;
-    const { pageSize } = this.state;
-    const currentPage = value;
+    const { pageSize } = this.props;
+    // const currentPage = value;
     const pageLength = Math.ceil(total / pageSize);
     const pageArr = this.getPageArr(pageLength, siblingViewSize, currentPage);
     return (
@@ -336,9 +335,10 @@ class Pagination extends PureComponent {
   };
   changePageSize = value => {
     this.props.onChange(this.props.value || 1, value, this.props.total);
-    this.setState({
-      pageSize: value
-    });
+    this.props.onPageSizeChange(value);
+    // this.setState({
+    //   pageSize: value
+    // });
   };
   changeJumpToInput = e => {
     this.setState({
@@ -358,7 +358,7 @@ class Pagination extends PureComponent {
       return false;
     }
     const { total } = this.props;
-    const { pageSize } = this.state;
+    const { pageSize } = this.props;
     const pageLength = Math.ceil(total / pageSize);
     this.goto(Math.min(Math.max(this.state.jumpToValue, 1), pageLength))();
     this.clearJumpTo();
@@ -379,13 +379,17 @@ Pagination.propTypes = {
   total: PropTypes.number,
   pageSize: PropTypes.number,
   onChange: PropTypes.func,
+  onPageSizeChange: PropTypes.func,
   siblingViewSize: PropTypes.number,
-  value: PropTypes.number,
-  defaultPageSize: PropTypes.number,
+  currentPage: PropTypes.number,
   pageSizeList: PropTypes.array
 };
 
 export default ControllSwitchHoc({
+  value: "pageSize",
+  onChange: "onPageSizeChange",
+  defaultValue: "defaultPageSize"
+})(ControllSwitchHoc({
   value: "currentPage",
   defaultValue: "defaultCurrentPage"
-})(Pagination);
+})(Pagination));

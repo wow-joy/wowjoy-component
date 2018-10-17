@@ -12,29 +12,41 @@ const ControllSwitchHoc = (translate = {}) => OldComponent => {
       value: undefined
     };
     render() {
-      const value = this.props[translate.value || "value"];
-      const onChange = this.props[translate.onChange || "onChange"];
-      const defaultValue = this.props[translate.defaultValue || "defaultValue"];
+      const textValue = translate.value || "value";
+      const textOnChange = translate.onChange || "onChange";
+      const textDefaultValue = translate.defaultValue || "defaultValue";
+
+      const value = this.props[textValue];
+      const onChange = this.props[textOnChange];
+      const defaultValue = this.props[textDefaultValue];
       const componentType = this.checkProps();
       if (componentType === "controlled") {
         return (
-          <OldComponent {...this.props} value={value} onChange={onChange} />
+          <OldComponent
+            {...this.props}
+            {...{ [textValue]: value, [textOnChange]: onChange }}
+          />
         );
       }
       if (componentType === "uncontrolled") {
         return (
           <OldComponent
             {...this.props}
-            value={
-              this.state.value === undefined ? defaultValue : this.state.value
-            }
-            onChange={this.onChange}
+            {...{
+              [textValue]:
+                this.state.value === undefined
+                  ? defaultValue
+                  : this.state.value,
+              [textOnChange]: this.onChange
+            }}
           />
         );
       }
     }
     onChange = (...args) => {
-      const onChange = this.props[translate.onChange || "onChange"];
+      const textOnChange = translate.onChange || "onChange";
+
+      const onChange = this.props[textOnChange];
 
       const propsOnChangeResult = onChange && onChange(...args);
       if (propsOnChangeResult === false) {
@@ -50,8 +62,11 @@ const ControllSwitchHoc = (translate = {}) => OldComponent => {
       });
     };
     checkProps = () => {
-      const value = this.props[translate.value || "value"];
-      const defaultValue = this.props[translate.defaultValue || "defaultValue"];
+      const textValue = translate.value || "value";
+      const textDefaultValue = translate.defaultValue || "defaultValue";
+
+      const value = this.props[textValue];
+      const defaultValue = this.props[textDefaultValue];
       if (value !== undefined && defaultValue !== undefined) {
         console.error(
           OldComponent.name +
