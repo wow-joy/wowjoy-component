@@ -1,3 +1,8 @@
+## 2.6.2 (2018/10/19)
+
+### bugfix
+
+- 修复 pagination onChange, pageSize取值错误
 ## 2.6.1 (2018/10/17)
 
 ### bugfix

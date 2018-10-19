@@ -283,7 +283,7 @@ class Pagination extends PureComponent {
   }
   goto = page => e => {
     const { onChange } = this.props;
-    onChange && onChange(page, this.state.pageSize, this.props.total);
+    onChange && onChange(page, this.props.pageSize, this.props.total);
   };
   getPageArr = (pageLength, siblingViewSize, currentPage) => {
     const centerVisibleSize = siblingViewSize * 2 + 1;
