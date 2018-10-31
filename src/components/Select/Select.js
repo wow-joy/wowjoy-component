@@ -168,7 +168,7 @@ class Select extends PureComponent {
     return (
       <Wrap
         defaultStyles={defaultStyles}
-        className={className}
+        className={`wjc-select ${className} ${this.state.dropDownVisible ? "open" : ""}`}
         onClick={this.toggleDropDownMenu}
         active={this.state.dropDownVisible}
       >
@@ -176,6 +176,7 @@ class Select extends PureComponent {
           <InputNode value={inputNodeValue} />
         </Content>
         <DropDown
+          className={'wjc-select-list'}
           innerRef={el => {
             this.dropDownNode = el;
           }}

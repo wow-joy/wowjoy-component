@@ -1,8 +1,15 @@
+## 2.6.3 (2018/10/31)
+
+### feature
+
+- select 增加 class api
+
 ## 2.6.2 (2018/10/19)
 
 ### bugfix
 
-- 修复 pagination onChange, pageSize取值错误
+- 修复 pagination onChange, pageSize 取值错误
+
 ## 2.6.1 (2018/10/17)
 
 ### bugfix
