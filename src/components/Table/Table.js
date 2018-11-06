@@ -5,28 +5,27 @@ const Wrap = styled.table`
   ${props => props.defaultStyles};
 `;
 class Table extends PureComponent {
-  sliceData = data => {
+  get viewData() {
     const { page, pageSize } = this.props;
     if (!page && !pageSize) {
       return data;
     }
     return data.slice(page * pageSize, page * pageSize + pageSize);
+  }
+  onRowClick = (rowEle, rowIndex) => () => {
+    const { onRowClick } = this.props;
+    onRowClick && onRowClick(rowEle, rowIndex);
   };
   render() {
-    let {
-      className,
-      defaultStyles,
-      data,
-      columns,
-    } = this.props;
+    let { className, defaultStyles, columns, onRowClick } = this.props;
     return (
       <Wrap defaultStyles={defaultStyles} className={className}>
         <thead>
           <tr>{columns.map(ele => <th key={ele.id}>{ele.title}</th>)}</tr>
         </thead>
         <tbody>
-          {this.sliceData(data).map((rowEle, rowIndex) => (
-            <tr key={rowEle.id}>
+          {this.viewData.map((rowEle, rowIndex) => (
+            <tr key={rowEle.id} onClick={this.onRowClick(rowEle, rowIndex)}>
               {columns.map(colEle => (
                 <td key={rowEle.id + colEle.id}>
                   {colEle.render(rowEle, rowIndex)}
@@ -46,6 +45,7 @@ Table.propTypes = {
   data: PropTypes.array.isRequired,
   columns: PropTypes.array.isRequired,
   page: PropTypes.number,
-  pageSize: PropTypes.number
+  pageSize: PropTypes.number,
+  onRowClick: PropTypes.func
 };
 export default Table;

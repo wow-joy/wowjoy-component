@@ -1,3 +1,8 @@
+## 2.6.4 (2018/11/6)
+
+### feature
+
+- table 新增onRowClick事件
 ## 2.6.3 (2018/10/31)
 
 ### feature
