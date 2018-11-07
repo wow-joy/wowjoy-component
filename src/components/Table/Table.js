@@ -6,7 +6,7 @@ const Wrap = styled.table`
 `;
 class Table extends PureComponent {
   get viewData() {
-    const { page, pageSize } = this.props;
+    const { data, page, pageSize } = this.props;
     if (!page && !pageSize) {
       return data;
     }
