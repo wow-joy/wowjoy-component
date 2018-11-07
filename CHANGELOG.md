@@ -1,8 +1,15 @@
+## 2.6.5 (2018/11/7)
+
+### bugfix
+
+- 修复 table 组件 data 错误
+
 ## 2.6.4 (2018/11/6)
 
 ### feature
 
-- table 新增onRowClick事件
+- table 新增 onRowClick 事件
+
 ## 2.6.3 (2018/10/31)
 
 ### feature
