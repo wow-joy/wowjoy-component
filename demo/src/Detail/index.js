@@ -70,7 +70,7 @@ class Detail extends Component {
     if (ComponentItem) {
       return <ComponentItem {...PROPS} {...this.state} onClose={this.close} >
       
-          <div style={{width: '10px', height:" 1000px", background: '#000'}}></div>
+          <div style={{width: '20px', height:" 20px", background: '#000'}}></div>
       </ComponentItem>;
     }
     return <div>ComponentItem not found</div>;

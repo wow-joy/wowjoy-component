@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 const Wrap = styled.div`
   user-select: none;
@@ -42,10 +42,19 @@ const slideDown = keyframes`
   from{ transform: scaleY(0.8); opacity: 0};
   to{ transform: scaleY(1); opacity: 1};
 `;
+
 const slideUp = keyframes`
   from{ transform: scaleY(1); opacity: 1};
   to{ transform: scaleY(0.8); opacity: 0};
 `;
+
+const slideDownAnime = css`
+  animation: ${slideDown} 0.3s forwards;
+`;
+const slideUpAnime = css`
+  animation: ${slideUp} 0.3s forwards;
+`;
+
 const DropDown = styled.ul`
   border: 1px solid #eaeaea;
   box-shadow: 0px 1px 3px #eaeaea;
@@ -58,7 +67,7 @@ const DropDown = styled.ul`
   background: #fff;
   transform-origin: 0 0;
   display: none;
-  animation: ${p => (p.visible ? slideDown : slideUp)} 0.3s forwards;
+  ${p => (p.visible ? slideDownAnime : slideUpAnime)};
 `;
 const Option = styled.li`
   padding: 6px 10px;
@@ -150,7 +159,7 @@ class Select extends PureComponent {
       className,
       defaultStyles,
       inputRender,
-      options,
+      options = [],
       type = "radio"
     } = this.props;
     const InputNode = inputRender;
@@ -168,16 +177,16 @@ class Select extends PureComponent {
     return (
       <Wrap
         defaultStyles={defaultStyles}
-        className={`wjc-select ${className} ${this.state.dropDownVisible ? "open" : ""}`}
+        className={`wjc-select ${className} ${
+          this.state.dropDownVisible ? "open" : ""
+        }`}
         onClick={this.toggleDropDownMenu}
         active={this.state.dropDownVisible}
       >
-        <Content>
-          <InputNode value={inputNodeValue} />
-        </Content>
+        <Content>{InputNode && <InputNode value={inputNodeValue} />}</Content>
         <DropDown
-          className={'wjc-select-list'}
-          innerRef={el => {
+          className={"wjc-select-list"}
+          ref={el => {
             this.dropDownNode = el;
           }}
           visible={this.state.dropDownVisible}

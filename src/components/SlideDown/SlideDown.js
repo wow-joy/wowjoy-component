@@ -87,14 +87,14 @@ class SlideDown extends PureComponent {
       <Wrap
         className={`${className} ${isActive ? "open" : ""}`}
         defaultStyles={defaultStyles}
-        innerRef={el => (this.wrapNode = el)}
+        ref={el => (this.wrapNode = el)}
       >
         <Content onClick={this.handleClick} className={"wjc-slideDown-content"}>
           {content}
           {children && (
             <Control
               isActive={isActive}
-              innerRef={el => {
+              ref={el => {
                 this.popControl = el;
               }}
             />
@@ -103,7 +103,7 @@ class SlideDown extends PureComponent {
         {children && (
           <SubContent
             className={"wjc-slieDown-subContent"}
-            innerRef={el => {
+            ref={el => {
               this.subNode = el;
             }}
             inited={this.state.inited}

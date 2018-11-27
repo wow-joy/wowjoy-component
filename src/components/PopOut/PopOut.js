@@ -76,7 +76,7 @@ class PopOut extends PureComponent {
       <Wrap
         className={`${className} ${isActive ? "open" : ""}`}
         defaultStyles={defaultStyles}
-        innerRef={el => {
+        ref={el => {
           this.wrapNode = el;
         }}
       >
@@ -85,7 +85,7 @@ class PopOut extends PureComponent {
           {children && (
             <PopControl
               isActive={isActive}
-              innerRef={el => {
+              ref={el => {
                 this.popControl = el;
               }}
             />

@@ -1,3 +1,13 @@
+## 3.0.0 (2018/11/27)
+
+### Breaking changes
+
+- Upgrade `styled-components@4.x` ; (click here to read what changed: https://www.styled-components.com/docs/faqs#what-do-i-need-to-do-to-migrate-to-v4);
+
+### bugfix
+
+- select 组件增加空判断
+
 ## 2.6.5 (2018/11/7)
 
 ### bugfix

@@ -148,7 +148,7 @@ class ScrollBox extends Component {
     }
     return (
       <Wrap
-        innerRef={el => {
+        ref={el => {
           this.wrapNode = el;
         }}
         defaultStyles={defaultStyles}
@@ -157,13 +157,13 @@ class ScrollBox extends Component {
         hoverControl={hoverControl}
       >
         <div>
-          <Content innerRef={el => (this.contentNode = el)}>{children}</Content>
+          <Content ref={el => (this.contentNode = el)}>{children}</Content>
           <ScrollBar
             className={"wjc-scroll-bar"}
             visible={(this.state.sliderHeight || 0 - 0) !== 0}
           >
             <Slider
-              innerRef={el => (this.slideNode = el)}
+              ref={el => (this.slideNode = el)}
               height={this.state.sliderHeight || 0}
               onMouseDown={this.startSlide}
             />

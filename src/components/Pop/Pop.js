@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { createPortal } from "react-dom";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 
 const fadeIn = keyframes`
@@ -12,6 +12,7 @@ const fadeIn = keyframes`
     opacity: 1;
   }
 `;
+
 const fadeOut = keyframes`
   from {
     opacity: 1;
@@ -20,6 +21,7 @@ const fadeOut = keyframes`
     opacity: 0;
   }
 `;
+
 const Layer = styled.div`
   /* display: ${props => (props.visible ? "block" : "none")}; */
   opacity: 0;
@@ -35,10 +37,10 @@ const Layer = styled.div`
   pointer-events: ${props => (props.layer ? "all" : "none")};
   ${props => props.defaultStyles};
   &.fadeIn {
-    animation: ${fadeIn} 0.3s forwards;
+    animation: ${css`${fadeIn} 0.3s forwards`};
   }
   &.fadeOut {
-    animation: ${fadeOut} 0.3s forwards;
+    animation: ${css`${fadeOut} 0.3s forwards`};
   }
 `;
 const PopBox = styled.div`
@@ -149,14 +151,14 @@ class Pop extends PureComponent {
       <Layer
         onAnimationStart={this.animationStartHandle}
         onAnimationEnd={this.animationEndHandle}
-        innerRef={el => (this.layerRef = el)}
+        ref={el => (this.layerRef = el)}
         visible={visible}
         defaultStyles={defaultStyles}
         className={`${className} ${visible ? "fadeIn" : "fadeOut"}`}
         layer={layer}
         onClick={this.layerClick}
       >
-        <PopBox innerRef={el => (this.popBox = el)} translate={translate}>
+        <PopBox ref={el => (this.popBox = el)} translate={translate}>
           {children}
         </PopBox>
       </Layer>
