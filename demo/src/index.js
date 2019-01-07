@@ -40,6 +40,14 @@ class Routers extends Component {
     );
   }
 }
+
+const Index = styled.input`
+  padding: 0 20px;
+  width: 300px;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+`;
+
 class Demo extends Component {
   render() {
     return (
@@ -47,6 +55,9 @@ class Demo extends Component {
         header={
           <Title>
             <Logo />
+          
+                <Index type="text" />
+         
             wowjoy-component Demo Home
           </Title>
         }
