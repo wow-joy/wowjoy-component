@@ -8,7 +8,7 @@ Template 组件
 
 ```
 import React from 'react'
-import Template from 'wowjoy-component'
+import {Template} from 'wowjoy-component'
 
 const Foo = () => <Template></Template>
 ```
