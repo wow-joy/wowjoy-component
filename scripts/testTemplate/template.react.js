@@ -15,10 +15,10 @@ describe("Template", () => {
     const dom = ReactDOM.findDOMNode(template);
     expect(dom.textContent).toEqual("Template Content");
   });
-  it("should pass class `.wj-template` to the Template", () => {
+  it("should pass class `.wjc-template` to the Template", () => {
     const template = renderIntoDocument(reactObj);
     const dom = ReactDOM.findDOMNode(template);
-    expect(dom.className).toEqual(expect.stringMatching(/wj-template/));
+    expect(dom.className).toEqual(expect.stringMatching(/wjc-template/));
   });
   it("should allow pass className to the Template", () => {
     const reactObj = <Template className="class-test">Template Content</Template>;

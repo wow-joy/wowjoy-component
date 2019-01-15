@@ -8,10 +8,24 @@ const targetPath = path.resolve(
   __dirname,
   "../src/components/",
   componentName,
-  "/_test_"
+  "_test_"
 );
+const targetParentPath = path.resolve(
+  __dirname,
+  "../src/components/",
+  componentName
+);
+console.log("targetPath", targetPath);
+console.log("targetParentPath", targetParentPath);
 
-// 前置判断组件是否存在 防止覆写
+// 前置判断组件是否存在
+fs.access(targetParentPath, fs.constants.F_OK, err => {
+  if (err) {
+    console.error(`组件不存在 ==> ${path.resolve(targetParentPath)}`);
+    process.exit();
+  }
+});
+
 fs.access(targetPath, fs.constants.F_OK, err => {
   if (err) {
     console.log(`开始生成测试 ${componentName}`);
@@ -45,8 +59,11 @@ const read = (src, callback) => {
 
 const write = (targetSrc, data) => {
   const writeData = src => {
-    if (/^template\./i.test(path.basename(src))) {
-      src = path.resolve(src, `../${componentName}${path.extname(src)}`);
+    if (/\.react\./i.test(path.basename(src))) {
+      src = path.resolve(src, `../${componentName}.react.test${path.extname(src)}`);
+    }
+    if (/\.snapshot\./i.test(path.basename(src))) {
+      src = path.resolve(src, `../${componentName}.snapshot.test${path.extname(src)}`);
     }
     console.log(`创建文件 ${src}`);
     fs.writeFile(src, data, { flag: "w+" }, errs => {
@@ -77,8 +94,9 @@ const copyReplace = (src, soursePath, targetPath, componentName) => {
     const targetSrc = changePath(src, soursePath, targetPath);
     if (/\.(react|snapshot)\.js$/.test(src)) {
       if (err) throw err;
-      let newData = data.replace(/Template/g, componentName);
-      let newData = data.replace(/template/g, componentName.toLowerCase());
+      let newData = data
+        .replace(/Template/g, componentName)
+        .replace(/template/g, componentName.toLowerCase());
       write(targetSrc, newData);
     } else {
       write(targetSrc, data);

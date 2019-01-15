@@ -15,10 +15,10 @@ describe("Btn", () => {
     const dom = ReactDOM.findDOMNode(btn);
     expect(dom.textContent).toEqual("Btn Content");
   });
-  it("should pass class `.wj-btn` to the Btn", () => {
+  it("should pass class `.wjc-btn` to the Btn", () => {
     const btn = renderIntoDocument(reactObj);
     const dom = ReactDOM.findDOMNode(btn);
-    expect(dom.className).toEqual(expect.stringMatching(/wj-btn/));
+    expect(dom.className).toEqual(expect.stringMatching(/wjc-btn/));
   });
   it("should allow pass className to the Btn", () => {
     const reactObj = <Btn className="class-test">Btn Content</Btn>;
@@ -29,9 +29,10 @@ describe("Btn", () => {
   it("should has click event and pass `event` as params", done => {
     const clickHandle = event => {
       expect(event.constructor.name).toEqual("SyntheticEvent");
+      reactDom.unmount();
       done();
     };
-    const reactObj = <Btn onClick={clickHandle}>Btn Content</Btn>;
-    mount(reactObj).simulate("click");
+    const reactDom = mount(<Btn onClick={clickHandle}>Btn Content</Btn>);
+    reactDom.simulate("click");
   });
 });

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog renders correctly 1`] = `
+<div
+  className="wjc-dialog undefined sc-bwzfXH hSyxhq"
+>
+  <div
+    className="wjc-dialog-btn__close sc-htpNat bbETrz"
+    onClick={[Function]}
+  />
+  <div
+    className="wjc-dialog-header sc-bxivhb ecavox"
+  />
+  <section
+    className="wjc-dialog-content sc-ifAKCX beXtUg"
+  >
+    Dialog Content
+  </section>
+  <div
+    className="wjc-dialog-btns sc-EHOje cuidGM"
+  >
+    <span
+      className="wjc-btn undefined undefined sc-bdVaJa LGHCx"
+      onClick={[Function]}
+    >
+      提交
+    </span>
+    <span
+      className="wjc-btn undefined undefined sc-bdVaJa hFqIKz"
+      onClick={[Function]}
+    >
+      取消
+    </span>
+  </div>
+</div>
+`;

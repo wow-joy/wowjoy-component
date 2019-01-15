@@ -4,7 +4,8 @@
     "verbose": true,
     "transform": {
       "^.+\\.jsx?$": "babel7-jest"
-    }
+    },
+    "collectCoverage": false
   },
   "version": "3.0.0",
   "description": "wowjoy-component React component",
@@ -18,6 +19,7 @@
   ],
   "scripts": {
     "create": "node scripts/createComponent.js",
+    "ctest": "node scripts/createTest.js",
     "build": "nwb build-react-component --copy-files",
     "clean": "nwb clean-module && nwb clean-demo",
     "start": "nwb serve-react-demo",

@@ -13,7 +13,7 @@ const Button = styled.span`
   vertical-align: middle;
   line-height: 36px;
   user-select: none;
-  ${props=>props.defaultStyles}
+  ${props => props.defaultStyles};
 `;
 class BtnBase extends PureComponent {
   clickHandle = e => {
@@ -28,20 +28,23 @@ class BtnBase extends PureComponent {
   render() {
     const { defaultStyles, children, className } = this.props;
     return (
-      <Button defaultStyles={defaultStyles} onClick={this.clickHandle} className={'wj-btn '+className}>
+      <Button
+        defaultStyles={defaultStyles}
+        onClick={this.clickHandle}
+        className={"wjc-btn " + className || ""}
+      >
         {children}
       </Button>
     );
   }
 }
 class Btn extends PureComponent {
-
-  render(){
-    if(this.props.to) {
-      const RouteBtn = withRouter(BtnBase)
-      return <RouteBtn {...this.props} />
+  render() {
+    if (this.props.to) {
+      const RouteBtn = withRouter(BtnBase);
+      return <RouteBtn {...this.props} />;
     }
-    return <BtnBase {...this.props} />
+    return <BtnBase {...this.props} />;
   }
 }
 Btn.propTypes = {

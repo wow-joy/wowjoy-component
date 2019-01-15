@@ -84,7 +84,7 @@ const Btns = styled.div`
 class Dialog extends PureComponent {
   closeHandle = e => {
     const { onClose } = this.props;
-    onClose(e);
+    onClose && onClose(e);
   };
   clickHandle = (e, index) => {
     const { onClick } = this.props;
@@ -104,16 +104,16 @@ class Dialog extends PureComponent {
       btns,
       showCloseBtn = true
     } = this.props;
-    // if (!this.state.visible) {
-    //   return null;
-    // }
     const Header =
       header && header !== true ? header : props => <HeaderDom {...props} />;
 
     const Btn_default = [Btn_1, Btn_3];
 
     return (
-      <Wrap defaultStyles={defaultStyles} className={className}>
+      <Wrap
+        defaultStyles={defaultStyles}
+        className={"wjc-dialog " + className || ""}
+      >
         {showCloseBtn && (
           <CloseBtn
             className={"wjc-dialog-btn__close"}

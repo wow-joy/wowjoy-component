@@ -2,7 +2,7 @@
 
 exports[`Btn renders correctly 1`] = `
 <span
-  className="wj-btn undefined sc-bdVaJa cSZdXv"
+  className="wjc-btn undefined sc-bdVaJa ezxaVl"
   onClick={[Function]}
 >
   Btn Content
@@ -11,7 +11,7 @@ exports[`Btn renders correctly 1`] = `
 
 exports[`Btn should not render as link when \`to\` equal false 1`] = `
 <span
-  className="wj-btn undefined sc-bdVaJa cSZdXv"
+  className="wjc-btn undefined sc-bdVaJa ezxaVl"
   onClick={[Function]}
 >
   this is not a link
@@ -22,7 +22,7 @@ exports[`Btn should render link when \`to\` has a value not equal false 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "wj-btn undefined sc-bdVaJa cSZdXv",
+      "class": "wjc-btn undefined sc-bdVaJa ezxaVl",
     },
     "children": Array [
       Object {

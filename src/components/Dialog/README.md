@@ -3,6 +3,7 @@
 对话框组件
 
 _建议结合 `Pop` 组件使用_ [https://github.com/wow-joy/wowjoy-component/tree/master/src/components/Pop]
+
 _也可结合 `pop`工具使用_ [https://github.com/wow-joy/wowjoy-component/tree/master/src/tools/pop]
 
 ## 使用
