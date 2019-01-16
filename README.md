@@ -35,5 +35,5 @@ https://github.com/manglobe/wowjoy-component/blob/master/CONTRIBUTING.md
 [build]: https://travis-ci.org/wow-joy/wowjoy-component
 [npm-badge]: https://img.shields.io/npm/v/wowjoy-component.png?style=flat-square
 [npm]: https://www.npmjs.org/package/wowjoy-component
-[coveralls-badge]: https://coveralls.io/repos/github/wow-joy/wowjoy-component/badge.svg
+[coveralls-badge]: https://coveralls.io/repos/github/wow-joy/wowjoy-component/badge.svg?branch=master
 [coveralls]: https://coveralls.io/github/wow-joy/wowjoy-component
