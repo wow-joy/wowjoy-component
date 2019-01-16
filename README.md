@@ -6,8 +6,6 @@
 
 [![Coveralls][coveralls-badge]][coveralls]
 
-[![Coverage Status](https://coveralls.io/repos/github/wow-joy/wowjoy-component/badge.svg)][coveralls]
-
 ## 下载
 
 ```
@@ -33,11 +31,9 @@ https://github.com/manglobe/wowjoy-component/blob/master/CONTRIBUTING.md
 
 请进入相应文件夹内部查看
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
+[build-badge]: https://travis-ci.org/wow-joy/wowjoy-component.svg?branch=master
+[build]: https://travis-ci.org/wow-joy/wowjoy-component
 [npm-badge]: https://img.shields.io/npm/v/wowjoy-component.png?style=flat-square
 [npm]: https://www.npmjs.org/package/wowjoy-component
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
-
-[![Coverage Status](https://coveralls.io/repos/github/wow-joy/wowjoy-component/badge.svg)](https://coveralls.io/github/wow-joy/wowjoy-component)
+[coveralls-badge]: https://coveralls.io/repos/github/wow-joy/wowjoy-component/badge.svg
+[coveralls]: https://coveralls.io/github/wow-joy/wowjoy-component
