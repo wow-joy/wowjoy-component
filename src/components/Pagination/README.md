@@ -44,11 +44,11 @@ const Foo = () => <Pagination {...PROPS}></Pagination>
 
 | class                 | 描述             |
 | --------------------- | :--------------- |
-| wj-page-prev          | 上一页           |
-| wj-page-next          | 下一页           |
-| wj-page-item(.active) | 页码(当前页)     |
-| wj-fast-jump\_\_prev  | 左侧快速跳转     |
-| wj-fast-jump\_\_next  | 右侧快速跳转     |
-| wj-page-count         | 总页数           |
-| wj-jump-to            | 快速跳转         |
-| wj-jump-to\_\_submit  | 快速跳转确认按钮 |
+| wjc-page-prev          | 上一页           |
+| wjc-page-next          | 下一页           |
+| wjc-page-item(.active) | 页码(当前页)     |
+| wjc-fast-jump\_\_prev  | 左侧快速跳转     |
+| wjc-fast-jump\_\_next  | 右侧快速跳转     |
+| wjc-page-count         | 总页数           |
+| wjc-jump-to            | 快速跳转         |
+| wjc-jump-to\_\_submit  | 快速跳转确认按钮 |

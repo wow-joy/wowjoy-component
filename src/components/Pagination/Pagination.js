@@ -26,8 +26,8 @@ const PageItem = styled.span`
   &.active {
     color: #06aea6;
   }
-  &.wj-fast-jump__prev,
-  &.wj-fast-jump__next {
+  &.wjc-fast-jump__prev,
+  &.wjc-fast-jump__next {
     position: relative;
     &::before {
       content: "···";
@@ -41,7 +41,7 @@ const PageItem = styled.span`
       color: #999;
     }
   }
-  &.wj-fast-jump__prev:hover {
+  &.wjc-fast-jump__prev:hover {
     position: relative;
     &::before {
       content: "<<";
@@ -51,7 +51,7 @@ const PageItem = styled.span`
       transform: scale(0.8, 1.2);
     }
   }
-  &.wj-fast-jump__next:hover {
+  &.wjc-fast-jump__next:hover {
     position: relative;
     &::before {
       content: ">>";
@@ -191,11 +191,14 @@ class Pagination extends PureComponent {
     const pageArr = this.getPageArr(pageLength, siblingViewSize, currentPage);
     return (
       <ThemeProvider theme={{ size: size }}>
-        <Wrap defaultStyles={defaultStyles} className={className}>
+        <Wrap
+          defaultStyles={defaultStyles}
+          className={"wjc-pagination " + className || ""}
+        >
           {viewAble.includes("prevNext") && (
             <Left
               onClick={currentPage === 1 ? null : this.goto(currentPage - 1)}
-              className={`wj-page-prev ${currentPage === 1 ? "disable" : ""}`}
+              className={`wjc-page-prev ${currentPage === 1 ? "disable" : ""}`}
             />
           )}
           {viewAble.includes("pageList") &&
@@ -205,7 +208,7 @@ class Pagination extends PureComponent {
                   <PageItem
                     key={ele}
                     onClick={this.goto(ele)}
-                    className={`wj-page-item ${
+                    className={`wjc-page-item ${
                       ele === currentPage ? "active" : ""
                     }`}
                   >
@@ -226,7 +229,7 @@ class Pagination extends PureComponent {
                       ? `前进${siblingViewSize * 2 + 1}页`
                       : `向后${siblingViewSize * 2 + 1}页`
                   }
-                  className={`wj-fast-jump__${ele}`}
+                  className={`wjc-fast-jump__${ele}`}
                 />
               );
             })}
@@ -235,19 +238,19 @@ class Pagination extends PureComponent {
               onClick={
                 currentPage === pageLength ? null : this.goto(currentPage + 1)
               }
-              className={`wj-page-next ${
+              className={`wjc-page-next ${
                 currentPage === pageLength ? "disable" : ""
               }`}
             />
           )}
           {viewAble.includes("total") && (
-            <Count className={"wj-page-count"}>{`${staticStr[0]}${total}${
+            <Count className={"wjc-page-count"}>{`${staticStr[0]}${total}${
               staticStr[1]
             }`}</Count>
           )}
           {viewAble.includes("pageSizeSelect") && (
             <SelectPageSize
-              className={"wj-page-size__select"}
+              className={"wjc-page-size__select"}
               value={pageSize}
               inputRender={({ value }) => (value ? value.label : "")}
               options={pageSizeList.map(ele => ({
@@ -258,7 +261,7 @@ class Pagination extends PureComponent {
             />
           )}
           {viewAble.includes("jumpTo") && (
-            <JumpTo className={"wj-jump-to"}>
+            <JumpTo className={"wjc-jump-to"}>
               {staticStr[3]}
               <input
                 type="number"
@@ -271,7 +274,7 @@ class Pagination extends PureComponent {
           )}
           {viewAble.includes("submit") && (
             <Submit
-              className={"wj-jump-to__submit"}
+              className={"wjc-jump-to__submit"}
               onClick={this.submitJumpTo}
             >
               {staticStr[5]}
