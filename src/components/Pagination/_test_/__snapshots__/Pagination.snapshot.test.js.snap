@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination renders correctly 1`] = `
+<div
+  className="wjc-pagination undefined sc-EHOje gNDNVt"
+>
+  <div
+    className="wjc-page-prev disable sc-gzVnrw dydKHp"
+    onClick={null}
+  />
+  <span
+    className="wjc-page-item active sc-bZQynM cQoCtO"
+    onClick={[Function]}
+  >
+    1
+  </span>
+  <span
+    className="wjc-page-item  sc-bZQynM cQoCtO"
+    onClick={[Function]}
+  >
+    2
+  </span>
+  <span
+    className="wjc-page-item  sc-bZQynM cQoCtO"
+    onClick={[Function]}
+  >
+    3
+  </span>
+  <span
+    className="wjc-page-item  sc-bZQynM cQoCtO"
+    onClick={[Function]}
+  >
+    4
+  </span>
+  <span
+    className="wjc-page-item  sc-bZQynM cQoCtO"
+    onClick={[Function]}
+  >
+    5
+  </span>
+  <span
+    className="wjc-fast-jump__next sc-bZQynM cQoCtO"
+    onClick={[Function]}
+    title="向后5页"
+  />
+  <span
+    className="wjc-page-item  sc-bZQynM cQoCtO"
+    onClick={[Function]}
+  >
+    10
+  </span>
+  <div
+    className="wjc-page-next  sc-htoDjs fDYsde"
+    onClick={[Function]}
+  />
+  <div
+    className="wjc-page-count sc-dnqmqq cHIqGk"
+  >
+    共100条
+  </div>
+  <div
+    className="wjc-select wjc-page-size__select sc-iwsKbI bgcDVW  sc-bdVaJa iwzsiR"
+    onClick={[Function]}
+  >
+    <div
+      className="sc-bwzfXH fNOhzS"
+    >
+      10条/页
+    </div>
+    <ul
+      className="wjc-select-list sc-htpNat caZwnp"
+      onAnimationEnd={[Function]}
+      onClick={[Function]}
+    >
+      <li
+        className="active sc-bxivhb cdHdp"
+        onClick={[Function]}
+      >
+        10条/页
+      </li>
+      <li
+        className="sc-bxivhb cdHdp"
+        onClick={[Function]}
+      >
+        20条/页
+      </li>
+      <li
+        className="sc-bxivhb cdHdp"
+        onClick={[Function]}
+      >
+        30条/页
+      </li>
+    </ul>
+  </div>
+  <div
+    className="wjc-jump-to sc-gZMcBi hXGulT"
+  >
+    跳至
+    <input
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      type="number"
+      value=""
+    />
+    页
+  </div>
+  <span
+    className="wjc-btn undefined wjc-jump-to__submit sc-gqjmRU gAsrvk sc-ifAKCX dmsRxv"
+    onClick={[Function]}
+  >
+    确定
+  </span>
+</div>
+`;

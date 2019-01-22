@@ -21,13 +21,23 @@ class Table extends PureComponent {
     return (
       <Wrap defaultStyles={defaultStyles} className={className}>
         <thead>
-          <tr>{columns.map(ele => <th key={ele.id}>{ele.title}</th>)}</tr>
+          <tr>
+            {columns.map(ele => (
+              <th key={ele.id} className={ele.className}>
+                {ele.title}
+              </th>
+            ))}
+          </tr>
         </thead>
         <tbody>
           {this.viewData.map((rowEle, rowIndex) => (
-            <tr key={rowEle.id} onClick={this.onRowClick(rowEle, rowIndex)}>
+            <tr
+              key={rowEle.id}
+              onClick={this.onRowClick(rowEle, rowIndex)}
+              className={rowEle.className}
+            >
               {columns.map(colEle => (
-                <td key={rowEle.id + colEle.id}>
+                <td key={rowEle.id + colEle.id} className={colEle.className}>
                   {colEle.render(rowEle, rowIndex)}
                 </td>
               ))}
