@@ -105,7 +105,7 @@ exports[`Pagination renders correctly 1`] = `
     页
   </div>
   <span
-    className="wjc-btn undefined wjc-jump-to__submit sc-gqjmRU gAsrvk sc-ifAKCX dmsRxv"
+    className="wjc-btn  wjc-jump-to__submit sc-gqjmRU gAsrvk sc-ifAKCX dmsRxv"
     onClick={[Function]}
   >
     确定

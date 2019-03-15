@@ -112,7 +112,7 @@ class Dialog extends PureComponent {
     return (
       <Wrap
         defaultStyles={defaultStyles}
-        className={"wjc-dialog " + className || ""}
+        className={"wjc-dialog " + (className || "")}
       >
         {showCloseBtn && (
           <CloseBtn
@@ -147,7 +147,7 @@ class Dialog extends PureComponent {
 Dialog.propTypes = {
   defaultStyles: PropTypes.string,
   className: PropTypes.string,
-  header: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  header: PropTypes.any,
   headerText: PropTypes.string,
   children: PropTypes.node,
   btnsText: PropTypes.array,

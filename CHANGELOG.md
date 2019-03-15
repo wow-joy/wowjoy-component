@@ -1,3 +1,10 @@
+## 3.1.2 (2019/3/15)
+
+### bugfix
+
+- Tools.Hoc 修复了 className 会携带 undefined 的 bug
+- Dialog 修复了 header 类型错误 的 bug
+
 ## 3.1.1 (2019/3/15)
 
 ### bugfix

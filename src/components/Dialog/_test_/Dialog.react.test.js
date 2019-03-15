@@ -60,7 +60,7 @@ describe("Dialog", () => {
   });
   // header
   it("should render default header dom when `header` is empty", () => {
-    const reactObj = <Dialog header={""} />;
+    const reactObj = <Dialog header={''} />;
     const dialog = renderIntoDocument(reactObj);
     const dom = ReactDOM.findDOMNode(dialog);
     expect(dom.querySelector(".wjc-dialog-header")).not.toEqual(null);
