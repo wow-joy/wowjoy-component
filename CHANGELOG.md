@@ -1,3 +1,9 @@
+## 3.1.1 (2019/3/15)
+
+### bugfix
+
+- Tools.Hoc 修复了 className 会携带 undefined 的 bug
+
 ## 3.1.0 (2019/1/22)
 
 ### feature
