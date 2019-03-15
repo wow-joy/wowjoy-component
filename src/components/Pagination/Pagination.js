@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from "styled-components";
 import Select from "../Select";
 import { Type3 as Btn } from "../Btn";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
-
+const defaultColor = "#06aea6";
 const Wrap = styled.div`
   display: flex;
   align-items: center;
@@ -24,7 +24,7 @@ const PageItem = styled.span`
   text-align: center;
   cursor: pointer;
   &.active {
-    color: #06aea6;
+    color: ${p => p.theme.mainColor || defaultColor};
   }
   &.wjc-fast-jump__prev,
   &.wjc-fast-jump__next {
@@ -46,7 +46,7 @@ const PageItem = styled.span`
     &::before {
       content: "<<";
       font-size: 12px;
-      color: #06aea6;
+      color: ${p => p.theme.mainColor || defaultColor};
       letter-spacing: -2px;
       transform: scale(0.8, 1.2);
     }
@@ -56,7 +56,7 @@ const PageItem = styled.span`
     &::before {
       content: ">>";
       font-size: 12px;
-      color: #06aea6;
+      color: ${p => p.theme.mainColor || defaultColor};
       letter-spacing: -2px;
       transform: scale(0.8, 1.2);
     }
@@ -124,7 +124,7 @@ const SelectPageSize = styled(Select)`
     background: #fffbe0;
   }
   li.active {
-    color: #06aea6;
+    color: ${p => p.theme.mainColor || defaultColor};
   }
 `;
 const JumpTo = styled.div`

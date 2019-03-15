@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import styled, { keyframes, css } from "styled-components";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
+const defaultColor = "#06aea6";
 const Wrap = styled.div`
   user-select: none;
   border: 1px solid #eaeaea;
@@ -12,12 +13,15 @@ const Wrap = styled.div`
   padding: 0 10px;
   position: relative;
   cursor: pointer;
-  ${p =>
-    p.active &&
-    `
-    box-shadow: inset 0 0 4px #06AEA6;
-    border-color: #06AEA6
-  `} &::after {
+  ${p => {
+    const color = p.theme.mainColor || defaultColor;
+    if (p.active) {
+      return `
+         box-shadow: inset 0 0 4px ${color};
+         border-color: ${color};`;
+    }
+  }};
+  &::after {
     content: "";
     border-top: 4px solid #999;
     border-left: 4px solid transparent;
