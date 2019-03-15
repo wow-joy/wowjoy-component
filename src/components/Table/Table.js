@@ -5,8 +5,17 @@ const Wrap = styled.table`
   ${props => props.defaultStyles};
 `;
 class Table extends PureComponent {
+  cacheViewData = {
+    input:undefined,
+    output: undefined
+  } 
   get viewData() {
     const { data, page, pageSize } = this.props;
+    const cacheInput = this.cacheViewData.input
+    const cacheOutput = this.cacheViewData.output
+    if(cacheInput && cacheInput.data === data && cacheInput.page === page && cacheInput.pageSize === pageSize){
+      return cacheOutput
+    }
     if (!page && !pageSize) {
       return data;
     }

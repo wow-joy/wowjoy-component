@@ -1,3 +1,10 @@
+## 3.1.0 (2019/1/22)
+
+### feature
+
+- Btns,Pagination,Dialog 增加 test
+- Table 增加 tr,td className
+
 ## 3.0.0 (2018/11/27)
 
 ### Breaking changes

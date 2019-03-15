@@ -28,7 +28,6 @@ const PROPS = {
       address: "Tokyo No. 3 Lake Park",
     }
   ],
-  keyStr: "table1",
   columnRenders: [
       (dataItem, index, colKey) => <td key={colKey}><input defaultValue={dataItem['name']}></input></td>,
       (dataItem, index, colKey) => <td key={colKey}><input defaultValue={dataItem['age']}></input></td>,

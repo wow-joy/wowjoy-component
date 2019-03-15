@@ -14,7 +14,7 @@ const Hoc = initSetting => OldComponent => {
       const initedProps = {
         ...initSetting,
         ...this.props,
-        className: initSetting.className + " " + className,
+        className: initSetting.className||'' + " " + className||'',
         defaultStyles: initSetting.defaultStyles + defaultStyles
       };
       return <OldComponent {...initedProps} />;
