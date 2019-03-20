@@ -1,3 +1,10 @@
+## 3.1.7 (2019/3/20)
+
+### bugfix
+
+- 修复 layout 的 className 错误
+- 修改 layout 的 api 错误
+
 ## 3.1.6 (2019/3/15)
 
 ### bugfix
