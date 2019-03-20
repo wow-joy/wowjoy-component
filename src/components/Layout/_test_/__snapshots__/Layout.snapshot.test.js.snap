@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders asideLeft correctly 1`] = `
+<div
+  className="wjc-layout undefined sc-bdVaJa dgEXNJ"
+>
+  <main
+    className="sc-htpNat KtFsv"
+  >
+    <aside
+      className="wjc-layout-aside__left sc-bwzfXH uTxCW"
+    >
+      asideLeft content
+    </aside>
+  </main>
+</div>
+`;
+
+exports[`Layout renders asideRIght correctly 1`] = `
+<div
+  className="wjc-layout undefined sc-bdVaJa dgEXNJ"
+>
+  <main
+    className="sc-htpNat KtFsv"
+  />
+</div>
+`;
+
+exports[`Layout renders children correctly 1`] = `
+<div
+  className="wjc-layout undefined sc-bdVaJa dgEXNJ"
+>
+  <main
+    className="sc-htpNat KtFsv"
+  >
+    <article
+      className="wjc-layout-center sc-bxivhb bUZGRr"
+    >
+      children content
+    </article>
+  </main>
+</div>
+`;
+
+exports[`Layout renders correctly 1`] = `
+<div
+  className="wjc-layout undefined sc-bdVaJa dgEXNJ"
+>
+  <main
+    className="sc-htpNat KtFsv"
+  >
+    <article
+      className="wjc-layout-center sc-bxivhb bUZGRr"
+    >
+      Layout Content
+    </article>
+  </main>
+</div>
+`;
+
+exports[`Layout renders footer correctly 1`] = `
+<div
+  className="wjc-layout undefined sc-bdVaJa dgEXNJ"
+>
+  <main
+    className="sc-htpNat KtFsv"
+  />
+  <footer
+    className="wjc-layout-footer"
+  >
+    footer content
+  </footer>
+</div>
+`;
+
+exports[`Layout renders header correctly 1`] = `
+<div
+  className="wjc-layout undefined sc-bdVaJa dgEXNJ"
+>
+  <header
+    className="wjc-layout-header"
+  >
+    header content
+  </header>
+  <main
+    className="sc-htpNat KtFsv"
+  />
+</div>
+`;

@@ -59,7 +59,7 @@ exports[`Pagination renders correctly 1`] = `
     共100条
   </div>
   <div
-    className="wjc-select wjc-page-size__select sc-iwsKbI bgcDVW  sc-bdVaJa iwzsiR"
+    className="wjc-select wjc-page-size__select sc-iwsKbI bgcDVW  sc-bdVaJa kwjcmc"
     onClick={[Function]}
   >
     <div

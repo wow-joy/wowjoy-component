@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-const Wrap = styled.main`
+const Wrap = styled.div`
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -30,23 +30,32 @@ class Layout extends PureComponent {
       defaultStyles,
       header,
       asideLeft,
-      center,
+      children,
       asideRight,
       footer
     } = this.props;
     return (
-      <Wrap defaultStyles={defaultStyles} className={className}>
-        {header && <header>{header}</header>}
+      <Wrap
+        defaultStyles={defaultStyles}
+        className={"wjc-layout " + className || ""}
+      >
+        {header && <header className={"wjc-layout-header"}>{header}</header>}
         <Main>
           {asideLeft && (
-            <AsideLeft className={"wj-aside__left"}>{asideLeft}</AsideLeft>
+            <AsideLeft className={"wjc-layout-aside__left"}>
+              {asideLeft}
+            </AsideLeft>
           )}
-          {center && <Center>{center}</Center>}
+          {children && (
+            <Center className={"wjc-layout-center"}>{children}</Center>
+          )}
           {asideRight && (
-            <AsideRight className={"wj-aside__right"}>{asideRight}</AsideRight>
+            <AsideRight className={"wjc-layout-aside__right"}>
+              {asideRight}
+            </AsideRight>
           )}
         </Main>
-        {footer && <footer>{footer}</footer>}
+        {footer && <footer className={"wjc-layout-footer"}>{footer}</footer>}
       </Wrap>
     );
   }
@@ -57,7 +66,7 @@ Layout.propTypes = {
   defaultStyles: PropTypes.string,
   header: PropTypes.node,
   asideLeft: PropTypes.node,
-  center: PropTypes.node,
+  children: PropTypes.node,
   asideRight: PropTypes.node,
   footer: PropTypes.node
 };
