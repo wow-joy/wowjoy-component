@@ -5,9 +5,13 @@
 - 修复 layout 的 className 错误
 - 修改 layout 的 api 错误
 
+- 修复 message 的 className 错误
+- 修改 message 的 onClick 错误
+
 ### feature
 
-- 增加 layout 的 feature
+- 增加 layout 的 test
+- 增加 message 的 test
 
 ### doc
 
