@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message render i.wjc-message-close correctly 1`] = `
+<div
+  className="wjc-message undefined sc-bdVaJa EKEAs"
+>
+  <i
+    className="wjc-message-close"
+    onClick={[Function]}
+  />
+</div>
+`;
+
+exports[`Message render icon correctly 1`] = `
+<div
+  className="wjc-message undefined sc-bdVaJa EKEAs"
+>
+  <span
+    className="icon"
+  >
+    icon
+  </span>
+</div>
+`;
+
+exports[`Message renders correctly 1`] = `
+<div
+  className="wjc-message undefined sc-bdVaJa EKEAs"
+>
+  Message Content
+</div>
+`;

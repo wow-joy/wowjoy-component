@@ -1,13 +1,13 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import styled from 'styled-components';
+import styled from "styled-components";
 const Wrap = styled.div`
   width: 480px;
   height: 36px;
   line-height: 36px;
   border: 1px solid transparent;
   font-size: 12px;
-  ${props=>props.defaultStyles}
+  ${props => props.defaultStyles};
 `;
 class Message extends PureComponent {
   closeHandle = e => {
@@ -19,10 +19,15 @@ class Message extends PureComponent {
   render() {
     const { className, defaultStyles, icon, children, onClose } = this.props;
     return (
-      <Wrap defaultStyles={defaultStyles} className={className}>
+      <Wrap
+        defaultStyles={defaultStyles}
+        className={"wjc-message " + className || ""}
+      >
         {icon}
         {children}
-        {onClose && <i onClose={this.closeHandle} />}
+        {onClose && (
+          <i onClick={this.closeHandle} className={"wjc-message-close"} />
+        )}
       </Wrap>
     );
   }
