@@ -8,19 +8,19 @@ const defaultColor = "#06aea6";
 const Wrap = styled.div`
   display: flex;
   align-items: center;
-  line-height: ${p => p.theme.size};
+  line-height: ${p => p.themeSize};
   font-size: 14px;
   & > * {
     flex-grow: 0;
     flex-shrink: 0;
-    height: ${p => p.theme.size};
+    height: ${p => p.themeSize};
   }
   ${props => props.defaultStyles};
 `;
 const PageItem = styled.span`
   display: inline-block;
   padding: 0 8px;
-  min-width: ${p => p.theme.size};
+  min-width: ${p => p.themeSize};
   text-align: center;
   cursor: pointer;
   &.active {
@@ -63,7 +63,7 @@ const PageItem = styled.span`
   }
 `;
 const Left = styled.div`
-  width: ${p => p.theme.size};
+  width: ${p => p.themeSize};
   border: 1px solid #dbdbdb;
   cursor: pointer;
   position: relative;
@@ -87,7 +87,7 @@ const Left = styled.div`
   }
 `;
 const Right = styled.div`
-  width: ${p => p.theme.size};
+  width: ${p => p.themeSize};
   border: 1px solid #dbdbdb;
   cursor: pointer;
   position: relative;
@@ -132,9 +132,9 @@ const JumpTo = styled.div`
   align-items: center;
   margin: 0 10px;
   & > input[type="number"] {
-    height: ${p => p.theme.size};
+    height: ${p => p.themeSize};
     background: transparent;
-    width: ${p => p.theme.size};
+    width: ${p => p.themeSize};
     text-align: center;
     border: 1px solid #dbdbdb;
     margin: 0 7px;
@@ -148,7 +148,7 @@ const JumpTo = styled.div`
   }
 `;
 const Submit = styled(Btn)`
-  line-height: ${p => p.theme.size};
+  line-height: ${p => p.themeSize};
 `;
 class Pagination extends PureComponent {
   state = {
@@ -190,98 +190,101 @@ class Pagination extends PureComponent {
     const pageLength = Math.ceil(total / pageSize);
     const pageArr = this.getPageArr(pageLength, siblingViewSize, currentPage);
     return (
-      <ThemeProvider theme={{ size: size }}>
-        <Wrap
-          defaultStyles={defaultStyles}
-          className={"wjc-pagination " + className || ""}
-        >
-          {viewAble.includes("prevNext") && (
-            <Left
-              onClick={currentPage === 1 ? null : this.goto(currentPage - 1)}
-              className={`wjc-page-prev ${currentPage === 1 ? "disable" : ""}`}
-            />
-          )}
-          {viewAble.includes("pageList") &&
-            pageArr.map(ele => {
-              if (typeof ele == "number") {
-                return (
-                  <PageItem
-                    key={ele}
-                    onClick={this.goto(ele)}
-                    className={`wjc-page-item ${
-                      ele === currentPage ? "active" : ""
-                    }`}
-                  >
-                    {ele}
-                  </PageItem>
-                );
-              }
+      <Wrap
+        defaultStyles={defaultStyles}
+        className={"wjc-pagination " + className || ""}
+        themeSize={size}
+      >
+        {viewAble.includes("prevNext") && (
+          <Left
+            themeSize={size}
+            onClick={currentPage === 1 ? null : this.goto(currentPage - 1)}
+            className={`wjc-page-prev ${currentPage === 1 ? "disable" : ""}`}
+          />
+        )}
+        {viewAble.includes("pageList") &&
+          pageArr.map(ele => {
+            if (typeof ele == "number") {
               return (
                 <PageItem
                   key={ele}
-                  onClick={this.goto(
-                    ele === "prev"
-                      ? currentPage - siblingViewSize * 2 - 1
-                      : currentPage + siblingViewSize * 2 + 1
-                  )}
-                  title={
-                    ele === "prev"
-                      ? `前进${siblingViewSize * 2 + 1}页`
-                      : `向后${siblingViewSize * 2 + 1}页`
-                  }
-                  className={`wjc-fast-jump__${ele}`}
-                />
+                  onClick={this.goto(ele)}
+                  className={`wjc-page-item ${
+                    ele === currentPage ? "active" : ""
+                  }`}
+                  themeSize={size}
+                >
+                  {ele}
+                </PageItem>
               );
-            })}
-          {viewAble.includes("prevNext") && (
-            <Right
-              onClick={
-                currentPage === pageLength ? null : this.goto(currentPage + 1)
-              }
-              className={`wjc-page-next ${
-                currentPage === pageLength ? "disable" : ""
-              }`}
-            />
-          )}
-          {viewAble.includes("total") && (
-            <Count className={"wjc-page-count"}>{`${staticStr[0]}${total}${
-              staticStr[1]
-            }`}</Count>
-          )}
-          {viewAble.includes("pageSizeSelect") && (
-            <SelectPageSize
-              className={"wjc-page-size__select"}
-              value={pageSize}
-              inputRender={({ value }) => (value ? value.label : "")}
-              options={pageSizeList.map(ele => ({
-                label: `${ele}${staticStr[2]}`,
-                value: ele
-              }))}
-              onChange={this.changePageSize}
-            />
-          )}
-          {viewAble.includes("jumpTo") && (
-            <JumpTo className={"wjc-jump-to"}>
-              {staticStr[3]}
-              <input
-                type="number"
-                onKeyDown={this.keyDownJumpTo}
-                value={this.state.jumpToValue}
-                onChange={this.changeJumpToInput}
+            }
+            return (
+              <PageItem
+                key={ele}
+                onClick={this.goto(
+                  ele === "prev"
+                    ? currentPage - siblingViewSize * 2 - 1
+                    : currentPage + siblingViewSize * 2 + 1
+                )}
+                title={
+                  ele === "prev"
+                    ? `前进${siblingViewSize * 2 + 1}页`
+                    : `向后${siblingViewSize * 2 + 1}页`
+                }
+                className={`wjc-fast-jump__${ele}`}
               />
-              {staticStr[4]}
-            </JumpTo>
-          )}
-          {viewAble.includes("submit") && (
-            <Submit
-              className={"wjc-jump-to__submit"}
-              onClick={this.submitJumpTo}
-            >
-              {staticStr[5]}
-            </Submit>
-          )}
-        </Wrap>
-      </ThemeProvider>
+            );
+          })}
+        {viewAble.includes("prevNext") && (
+          <Right
+            themeSize={size}
+            onClick={
+              currentPage === pageLength ? null : this.goto(currentPage + 1)
+            }
+            className={`wjc-page-next ${
+              currentPage === pageLength ? "disable" : ""
+            }`}
+          />
+        )}
+        {viewAble.includes("total") && (
+          <Count className={"wjc-page-count"}>{`${staticStr[0]}${total}${
+            staticStr[1]
+          }`}</Count>
+        )}
+        {viewAble.includes("pageSizeSelect") && (
+          <SelectPageSize
+            className={"wjc-page-size__select"}
+            value={pageSize}
+            inputRender={({ value }) => (value ? value.label : "")}
+            options={pageSizeList.map(ele => ({
+              label: `${ele}${staticStr[2]}`,
+              value: ele
+            }))}
+            onChange={this.changePageSize}
+          />
+        )}
+        {viewAble.includes("jumpTo") && (
+          <JumpTo className={"wjc-jump-to"} themeSize={size}>
+            {staticStr[3]}
+            <input
+              type="number"
+              onKeyDown={this.keyDownJumpTo}
+              value={this.state.jumpToValue}
+              onChange={this.changeJumpToInput}
+            />
+            {staticStr[4]}
+          </JumpTo>
+        )}
+        {viewAble.includes("submit") && (
+          <Submit
+            className={"wjc-jump-to__submit"}
+            onClick={this.submitJumpTo}
+            themeSize={size}
+          >
+            {staticStr[5]}
+          </Submit>
+        )}
+      </Wrap>
     );
   }
   goto = page => e => {
