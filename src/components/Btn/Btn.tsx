@@ -1,5 +1,4 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 
@@ -13,10 +12,17 @@ const Button = styled.span`
   vertical-align: middle;
   line-height: 36px;
   user-select: none;
-  ${props => props.defaultStyles};
+  ${(props: { defaultStyles?: string }) => props.defaultStyles};
 `;
-class BtnBase extends PureComponent {
-  clickHandle = e => {
+export interface BtnBaseProps {
+  onClick?: (arg0: object) => boolean;
+  to?: string;
+  history?: { push: (arg0: string) => void };
+  defaultStyles?: string;
+  className?: string;
+}
+class BtnBase extends React.PureComponent<BtnBaseProps, {}> {
+  clickHandle = (e: object) => {
     const { onClick, to } = this.props;
     if (onClick && onClick(e) === false) {
       return;
@@ -38,20 +44,23 @@ class BtnBase extends PureComponent {
     );
   }
 }
-class Btn extends PureComponent {
+
+export interface BtnProps {
+  onClick?: (arg0: object) => boolean;
+  to?: string;
+  history?: { push: (arg0: string) => void };
+  defaultStyles?: string;
+  className?: string;
+  children?: React.ReactNode;
+}
+class Btn extends React.PureComponent<BtnProps, {}> {
   render() {
     if (this.props.to) {
-      const RouteBtn = withRouter(BtnBase);
+      const RouteBtn = withRouter(BtnBase as any);
       return <RouteBtn {...this.props} />;
     }
     return <BtnBase {...this.props} />;
   }
 }
-Btn.propTypes = {
-  className: PropTypes.string,
-  defaultStyles: PropTypes.string,
-  onClick: PropTypes.func,
-  children: PropTypes.node,
-  to: PropTypes.string
-};
+
 export default Btn;

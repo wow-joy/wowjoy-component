@@ -18,15 +18,25 @@ module.exports = {
         use: ["@svgr/webpack", "url-loader"]
       }
     },
+    extra: {
+      resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+      },
+      module: {
+        rules: [
+          { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
+          // { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+        ]
+      }
+    },
     // config(config) {
     //   return {
     //     ...config,
     //     externals: {
-    //       "styled-components": {
-    //         commonjs: "styled-components",
-    //         commonjs2: "styled-components",
-    //         amd: "styled-components"
-    //       }
+    //       ...config.externals,
+    //       react: "React",
+    //       "react-router": "ReactRouter",
+    //       "react-router-dom": "ReactRouter-dom"
     //     }
     //   };
     // }

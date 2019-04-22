@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import * as React from "react";
+import * as ReactDom from "react-dom";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Home from "./Home";
-import List from "./List";
-import Detail from "./Detail";
+import Home from "./Home/index";
+import List from "./List/index";
+import Detail from "./Detail/index";
 import "../../src/media/common.css";
 import { Layout } from "@src";
 import styled from "styled-components";
@@ -22,7 +22,7 @@ const Logo = styled(Svg)`
     fill: #fff;
   }
 `;
-class Routers extends Component {
+class Routers extends React.Component {
   render() {
     return (
       <BrowserRouter basename={`/`}>
@@ -40,34 +40,24 @@ class Routers extends Component {
     );
   }
 }
-
-const Index = styled.input`
-  padding: 0 20px;
-  width: 300px;
-  -webkit-overflow-scrolling: touch;
-  overflow-x: scroll;
-`;
-
-class Demo extends Component {
+class Demo extends React.Component {
   render() {
     return (
       <Layout
         header={
           <Title>
             <Logo />
-          
-                <Index type="text" />
-         
             wowjoy-component Demo Home
           </Title>
         }
-        center={<Routers />}
-      />
+      >
+        <Routers />
+      </Layout>
     );
   }
 }
 
-render(
+ReactDom.render(
   <BrowserRouter>
     <Demo />
   </BrowserRouter>,

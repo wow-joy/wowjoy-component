@@ -1,4 +1,4 @@
-import Btn from './Btn';
+import Btn from "./Btn";
 import Hoc from "../../tools/Hoc";
 import type1 from "./types/type1";
 import type2 from "./types/type2";
