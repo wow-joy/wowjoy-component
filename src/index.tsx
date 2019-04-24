@@ -18,12 +18,12 @@ import Dialog, {
   Alert as Dialog_alert
 } from "./components/Dialog/index";
 // import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs";
-// import Pop from "./components/Pop";
+import Pop from "./components/Pop/index";
 // import Table from "./components/Table";
 import Select from "./components/Select/index";
 // import SlideDown from "./components/SlideDown";
 // import PopOut from "./components/PopOut";
-// import ScrollBox from "./components/ScrollBox";
+import ScrollBox from "./components/ScrollBox/index";
 import Pagination from "./components/Pagination/index";
 // import { CheckBox } from "./components/Form";
 
@@ -51,14 +51,14 @@ const Components: any = {
   // Tabs_1,
   // Tabs_2,
 
-  // Pop,
+  Pop,
 
   // Table,
   Select,
   // SlideDown,
-  // ScrollBox,
+  ScrollBox,
   // PopOut,
-  Pagination,
+  Pagination
   // CheckBox
 };
 export {
@@ -81,13 +81,13 @@ export {
   // Tabs,
   // Tabs_1,
   // Tabs_2,
-  // Pop,
+  Pop,
   // Table,
   Select,
   // SlideDown,
-  // ScrollBox,
+  ScrollBox,
   // PopOut,
-  Pagination,
+  Pagination
   // CheckBox
 };
 export default Components;

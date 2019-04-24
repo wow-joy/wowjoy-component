@@ -1,5 +1,4 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import { createPortal } from "react-dom";
 import styled, { keyframes, css } from "styled-components";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
@@ -22,7 +21,12 @@ const fadeOut = keyframes`
   }
 `;
 
-const Layer = styled.div`
+interface WrapProps {
+  visible?: boolean;
+  layer: boolean;
+  defaultStyles: string;
+}
+const Layer = styled.div<WrapProps>`
   /* display: ${props => (props.visible ? "block" : "none")}; */
   opacity: 0;
   position: absolute;
@@ -37,44 +41,64 @@ const Layer = styled.div`
   pointer-events: ${props => (props.layer ? "all" : "none")};
   ${props => props.defaultStyles};
   &.fadeIn {
-    animation: ${css`${fadeIn} 0.3s forwards`};
+    animation: ${css`
+      ${fadeIn} 0.3s forwards
+    `};
   }
   &.fadeOut {
-    animation: ${css`${fadeOut} 0.3s forwards`};
+    animation: ${css`
+      ${fadeOut} 0.3s forwards
+    `};
   }
 `;
-const PopBox = styled.div`
+
+interface PopBoxProps {
+  translate: string;
+}
+const PopBox = styled.div<PopBoxProps>`
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 1001;
   transition: 0.29s;
   pointer-events: all;
-  transform:${p=> `${p.translate || "translate(-50%, -50%)"} scale(0)`};
+  transform: ${p => `${p.translate || "translate(-50%, -50%)"} scale(0)`};
 `;
 
-class Pop extends PureComponent {
-  mousePosition = { x: 0, y: 0 };
-  mousePositionEventBinded
-  componentWillReceiveProps(nextProps) {
+export interface Props {
+  className?: string;
+  defaultStyles?: string;
+  translate?: string;
+  getContainer?: (() => HTMLElement) | false;
+  visible?: boolean;
+  layer?: boolean;
+  onClose?: (e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  autoClose?: boolean | number;
+}
+class Pop extends React.PureComponent<Props, {}> {
+  mousePosition: { x: number; y: number } = { x: 0, y: 0 };
+  mousePositionEventBinded: boolean;
+  layerRef: HTMLElement;
+  popBox: HTMLElement;
+  componentWillReceiveProps(nextProps: Props) {
     if (nextProps.visible !== this.props.visible) {
       if (nextProps.visible) {
         this.layerRef.style.display = "block";
-        const popBoxWidth = this.popBox.clientWidth
-        const popBoxHeight = this.popBox.clientHeight
+        const popBoxWidth = this.popBox.clientWidth;
+        const popBoxHeight = this.popBox.clientHeight;
         this.popBox.style.transformOrigin = `${
           this.mousePosition.x
-            ? this.mousePosition.x - window.innerWidth / 2 + popBoxWidth/2
+            ? this.mousePosition.x - window.innerWidth / 2 + popBoxWidth / 2
             : 0
         }px ${
           this.mousePosition.y
-            ? this.mousePosition.y - window.innerHeight / 2 + popBoxHeight/2
+            ? this.mousePosition.y - window.innerHeight / 2 + popBoxHeight / 2
             : 0
         }px`;
       }
     }
   }
-  setMousePosition = e => {
+  setMousePosition = (e: MouseEvent) => {
     if (this.props.visible) {
       return;
     }
@@ -101,18 +125,20 @@ class Pop extends PureComponent {
   }
 
   animationStartHandle = () => {
-    const { translate } = this.props;
-    const popBoxWidth = this.popBox.clientWidth
-    const popBoxHeight = this.popBox.clientHeight
-    if (this.layerRef.classList.contains("fadeIn")) {
-      setTimeout(()=>{
-        this.popBox.style.transform = `
+    const {
+      layerRef,
+      popBox,
+      props: { translate }
+    } = this;
+    if (layerRef.classList.contains("fadeIn")) {
+      setTimeout(() => {
+        popBox.style.transform = `
         ${translate || "translate(-50%, -50%)"} scale(1)
       `;
-      },100)
+      }, 100);
     }
-    if (this.layerRef.classList.contains("fadeOut")) {
-      this.popBox.style.transform = `
+    if (layerRef.classList.contains("fadeOut")) {
+      popBox.style.transform = `
         ${translate || "translate(-50%, -50%)"} scale(0)
       `;
     }
@@ -122,11 +148,11 @@ class Pop extends PureComponent {
       this.layerRef.style.display = "none";
     }
   };
-  closeHandle = e => {
+  closeHandle = (e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const { onClose } = this.props;
-    onClose(e);
+    onClose && onClose(e);
   };
-  layerClick = e => {
+  layerClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
     if (e.target === this.layerRef) {
       this.closeHandle(e);
@@ -166,18 +192,8 @@ class Pop extends PureComponent {
     if (getContainer === false) {
       return Render;
     }
-    return createPortal(Render, getContainer?getContainer(): document.body);
+    return createPortal(Render, getContainer ? getContainer() : document.body);
   }
 }
 
-Pop.propTypes = {
-  className: PropTypes.string,
-  defaultStyles: PropTypes.string,
-  translate: PropTypes.string,
-  getContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
-  visible: PropTypes.bool,
-  layer: PropTypes.bool,
-  onClose: PropTypes.func,
-  autoClose: PropTypes.oneOfType([PropTypes.number, PropTypes.bool])
-};
 export default ControllSwitchHoc({ value: "visible" })(Pop);
