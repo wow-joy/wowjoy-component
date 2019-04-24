@@ -17,7 +17,7 @@ import Dialog, {
   Confirm as Dialog_confirm,
   Alert as Dialog_alert
 } from "./components/Dialog/index";
-// import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs";
+import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs";
 import Pop from "./components/Pop/index";
 // import Table from "./components/Table";
 import Select from "./components/Select/index";
@@ -47,9 +47,9 @@ const Components: any = {
   Dialog_confirm,
   Dialog_alert,
 
-  // Tabs,
-  // Tabs_1,
-  // Tabs_2,
+  Tabs,
+  Tabs_1,
+  Tabs_2,
 
   Pop,
 
@@ -78,9 +78,9 @@ export {
   Dialog_1,
   Dialog_confirm,
   Dialog_alert,
-  // Tabs,
-  // Tabs_1,
-  // Tabs_2,
+  Tabs,
+  Tabs_1,
+  Tabs_2,
   Pop,
   // Table,
   Select,

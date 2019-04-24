@@ -1,23 +1,46 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import styled from "styled-components";
-const Wrap = styled.div`
+interface WrapProps {
+  defaultStyles?: string;
+}
+const Wrap = styled.div<WrapProps>`
   width: 100%;
   height: 100%;
   ${props => props.defaultStyles};
 `;
-class Tabs extends PureComponent {
-  state = {
-    currentTab: this.props.initValue
-  };
+export interface Props {
+  className: string;
+  defaultStyles: string;
+  controllers: Array<React.ReactNode>;
+  useHover: boolean;
+  hideOthers: boolean;
+  initValue: number;
+  value: number;
+  onChange: (
+    e: React.MouseEvent<HTMLElement, MouseEvent>,
+    tabIndex: number
+  ) => void;
+}
+interface State {
+  currentTab: number;
+}
+class Tabs extends React.PureComponent<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      currentTab: props.initValue
+    };
+  }
 
-  changeTab = tabIndex => event => {
+  changeTab = (tabIndex: number) => (
+    event?: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
     const { onChange } = this.props;
     this.setState({ currentTab: tabIndex });
     onChange && onChange(event, tabIndex);
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     if (
       nextProps.value !== this.props.value &&
       nextProps.value !== this.state.currentTab
@@ -57,8 +80,8 @@ class Tabs extends PureComponent {
           ))}
         </nav>
         <section>
-          {children.constructor.name === "Array" &&
-            children.map((ele, index) => {
+          {children instanceof Array &&
+            (children as React.ReactNodeArray).map((ele, index) => {
               if (!hideOthers && currentIndex - index !== 0) {
                 return null;
               }
@@ -77,14 +100,4 @@ class Tabs extends PureComponent {
   }
 }
 
-Tabs.propTypes = {
-  className: PropTypes.string,
-  defaultStyles: PropTypes.string,
-  controllers: PropTypes.array,
-  useHover: PropTypes.bool,
-  hideOthers: PropTypes.bool,
-  initValue: PropTypes.number,
-  value: PropTypes.number,
-  onChange: PropTypes.func
-};
 export default Tabs;
