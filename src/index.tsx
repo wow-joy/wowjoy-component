@@ -4,27 +4,27 @@ import Btn, {
   Type3 as Btn_3,
   Disabled as Btn_disabled
 } from "./components/Btn/index";
-import Layout from "./components/Layout";
-// import Message, {
-//   Doubt as Message_doubt,
-//   Error as Message_error,
-//   Info as Message_info,
-//   Success as Message_success,
-//   Warn as Message_warn
-// } from "./components/Message";
-// import Dialog, {
-//   Type1 as Dialog_1,
-//   Confirm as Dialog_confirm,
-//   Alert as Dialog_alert
-// } from "./components/Dialog";
+import Layout from "./components/Layout/index";
+import Message, {
+  Doubt as Message_doubt,
+  Error as Message_error,
+  Info as Message_info,
+  Success as Message_success,
+  Warn as Message_warn
+} from "./components/Message/index";
+import Dialog, {
+  Type1 as Dialog_1,
+  Confirm as Dialog_confirm,
+  Alert as Dialog_alert
+} from "./components/Dialog/index";
 // import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs";
 // import Pop from "./components/Pop";
 // import Table from "./components/Table";
-// import Select from "./components/Select";
+import Select from "./components/Select/index";
 // import SlideDown from "./components/SlideDown";
 // import PopOut from "./components/PopOut";
 // import ScrollBox from "./components/ScrollBox";
-// import Pagination from "./components/Pagination";
+import Pagination from "./components/Pagination/index";
 // import { CheckBox } from "./components/Form";
 
 const Components: any = {
@@ -34,18 +34,18 @@ const Components: any = {
   Btn_3,
   Btn_disabled,
 
-  Layout
-  // Message,
-  // Message_doubt,
-  // Message_error,
-  // Message_info,
-  // Message_success,
-  // Message_warn,
+  Layout,
+  Message,
+  Message_doubt,
+  Message_error,
+  Message_info,
+  Message_success,
+  Message_warn,
 
-  // Dialog,
-  // Dialog_1,
-  // Dialog_confirm,
-  // Dialog_alert,
+  Dialog,
+  Dialog_1,
+  Dialog_confirm,
+  Dialog_alert,
 
   // Tabs,
   // Tabs_1,
@@ -54,11 +54,11 @@ const Components: any = {
   // Pop,
 
   // Table,
-  // Select,
+  Select,
   // SlideDown,
   // ScrollBox,
   // PopOut,
-  // Pagination,
+  Pagination,
   // CheckBox
 };
 export {
@@ -67,27 +67,27 @@ export {
   Btn_2,
   Btn_3,
   Btn_disabled,
-  Layout
+  Layout,
   // Message,
   // Message_doubt,
   // Message_error,
   // Message_info,
   // Message_success,
   // Message_warn,
-  // Dialog,
-  // Dialog_1,
-  // Dialog_confirm,
-  // Dialog_alert,
+  Dialog,
+  Dialog_1,
+  Dialog_confirm,
+  Dialog_alert,
   // Tabs,
   // Tabs_1,
   // Tabs_2,
   // Pop,
   // Table,
-  // Select,
+  Select,
   // SlideDown,
   // ScrollBox,
   // PopOut,
-  // Pagination,
+  Pagination,
   // CheckBox
 };
 export default Components;

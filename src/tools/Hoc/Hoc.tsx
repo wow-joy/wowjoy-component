@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import * as React from "react";
 /**
  * @description 默认Hoc工厂函数
  * @param initSetting 默认值设定
@@ -6,8 +6,14 @@ import React, { PureComponent } from "react";
  * @returns 新组件
  *
  */
-const Hoc = initSetting => OldComponent => {
-  return class extends PureComponent {
+export interface Props {
+  className?: string;
+  defaultStyles?: string;
+}
+const Hoc = (initSetting: { defaultStyles?: string; className?: string }) => (
+  OldComponent: typeof React.Component
+) => {
+  return class extends React.PureComponent<Props, {}> {
     render() {
       let { className, defaultStyles } = this.props;
       // 为组件添加默认样式处理，className属性使用叠加处理，其余属性使用覆盖处理

@@ -1,5 +1,4 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import { Type1 as Btn_1, Type3 as Btn_3 } from "../Btn";
 import styled from "styled-components";
 
@@ -9,7 +8,7 @@ const Wrap = styled.div`
   background: #fff;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
   padding-bottom: 24px;
-  ${props => props.defaultStyles};
+  ${(props: { defaultStyles?: string }) => props.defaultStyles};
 `;
 
 const CloseBtn = styled.div`
@@ -80,13 +79,30 @@ const Btns = styled.div`
   display: block;
   text-align: center;
 `;
-
-class Dialog extends PureComponent {
-  closeHandle = e => {
+export interface Props {
+  defaultStyles?: string;
+  className?: string;
+  header?: React.ReactNode | boolean;
+  headerText?: string;
+  children?: React.ReactNode;
+  btnsText?: Array<string>;
+  btns?: Array<React.Component | React.SFC>;
+  onClick?: (
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
+    index: number
+  ) => boolean | undefined;
+  onClose?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  showCloseBtn?: boolean;
+}
+class Dialog extends React.PureComponent<Props, {}> {
+  closeHandle = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     const { onClose } = this.props;
     onClose && onClose(e);
   };
-  clickHandle = (e, index) => {
+  clickHandle = (
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
+    index: number
+  ) => {
     const { onClick } = this.props;
     if (onClick && onClick(e, index) === false) {
       return;
@@ -104,10 +120,12 @@ class Dialog extends PureComponent {
       btns,
       showCloseBtn = true
     } = this.props;
-    const Header =
-      header && header !== true ? header : props => <HeaderDom {...props} />;
+    const Header: any =
+      header && header !== true
+        ? header
+        : (props: object) => <HeaderDom {...props} />;
 
-    const Btn_default = [Btn_1, Btn_3];
+    const Btn_default: Array<React.Component | React.SFC> = [Btn_1, Btn_3];
 
     return (
       <Wrap
@@ -127,11 +145,14 @@ class Dialog extends PureComponent {
         <Content className={"wjc-dialog-content"}>{children}</Content>
         <Btns className={"wjc-dialog-btns"}>
           {(btnsText || ["提交", "取消"]).map((ele, index) => {
-            const Btn = (btns && btns[index]) || Btn_default[index] || Btn_1;
+            const Btn: any =
+              (btns && btns[index]) || Btn_default[index] || Btn_1;
             return (
               <Btn
                 key={index}
-                onClick={e => this.clickHandle(e, index)}
+                onClick={(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) =>
+                  this.clickHandle(e, index)
+                }
                 defaultStyles={`margin: 0 5px;min-width: 130px;`}
               >
                 {ele}
@@ -144,16 +165,4 @@ class Dialog extends PureComponent {
   }
 }
 
-Dialog.propTypes = {
-  defaultStyles: PropTypes.string,
-  className: PropTypes.string,
-  header: PropTypes.any,
-  headerText: PropTypes.string,
-  children: PropTypes.node,
-  btnsText: PropTypes.array,
-  btns: PropTypes.array,
-  onClick: PropTypes.func,
-  onClose: PropTypes.func,
-  showCloseBtn: PropTypes.bool
-};
 export default Dialog;

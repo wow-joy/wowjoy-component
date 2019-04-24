@@ -1,5 +1,4 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import styled from "styled-components";
 const Wrap = styled.div`
   width: 100%;
@@ -16,14 +15,24 @@ const Wrap = styled.div`
     line-height: 64px;
     width: 100%;
   }
-  ${props => props.defaultStyles};
+  ${(props: { defaultStyles?: string }) => props.defaultStyles};
 `;
 
 const AsideLeft = styled.aside``;
 const Main = styled.main``;
 const Center = styled.article``;
 const AsideRight = styled.aside``;
-class Layout extends PureComponent {
+
+export interface Props {
+  className: string;
+  defaultStyles: string;
+  header: React.ReactNode;
+  asideLeft: React.ReactNode;
+  children: React.ReactNode;
+  asideRight: React.ReactNode;
+  footer: React.ReactNode;
+}
+class Layout extends React.PureComponent<Props, {}> {
   render() {
     const {
       className,
@@ -61,13 +70,4 @@ class Layout extends PureComponent {
   }
 }
 
-Layout.propTypes = {
-  className: PropTypes.string,
-  defaultStyles: PropTypes.string,
-  header: PropTypes.node,
-  asideLeft: PropTypes.node,
-  children: PropTypes.node,
-  asideRight: PropTypes.node,
-  footer: PropTypes.node
-};
 export default Layout;

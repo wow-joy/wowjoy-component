@@ -1,30 +1,32 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import styled, { ThemeProvider } from "styled-components";
+import * as React from "react";
+import styled from "styled-components";
 import Select from "../Select";
 import { Type3 as Btn } from "../Btn";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
+
 const defaultColor = "#06aea6";
 const Wrap = styled.div`
   display: flex;
   align-items: center;
-  line-height: ${p => p.theme.size};
+  line-height: ${(props: { size?: string; defaultStyles?: string }) =>
+    props.size};
   font-size: 14px;
   & > * {
     flex-grow: 0;
     flex-shrink: 0;
-    height: ${p => p.theme.size};
+    height: ${(props: { size?: string; defaultStyles?: string }) => props.size};
   }
-  ${props => props.defaultStyles};
+  ${(props: { size?: string; defaultStyles?: string }) => props.defaultStyles};
 `;
 const PageItem = styled.span`
   display: inline-block;
   padding: 0 8px;
-  min-width: ${p => p.theme.size};
+  min-width: ${(props: { size?: string }) => props.size};
   text-align: center;
   cursor: pointer;
   &.active {
-    color: ${p => p.theme.mainColor || defaultColor};
+    color: ${(props: { theme?: { mainColor?: string } }) =>
+      props.theme.mainColor || defaultColor};
   }
   &.wjc-fast-jump__prev,
   &.wjc-fast-jump__next {
@@ -46,7 +48,8 @@ const PageItem = styled.span`
     &::before {
       content: "<<";
       font-size: 12px;
-      color: ${p => p.theme.mainColor || defaultColor};
+      color: ${(props: { theme?: { mainColor?: string } }) =>
+        props.theme.mainColor || defaultColor};
       letter-spacing: -2px;
       transform: scale(0.8, 1.2);
     }
@@ -56,14 +59,15 @@ const PageItem = styled.span`
     &::before {
       content: ">>";
       font-size: 12px;
-      color: ${p => p.theme.mainColor || defaultColor};
+      color: ${(props: { theme?: { mainColor?: string } }) =>
+        props.theme.mainColor || defaultColor};
       letter-spacing: -2px;
       transform: scale(0.8, 1.2);
     }
   }
 `;
 const Left = styled.div`
-  width: ${p => p.theme.size};
+  width: ${(props: { size?: string }) => props.size};
   border: 1px solid #dbdbdb;
   cursor: pointer;
   position: relative;
@@ -87,7 +91,7 @@ const Left = styled.div`
   }
 `;
 const Right = styled.div`
-  width: ${p => p.theme.size};
+  width: ${(props: { size?: string }) => props.size};
   border: 1px solid #dbdbdb;
   cursor: pointer;
   position: relative;
@@ -124,7 +128,8 @@ const SelectPageSize = styled(Select)`
     background: #fffbe0;
   }
   li.active {
-    color: ${p => p.theme.mainColor || defaultColor};
+    color: ${(props: { theme?: { mainColor?: string } }) =>
+      props.theme.mainColor || defaultColor};
   }
 `;
 const JumpTo = styled.div`
@@ -132,9 +137,9 @@ const JumpTo = styled.div`
   align-items: center;
   margin: 0 10px;
   & > input[type="number"] {
-    height: ${p => p.theme.size};
+    height: ${(props: { size?: string }) => props.size};
     background: transparent;
-    width: ${p => p.theme.size};
+    width: ${(props: { size?: string }) => props.size};
     text-align: center;
     border: 1px solid #dbdbdb;
     margin: 0 7px;
@@ -148,13 +153,28 @@ const JumpTo = styled.div`
   }
 `;
 const Submit = styled(Btn)`
-  line-height: ${p => p.theme.size};
+  line-height: ${(props: { size?: string }) => props.size};
 `;
-class Pagination extends PureComponent {
+export interface Props {
+  className: string;
+  defaultStyles: string;
+  size: string;
+  viewAble: Array<string>;
+  staticStr: Array<string>;
+  total: number;
+  pageSize: number;
+  onChange: (currentPage: number, pageSize: number, total: number) => void;
+  onPageSizeChange: (pageSize: number) => void;
+  siblingViewSize: number;
+  currentPage: number;
+  pageSizeList: Array<number>;
+}
+interface State {
+  jumpToValue: string;
+}
+class Pagination extends React.PureComponent<Props, State> {
   state = {
-    currentPage: "",
     jumpToValue: ""
-    // pageSize: this.props.defaultPageSize
   };
 
   componentWillMount() {
@@ -188,107 +208,113 @@ class Pagination extends PureComponent {
     const { pageSize } = this.props;
     // const currentPage = value;
     const pageLength = Math.ceil(total / pageSize);
+
     const pageArr = this.getPageArr(pageLength, siblingViewSize, currentPage);
     return (
-      <ThemeProvider theme={{ size: size }}>
-        <Wrap
-          defaultStyles={defaultStyles}
-          className={"wjc-pagination " + className || ""}
-        >
-          {viewAble.includes("prevNext") && (
-            <Left
-              onClick={currentPage === 1 ? null : this.goto(currentPage - 1)}
-              className={`wjc-page-prev ${currentPage === 1 ? "disable" : ""}`}
-            />
-          )}
-          {viewAble.includes("pageList") &&
-            pageArr.map(ele => {
-              if (typeof ele == "number") {
-                return (
-                  <PageItem
-                    key={ele}
-                    onClick={this.goto(ele)}
-                    className={`wjc-page-item ${
-                      ele === currentPage ? "active" : ""
-                    }`}
-                  >
-                    {ele}
-                  </PageItem>
-                );
-              }
+      <Wrap
+        size={size}
+        defaultStyles={defaultStyles}
+        className={"wjc-pagination " + className || ""}
+      >
+        {viewAble.includes("prevNext") && (
+          <Left
+            size={size}
+            onClick={currentPage === 1 ? null : this.goto(currentPage - 1)}
+            className={`wjc-page-prev ${currentPage === 1 ? "disable" : ""}`}
+          />
+        )}
+        {viewAble.includes("pageList") &&
+          pageArr.map(ele => {
+            if (typeof ele == "number") {
               return (
                 <PageItem
+                  size={size}
                   key={ele}
-                  onClick={this.goto(
-                    ele === "prev"
-                      ? currentPage - siblingViewSize * 2 - 1
-                      : currentPage + siblingViewSize * 2 + 1
-                  )}
-                  title={
-                    ele === "prev"
-                      ? `前进${siblingViewSize * 2 + 1}页`
-                      : `向后${siblingViewSize * 2 + 1}页`
-                  }
-                  className={`wjc-fast-jump__${ele}`}
-                />
+                  onClick={this.goto(ele)}
+                  className={`wjc-page-item ${
+                    ele === currentPage ? "active" : ""
+                  }`}
+                >
+                  {ele}
+                </PageItem>
               );
-            })}
-          {viewAble.includes("prevNext") && (
-            <Right
-              onClick={
-                currentPage === pageLength ? null : this.goto(currentPage + 1)
-              }
-              className={`wjc-page-next ${
-                currentPage === pageLength ? "disable" : ""
-              }`}
-            />
-          )}
-          {viewAble.includes("total") && (
-            <Count className={"wjc-page-count"}>{`${staticStr[0]}${total}${
-              staticStr[1]
-            }`}</Count>
-          )}
-          {viewAble.includes("pageSizeSelect") && (
-            <SelectPageSize
-              className={"wjc-page-size__select"}
-              value={pageSize}
-              inputRender={({ value }) => (value ? value.label : "")}
-              options={pageSizeList.map(ele => ({
-                label: `${ele}${staticStr[2]}`,
-                value: ele
-              }))}
-              onChange={this.changePageSize}
-            />
-          )}
-          {viewAble.includes("jumpTo") && (
-            <JumpTo className={"wjc-jump-to"}>
-              {staticStr[3]}
-              <input
-                type="number"
-                onKeyDown={this.keyDownJumpTo}
-                value={this.state.jumpToValue}
-                onChange={this.changeJumpToInput}
+            }
+            return (
+              <PageItem
+                key={ele}
+                onClick={this.goto(
+                  ele === "prev"
+                    ? currentPage - siblingViewSize * 2 - 1
+                    : currentPage + siblingViewSize * 2 + 1
+                )}
+                title={
+                  ele === "prev"
+                    ? `前进${siblingViewSize * 2 + 1}页`
+                    : `向后${siblingViewSize * 2 + 1}页`
+                }
+                className={`wjc-fast-jump__${ele}`}
               />
-              {staticStr[4]}
-            </JumpTo>
-          )}
-          {viewAble.includes("submit") && (
-            <Submit
-              className={"wjc-jump-to__submit"}
-              onClick={this.submitJumpTo}
-            >
-              {staticStr[5]}
-            </Submit>
-          )}
-        </Wrap>
-      </ThemeProvider>
+            );
+          })}
+        {viewAble.includes("prevNext") && (
+          <Right
+            onClick={
+              currentPage === pageLength ? null : this.goto(currentPage + 1)
+            }
+            size={size}
+            className={`wjc-page-next ${
+              currentPage === pageLength ? "disable" : ""
+            }`}
+          />
+        )}
+        {viewAble.includes("total") && (
+          <Count className={"wjc-page-count"}>{`${staticStr[0]}${total}${
+            staticStr[1]
+          }`}</Count>
+        )}
+        {viewAble.includes("pageSizeSelect") && (
+          <SelectPageSize
+            className={"wjc-page-size__select"}
+            value={pageSize}
+            inputRender={({ value }: { value: { label: any } }) =>
+              value ? value.label : ""
+            }
+            options={pageSizeList.map(ele => ({
+              label: `${ele}${staticStr[2]}`,
+              value: ele
+            }))}
+            onChange={this.changePageSize}
+          />
+        )}
+        {viewAble.includes("jumpTo") && (
+          <JumpTo size={size} className={"wjc-jump-to"}>
+            {staticStr[3]}
+            <input
+              type="number"
+              onKeyDown={this.keyDownJumpTo}
+              value={this.state.jumpToValue}
+              onChange={this.changeJumpToInput}
+            />
+            {staticStr[4]}
+          </JumpTo>
+        )}
+        {viewAble.includes("submit") && (
+          <Submit className={"wjc-jump-to__submit"} onClick={this.submitJumpTo}>
+            {staticStr[5]}
+          </Submit>
+        )}
+      </Wrap>
     );
   }
-  goto = page => e => {
+  goto = (page: number) => () => {
     const { onChange } = this.props;
     onChange && onChange(page, this.props.pageSize, this.props.total);
   };
-  getPageArr = (pageLength, siblingViewSize, currentPage) => {
+  getPageArr = (
+    pageLength: number,
+    siblingViewSize: number,
+    currentPage: number
+  ) => {
     const centerVisibleSize = siblingViewSize * 2 + 1;
     if (pageLength <= centerVisibleSize + 4) {
       // 足够显示所有项目时不显示`...`快速跳转
@@ -296,8 +322,7 @@ class Pagination extends PureComponent {
         .fill("")
         .map((ele, index) => index + 1);
     } else {
-      const centerArr = [];
-      const fillArr = (min, max) => {
+      const fillArr = (min: number, max: number) => {
         return Array(max - min + 1)
           .fill("")
           .map((ele, index) => min + index);
@@ -337,20 +362,17 @@ class Pagination extends PureComponent {
       ];
     }
   };
-  changePageSize = value => {
+  changePageSize = (value: number) => {
     const { onPageSizeChange, onChange } = this.props;
-    onChange && onChange(this.props.value || 1, value, this.props.total);
+    onChange && onChange(this.props.currentPage || 1, value, this.props.total);
     onPageSizeChange && onPageSizeChange(value);
-    // this.setState({
-    //   pageSize: value
-    // });
   };
-  changeJumpToInput = e => {
+  changeJumpToInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
       jumpToValue: e.target.value
     });
   };
-  keyDownJumpTo = e => {
+  keyDownJumpTo = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === 13) {
       this.submitJumpTo();
     }
@@ -365,7 +387,7 @@ class Pagination extends PureComponent {
     const { total } = this.props;
     const { pageSize } = this.props;
     const pageLength = Math.ceil(total / pageSize);
-    this.goto(Math.min(Math.max(this.state.jumpToValue, 1), pageLength))();
+    this.goto(Math.min(Math.max(+this.state.jumpToValue, 1), pageLength))();
     this.clearJumpTo();
   };
   clearJumpTo = () => {
@@ -374,21 +396,6 @@ class Pagination extends PureComponent {
     });
   };
 }
-
-Pagination.propTypes = {
-  className: PropTypes.string,
-  defaultStyles: PropTypes.string,
-  size: PropTypes.string,
-  viewAble: PropTypes.array,
-  staticStr: PropTypes.array,
-  total: PropTypes.number,
-  pageSize: PropTypes.number,
-  onChange: PropTypes.func,
-  onPageSizeChange: PropTypes.func,
-  siblingViewSize: PropTypes.number,
-  currentPage: PropTypes.number,
-  pageSizeList: PropTypes.array
-};
 
 export default ControllSwitchHoc({
   value: "pageSize",

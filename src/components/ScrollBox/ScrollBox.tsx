@@ -1,8 +1,12 @@
-import React, { Component } from "react";
+import * as React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
-const isChrome = /(Chrome|Safari)/i.test(window.navigator.userAgent);
-const Wrap = styled.div`
+interface WrapProps {
+  maxHeight: string;
+  maxWidth?: string;
+  hoverControl: boolean;
+  defaultStyles: string;
+}
+const Wrap = styled.div<WrapProps>`
   overflow: hidden;
   position: relative;
   user-select: none;
@@ -19,8 +23,7 @@ const Wrap = styled.div`
   }
   ${p =>
     p.hoverControl &&
-    `
-      &>div>.wjc-scroll-bar{
+    ` &>div>.wjc-scroll-bar{
         opacity: 0;
         pointer-events: none;
         transition: 0.3s;
@@ -34,7 +37,8 @@ const Wrap = styled.div`
           pointer-event: all;
         }
       }
-    `} ${p => p.defaultStyles};
+    `}
+  ${p => p.defaultStyles}
 `;
 const Content = styled.div``;
 const ScrollBar = styled.aside`
@@ -44,10 +48,11 @@ const ScrollBar = styled.aside`
   bottom: 0;
   width: 6px;
   overflow: hidden;
-  display: ${p => (p.visible ? "block" : "none")};
+  display: ${(p: { visible?: boolean }) => (p.visible ? "block" : "none")};
 `;
 const Slider = styled.span`
-  display: ${p => (p.height - 0 === 0 ? "none" : " inline-block")};
+  display: ${(p: { height: number }) =>
+    p.height - 0 === 0 ? "none" : " inline-block"};
   background: #ccc;
   border-radius: 3px;
   width: 6px;
@@ -55,7 +60,7 @@ const Slider = styled.span`
   cursor: pointer;
 `;
 
-const ChromeScroll = styled.div`
+const ChromeScroll = styled.div<WrapProps>`
   overflow: hidden;
   position: relative;
   user-select: none;
@@ -104,12 +109,24 @@ const ChromeScroll = styled.div`
   `};
   ${p => p.defaultStyles};
 `;
-class ScrollBox extends Component {
+export interface Props {
+  className?: string;
+  defaultStyles?: string;
+  visible?: boolean;
+  hoverControl?: boolean;
+  maxHeight?: string;
+  maxWidth?: string;
+}
+interface State {
+  sliderHeight: number;
+}
+const isChrome = /(Chrome|Safari)/i.test(window.navigator.userAgent);
+class ScrollBox extends React.PureComponent<Props, State> {
   state = {
     sliderHeight: 0
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     if (!isChrome) {
       if (nextProps.visible) {
         this.setHeight();
@@ -172,12 +189,11 @@ class ScrollBox extends Component {
       </Wrap>
     );
   }
-
-  slideNode;
-  wrapNode;
-  wrapNodeHeight;
-  contentNode;
-  contentNodeHeight;
+  slideNode: HTMLElement;
+  wrapNode: HTMLElement;
+  wrapNodeHeight: number;
+  contentNode: HTMLElement;
+  contentNodeHeight: number;
   addScrollLisenter = () => {
     this.contentNode.parentNode.addEventListener("scroll", this.scrolling);
   };
@@ -191,10 +207,13 @@ class ScrollBox extends Component {
     });
   };
 
-  startPosition = {};
-  initPosition;
-  startSlide = e => {
-    this.slideNode = e.target;
+  startPosition: {
+    x?: number;
+    y?: number;
+  } = {};
+  initPosition: boolean | number;
+  startSlide = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    this.slideNode = e.target as HTMLElement;
     this.startPosition = {
       x: e.pageX,
       y: e.pageY
@@ -211,30 +230,25 @@ class ScrollBox extends Component {
     window.removeEventListener("mousemove", this.sliding);
     window.removeEventListener("mouseup", this.endSlide);
   };
-  sliding = e => {
-    let delta = e.pageY - this.startPosition.y + this.initPosition;
+  sliding = (e: MouseEvent) => {
+    let delta =
+      e.pageY - Number(this.startPosition.y) + Number(this.initPosition);
     const maxHeight = this.wrapNodeHeight - this.state.sliderHeight;
     delta = Math.min(maxHeight, delta);
     delta = Math.max(0, delta);
     this.slideNode.style.transform = `translateY(${delta}px)`;
-    this.contentNode.parentNode.scrollTo(
+    (this.contentNode.parentNode as HTMLElement).scrollTo(
       0,
       (delta / this.wrapNodeHeight) * this.contentNodeHeight
     );
   };
   scrolling = () => {
     const delta =
-      (this.contentNode.parentNode.scrollTop / this.contentNodeHeight) *
+      ((this.contentNode.parentNode as HTMLElement).scrollTop /
+        this.contentNodeHeight) *
       this.wrapNodeHeight;
     this.slideNode.style.transform = `translateY(${delta}px)`;
   };
 }
-ScrollBox.propTypes = {
-  className: PropTypes.string,
-  defaultStyles: PropTypes.string,
-  visible: PropTypes.bool,
-  hoverControl: PropTypes.bool,
-  maxHeight: PropTypes.string,
-  maxWidth: PropTypes.string,
-};
+
 export default ScrollBox;

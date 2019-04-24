@@ -1,5 +1,4 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import styled from "styled-components";
 const Wrap = styled.div`
   width: 480px;
@@ -7,10 +6,19 @@ const Wrap = styled.div`
   line-height: 36px;
   border: 1px solid transparent;
   font-size: 12px;
-  ${props => props.defaultStyles};
+  ${(props: { defaultStyles?: string }) => props.defaultStyles};
 `;
-class Message extends PureComponent {
-  closeHandle = e => {
+export interface Props {
+  className?: string;
+  defaultStyles?: string;
+  icon?: React.ReactNode;
+  children?: React.ReactNode;
+  onClose?: (
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+  ) => boolean | void;
+}
+class Message extends React.PureComponent<Props, {}> {
+  closeHandle = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     const { onClose } = this.props;
     if (onClose && onClose(e) === false) {
       return;
@@ -33,11 +41,4 @@ class Message extends PureComponent {
   }
 }
 
-Message.propTypes = {
-  className: PropTypes.string,
-  defaultStyles: PropTypes.string,
-  icon: PropTypes.node,
-  children: PropTypes.node,
-  onClose: PropTypes.func
-};
 export default Message;

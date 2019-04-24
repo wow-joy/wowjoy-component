@@ -15,14 +15,16 @@ const Button = styled.span`
   ${(props: { defaultStyles?: string }) => props.defaultStyles};
 `;
 export interface BtnBaseProps {
-  onClick?: (arg0: object) => boolean;
+  onClick?: (
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+  ) => boolean | void;
   to?: string;
   history?: { push: (arg0: string) => void };
   defaultStyles?: string;
   className?: string;
 }
 class BtnBase extends React.PureComponent<BtnBaseProps, {}> {
-  clickHandle = (e: object) => {
+  clickHandle = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     const { onClick, to } = this.props;
     if (onClick && onClick(e) === false) {
       return;
@@ -46,7 +48,9 @@ class BtnBase extends React.PureComponent<BtnBaseProps, {}> {
 }
 
 export interface BtnProps {
-  onClick?: (arg0: object) => boolean;
+  onClick?: (
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+  ) => boolean | undefined;
   to?: string;
   history?: { push: (arg0: string) => void };
   defaultStyles?: string;

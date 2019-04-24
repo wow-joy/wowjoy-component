@@ -4,7 +4,7 @@ import Components from "@src";
 const PROPS = {
   defaultPageSize: 10,
   pageSizeList: [10, 20, 30],
-  total: 300
+  headerText: 300
 };
 
 export interface Props {
@@ -18,9 +18,9 @@ export interface State {
 class Detail extends React.Component<Props, State> {
   state = { visible: false };
   componentDidMount() {
-    window.onclick = () => {
-      this.setState({ visible: true });
-    };
+    // window.onclick = () => {
+    //   this.setState({ visible: true });
+    // };
     // this.setState({
     //   container: document.getElementsByTagName('article')[0]
     // })
