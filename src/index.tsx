@@ -21,7 +21,7 @@ import Dialog, {
 import Pop from "./components/Pop/index";
 // import Table from "./components/Table";
 import Select from "./components/Select/index";
-// import SlideDown from "./components/SlideDown";
+import SlideDown from "./components/SlideDown/index";
 // import PopOut from "./components/PopOut";
 import ScrollBox from "./components/ScrollBox/index";
 import Pagination from "./components/Pagination/index";
@@ -55,7 +55,7 @@ const Components: any = {
 
   // Table,
   Select,
-  // SlideDown,
+  SlideDown,
   ScrollBox,
   // PopOut,
   Pagination
@@ -68,12 +68,12 @@ export {
   Btn_3,
   Btn_disabled,
   Layout,
-  // Message,
-  // Message_doubt,
-  // Message_error,
-  // Message_info,
-  // Message_success,
-  // Message_warn,
+  Message,
+  Message_doubt,
+  Message_error,
+  Message_info,
+  Message_success,
+  Message_warn,
   Dialog,
   Dialog_1,
   Dialog_confirm,
@@ -84,7 +84,7 @@ export {
   Pop,
   // Table,
   Select,
-  // SlideDown,
+  SlideDown,
   ScrollBox,
   // PopOut,
   Pagination

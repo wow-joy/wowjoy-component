@@ -1,20 +1,20 @@
-import React, { PureComponent } from "react";
+import * as React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 
-const Wrap = styled.div`
+const Wrap = styled.div<{ defaultStyles: string }>`
   ${p => p.defaultStyles};
 `;
 const Content = styled.div`
   cursor: pointer;
   display: flex;
 `;
-const SubContent = styled.div`
+const SubContent = styled.div<any>`
   display: none;
   transition: 0.4s;
 `;
-const Control = styled.i`
+
+const Control = styled.i<{ isActive: boolean }>`
   display: flex;
   align-items: center;
   position: relative;
@@ -34,23 +34,39 @@ const Control = styled.i`
     vertical-align: middle;
   }
 `;
-class SlideDown extends PureComponent {
+export interface Props {
+  className: string;
+  defaultStyles: string;
+  content: React.ReactNode;
+  onChange: (isActive: boolean) => boolean | void;
+  onSubClick: (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => boolean | void;
+  onTransitionEnd: (isSlideDown: boolean) => boolean | void;
+  onBlur: (e: MouseEvent) => boolean | void;
+  isActive: boolean;
+}
+interface State {
+  inited: boolean;
+}
+class SlideDown extends React.PureComponent<Props, State> {
   state = {
     inited: false
   };
-  subNode;
-  wrapNode;
-  onBlur = e => {
+  subNode: HTMLElement;
+  wrapNode: HTMLElement;
+  popControl: HTMLElement;
+  onBlur = (e: MouseEvent) => {
     const { onBlur, isActive, onChange } = this.props;
     if (!this.subNode) {
       return;
     }
-   
-    if (isActive && !this.wrapNode.contains(e.target)) {
+
+    if (isActive && !this.wrapNode.contains(e.target as HTMLElement)) {
       if (onBlur && onBlur(e) === false) {
         return;
       }
-      onChange && onChange(false)
+      onChange && onChange(false);
     }
   };
   componentDidMount() {
@@ -64,7 +80,7 @@ class SlideDown extends PureComponent {
       window.addEventListener("click", this.onBlur);
     });
   }
-  componentWillReceiveProps(nexrProps) {
+  componentWillReceiveProps(nexrProps: Props) {
     const nextValue = nexrProps.isActive;
     if (this.props.isActive === nextValue) {
       return;
@@ -81,7 +97,13 @@ class SlideDown extends PureComponent {
   }
 
   render() {
-    const { defaultStyles, className, content, children, isActive } = this.props;
+    const {
+      defaultStyles,
+      className,
+      content,
+      children,
+      isActive
+    } = this.props;
 
     return (
       <Wrap
@@ -103,7 +125,7 @@ class SlideDown extends PureComponent {
         {children && (
           <SubContent
             className={"wjc-slieDown-subContent"}
-            ref={el => {
+            ref={(el: HTMLElement) => {
               this.subNode = el;
             }}
             inited={this.state.inited}
@@ -116,19 +138,22 @@ class SlideDown extends PureComponent {
       </Wrap>
     );
   }
-  transitionEndHandle = e => {
+  transitionEndHandle = (e: React.TransitionEvent<HTMLElement>) => {
+    const target = e.target as HTMLElement;
     let isSlideDown = false;
-    if (e.target.style.height === "0px") {
-      e.target.style = undefined;
+    if (target.style.height === "0px") {
+      target.style.overflow = "";
+      target.style.display = "";
+      target.style.height = "";
     } else {
-      e.target.style.overflow = "visible";
-      e.target.style.height = "";
+      target.style.overflow = "visible";
+      target.style.height = "";
       isSlideDown = true;
     }
     const { onTransitionEnd } = this.props;
     onTransitionEnd && onTransitionEnd(isSlideDown);
   };
-  slideDown = targetNode => {
+  slideDown = (targetNode: HTMLElement) => {
     const propsOnChange = this.props.onChange;
     if (propsOnChange && propsOnChange(true) === false) {
       return;
@@ -136,10 +161,10 @@ class SlideDown extends PureComponent {
 
     targetNode.style.display = "block";
     targetNode.style.overflow = "hidden";
-    targetNode.style.height = 0;
+    targetNode.style.height = "0px";
     targetNode.style.height = targetNode.scrollHeight + "px";
   };
-  slideUp = targetNode => {
+  slideUp = (targetNode: HTMLElement) => {
     const propsOnChange = this.props.onChange;
     if (propsOnChange && propsOnChange(false) === false) {
       return;
@@ -147,10 +172,10 @@ class SlideDown extends PureComponent {
     targetNode.style.overflow = "hidden";
     targetNode.style.height = targetNode.clientHeight + "px";
     setTimeout(() => {
-      targetNode.style.height = 0;
+      targetNode.style.height = "0px";
     });
   };
-  handleClick = e => {
+  handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     if (!this.subNode) {
       return false;
     }
@@ -159,23 +184,14 @@ class SlideDown extends PureComponent {
       return;
     }
   };
-  onSubClick = e => {
+  onSubClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const { onSubClick } = this.props;
     if (onSubClick && onSubClick(e) === false) {
       return;
     }
   };
 }
-SlideDown.propTypes = {
-  className: PropTypes.string,
-  defaultStyles: PropTypes.string,
-  content: PropTypes.node,
-  onChange: PropTypes.func,
-  onSubClick: PropTypes.func,
-  onTransitionEnd: PropTypes.func,
-  onBlur: PropTypes.func,
-  isActive: PropTypes.bool
-};
+
 export default ControllSwitchHoc({
   value: "isActive",
   defaultValue: "defaultIsActive"
