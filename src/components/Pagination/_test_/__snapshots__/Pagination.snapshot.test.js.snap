@@ -90,13 +90,25 @@ exports[`Pagination renders correctly 1`] = `
       >
         30条/页
       </li>
+      <div
+        className="sc-gZMcBi eGwsxm"
+      >
+        <input
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          type="number"
+          value={10}
+        />
+        条/页
+      </div>
     </ul>
   </div>
   <div
-    className="wjc-jump-to sc-gZMcBi hXGulT"
+    className="wjc-jump-to sc-gqjmRU gmDnQH"
   >
     跳至
     <input
+      min="1"
       onChange={[Function]}
       onKeyDown={[Function]}
       type="number"
@@ -105,7 +117,7 @@ exports[`Pagination renders correctly 1`] = `
     页
   </div>
   <span
-    className="wjc-btn  wjc-jump-to__submit sc-gqjmRU gAsrvk sc-ifAKCX dmsRxv"
+    className="wjc-btn  wjc-jump-to__submit sc-VigVT cRmwnv sc-ifAKCX dmsRxv"
     onClick={[Function]}
   >
     确定

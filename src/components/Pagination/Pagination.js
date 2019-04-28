@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import Select from "../Select";
 import { Type3 as Btn } from "../Btn";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
@@ -384,7 +384,7 @@ class Pagination extends PureComponent {
     onPageSizeChange && onPageSizeChange(pageSize);
   };
   changeSelectPageSizeInput = e => {
-    const value = e.target.value
+    const value = e.target.value;
     this.setState({
       pageSizeInput: Math.floor(value)
     });

@@ -18,6 +18,11 @@ module.exports = {
         use: ["@svgr/webpack", "url-loader"]
       }
     },
+    extra: {
+      resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+      },
+    },
     // config(config) {
     //   return {
     //     ...config,

@@ -7,7 +7,7 @@ import { mount, configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 configure({ adapter: new Adapter() });
 
-const { renderIntoDocument } = TestUtils;
+const { renderIntoDocument, scryRenderedDOMComponentsWithClass } = TestUtils;
 describe("Pagination", () => {
   const getReactObj = props => (
     <Pagination
@@ -21,14 +21,12 @@ describe("Pagination", () => {
   it("should pass class `.wjc-pagination` to the Pagination", () => {
     const reactObj = getReactObj();
     const pagination = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(pagination);
-    expect(dom.className).toEqual(expect.stringMatching(/wjc-pagination/));
+    scryRenderedDOMComponentsWithClass(pagination, "wjc-pagination");
   });
   it("should allow pass className to the Pagination", () => {
     const reactObj = getReactObj({ className: "class-test" });
     const pagination = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(pagination);
-    expect(dom.className).toEqual(expect.stringMatching(/class-test/));
+    scryRenderedDOMComponentsWithClass(pagination, "class-test");
   });
 
   // it("should render component as `props.viewAble`'s config", () => {

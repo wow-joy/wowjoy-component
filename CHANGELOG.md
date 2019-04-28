@@ -1,3 +1,11 @@
+## 3.1.14 (2019/4/28)
+
+### feature
+
+- select 组件 新增 `focus` `blur` 方法
+- select 组件 新增 `onFocus` 钩子
+- pagination 组件 每页数量选择新增输入框
+
 ## 3.1.7 (2019/3/20)
 
 ### bugfix
