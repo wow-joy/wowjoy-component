@@ -101,12 +101,49 @@ class Select extends PureComponent {
   componentWillUnmount() {
     window.removeEventListener("click", this.blur);
   }
-  toggleDropDownMenu = e => {
-    e.stopPropagation();
+  focus = () => {
+    const { onFocus } = this.props;
+    if (onFocus && onFocus() === false) {
+      return;
+    }
     this.setState(prevState => {
       if (!prevState.dropDownVisible) {
         this.dropDownNode.style.display = "block";
       }
+      return {
+        dropDownVisible: true
+      };
+    });
+  };
+  blur = () => {
+    const { onBlur } = this.props;
+    if (onBlur && onBlur() === false) {
+      return;
+    }
+    this.setState(prevState => {
+      return {
+        dropDownVisible: false
+      };
+    });
+  };
+
+  toggleDropDownMenu = e => {
+    e.stopPropagation();
+    const { onFocus, onBlur } = this.props;
+    if (!this.state.dropDownVisible) {
+      if (onFocus && onFocus(e) === false) {
+        return;
+      }
+    } else {
+      if (onBlur && onBlur(e) === false) {
+        return;
+      }
+    }
+    this.setState(prevState => {
+      if (!prevState.dropDownVisible) {
+        this.dropDownNode.style.display = "block";
+      }
+
       return {
         dropDownVisible: !prevState.dropDownVisible
       };
@@ -164,7 +201,8 @@ class Select extends PureComponent {
       defaultStyles,
       inputRender,
       options = [],
-      type = "radio"
+      type = "radio",
+      children
     } = this.props;
     const InputNode = inputRender;
     const inputNodeValue =
@@ -208,6 +246,7 @@ class Select extends PureComponent {
                 : optionItem.label}
             </Option>
           ))}
+          {children}
         </DropDown>
       </Wrap>
     );
@@ -219,6 +258,7 @@ Select.propTypes = {
   defaultStyles: PropTypes.string,
   options: PropTypes.array,
   inputRender: PropTypes.func,
+  onFocus: PropTypes.func,
   value: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.number,

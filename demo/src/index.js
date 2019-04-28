@@ -55,14 +55,12 @@ class Demo extends Component {
         header={
           <Title>
             <Logo />
-          
-                <Index type="text" />
-         
             wowjoy-component Demo Home
           </Title>
         }
-        center={<Routers />}
-      />
+      >
+        <Routers />
+      </Layout>
     );
   }
 }

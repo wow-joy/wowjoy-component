@@ -127,6 +127,27 @@ const SelectPageSize = styled(Select)`
     color: ${p => p.theme.mainColor || defaultColor};
   }
 `;
+const SelectPageSizeInputItem = styled.div`
+  padding: 10px 4px;
+  &:hover {
+    background: #fff;
+  }
+  input {
+    height: ${p => p.themeSize};
+    background: transparent;
+    width: ${p => p.themeSize};
+    text-align: center;
+    border: 1px solid #dbdbdb;
+    margin-right: 5px;
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+`;
 const JumpTo = styled.div`
   display: flex;
   align-items: center;
@@ -151,12 +172,15 @@ const Submit = styled(Btn)`
   line-height: ${p => p.themeSize};
 `;
 class Pagination extends PureComponent {
-  state = {
-    currentPage: "",
-    jumpToValue: ""
-    // pageSize: this.props.defaultPageSize
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: "",
+      jumpToValue: "",
+      pageSizeInput: props.pageSize
+    };
+  }
+  select = null;
   componentWillMount() {
     if (!this.props.pageSize) {
       throw new Error("please set pageSize, 请设置pageSize 或 defaultPageSize");
@@ -165,7 +189,6 @@ class Pagination extends PureComponent {
       throw new Error("please set pageSizeList, 请设置pageSizeList");
     }
   }
-
   render() {
     const {
       className,
@@ -186,7 +209,6 @@ class Pagination extends PureComponent {
       pageSizeList
     } = this.props;
     const { pageSize } = this.props;
-    // const currentPage = value;
     const pageLength = Math.ceil(total / pageSize);
     const pageArr = this.getPageArr(pageLength, siblingViewSize, currentPage);
     return (
@@ -253,21 +275,35 @@ class Pagination extends PureComponent {
         )}
         {viewAble.includes("pageSizeSelect") && (
           <SelectPageSize
+            ref={el => (this.select = el)}
             className={"wjc-page-size__select"}
             value={pageSize}
-            inputRender={({ value }) => (value ? value.label : "")}
+            inputRender={({ option }) =>
+              option ? option.label : pageSize + `${staticStr[2]}`
+            }
             options={pageSizeList.map(ele => ({
               label: `${ele}${staticStr[2]}`,
               value: ele
             }))}
             onChange={this.changePageSize}
-          />
+          >
+            <SelectPageSizeInputItem themeSize={size}>
+              <input
+                type="number"
+                value={this.state.pageSizeInput}
+                onChange={this.changeSelectPageSizeInput}
+                onKeyDown={this.changeSelectPageSizekeyDown}
+              />
+              {staticStr[2]}
+            </SelectPageSizeInputItem>
+          </SelectPageSize>
         )}
         {viewAble.includes("jumpTo") && (
           <JumpTo className={"wjc-jump-to"} themeSize={size}>
             {staticStr[3]}
             <input
               type="number"
+              min="1"
               onKeyDown={this.keyDownJumpTo}
               value={this.state.jumpToValue}
               onChange={this.changeJumpToInput}
@@ -299,7 +335,6 @@ class Pagination extends PureComponent {
         .fill("")
         .map((ele, index) => index + 1);
     } else {
-      const centerArr = [];
       const fillArr = (min, max) => {
         return Array(max - min + 1)
           .fill("")
@@ -340,13 +375,30 @@ class Pagination extends PureComponent {
       ];
     }
   };
-  changePageSize = value => {
+  changePageSize = pageSize => {
     const { onPageSizeChange, onChange } = this.props;
-    onChange && onChange(this.props.value || 1, value, this.props.total);
-    onPageSizeChange && onPageSizeChange(value);
-    // this.setState({
-    //   pageSize: value
-    // });
+    this.setState({
+      pageSizeInput: pageSize
+    });
+    onChange && onChange(this.props.value || 1, pageSize, this.props.total);
+    onPageSizeChange && onPageSizeChange(pageSize);
+  };
+  changeSelectPageSizeInput = e => {
+    const value = e.target.value
+    this.setState({
+      pageSizeInput: Math.floor(value)
+    });
+  };
+  changeSelectPageSizekeyDown = e => {
+    const { pageSize } = this.props;
+    if (e.keyCode === 13) {
+      this.changePageSize(Math.max(1, Number(e.target.value)));
+    }
+    if (e.keyCode === 27) {
+      this.setState({
+        pageSizeInput: pageSize
+      });
+    }
   };
   changeJumpToInput = e => {
     this.setState({

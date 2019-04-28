@@ -7,7 +7,7 @@ import React, { PureComponent } from "react";
  *
  */
 const ControllSwitchHoc = (translate = {}) => OldComponent => {
-  return class extends PureComponent {
+  class New extends PureComponent {
     state = {
       value: undefined
     };
@@ -24,6 +24,7 @@ const ControllSwitchHoc = (translate = {}) => OldComponent => {
         return (
           <OldComponent
             {...this.props}
+            ref={this.props.forwardRef}
             {...{ [textValue]: value, [textOnChange]: onChange }}
           />
         );
@@ -32,6 +33,7 @@ const ControllSwitchHoc = (translate = {}) => OldComponent => {
         return (
           <OldComponent
             {...this.props}
+            ref={this.props.forwardRef}
             {...{
               [textValue]:
                 this.state.value === undefined
@@ -84,6 +86,10 @@ const ControllSwitchHoc = (translate = {}) => OldComponent => {
         return "uncontrolled";
       }
     };
-  };
+  }
+
+  return React.forwardRef((props, ref) => {
+    return <New {...props} forwardRef={ref} />;
+  });
 };
 export default ControllSwitchHoc;
