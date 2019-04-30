@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Home from "./Home";
-import List from "./List";
-import Detail from "./Detail";
-import "../../src/media/common.css";
-import { Layout } from "@src";
-import styled from "styled-components";
-import { ReactComponent as Svg } from "@media/logo.svg";
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import Home from './Home';
+import List from './List';
+import Detail from './Detail';
+import '../../src/media/common.css';
+import { Layout } from '@src';
+import styled from 'styled-components';
+import { ReactComponent as Svg } from '@media/logo.svg';
 
 const Title = styled.h1`
   text-align: center;
@@ -55,14 +55,13 @@ class Demo extends Component {
         header={
           <Title>
             <Logo />
-          
-                <Index type="text" />
-         
+            <Index type="text" />
             wowjoy-component Demo Home
           </Title>
         }
-        center={<Routers />}
-      />
+      >
+        <Routers />
+      </Layout>
     );
   }
 }
@@ -71,5 +70,5 @@ render(
   <BrowserRouter>
     <Demo />
   </BrowserRouter>,
-  document.querySelector("#demo")
+  document.querySelector('#demo')
 );

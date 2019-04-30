@@ -3,29 +3,31 @@ import Btn, {
   Type2 as Btn_2,
   Type3 as Btn_3,
   Disabled as Btn_disabled
-} from "./components/Btn";
-import Layout from "./components/Layout";
+} from './components/Btn';
+import Layout from './components/Layout';
 import Message, {
   Doubt as Message_doubt,
   Error as Message_error,
   Info as Message_info,
   Success as Message_success,
   Warn as Message_warn
-} from "./components/Message";
+} from './components/Message';
 import Dialog, {
   Type1 as Dialog_1,
   Confirm as Dialog_confirm,
   Alert as Dialog_alert
-} from "./components/Dialog";
-import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs";
-import Pop from "./components/Pop";
-import Table from "./components/Table";
-import Select from "./components/Select";
-import SlideDown from "./components/SlideDown";
-import PopOut from "./components/PopOut";
-import ScrollBox from "./components/ScrollBox";
-import Pagination from "./components/Pagination";
-import { CheckBox } from "./components/Form";
+} from './components/Dialog';
+import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from './components/Tabs';
+import Pop from './components/Pop';
+import Table from './components/Table';
+import Select from './components/Select';
+import SlideDown from './components/SlideDown';
+import PopOut from './components/PopOut';
+import ScrollBox from './components/ScrollBox';
+import Pagination from './components/Pagination';
+import { CheckBox } from './components/Form';
+import Badge from './components/Badge';
+import Steps from './components/Steps';
 
 const Components = {
   Btn,
@@ -59,7 +61,10 @@ const Components = {
   ScrollBox,
   PopOut,
   Pagination,
-  CheckBox
+  CheckBox,
+
+  Badge,
+  Steps
 };
 export {
   Btn,
@@ -88,6 +93,8 @@ export {
   ScrollBox,
   PopOut,
   Pagination,
-  CheckBox
+  CheckBox,
+  Badge,
+  Steps
 };
 export default Components;
