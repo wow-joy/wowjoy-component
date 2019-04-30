@@ -55,10 +55,6 @@ class Demo extends Component {
         header={
           <Title>
             <Logo />
-<<<<<<< HEAD
-=======
-            <Index type="text" />
->>>>>>> 13b0e3c... 
             wowjoy-component Demo Home
           </Title>
         }
