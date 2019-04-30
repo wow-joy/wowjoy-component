@@ -26,6 +26,8 @@ import PopOut from "./components/PopOut";
 import ScrollBox from "./components/ScrollBox";
 import Pagination from "./components/Pagination";
 import { CheckBox } from "./components/Form";
+import Badge from "./components/Badge";
+import Steps from "./components/Steps";
 
 const Components = {
   Btn,
@@ -59,7 +61,10 @@ const Components = {
   ScrollBox,
   PopOut,
   Pagination,
-  CheckBox
+  CheckBox,
+
+  Badge,
+  Steps
 };
 export {
   Btn,
@@ -88,6 +93,8 @@ export {
   ScrollBox,
   PopOut,
   Pagination,
-  CheckBox
+  CheckBox,
+  Badge,
+  Steps
 };
 export default Components;
