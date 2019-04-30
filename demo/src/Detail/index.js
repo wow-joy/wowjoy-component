@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
-import Components from '@src';
-import { ReactComponent as Icon } from '@media/test.svg';
+import React, { Component } from "react";
+import Components from "@src";
+import { ReactComponent as Icon } from "@media/test.svg";
 
-const PROPS = { count: 10, showZero: true, dot: false,  title:'xxx',  };
+const PROPS = { current: 1 };
 
 class Detail extends Component {
   render() {
     const { match } = this.props;
-    const name = match.params.name.replace(/^(.)(.*)$/, (match, $1, $2) => $1.toUpperCase() + $2);
+    const name = match.params.name.replace(
+      /^(.)(.*)$/,
+      (match, $1, $2) => $1.toUpperCase() + $2
+    );
     this.name = name;
     const ComponentItem = Components[name];
 
@@ -15,10 +18,10 @@ class Detail extends Component {
       return (
         <ComponentItem {...PROPS}>
           {/* <div style={{ width: '40px', height: ' 40px', background: '#000' }} /> */}
-          <Icon />
-          {/* <ComponentItem.Step title="1111" />
+          {/* <Icon /> */}
           <ComponentItem.Step title="1111" />
-          <ComponentItem.Step title="1111" /> */}
+          <ComponentItem.Step title="1111" />
+          <ComponentItem.Step title="1111" />
         </ComponentItem>
       );
     }

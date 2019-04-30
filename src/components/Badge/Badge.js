@@ -112,9 +112,8 @@ class Badge extends PureComponent {
     return (
       <Wrap
         defaultStyles={defaultStyles}
-        className={`wjc-badge ${status ? ` wjc-status` : ""} ${
-          className ? `${className}` : ""
-        }`}
+        className={`wjc-badge ${status ? ` wjc-status` : ""} ${className ||
+          ""}`}
       >
         {!status && children}
         {status ? <StatusNode status={status} text={text} /> : countNode}
