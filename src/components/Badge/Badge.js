@@ -1,11 +1,8 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-const Wrap = styled.div.attrs({
-  className: ({ status }) => `wjc-badge${status ? ` wjc-status` : ''}`
-})`
-  ${props => props.defaultStyles};
+const Wrap = styled.div`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -17,17 +14,18 @@ const Wrap = styled.div.attrs({
   display: inline-block;
   color: unset;
   line-height: 1;
+  ${props => props.defaultStyles};
 `;
 
 const statusColor = {
-  success: '#52c41a',
-  error: '#f5222d',
-  processing: '#1890ff',
-  warning: '#faad14',
-  default: '#d9d9d9'
+  success: "#52c41a",
+  error: "#f5222d",
+  processing: "#1890ff",
+  warning: "#faad14",
+  default: "#d9d9d9"
 };
 
-const StatusDot = styled.div.attrs({ className: 'badge-status-dot' })`
+const StatusDot = styled.div`
   position: relative;
   top: -1px;
   display: inline-block;
@@ -35,17 +33,17 @@ const StatusDot = styled.div.attrs({ className: 'badge-status-dot' })`
   height: 6px;
   vertical-align: middle;
   border-radius: 50%;
-  background-color: ${props => statusColor[props.status || 'default']};
+  background-color: ${props => statusColor[props.status || "default"]};
 `;
 
-const StatusText = styled.span.attrs({ className: 'badge-status-text' })`
+const StatusText = styled.span`
   margin-left: 8px;
   color: rgba(0, 0, 0, 0.65);
   font-size: 14px;
 `;
 
-const Count = styled.div.attrs({ className: 'wjc-badge-count' })`
-  background-color: ${props => (props.color ? props.color : '#f5222d')};
+const Count = styled.div`
+  background-color: ${props => (props.color ? props.color : "#f5222d")};
   ${props =>
     props.dot
       ? `width: 6px;
@@ -63,12 +61,32 @@ const Count = styled.div.attrs({ className: 'wjc-badge-count' })`
   white-space: nowrap;
   text-align: center;
   position: absolute;
-  ${props => (props.offset ? `top:${props.offset[1]}px;right:-${props.offset[0]}px;` : `top: 0;right: 0;`)}
+  ${props =>
+    props.offset
+      ? `top:${props.offset[1]}px;right:-${props.offset[0]}px;`
+      : `top: 0;right: 0;`}
   transform: translate(50%, -50%);
   transform-origin: 100% 0%;
   cursor: pointer;
 `;
-
+const BaseCount = ({ color, dot, offset, count, title, children }) => (
+  <Count
+    className="wjc-badge-count"
+    color={color}
+    dot={dot}
+    offset={offset}
+    count={count}
+    title={title}
+  >
+    {children}
+  </Count>
+);
+const StatusNode = ({ status, text }) => (
+  <React.Fragment>
+    <StatusDot className="badge-status-dot" status={status} />
+    <StatusText className="badge-status-text">{text}</StatusText>
+  </React.Fragment>
+);
 class Badge extends PureComponent {
   render() {
     const {
@@ -85,24 +103,21 @@ class Badge extends PureComponent {
       status,
       text
     } = this.props;
-
-    const baseCount = (
-      <Count color={color} dot={dot} offset={offset} count={count} title={title}>
+    const countNode = (showZero || count !== 0) && (
+      <BaseCount {...{ color, dot, offset, count, title }}>
         {!dot && (count > overflowCount ? `${overflowCount}+` : count)}
-      </Count>
+      </BaseCount>
     );
-    const countNode = (showZero || count !== 0) && baseCount;
 
-    const statusNode = (
-      <React.Fragment>
-        <StatusDot status={status} />
-        <StatusText>{text}</StatusText>
-      </React.Fragment>
-    );
     return (
-      <Wrap defaultStyles={defaultStyles} className={`${className ? `${className}` : ''}`} status={status}>
+      <Wrap
+        defaultStyles={defaultStyles}
+        className={`wjc-badge ${status ? ` wjc-status` : ""} ${
+          className ? `${className}` : ""
+        }`}
+      >
         {!status && children}
-        {status ? statusNode : countNode}
+        {status ? <StatusNode status={status} text={text} /> : countNode}
       </Wrap>
     );
   }
@@ -121,18 +136,26 @@ Badge.propTypes = {
   count: PropTypes.number,
   dot: PropTypes.bool,
   showZero: PropTypes.bool,
-  offset: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
+  offset: PropTypes.arrayOf(function(
+    propValue,
+    key,
+    componentName,
+    location,
+    propFullName
+  ) {
     if (key > 1) {
-      return new Error(`offset should be an Array like [ number, number ], but length > 2`);
-    }
-    if (typeof propValue[key] !== 'number') {
       return new Error(
-        'Invalid prop `' +
+        `offset should be an Array like [ number, number ], but length > 2`
+      );
+    }
+    if (typeof propValue[key] !== "number") {
+      return new Error(
+        "Invalid prop `" +
           propFullName +
-          '` supplied to' +
-          ' `' +
+          "` supplied to" +
+          " `" +
           componentName +
-          '`. offset should be an Array like [ number, number ].'
+          "`. offset should be an Array like [ number, number ]."
       );
     }
   }),

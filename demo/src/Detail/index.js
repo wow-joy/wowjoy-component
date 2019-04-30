@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Components from '@src';
 import { ReactComponent as Icon } from '@media/test.svg';
 
-const PROPS = { count: 0, showZero: true, dot: true, status: 'success', text: '12312' };
+const PROPS = { count: 10, showZero: true, dot: false,  title:'xxx',  };
 
 class Detail extends Component {
   render() {
