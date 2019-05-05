@@ -9,6 +9,7 @@ const Wrap = styled.div`
     props.stepDirection === "horizontal"
       ? "flex-direction: row"
       : props.stepDirection === "vertical" && "flex-direction: column"};
+  ${props => props.labelPlacement === "upAndDown" && `padding: 22px 0px`}
 `;
 
 class Steps extends PureComponent {
@@ -40,23 +41,26 @@ class Steps extends PureComponent {
       labelPlacement,
       initial,
       current,
-      progressDot,
+      type,
       status,
+      size,
       ...restProps
     } = this.props;
     const child = React.Children.map(children, (child, i) => {
       return child
         ? React.cloneElement(child, {
             ...child.props,
+            type,
+            size,
             direction,
-            progressDot,
             labelPlacement:
               direction === "vertical"
                 ? "horizontal"
-                : progressDot
+                : type === "dot"
                 ? "vertical"
                 : labelPlacement,
             stepNumber: initial + i + 1,
+            current: current === i,
             status:
               child.props.status ||
               (status && current === i ? status : this.getStatus(current, i)),
@@ -72,7 +76,8 @@ class Steps extends PureComponent {
         {...restProps}
         defaultStyles={defaultStyles}
         className={`wjc-steps ${className || ""}`}
-        stepDirection={direction}
+        stepDirection={type === "arrow" ? "horizontal" : direction}
+        labelPlacement={labelPlacement}
       >
         {child}
       </Wrap>
@@ -83,7 +88,8 @@ class Steps extends PureComponent {
 Steps.defaultProps = {
   initial: 0,
   current: 0,
-  progressDot: false,
+  size: 24,
+  type: "basic",
   direction: "horizontal",
   labelPlacement: "horizontal"
 };
@@ -91,10 +97,12 @@ Steps.defaultProps = {
 Steps.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
+  size: PropTypes.number,
+  type: PropTypes.oneOf(["basic", "dot", "arrow"]),
   initial: PropTypes.number,
   current: PropTypes.number,
   direction: PropTypes.oneOf(["horizontal", "vertical"]),
-  labelPlacement: PropTypes.oneOf(["horizontal", "vertical"]),
+  labelPlacement: PropTypes.oneOf(["horizontal", "vertical", "upAndDown"]),
   progressDot: PropTypes.oneOfType([PropTypes.bool, PropTypes.func])
 };
 

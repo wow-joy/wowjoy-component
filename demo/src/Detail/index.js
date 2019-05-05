@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import Components from "@src";
 import { ReactComponent as Icon } from "@media/test.svg";
 
-const PROPS = { current: 1 };
+const PROPS = {
+  current: 1,
+  // direction: "vertical",
+  // labelPlacement: "vertical",
+  type: "arrow" // basic dot arrow
+};
 
 class Detail extends Component {
   render() {
@@ -19,9 +24,9 @@ class Detail extends Component {
         <ComponentItem {...PROPS}>
           {/* <div style={{ width: '40px', height: ' 40px', background: '#000' }} /> */}
           {/* <Icon /> */}
-          <ComponentItem.Step title="1111" />
-          <ComponentItem.Step title="1111" />
-          <ComponentItem.Step title="1111" />
+          <ComponentItem.Step title="1111" description="qwqw" />
+          <ComponentItem.Step title="1111" description="sssssssssssssssss" />
+          <ComponentItem.Step title="1111" description="aaa" />
         </ComponentItem>
       );
     }
