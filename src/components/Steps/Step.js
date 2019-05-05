@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import Arrow from "./Arrow";
 
-const SIZE = 24;
 const THEME = {
   default: "#06AEA6"
 };
@@ -242,10 +241,10 @@ const Wrap = styled.div`
 `;
 
 class Step extends PureComponent {
-  getCustomIcon = () => {
-    const { icon, stepNumber, title, status, description } = this.props;
+  wrapIconProps = icon => {
+    const { stepNumber, title, status, description } = this.props;
     return typeof icon === "function"
-      ? icon(this.defaultIcon, {
+      ? icon(this.currentIcon, {
           index: stepNumber,
           status,
           title,
@@ -254,12 +253,12 @@ class Step extends PureComponent {
       : icon;
   };
 
-  get defaultIcon() {
+  get currentIcon() {
     const { type, status, stepNumber } = this.props;
     const StatusIcon =
       status === "process" || status === "wait"
         ? stepNumber
-        : require(`@media/steps_${status}.svg`).ReactComponent;
+        : require(`../../media/steps_${status}.svg`).ReactComponent;
     const currentIcon =
       typeof StatusIcon === "number" ? (
         StatusIcon
@@ -285,6 +284,7 @@ class Step extends PureComponent {
       title,
       description,
       stepNumber,
+      defaultIcon,
       icon,
       status,
       nextStatus,
@@ -295,6 +295,7 @@ class Step extends PureComponent {
       size,
       ...restProps
     } = this.props;
+
     return type === "arrow" ? (
       <Arrow
         {...{ defaultStyles, className, description, color, current, status }}
@@ -315,7 +316,9 @@ class Step extends PureComponent {
         themeSize={size}
       >
         <Icon className="wjc-steps-icon">
-          {icon ? this.getCustomIcon() : this.defaultIcon}
+          {icon
+            ? this.wrapIconProps(icon)
+            : this.wrapIconProps(defaultIcon) || this.currentIcon}
         </Icon>
         <Content className="wjc-steps-content" isError={status === "error"}>
           <Title className="wjc-steps-title">

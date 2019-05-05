@@ -44,6 +44,7 @@ class Steps extends PureComponent {
       type,
       status,
       size,
+      icon,
       ...restProps
     } = this.props;
     const child = React.Children.map(children, (child, i) => {
@@ -52,6 +53,7 @@ class Steps extends PureComponent {
             ...child.props,
             type,
             size,
+            defaultIcon: icon,
             direction,
             labelPlacement:
               direction === "vertical"
