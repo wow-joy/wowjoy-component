@@ -74,7 +74,6 @@ class Arrow extends PureComponent {
           ""}  ${current ? "current" : ""}`}
         currentColor={color || statusStyles[status].backgroundColor}
       >
-        <div />
         {description}
       </Wrap>
     );
