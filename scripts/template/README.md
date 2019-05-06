@@ -6,7 +6,7 @@ Template 组件
 
 - 基础用法
 
-```
+```jsx
 import React from 'react'
 import {Template} from 'wowjoy-component'
 
