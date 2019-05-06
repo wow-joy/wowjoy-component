@@ -16,18 +16,18 @@ import Dialog, {
   Type1 as Dialog_1,
   Confirm as Dialog_confirm,
   Alert as Dialog_alert
-} from './components/Dialog';
-import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from './components/Tabs';
-import Pop from './components/Pop';
-import Table from './components/Table';
-import Select from './components/Select';
-import SlideDown from './components/SlideDown';
-import PopOut from './components/PopOut';
-import ScrollBox from './components/ScrollBox';
-import Pagination from './components/Pagination';
-import { CheckBox } from './components/Form';
-import Badge from './components/Badge';
-import Steps from './components/Steps';
+} from "./components/Dialog";
+import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs";
+import Pop from "./components/Pop";
+import Table from "./components/Table";
+import Select from "./components/Select";
+import SlideDown from "./components/SlideDown";
+import PopOut from "./components/PopOut";
+import ScrollBox from "./components/ScrollBox";
+import Pagination from "./components/Pagination";
+import { CheckBox } from "./components/Form";
+import Badge from "./components/Badge";
+import Steps from "./components/Steps";
 
 const Components = {
   Btn,

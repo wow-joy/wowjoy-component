@@ -1,3 +1,18 @@
+## 3.2.0 (2019/4/30)
+
+### feature
+
+- 新增 Steps 组件
+- 新增 Badge 组件
+
+## 3.1.14 (2019/4/28)
+
+### feature
+
+- select 组件 新增 `focus` `blur` 方法
+- select 组件 新增 `onFocus` 钩子
+- pagination 组件 每页数量选择新增输入框
+
 ## 3.1.7 (2019/3/20)
 
 ### bugfix
@@ -100,7 +115,6 @@
 ### doc
 
 - 更新 pagination 文档
--
 
 ## 2.5.2 (2018/10/10)
 
