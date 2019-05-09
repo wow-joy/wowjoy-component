@@ -3,15 +3,15 @@ import Btn, {
   Type2 as Btn_2,
   Type3 as Btn_3,
   Disabled as Btn_disabled
-} from './components/Btn';
-import Layout from './components/Layout';
+} from "./components/Btn";
+import Layout from "./components/Layout";
 import Message, {
   Doubt as Message_doubt,
   Error as Message_error,
   Info as Message_info,
   Success as Message_success,
   Warn as Message_warn
-} from './components/Message';
+} from "./components/Message";
 import Dialog, {
   Type1 as Dialog_1,
   Confirm as Dialog_confirm,
@@ -28,6 +28,7 @@ import Pagination from "./components/Pagination";
 import { CheckBox } from "./components/Form";
 import Badge from "./components/Badge";
 import Steps from "./components/Steps";
+import Tooltip from "./components/Tooltip";
 
 const Components = {
   Btn,
@@ -64,7 +65,8 @@ const Components = {
   CheckBox,
 
   Badge,
-  Steps
+  Steps,
+  Tooltip
 };
 export {
   Btn,
@@ -95,6 +97,7 @@ export {
   Pagination,
   CheckBox,
   Badge,
-  Steps
+  Steps,
+  Tooltip
 };
 export default Components;

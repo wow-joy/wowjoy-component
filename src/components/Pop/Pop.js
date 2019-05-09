@@ -37,10 +37,14 @@ const Layer = styled.div`
   pointer-events: ${props => (props.layer ? "all" : "none")};
   ${props => props.defaultStyles};
   &.fadeIn {
-    animation: ${css`${fadeIn} 0.3s forwards`};
+    animation: ${css`
+      ${fadeIn} 0.3s forwards
+    `};
   }
   &.fadeOut {
-    animation: ${css`${fadeOut} 0.3s forwards`};
+    animation: ${css`
+      ${fadeOut} 0.3s forwards
+    `};
   }
 `;
 const PopBox = styled.div`
@@ -50,27 +54,30 @@ const PopBox = styled.div`
   z-index: 1001;
   transition: 0.29s;
   pointer-events: all;
-  transform:${p=> `${p.translate || "translate(-50%, -50%)"} scale(0)`};
+  transform: ${p => `${p.translate || "translate(-50%, -50%)"} scale(0)`};
 `;
 
 class Pop extends PureComponent {
   mousePosition = { x: 0, y: 0 };
-  mousePositionEventBinded
+  mousePositionEventBinded;
   componentWillReceiveProps(nextProps) {
     if (nextProps.visible !== this.props.visible) {
       if (nextProps.visible) {
         this.layerRef.style.display = "block";
-        const popBoxWidth = this.popBox.clientWidth
-        const popBoxHeight = this.popBox.clientHeight
+        this.props.onVisibleChange && this.props.onVisibleChange(true);
+        const popBoxWidth = this.popBox.clientWidth;
+        const popBoxHeight = this.popBox.clientHeight;
         this.popBox.style.transformOrigin = `${
           this.mousePosition.x
-            ? this.mousePosition.x - window.innerWidth / 2 + popBoxWidth/2
+            ? this.mousePosition.x - window.innerWidth / 2 + popBoxWidth / 2
             : 0
         }px ${
           this.mousePosition.y
-            ? this.mousePosition.y - window.innerHeight / 2 + popBoxHeight/2
+            ? this.mousePosition.y - window.innerHeight / 2 + popBoxHeight / 2
             : 0
         }px`;
+      } else {
+        this.props.onVisibleChange && this.props.onVisibleChange(false);
       }
     }
   }
@@ -102,14 +109,14 @@ class Pop extends PureComponent {
 
   animationStartHandle = () => {
     const { translate } = this.props;
-    const popBoxWidth = this.popBox.clientWidth
-    const popBoxHeight = this.popBox.clientHeight
+    const popBoxWidth = this.popBox.clientWidth;
+    const popBoxHeight = this.popBox.clientHeight;
     if (this.layerRef.classList.contains("fadeIn")) {
-      setTimeout(()=>{
+      setTimeout(() => {
         this.popBox.style.transform = `
         ${translate || "translate(-50%, -50%)"} scale(1)
       `;
-      },100)
+      }, 100);
     }
     if (this.layerRef.classList.contains("fadeOut")) {
       this.popBox.style.transform = `
@@ -146,7 +153,6 @@ class Pop extends PureComponent {
     if (visible && autoClose) {
       setTimeout(this.closeHandle, autoClose);
     }
-
     const Render = (
       <Layer
         onAnimationStart={this.animationStartHandle}
@@ -158,7 +164,11 @@ class Pop extends PureComponent {
         layer={layer}
         onClick={this.layerClick}
       >
-        <PopBox ref={el => (this.popBox = el)} translate={translate}>
+        <PopBox
+          className="wjy-pop-box"
+          ref={el => (this.popBox = el)}
+          translate={translate}
+        >
           {children}
         </PopBox>
       </Layer>
@@ -166,7 +176,7 @@ class Pop extends PureComponent {
     if (getContainer === false) {
       return Render;
     }
-    return createPortal(Render, getContainer?getContainer(): document.body);
+    return createPortal(Render, getContainer ? getContainer() : document.body);
   }
 }
 

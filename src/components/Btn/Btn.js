@@ -26,12 +26,13 @@ class BtnBase extends PureComponent {
     }
   };
   render() {
-    const { defaultStyles, children, className } = this.props;
+    const { defaultStyles, children, className, ...restProps } = this.props;
     return (
       <Button
         defaultStyles={defaultStyles}
         onClick={this.clickHandle}
         className={"wjc-btn " + className || ""}
+        {...restProps}
       >
         {children}
       </Button>
