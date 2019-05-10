@@ -1,118 +1,203 @@
-function formatPlacement(placement) {
-  return placement
-    .replace(/([a-z])([A-Z])/, "$1-$2")
-    .toLowerCase()
-    .split("-");
+const ARROW_OFFSET = 15;
+const ARARROW_WIDTH = 6;
+const ARROW_HEIGHT = 5;
+
+function formatPlacement(s) {
+  const m = s.match(/[A-Z]/);
+  return m ? [s.slice(0, m.index), s.toLowerCase().slice(m.index)] : [s];
 }
 
 const placementsMap = ({
-  triggerRect: { x, y, width: tWidth, height: tHeight },
+  triggerRect: { scrollX, scrollY, width: tWidth, height: tHeight },
   contentRect: { width: cWidth, height: cHeight },
   arrowPointAtCenter
 }) => {
   return {
-    top: {
-      arrowStyle: `
-        top: 100%;
-        left: 50%;
-        margin-left: -6px;
-      `,
-      contentOffset: [x - (cWidth - tWidth) / 2, y - cHeight - 5],
-      transformOrigin: [cWidth / 2, cHeight + 5]
+    top() {
+      return {
+        arrowStyle: `
+          top: 100%;
+          left: 50%;
+          margin-left: -6px;
+        `,
+        contentOffset: [
+          scrollX - (cWidth - tWidth) / 2,
+          scrollY - cHeight - ARROW_HEIGHT
+        ],
+        transformOrigin: [cWidth / 2, cHeight + ARROW_HEIGHT]
+      };
     },
-    topLeft: {
-      arrowStyle: `
-        top: 100%;
-        left: ${arrowPointAtCenter ? tWidth / 2 - 6 : 15}px;
-      `,
-      contentOffset: [x, y - cHeight - 5],
-      transformOrigin: [arrowPointAtCenter ? tWidth / 2 : 15 + 6, cHeight + 5]
+    topLeft() {
+      return {
+        arrowStyle: `
+          top: 100%;
+          left: ${
+            arrowPointAtCenter ? tWidth / 2 - ARARROW_WIDTH : ARROW_OFFSET
+          }px;
+        `,
+        contentOffset: [scrollX, scrollY - cHeight - ARROW_HEIGHT],
+        transformOrigin: [
+          arrowPointAtCenter ? tWidth / 2 : ARROW_OFFSET + ARARROW_WIDTH,
+          cHeight + ARROW_HEIGHT
+        ]
+      };
     },
-    topRight: {
-      arrowStyle: `
-        top: 100%;
-        right: ${arrowPointAtCenter ? tWidth / 2 - 6 : 15 - 6}px;
-      `,
-      contentOffset: [x - (cWidth - tWidth), y - cHeight - 5],
-      transformOrigin: [
-        arrowPointAtCenter ? cWidth - tWidth / 2 : cWidth - 15 - 6,
-        cHeight + 5
-      ]
+    topRight() {
+      return {
+        arrowStyle: `
+          top: 100%;
+          right: ${
+            arrowPointAtCenter
+              ? tWidth / 2 - ARARROW_WIDTH
+              : ARROW_OFFSET - ARARROW_WIDTH
+          }px;
+        `,
+        contentOffset: [
+          scrollX - (cWidth - tWidth),
+          scrollY - cHeight - ARROW_HEIGHT
+        ],
+        transformOrigin: [
+          arrowPointAtCenter
+            ? cWidth - tWidth / 2
+            : cWidth - ARROW_OFFSET - ARARROW_WIDTH,
+          cHeight + ARROW_HEIGHT
+        ]
+      };
     },
-    bottom: {
-      arrowStyle: `
-        bottom: 100%;
-        left: 50%;
-        margin-left: -6px;
-      `,
-      contentOffset: [x - (cWidth - tWidth) / 2, y + tHeight + 5],
-      transformOrigin: [cWidth / 2, -5]
+    bottom() {
+      return {
+        arrowStyle: `
+          bottom: 100%;
+          left: 50%;
+          margin-left: -6px;
+        `,
+        contentOffset: [
+          scrollX - (cWidth - tWidth) / 2,
+          scrollY + tHeight + ARROW_HEIGHT
+        ],
+        transformOrigin: [cWidth / 2, -ARROW_HEIGHT]
+      };
     },
-    bottomLeft: {
-      arrowStyle: `
-        bottom: 100%;
-        left: ${arrowPointAtCenter ? tWidth / 2 - 6 : 15}px;
-      `,
-      contentOffset: [x, y + tHeight + 5],
-      transformOrigin: [arrowPointAtCenter ? tWidth / 2 : 15 + 6, -5]
+    bottomLeft() {
+      return {
+        arrowStyle: `
+          bottom: 100%;
+          left: ${
+            arrowPointAtCenter ? tWidth / 2 - ARARROW_WIDTH : ARROW_OFFSET
+          }px;
+        `,
+        contentOffset: [scrollX, scrollY + tHeight + ARROW_HEIGHT],
+        transformOrigin: [
+          arrowPointAtCenter ? tWidth / 2 : ARROW_OFFSET + ARARROW_WIDTH,
+          -ARROW_HEIGHT
+        ]
+      };
     },
-    bottomRight: {
-      arrowStyle: `
-        bottom: 100%;
-        right: ${arrowPointAtCenter ? tWidth / 2 - 6 : 15}px;
-      `,
-      contentOffset: [x - (cWidth - tWidth), y + tHeight + 5],
-      transformOrigin: [cWidth - 15 - 6, -5]
+    bottomRight() {
+      return {
+        arrowStyle: `
+          bottom: 100%;
+          right: ${
+            arrowPointAtCenter ? tWidth / 2 - ARARROW_WIDTH : ARROW_OFFSET
+          }px;
+        `,
+        contentOffset: [
+          scrollX - (cWidth - tWidth),
+          scrollY + tHeight + ARROW_HEIGHT
+        ],
+        transformOrigin: [cWidth - ARROW_OFFSET - ARARROW_WIDTH, -ARROW_HEIGHT]
+      };
     },
-    right: {
-      arrowStyle: `
-        right: 100%;
-        top: 50%;
-        margin-top: -6px;
-      `,
-      contentOffset: [x + tWidth + 5, y + (tHeight - cHeight) / 2],
-      transformOrigin: [0, cHeight / 2 - 6]
+    right() {
+      return {
+        arrowStyle: `
+          right: 100%;
+          top: 50%;
+          margin-top: -6px;
+        `,
+        contentOffset: [
+          scrollX + tWidth + ARROW_HEIGHT,
+          scrollY - (cHeight - tHeight) / 2
+        ],
+        transformOrigin: [0, cHeight / 2 - ARARROW_WIDTH]
+      };
     },
-    rightTop: {
-      arrowStyle: `
-        right: 100%;
-        top: ${arrowPointAtCenter ? tHeight / 2 - 6 : 15}px;
-      `,
-      contentOffset: [x + tWidth + 5, y],
-      transformOrigin: [0, arrowPointAtCenter ? tHeight / 2 : 15]
+    rightTop() {
+      return {
+        arrowStyle: `
+          right: 100%;
+          top: ${
+            arrowPointAtCenter ? tHeight / 2 - ARARROW_WIDTH : ARROW_OFFSET
+          }px;
+        `,
+        contentOffset: [scrollX + tWidth + ARROW_HEIGHT, scrollY],
+        transformOrigin: [0, arrowPointAtCenter ? tHeight / 2 : ARROW_OFFSET]
+      };
     },
-    rightBottom: {
-      arrowStyle: `
-        right: 100%;
-        bottom: ${arrowPointAtCenter ? tHeight / 2 - 6 : 15}px;
-      `,
-      contentOffset: [x + tWidth + 5, y + tHeight - cHeight],
-      transformOrigin: [0, arrowPointAtCenter ? tHeight / 2 : cHeight - 15]
+    rightBottom() {
+      return {
+        arrowStyle: `
+          right: 100%;
+          bottom: ${
+            arrowPointAtCenter ? tHeight / 2 - ARARROW_WIDTH : ARROW_OFFSET
+          }px;
+        `,
+        contentOffset: [
+          scrollX + tWidth + ARROW_HEIGHT,
+          scrollY + tHeight - cHeight
+        ],
+        transformOrigin: [
+          0,
+          arrowPointAtCenter ? tHeight / 2 : cHeight - ARROW_OFFSET
+        ]
+      };
     },
-    left: {
-      arrowStyle: `
-        left: 100%;
-        top: 50%;
-        margin-top: -6px;
-      `,
-      contentOffset: [x - cWidth - 5, y + (tHeight - cHeight) / 2],
-      transformOrigin: [cWidth, cHeight / 2 - 6]
+    left() {
+      return {
+        arrowStyle: `
+          left: 100%;
+          top: 50%;
+          margin-top: -6px;
+        `,
+        contentOffset: [
+          scrollX - cWidth - ARROW_HEIGHT,
+          scrollY + (tHeight - cHeight) / 2
+        ],
+        transformOrigin: [cWidth, cHeight / 2 - ARARROW_WIDTH]
+      };
     },
-    leftTop: {
-      arrowStyle: `
-        left: 100%;
-        top: ${arrowPointAtCenter ? tHeight / 2 - 6 : 15}px;
-      `,
-      contentOffset: [x - cWidth - 5, y],
-      transformOrigin: [cWidth, arrowPointAtCenter ? tHeight / 2 : 15]
+    leftTop() {
+      return {
+        arrowStyle: `
+          left: 100%;
+          top: ${
+            arrowPointAtCenter ? tHeight / 2 - ARARROW_WIDTH : ARROW_OFFSET
+          }px;
+        `,
+        contentOffset: [scrollX - cWidth - ARROW_HEIGHT, scrollY],
+        transformOrigin: [
+          cWidth,
+          arrowPointAtCenter ? tHeight / 2 : ARROW_OFFSET
+        ]
+      };
     },
-    leftBottom: {
-      arrowStyle: `
-        left: 100%;
-        bottom: ${arrowPointAtCenter ? tHeight / 2 - 6 : 15}px;
-      `,
-      contentOffset: [x - cWidth - 5, y + tHeight - cHeight],
-      transformOrigin: [cWidth, arrowPointAtCenter ? tHeight / 2 : cHeight - 15]
+    leftBottom() {
+      return {
+        arrowStyle: `
+          left: 100%;
+          bottom: ${
+            arrowPointAtCenter ? tHeight / 2 - ARARROW_WIDTH : ARROW_OFFSET
+          }px;
+        `,
+        contentOffset: [
+          scrollX - cWidth - ARROW_HEIGHT,
+          scrollY + tHeight - cHeight
+        ],
+        transformOrigin: [
+          cWidth,
+          arrowPointAtCenter ? tHeight / 2 : cHeight - ARROW_OFFSET
+        ]
+      };
     }
   };
 };
@@ -163,42 +248,46 @@ function reverseDirection(
 }
 
 export default (placement, { autoAdjustOverflow, arrowPointAtCenter }) => {
+  let [direction, conetntDirection] = formatPlacement(placement);
   return ({ triggerRect, contentRect }) => {
-    let item = placementsMap({ triggerRect, contentRect, arrowPointAtCenter })[
-      placement
-    ];
-    let [direction, conetntDirection] = formatPlacement(placement);
     let newPlacement = placement;
-
+    let newDirection = direction;
+    let newConetntDirection = conetntDirection;
     if (autoAdjustOverflow) {
-      [direction, conetntDirection] = reverseDirection(
+      [newDirection, newConetntDirection] = reverseDirection(
         [direction, conetntDirection],
         {
           triggerRect,
           contentRect
         }
       );
-      newPlacement = `${direction}${
-        conetntDirection
-          ? conetntDirection.replace(/\w/, m => m.toUpperCase())
+      newPlacement = `${newDirection}${
+        newConetntDirection
+          ? newConetntDirection.replace(/\w/, m => m.toUpperCase())
           : ""
       }`;
-      item = placementsMap({ triggerRect, contentRect, arrowPointAtCenter })[
-        newPlacement
-      ];
     }
-
-    const leftOrTop = direction === "left" || direction === "top";
+    const getPlacement = placementsMap({
+      triggerRect,
+      contentRect,
+      arrowPointAtCenter
+    })[newPlacement];
+    const currentPlacement = getPlacement();
+    const leftOrTop = newDirection === "left" || newDirection === "top";
     return {
-      ...item,
-      borderDerectionClass: direction,
-      arrowStyle: `${item.arrowStyle}filter: drop-shadow(${shadowOffset[
-        direction
-      ].join(" ")} 1px rgba(0, 0, 0, 0.1));`,
-      popBoxStyle: `margin-${gapMap[direction]}: ${
+      ...currentPlacement,
+      borderDerectionClass: newDirection,
+      arrowStyle: `${
+        currentPlacement.arrowStyle
+      }filter: drop-shadow(${shadowOffset[newDirection].join(
+        " "
+      )} 1px rgba(0, 0, 0, 0.1));`,
+      popBoxStyle: `margin-${gapMap[newDirection]}: ${
         leftOrTop ? "-5px" : "5px"
       };`,
-      transformOrigin: item.transformOrigin.map(a => a + "px").join(" ")
+      transformOrigin: currentPlacement.transformOrigin
+        .map(a => a + "px")
+        .join(" ")
     };
   };
 };

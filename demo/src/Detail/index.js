@@ -8,6 +8,7 @@ import styled, { css, keyframes, createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body{
+    width: 200vh !important;
     height: 200vh !important;
   }
 `;
@@ -61,32 +62,42 @@ const grid = {
 
 class Test extends Component {
   state = {
-    visible: false
+    visible: true,
+    visible2: true
   };
   render() {
     return (
       <div>
         <GlobalStyle />
-        <Btn1 onClick={() => this.setState({ visible: !this.state.visible })}>
-          qwqwqw
+        <Btn1 onClick={() => this.setState({ visible2: !this.state.visible2 })}>
+          显示/隐藏 整个Toolip
         </Btn1>
-        <Tooltip
-          // defaultVisible={true}
-          visible={this.state.visible}
-          // theme="light"
-          title={
-            "hello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello world"
-          }
-          placement="topLeft"
-        >
-          <Btn1>test22</Btn1>
-        </Tooltip>
+        <Btn1 onClick={() => this.setState({ visible: !this.state.visible })}>
+          操作受控
+        </Btn1>
+        {this.state.visible2 && (
+          <Tooltip
+            // theme="light"
+            // defaultVisible={true}
+            visible={this.state.visible}
+            onVisibleChange={e => {
+              console.log(e);
+            }}
+            title={
+              "hello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello world"
+            }
+            placement="right"
+          >
+            <Btn1 defaultStyles={`margin:100px;`}>test22</Btn1>
+          </Tooltip>
+        )}
         <Grid>
           {Object.keys(grid).map((s, i) => {
             return (
               <Tooltip
+                // theme="light"
                 key={i}
-                title={"sssssssssssssssssssssssssssssss"}
+                title={"ssssssssssssssssssssssss"}
                 placement={grid[s]}
               >
                 <Cell area={s}>{s}</Cell>

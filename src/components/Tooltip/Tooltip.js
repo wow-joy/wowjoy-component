@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import React, { Component, PureComponent } from "react";
+import React, { PureComponent } from "react";
 import { createPortal, findDOMNode } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import getPlacements from "./placements";
+import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 
 const enterAnimation = keyframes`
   0%{
@@ -25,6 +26,9 @@ const leaveAnimation = keyframes`
   }
 `;
 
+const TriggerBox = styled.span`
+  display: inline-block;
+`;
 const Layer = styled.div`
   position: absolute;
   top: 0;
@@ -36,13 +40,11 @@ const Content = styled.div`
   position: absolute;
   max-width: 300px;
   ${p =>
-    p.shouldAnimation &&
     p.visible &&
     css`
       animation: ${p.enterAnimation || enterAnimation} 0.1s forwards;
     `}
   ${p =>
-    p.shouldAnimation &&
     !p.visible &&
     css`
       animation: ${p.leaveAnimation || leaveAnimation} 0.1s forwards;
@@ -59,8 +61,8 @@ const Inner = styled.div`
   border-radius: 3px;
   ${p =>
     p.theme === "dark"
-      ? `background-color: rgba(0, 0, 0, 0.5);box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);color: #ffffff;`
-      : `background: #FFFFFF;box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);`}
+      ? `background-color: rgba(0, 0, 0, 0.5);box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);color: #ffffff;`
+      : `background: #FFFFFF;box-shadow: 0 0 4px 0 rgba(0,0,0,0.3);`}
   font-family: "STHeitiSC-Light";
   font-size: 12px;
   letter-spacing: 0;
@@ -86,112 +88,91 @@ const Inner = styled.div`
   }
 `;
 
-class Tooltip extends Component {
+class Tooltip extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      visible: props.defaultVisible || false
+      contentRect: { width: 0, height: 0 },
+      triggerRect: { x: 0, y: 0, width: 0, height: 0 },
+      documentScrollLeft: 0,
+      documentScrollTop: 0
     };
-    this.isConentMount = props.defaultVisible || props.visible;
     this.getPlacement = getPlacements(props.placement, {
       autoAdjustOverflow: props.autoAdjustOverflow,
       arrowPointAtCenter: props.arrowPointAtCenter
     });
-    this.shouldFirstAnimation = props.shouldFirstAnimation || false;
     this.childrenRef = React.createRef();
+    this.setScrollOffset();
   }
   layerRef;
   contentRef;
   innerRef;
   enterTimer;
   leaveTimer;
-  isContentFirstMount = false;
-  triggerRect = { x: 0, y: 0, width: 0, height: 0 };
-  contentRect = { width: 0, height: 0 };
+  isContentMount = false;
 
   componentDidMount() {
-    if (this.props.defaultVisible || this.props.visible) {
-      this.setAndDisplayContent();
-      this.forceUpdate();
+    if (this.props.visible) {
+      this.contentRef.style.display = "block";
+      this.setContentRect();
     } else {
-      this.contentRef && (this.contentRef.style.display = "none");
+      this.contentRef.style.display = "none";
     }
     this.setTriggerRect();
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    if (!this.contentRef && !this.isConentMount) {
-      this.isContentFirstMount = true;
-      this.isConentMount = true;
-    }
-    if (nextProps.visible === undefined) {
-      // 非受控
-      if (nextState.visible !== this.state.visible) {
-        nextState.visible && this.setAndDisplayContent();
-      }
-    } else {
-      // 受控
-      this.state.visible = nextProps.visible; // render前同步props到state,下面都用this.state.visible
-      if (nextProps.visible !== this.props.visible) {
-        nextProps.visible && this.setAndDisplayContent();
+  componentWillReceiveProps(nextProps, nextState) {
+    if (nextProps.visible !== this.props.visible) {
+      if (nextProps.visible) {
+        this.contentRef.style.display = "block";
+        this.setContentRect();
+        this.props.onVisibleChange && this.props.onVisibleChange(true);
+      } else {
+        this.props.onVisibleChange && this.props.onVisibleChange(false);
       }
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    this.shouldFirstAnimation = true;
-    if (this.isContentFirstMount) {
-      this.setAndDisplayContent();
-      this.isContentFirstMount = false;
-      this.forceUpdate();
-    }
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (
-      this.state.visible !== nextState.visible ||
-      this.props.visible !== nextProps.visible
-    ) {
-      return true;
-    }
-    return false;
-  }
-
-  toggleVisible = bool => {
-    this.setState({ visible: bool });
+  setScrollOffset = () => {
+    this.documentScrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    this.documentScrollLeft =
+      document.documentElement.scrollLeft || document.body.scrollLeft;
   };
 
-  setAndDisplayContent = () => {
-    if (this.contentRef) {
-      this.contentRef.style.display = "block";
-      this.contentRect = {
+  setContentRect = () => {
+    this.setState({
+      contentRect: {
         width: this.contentRef.clientWidth,
         height: this.contentRef.clientHeight
-      };
-    }
+      }
+    });
   };
+
+  get triggerNode() {
+    return this.childrenRef.current
+      ? findDOMNode(this.childrenRef.current)
+      : this.childrenRef;
+  }
 
   setTriggerRect = () => {
-    if (this.childrenRef.current) {
-      const childrenNode = findDOMNode(this.childrenRef.current);
-      if (childrenNode) {
-        const { x, y, height, width } = childrenNode.getBoundingClientRect();
-        const documentScrollTop =
-          document.documentElement.scrollTop || document.body.scrollTop;
-        this.triggerRect = {
-          x,
-          y: y + documentScrollTop,
-          height,
-          width
-        };
+    const { x, y, height, width } = this.triggerNode.getBoundingClientRect();
+    this.setState({
+      triggerRect: {
+        scrollX: x + this.documentScrollLeft,
+        scrollY: y + this.documentScrollTop,
+        x,
+        y,
+        height,
+        width
       }
-    }
+    });
   };
 
-  getCurrentPlace() {
+  get currentPlace() {
     return this.getPlacement({
-      triggerRect: this.triggerRect,
-      contentRect: this.contentRect
+      triggerRect: this.state.triggerRect,
+      contentRect: this.state.contentRect
     });
   }
 
@@ -208,42 +189,57 @@ class Tooltip extends Component {
   };
   onMouseLeave = e => {
     this.enterTimer && clearTimeout(this.enterTimer);
-    this.toggleVisible(false);
-  };
-  onAnimationStart = e => {
-    const { onVisibleChange } = this.props;
-    onVisibleChange && this.state.visible && onVisibleChange(true);
   };
   onAnimationEnd = e => {
-    const { onVisibleChange } = this.props;
-    if (!this.state.visible) {
+    if (!this.props.visible) {
       this.contentRef.style.display = "none";
-      onVisibleChange && onVisibleChange(false);
     }
   };
 
   onChildrenMouseEnter = e => {
+    this.setScrollOffset();
+    this.setTriggerRect();
     clearTimeout(this.leaveTimer);
     this.enterTimer = setTimeout(() => {
-      this.toggleVisible(true);
+      this.props.onVisibleChange && this.props.onVisibleChange(true);
       this.enterTimer = null;
     }, this.props.mouseEnterDelay * 1000);
   };
   onChildrenMouseLeave = e => {
     clearTimeout(this.enterTimer);
     this.leaveTimer = setTimeout(() => {
-      this.toggleVisible(false);
+      this.props.onVisibleChange && this.props.onVisibleChange(false);
       this.leaveTimer = null;
     }, this.props.mouseLeaveDelay * 1000);
+  };
+
+  getChildren = () => {
+    const { children } = this.props;
+    const triggerProps = {
+      onMouseEnter: this.onChildrenMouseEnter,
+      onMouseLeave: this.onChildrenMouseLeave
+    };
+    if (typeof children === "string" || Array.isArray(children)) {
+      return (
+        <TriggerBox
+          className="wjc-tooltip-triggerbox"
+          ref={ref => (this.childrenRef = ref)}
+          {...triggerProps}
+        >
+          {children}
+        </TriggerBox>
+      );
+    }
+    return React.cloneElement(this.props.children, {
+      ...triggerProps,
+      ref: this.childrenRef
+    });
   };
 
   render() {
     const {
       defaultStyles,
       className,
-      overlayClassName,
-      overlayStyles,
-      children,
       title,
       enterAnimation,
       leaveAnimation,
@@ -258,64 +254,47 @@ class Tooltip extends Component {
       popBoxStyle,
       transformOrigin,
       contentOffset
-    } = this.getCurrentPlace();
+    } = this.currentPlace;
+
     return (
       <React.Fragment>
-        {React.cloneElement(
-          React.Children.only(children),
-          visible !== undefined
-            ? { ref: this.childrenRef }
-            : {
-                onMouseEnter: this.onChildrenMouseEnter,
-                onMouseLeave: this.onChildrenMouseLeave,
-                ref: this.childrenRef
-              }
-        )}
-        {(this.state.visible || this.isConentMount) &&
-          createPortal(
-            <Layer
-              ref={ref => (this.layerRef = ref)}
-              defaultStyles={defaultStyles}
-              className={`wjy-tooltip-layer wjy-tooltip-${placement} ${
-                className ? className : ""
-              }`}
-            >
-              <Content
-                ref={ref => (this.contentRef = ref)}
-                className={`wjy-tooltip-conent ${
-                  overlayClassName ? overlayClassName : ""
-                }`}
-                defaultStyles={`
+        {this.getChildren()}
+        {createPortal(
+          <Layer
+            ref={ref => (this.layerRef = ref)}
+            defaultStyles={defaultStyles}
+            className={`wjy-tooltip-layer wjy-tooltip-${placement} ${
+              className ? className : ""
+            }`}
+          >
+            <Content
+              ref={ref => (this.contentRef = ref)}
+              className={`wjy-tooltip-conent`}
+              defaultStyles={`
                   ${this.getPopPositionStyle(contentOffset)}
                   ${popBoxStyle}
                   transform-origin: ${transformOrigin};
-                  ${overlayStyles || ""}
                 `}
-                firstAnimation={false}
-                enterAnimation={enterAnimation}
-                leaveAnimation={leaveAnimation}
-                visible={this.state.visible}
-                shouldAnimation={this.shouldFirstAnimation}
-                onMouseEnter={this.onMouseEnter}
-                {...(visible !== undefined
-                  ? {}
-                  : { onMouseLeave: this.onMouseLeave })}
-                onAnimationStart={this.onAnimationStart}
-                onAnimationEnd={this.onAnimationEnd}
+              enterAnimation={enterAnimation}
+              leaveAnimation={leaveAnimation}
+              visible={visible}
+              onMouseEnter={this.onMouseEnter}
+              onMouseLeave={this.onMouseLeave}
+              onAnimationEnd={this.onAnimationEnd}
+            >
+              <Inner
+                ref={ref => (this.innerRef = ref)}
+                className={`wjy-tooltip-inner`}
+                arrowStyle={arrowStyle}
+                borderDerectionClass={borderDerectionClass}
+                theme={theme}
               >
-                <Inner
-                  ref={ref => (this.innerRef = ref)}
-                  className={`wjy-tooltip-inner`}
-                  arrowStyle={arrowStyle}
-                  borderDerectionClass={borderDerectionClass}
-                  theme={theme}
-                >
-                  {title}
-                </Inner>
-              </Content>
-            </Layer>,
-            getContainer ? getContainer() : document.body
-          )}
+                {title}
+              </Inner>
+            </Content>
+          </Layer>,
+          getContainer ? getContainer() : document.body
+        )}
       </React.Fragment>
     );
   }
@@ -335,8 +314,6 @@ Tooltip.defaultProps = {
 Tooltip.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
-  overlayClassName: PropTypes.string,
-  overlayStyles: PropTypes.string,
   mouseEnterDelay: PropTypes.number,
   mouseLeaveDelay: PropTypes.number,
   placement: PropTypes.oneOf([
@@ -361,4 +338,8 @@ Tooltip.propTypes = {
   shouldFirstAnimation: PropTypes.bool,
   theme: PropTypes.oneOf(["dark", "light"])
 };
-export default Tooltip;
+export default ControllSwitchHoc({
+  value: "visible",
+  defaultValue: "defaultVisible",
+  onChange: "onVisibleChange"
+})(Tooltip);
