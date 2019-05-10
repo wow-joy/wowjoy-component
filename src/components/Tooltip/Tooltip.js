@@ -4,6 +4,7 @@ import { createPortal, findDOMNode } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import getPlacements from "./placements";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
+import { ARROW_WIDTH, ARROW_HEIGHT } from "./constant";
 
 const enterAnimation = keyframes`
   0%{
@@ -76,12 +77,12 @@ const Inner = styled.div`
     width: 0;
     height: 0;
     border-color: transparent;
-    border: 6px solid transparent;
+    border: ${ARROW_WIDTH}px solid transparent;
     ${p =>
       `border-${p.borderDerectionClass}-color: ${
         p.theme === "dark" ? "rgba(0, 0, 0, 0.4)" : "#fff"
       };`}
-    ${p => `border-${p.borderDerectionClass}-width`}: 5px;
+    ${p => `border-${p.borderDerectionClass}-width: ${ARROW_HEIGHT}px`};
     position: absolute;
     transition: 0.1s;
     ${p => p.arrowStyle}
@@ -93,9 +94,7 @@ class Tooltip extends PureComponent {
     super(props);
     this.state = {
       contentRect: { width: 0, height: 0 },
-      triggerRect: { x: 0, y: 0, width: 0, height: 0 },
-      documentScrollLeft: 0,
-      documentScrollTop: 0
+      triggerRect: { x: 0, y: 0, width: 0, height: 0 }
     };
     this.getPlacement = getPlacements(props.placement, {
       autoAdjustOverflow: props.autoAdjustOverflow,
@@ -109,7 +108,6 @@ class Tooltip extends PureComponent {
   innerRef;
   enterTimer;
   leaveTimer;
-  isContentMount = false;
 
   componentDidMount() {
     if (this.props.visible) {

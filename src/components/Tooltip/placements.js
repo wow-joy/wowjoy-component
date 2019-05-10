@@ -1,6 +1,4 @@
-const ARROW_OFFSET = 15;
-const ARARROW_WIDTH = 6;
-const ARROW_HEIGHT = 5;
+import { ARROW_OFFSET, ARROW_WIDTH, ARROW_HEIGHT } from "./constant";
 
 function formatPlacement(s) {
   const m = s.match(/[A-Z]/);
@@ -32,12 +30,12 @@ const placementsMap = ({
         arrowStyle: `
           top: 100%;
           left: ${
-            arrowPointAtCenter ? tWidth / 2 - ARARROW_WIDTH : ARROW_OFFSET
+            arrowPointAtCenter ? tWidth / 2 - ARROW_WIDTH : ARROW_OFFSET
           }px;
         `,
         contentOffset: [scrollX, scrollY - cHeight - ARROW_HEIGHT],
         transformOrigin: [
-          arrowPointAtCenter ? tWidth / 2 : ARROW_OFFSET + ARARROW_WIDTH,
+          arrowPointAtCenter ? tWidth / 2 : ARROW_OFFSET + ARROW_WIDTH,
           cHeight + ARROW_HEIGHT
         ]
       };
@@ -48,8 +46,8 @@ const placementsMap = ({
           top: 100%;
           right: ${
             arrowPointAtCenter
-              ? tWidth / 2 - ARARROW_WIDTH
-              : ARROW_OFFSET - ARARROW_WIDTH
+              ? tWidth / 2 - ARROW_WIDTH
+              : ARROW_OFFSET - ARROW_WIDTH
           }px;
         `,
         contentOffset: [
@@ -59,7 +57,7 @@ const placementsMap = ({
         transformOrigin: [
           arrowPointAtCenter
             ? cWidth - tWidth / 2
-            : cWidth - ARROW_OFFSET - ARARROW_WIDTH,
+            : cWidth - ARROW_OFFSET - ARROW_WIDTH,
           cHeight + ARROW_HEIGHT
         ]
       };
@@ -83,12 +81,12 @@ const placementsMap = ({
         arrowStyle: `
           bottom: 100%;
           left: ${
-            arrowPointAtCenter ? tWidth / 2 - ARARROW_WIDTH : ARROW_OFFSET
+            arrowPointAtCenter ? tWidth / 2 - ARROW_WIDTH : ARROW_OFFSET
           }px;
         `,
         contentOffset: [scrollX, scrollY + tHeight + ARROW_HEIGHT],
         transformOrigin: [
-          arrowPointAtCenter ? tWidth / 2 : ARROW_OFFSET + ARARROW_WIDTH,
+          arrowPointAtCenter ? tWidth / 2 : ARROW_OFFSET + ARROW_WIDTH,
           -ARROW_HEIGHT
         ]
       };
@@ -98,14 +96,14 @@ const placementsMap = ({
         arrowStyle: `
           bottom: 100%;
           right: ${
-            arrowPointAtCenter ? tWidth / 2 - ARARROW_WIDTH : ARROW_OFFSET
+            arrowPointAtCenter ? tWidth / 2 - ARROW_WIDTH : ARROW_OFFSET
           }px;
         `,
         contentOffset: [
           scrollX - (cWidth - tWidth),
           scrollY + tHeight + ARROW_HEIGHT
         ],
-        transformOrigin: [cWidth - ARROW_OFFSET - ARARROW_WIDTH, -ARROW_HEIGHT]
+        transformOrigin: [cWidth - ARROW_OFFSET - ARROW_WIDTH, -ARROW_HEIGHT]
       };
     },
     right() {
@@ -119,7 +117,7 @@ const placementsMap = ({
           scrollX + tWidth + ARROW_HEIGHT,
           scrollY - (cHeight - tHeight) / 2
         ],
-        transformOrigin: [0, cHeight / 2 - ARARROW_WIDTH]
+        transformOrigin: [0, cHeight / 2 - ARROW_WIDTH]
       };
     },
     rightTop() {
@@ -127,7 +125,7 @@ const placementsMap = ({
         arrowStyle: `
           right: 100%;
           top: ${
-            arrowPointAtCenter ? tHeight / 2 - ARARROW_WIDTH : ARROW_OFFSET
+            arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET
           }px;
         `,
         contentOffset: [scrollX + tWidth + ARROW_HEIGHT, scrollY],
@@ -139,7 +137,7 @@ const placementsMap = ({
         arrowStyle: `
           right: 100%;
           bottom: ${
-            arrowPointAtCenter ? tHeight / 2 - ARARROW_WIDTH : ARROW_OFFSET
+            arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET
           }px;
         `,
         contentOffset: [
@@ -163,7 +161,7 @@ const placementsMap = ({
           scrollX - cWidth - ARROW_HEIGHT,
           scrollY + (tHeight - cHeight) / 2
         ],
-        transformOrigin: [cWidth, cHeight / 2 - ARARROW_WIDTH]
+        transformOrigin: [cWidth, cHeight / 2 - ARROW_WIDTH]
       };
     },
     leftTop() {
@@ -171,7 +169,7 @@ const placementsMap = ({
         arrowStyle: `
           left: 100%;
           top: ${
-            arrowPointAtCenter ? tHeight / 2 - ARARROW_WIDTH : ARROW_OFFSET
+            arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET
           }px;
         `,
         contentOffset: [scrollX - cWidth - ARROW_HEIGHT, scrollY],
@@ -186,7 +184,7 @@ const placementsMap = ({
         arrowStyle: `
           left: 100%;
           bottom: ${
-            arrowPointAtCenter ? tHeight / 2 - ARARROW_WIDTH : ARROW_OFFSET
+            arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET
           }px;
         `,
         contentOffset: [
