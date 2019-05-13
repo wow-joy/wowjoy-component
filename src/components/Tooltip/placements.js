@@ -222,10 +222,15 @@ const reverse = {
 function reverseDirection(
   [direction, conetntDirection],
   {
+    triggerRect,
+    contentRect,
     triggerRect: { x, y, width: tWidth, height: tHeight },
     contentRect: { width: cWidth, height: cHeight }
   }
 ) {
+  if (!Object.values({ ...triggerRect, ...contentRect }).some(a => a !== 0)) {
+    return [direction, conetntDirection];
+  }
   if (
     (direction === "left" && cWidth > x - 10) ||
     (direction === "right" && cWidth + tWidth + x > window.innerWidth - 10) ||
