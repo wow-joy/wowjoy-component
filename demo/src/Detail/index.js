@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Components from "@src";
-import { Btn_1 as Btn1, Tooltip } from "@src";
+import Components from "@es";
+import { Btn_1 as Btn1, Tooltip } from "@es";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -94,7 +94,7 @@ class Test extends Component {
               <Tooltip
                 // theme="light"
                 key={i}
-                title={"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"}
+                title={"sssssssssssssssss"}
                 placement={grid[s]}
               >
                 <Cell area={s}>{s}</Cell>
