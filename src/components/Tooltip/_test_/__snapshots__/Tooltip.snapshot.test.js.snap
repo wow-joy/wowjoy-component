@@ -1,34 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Btn renders correctly 1`] = `
-<span
-  className="wjc-btn undefined sc-bdVaJa ezxaVl"
-  onClick={[Function]}
->
-  Btn Content
-</span>
-`;
-
-exports[`Btn should not render as link when \`to\` equal false 1`] = `
-<span
-  className="wjc-btn undefined sc-bdVaJa ezxaVl"
-  onClick={[Function]}
-  to={false}
->
-  this is not a link
-</span>
-`;
-
-exports[`Btn should render link when \`to\` has a value not equal false 1`] = `
+exports[`Tooltip renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "wjc-btn undefined sc-bdVaJa ezxaVl",
-      "to": "https://wow-joy.github.io",
+      "class": "wjc-tooltip-triggerbox sc-bdVaJa bSrzPW",
     },
     "children": Array [
       Object {
-        "data": "this is a link",
+        "data": "Tooltip Content",
         "next": null,
         "parent": [Circular],
         "prev": null,
@@ -57,11 +37,9 @@ initialize {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
-      "to": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
-      "to": undefined,
     },
   },
   "_root": [Circular],

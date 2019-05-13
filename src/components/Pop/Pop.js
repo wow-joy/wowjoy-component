@@ -165,7 +165,7 @@ class Pop extends PureComponent {
         onClick={this.layerClick}
       >
         <PopBox
-          className="wjy-pop-box"
+          className="wjc-pop-box"
           ref={el => (this.popBox = el)}
           translate={translate}
         >

@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { findDOMNode } from "react-dom";
 import Components from "@src";
-import { ReactComponent as Icon } from "@media/test.svg";
-import { Pop, Btn_1 as Btn1, Tooltip } from "@src";
-import { pop } from "@lib/tools";
-import styled, { css, keyframes, createGlobalStyle } from "styled-components";
+import { Btn_1 as Btn1, Tooltip } from "@src";
+import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -97,7 +94,7 @@ class Test extends Component {
               <Tooltip
                 // theme="light"
                 key={i}
-                title={"ssssssssssssssssssssssss"}
+                title={"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"}
                 placement={grid[s]}
               >
                 <Cell area={s}>{s}</Cell>
@@ -131,6 +128,7 @@ class Detail extends Component {
       return (
         <React.Fragment>
           {/* <ComponentItem /> */}
+          <Tooltip><span>as</span></Tooltip>
           <Test />
         </React.Fragment>
       );

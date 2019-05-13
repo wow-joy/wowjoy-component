@@ -261,13 +261,13 @@ class Tooltip extends PureComponent {
           <Layer
             ref={ref => (this.layerRef = ref)}
             defaultStyles={defaultStyles}
-            className={`wjy-tooltip-layer wjy-tooltip-${placement} ${
-              className ? className : ""
-            }`}
+            className={`wjc-tooltip-layer ${
+              placement ? `wjc-tooltip-${placement}` : ""
+            } ${className ? className : ""}`}
           >
             <Content
               ref={ref => (this.contentRef = ref)}
-              className={`wjy-tooltip-conent`}
+              className={`wjc-tooltip-conent`}
               defaultStyles={`
                   ${this.getPopPositionStyle(contentOffset)}
                   ${popBoxStyle}
@@ -282,7 +282,7 @@ class Tooltip extends PureComponent {
             >
               <Inner
                 ref={ref => (this.innerRef = ref)}
-                className={`wjy-tooltip-inner`}
+                className={`wjc-tooltip-inner`}
                 arrowStyle={arrowStyle}
                 borderDerectionClass={borderDerectionClass}
                 theme={theme}
