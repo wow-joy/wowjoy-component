@@ -152,8 +152,11 @@ class SlideDown extends PureComponent {
       return;
     }
     targetNode.style.overflow = "hidden";
-    targetNode.style.height = targetNode.clientHeight + "px";
-    requestAnimationFrame(() => (targetNode.style.height = 0));
+    const cHeight = targetNode.clientHeight + "px";
+    requestAnimationFrame(() => {
+      targetNode.style.height = cHeight;
+      requestAnimationFrame(() => (targetNode.style.height = 0));
+    });
   };
   handleClick = e => {
     if (!this.subNode) {
