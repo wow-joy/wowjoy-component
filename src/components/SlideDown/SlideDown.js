@@ -9,6 +9,8 @@ const Wrap = styled.div`
 const Content = styled.div`
   cursor: pointer;
   display: flex;
+  align-items: center;
+  position: relative;
 `;
 const SubContent = styled.div`
   display: none;
