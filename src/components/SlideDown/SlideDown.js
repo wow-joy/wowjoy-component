@@ -45,12 +45,12 @@ class SlideDown extends PureComponent {
     if (!this.subNode) {
       return;
     }
-   
+
     if (isActive && !this.wrapNode.contains(e.target)) {
       if (onBlur && onBlur(e) === false) {
         return;
       }
-      onChange && onChange(false)
+      onChange && onChange(false);
     }
   };
   componentDidMount() {
@@ -81,8 +81,15 @@ class SlideDown extends PureComponent {
   }
 
   render() {
-    const { defaultStyles, className, content, children, isActive } = this.props;
-
+    const {
+      defaultStyles,
+      className,
+      content,
+      children,
+      isActive,
+      ControlComponent
+    } = this.props;
+    const ControlIcon = ControlComponent || Control;
     return (
       <Wrap
         className={`${className} ${isActive ? "open" : ""}`}
@@ -92,7 +99,7 @@ class SlideDown extends PureComponent {
         <Content onClick={this.handleClick} className={"wjc-slideDown-content"}>
           {content}
           {children && (
-            <Control
+            <ControlIcon
               isActive={isActive}
               ref={el => {
                 this.popControl = el;
@@ -146,9 +153,7 @@ class SlideDown extends PureComponent {
     }
     targetNode.style.overflow = "hidden";
     targetNode.style.height = targetNode.clientHeight + "px";
-    setTimeout(() => {
-      targetNode.style.height = 0;
-    });
+    requestAnimationFrame(() => (targetNode.style.height = 0));
   };
   handleClick = e => {
     if (!this.subNode) {
@@ -174,7 +179,8 @@ SlideDown.propTypes = {
   onSubClick: PropTypes.func,
   onTransitionEnd: PropTypes.func,
   onBlur: PropTypes.func,
-  isActive: PropTypes.bool
+  isActive: PropTypes.bool,
+  ControlComponent: PropTypes.func
 };
 export default ControllSwitchHoc({
   value: "isActive",
