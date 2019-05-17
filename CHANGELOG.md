@@ -1,3 +1,10 @@
+## 3.3.1 (2019/5/17)
+
+### feature
+
+- 优化 SlideDown 动画效果
+- 增加 SlideDown 下拉按钮修改的 api
+
 ## 3.3.0 (2019/5/13)
 
 ### feature
