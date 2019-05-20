@@ -3,7 +3,7 @@ import React, { PureComponent } from "react";
 import { createPortal, findDOMNode } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import getPlacements from "./placements";
-import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
+import ControllSwitchHoc from "./ControllSwitchHoc";
 import { ARROW_WIDTH, ARROW_HEIGHT } from "./constant";
 
 const enterAnimation = keyframes`
@@ -100,7 +100,6 @@ class Tooltip extends PureComponent {
       autoAdjustOverflow: props.autoAdjustOverflow,
       arrowPointAtCenter: props.arrowPointAtCenter
     });
-    this.childrenRef = React.createRef();
     this.setScrollOffset();
   }
   layerRef;
@@ -108,7 +107,7 @@ class Tooltip extends PureComponent {
   innerRef;
   enterTimer;
   leaveTimer;
-
+  triggerNode;
   componentDidMount() {
     if (this.props.visible) {
       this.contentRef.style.display = "block";
@@ -124,18 +123,17 @@ class Tooltip extends PureComponent {
       if (nextProps.visible) {
         this.contentRef.style.display = "block";
         this.setContentRect();
-        this.props.onVisibleChange && this.props.onVisibleChange(true);
-      } else {
-        this.props.onVisibleChange && this.props.onVisibleChange(false);
+      }
+      if (this.props.isControlled) {
+        this.props.onVisibleChange && this.props.onVisibleChange(nextProps.visible);
       }
     }
+    this.setTriggerRect();
   }
 
   setScrollOffset = () => {
-    this.documentScrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop;
-    this.documentScrollLeft =
-      document.documentElement.scrollLeft || document.body.scrollLeft;
+    this.documentScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    this.documentScrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
   };
 
   setContentRect = () => {
@@ -147,14 +145,15 @@ class Tooltip extends PureComponent {
     });
   };
 
-  get triggerNode() {
-    return this.childrenRef.current
-      ? findDOMNode(this.childrenRef.current)
-      : this.childrenRef;
+  getTriggerNode() {
+    if (!this.triggerNode) {
+      this.triggerNode = findDOMNode(this.childrenRef);
+    }
+    return this.triggerNode;
   }
 
   setTriggerRect = () => {
-    const { x, y, height, width } = this.triggerNode.getBoundingClientRect();
+    const { x, y, height, width } = this.getTriggerNode().getBoundingClientRect();
     this.setState({
       triggerRect: {
         scrollX: x + this.documentScrollLeft,
@@ -187,6 +186,7 @@ class Tooltip extends PureComponent {
   };
   onMouseLeave = e => {
     this.enterTimer && clearTimeout(this.enterTimer);
+    this.props.onVisibleChange && this.props.onVisibleChange(false);
   };
   onAnimationEnd = e => {
     if (!this.props.visible) {
@@ -212,12 +212,14 @@ class Tooltip extends PureComponent {
   };
 
   getChildren = () => {
-    const { children } = this.props;
-    const triggerProps = {
-      onMouseEnter: this.onChildrenMouseEnter,
-      onMouseLeave: this.onChildrenMouseLeave
-    };
-    if (typeof children === "string" || Array.isArray(children)) {
+    const { children, isControlled } = this.props;
+    let triggerProps = isControlled
+      ? {}
+      : {
+          onMouseEnter: this.onChildrenMouseEnter,
+          onMouseLeave: this.onChildrenMouseLeave
+        };
+    if (typeof children === "string" || React.Children.count(children) > 1) {
       return (
         <TriggerBox
           className="wjc-tooltip-triggerbox"
@@ -230,7 +232,13 @@ class Tooltip extends PureComponent {
     }
     return React.cloneElement(this.props.children, {
       ...triggerProps,
-      ref: this.childrenRef
+      ref: node => {
+        this.childrenRef = node;
+        const { ref } = this.props.children;
+        if (typeof ref === "function") {
+          ref(node);
+        }
+      }
     });
   };
 
@@ -261,9 +269,9 @@ class Tooltip extends PureComponent {
           <Layer
             ref={ref => (this.layerRef = ref)}
             defaultStyles={defaultStyles}
-            className={`wjc-tooltip-layer ${
-              placement ? `wjc-tooltip-${placement}` : ""
-            } ${className ? className : ""}`}
+            className={`wjc-tooltip-layer ${placement ? `wjc-tooltip-${placement}` : ""} ${
+              className ? className : ""
+            }`}
           >
             <Content
               ref={ref => (this.contentRef = ref)}

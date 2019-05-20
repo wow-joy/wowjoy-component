@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Components from "@es";
-import { Btn_1 as Btn1, Tooltip } from "@es";
+import Components from "@src";
+import { Btn_1 as Btn1, Tooltip } from "@src";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -69,14 +69,12 @@ class Test extends Component {
         <Btn1 onClick={() => this.setState({ visible2: !this.state.visible2 })}>
           显示/隐藏 整个Toolip
         </Btn1>
-        <Btn1 onClick={() => this.setState({ visible: !this.state.visible })}>
-          操作受控
-        </Btn1>
+        <Btn1 onClick={() => this.setState({ visible: !this.state.visible })}>操作受控</Btn1>
         {this.state.visible2 && (
           <Tooltip
             // theme="light"
             // defaultVisible={true}
-            visible={this.state.visible}
+            // visible={this.state.visible}
             onVisibleChange={e => {
               console.log(e);
             }}
@@ -94,7 +92,7 @@ class Test extends Component {
               <Tooltip
                 // theme="light"
                 key={i}
-                title={"sssssssssssssssss"}
+                title={"ssss"}
                 placement={grid[s]}
               >
                 <Cell area={s}>{s}</Cell>
@@ -117,19 +115,34 @@ const PROPS = {
 class Detail extends Component {
   render() {
     const { match } = this.props;
-    const name = match.params.name.replace(
-      /^(.)(.*)$/,
-      (match, $1, $2) => $1.toUpperCase() + $2
-    );
+    const name = match.params.name.replace(/^(.)(.*)$/, (match, $1, $2) => $1.toUpperCase() + $2);
     this.name = name;
     const ComponentItem = Components[name];
 
     if (ComponentItem) {
       return (
         <React.Fragment>
-          {/* <ComponentItem /> */}
-          <Tooltip><span>as</span></Tooltip>
-          <Test />
+          {/* <ComponentItem defaultValue={0} step={10} /> */}
+          <Tooltip
+            title="oqowoqwj"
+            placement="right"
+            onVisibleChange={e => {
+              console.log(e);
+            }}
+          >
+            <Btn1>test</Btn1>
+          </Tooltip>
+
+          <div style={{ width: 600, height: 600, margin: 30 }}>
+            <ComponentItem.Range
+              step={5}
+              defaultValue={[20, 50, 80]}
+              // tooltipVisible
+              //  tipFormatter={null}
+              // vertical
+            />
+          </div>
+          {/* <Test /> */}
         </React.Fragment>
       );
     }
