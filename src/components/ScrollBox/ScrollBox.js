@@ -40,7 +40,6 @@ const Wrap = styled.div`
   `}
   ${p => p.defaultStyles};
 `;
-const ContentBox = styled.div``;
 const Content = styled.div`
   display: inline-block;
 `;
@@ -135,41 +134,44 @@ class ScrollBox extends Component {
         ref={el => {
           this.wrapNode = el;
         }}
-        defaultStyles={defaultStyles}
+        defaultStyles={"wjc-scroll-wrap " + defaultStyles}
         className={className}
         style={style}
         showX={showX}
         showY={showY}
         cover={cover}
       >
-        <ContentBox>
-          <Content ref={el => (this.contentNode = el)}>{children}</Content>
-          <ScrollBarX
-            className={"wjc-scroll-bar wjc-scroll-bar-axis__x"}
-            visible={showX}
-            onClick={this.axisX.clickTo}
-          >
-            <SliderX
-              className={"wjc-scroll-slider wjc-scroll-slider-axis__x"}
-              ref={el => (this.slideNodeX = el)}
-              width={this.state.sliderWidth || 0}
-              onMouseDown={this.axisX.startSlide}
-            />
-          </ScrollBarX>
+        <Content
+          className={"wjc-scroll-content"}
+          ref={el => (this.contentNode = el)}
+        >
+          {children}
+        </Content>
+        <ScrollBarX
+          className={"wjc-scroll-bar wjc-scroll-bar-axis__x"}
+          visible={showX}
+          onClick={this.axisX.clickTo}
+        >
+          <SliderX
+            className={"wjc-scroll-slider wjc-scroll-slider-axis__x"}
+            ref={el => (this.slideNodeX = el)}
+            width={this.state.sliderWidth || 0}
+            onMouseDown={this.axisX.startSlide}
+          />
+        </ScrollBarX>
 
-          <ScrollBarY
-            className={"wjc-scroll-bar wjc-scroll-bar-axis__y"}
-            visible={showY}
-            onClick={this.axisY.clickTo}
-          >
-            <SliderY
-              className={"wjc-scroll-slider wjc-scroll-slider-axis__y"}
-              ref={el => (this.slideNodeY = el)}
-              height={this.state.sliderHeight || 0}
-              onMouseDown={this.axisY.startSlide}
-            />
-          </ScrollBarY>
-        </ContentBox>
+        <ScrollBarY
+          className={"wjc-scroll-bar wjc-scroll-bar-axis__y"}
+          visible={showY}
+          onClick={this.axisY.clickTo}
+        >
+          <SliderY
+            className={"wjc-scroll-slider wjc-scroll-slider-axis__y"}
+            ref={el => (this.slideNodeY = el)}
+            height={this.state.sliderHeight || 0}
+            onMouseDown={this.axisY.startSlide}
+          />
+        </ScrollBarY>
       </Wrap>
     );
   }
@@ -198,7 +200,7 @@ class ScrollBox extends Component {
   wrapNode;
   contentNode;
   addScrollLisenter = () => {
-    this.contentNode.parentNode.addEventListener("scroll", (...args) => {
+    this.contentNode.addEventListener("scroll", (...args) => {
       this.axisX.scrolling(...args);
       this.axisY.scrolling(...args);
     });
@@ -216,8 +218,8 @@ class ScrollBox extends Component {
     const contentScrollWidth = contentNode.scrollWidth;
     const contentScrollHeight = contentNode.scrollHeight;
     // expect padding
-    const showX = contentScrollWidth >= wrapWidth;
-    const showY = contentScrollHeight >= wrapHeight;
+    const showX = contentScrollWidth > wrapWidth;
+    const showY = contentScrollHeight > wrapHeight;
     if (showX && showY) {
       wrapHeight -= 18;
       wrapWidth -= 18;
@@ -247,7 +249,7 @@ class ScrollBox extends Component {
 
   // method
   scrollTo = (x, y) => {
-    this.contentNode.parentNode.scrollTo(x, y);
+    this.contentNode.scrollTo(x, y);
   };
   rerender = () => {
     this.reset();
@@ -306,8 +308,8 @@ function initAxis({
       delta = Math.max(0, Math.min(max, delta));
       slide(`${delta}px`);
       const { parentNode } = contentNode;
-      parentNode.scrollTo(
-        parentNode.scrollLeft,
+      contentNode.scrollTo(
+        contentNode.scrollLeft,
         (delta / wrapSize) * contentSize
       );
     } else {
@@ -315,19 +317,18 @@ function initAxis({
       delta = Math.max(0, Math.min(max, delta));
       slide(`${delta}px`);
       const { parentNode } = contentNode;
-      parentNode.scrollTo(
+      contentNode.scrollTo(
         (delta / wrapSize) * contentSize,
-        parentNode.scrollTop
+        contentNode.scrollTop
       );
     }
   }
   function scrolling() {
     if (isY) {
-      const delta = (contentNode.parentNode.scrollTop / contentSize) * wrapSize;
+      const delta = (contentNode.scrollTop / contentSize) * wrapSize;
       slide(`${delta}px`);
     } else {
-      const delta =
-        (contentNode.parentNode.scrollLeft / contentSize) * wrapSize;
+      const delta = (contentNode.scrollLeft / contentSize) * wrapSize;
       slide(`${delta}px`);
     }
   }

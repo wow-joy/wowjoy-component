@@ -65,56 +65,32 @@ class Demo extends Component {
           ref={el => (this.scrollRef1 = el)}
           style={{ width: "200px", height: "200px" }}
         >
-          <div
-            style={{
-              display: "inline-block",
-              background: "black",
-              color: "#ccc"
-            }}
-          >
-            {this.state.scroll1Arr.map((ele, index) => (
-              <i key={index}>{index + 1}</i>
-            ))}
-            {this.state.scroll1Arr.map((ele, index) => (
+          {this.state.scroll1Arr.map((ele, index) => (
+            <i key={index}>{index + 1}</i>
+          ))}
+          {this.state.scroll1Arr.map((ele, index) => (
+            <p key={index}>{index + 1}</p>
+          ))}
+        </ScrollBox>
+        <br />
+        <br />
+        <br />
+        <ScrollBox style={{ width: "200px", height: "200px" }}>
+          {Array(100)
+            .fill("")
+            .map((ele, index) => (
               <p key={index}>{index + 1}</p>
             ))}
-          </div>
         </ScrollBox>
         <br />
         <br />
         <br />
         <ScrollBox style={{ width: "200px", height: "200px" }}>
-          <div
-            style={{
-              display: "inline-block",
-              background: "black",
-              color: "#ccc"
-            }}
-          >
-            {Array(100)
-              .fill("")
-              .map((ele, index) => (
-                <p key={index}>{index + 1}</p>
-              ))}
-          </div>
-        </ScrollBox>
-        <br />
-        <br />
-        <br />
-        <ScrollBox style={{ width: "200px", height: "200px" }}>
-          <div
-            style={{
-              display: "inline-block",
-              background: "black",
-              color: "#ccc"
-            }}
-          >
-            {Array(100)
-              .fill("")
-              .map((ele, index) => (
-                <i key={index}>{index + 1}</i>
-              ))}
-          </div>
+          {Array(100)
+            .fill("")
+            .map((ele, index) => (
+              <i key={index}>{index + 1}</i>
+            ))}
         </ScrollBox>
       </div>
     );
