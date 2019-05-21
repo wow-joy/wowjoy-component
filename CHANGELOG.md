@@ -1,3 +1,20 @@
+## 3.4.0 (2019/5/21)
+
+### Breaking changes
+
+- ScrollBox 组件重构 api 更新
+- Demo 展示逻辑修改
+
+### bugfix
+
+- Btn 组件 props 覆盖问题
+- Step 组件低版本浏览器适配
+- SwitchControlHoc 修复 ref 传递问题
+
+### todo
+
+- Slider
+
 ## 3.3.2 (2019/5/17)
 
 ### feature
