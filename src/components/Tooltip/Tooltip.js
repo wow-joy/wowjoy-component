@@ -3,7 +3,7 @@ import React, { PureComponent } from "react";
 import { createPortal, findDOMNode } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import getPlacements from "./placements";
-import ControllSwitchHoc from "./ControllSwitchHoc";
+import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 import { ARROW_WIDTH, ARROW_HEIGHT } from "./constant";
 
 const enterAnimation = keyframes`
@@ -125,15 +125,27 @@ class Tooltip extends PureComponent {
         this.setContentRect();
       }
       if (this.props.isControlled) {
-        this.props.onVisibleChange && this.props.onVisibleChange(nextProps.visible);
+        this.props.onVisibleChange &&
+          this.props.onVisibleChange(nextProps.visible);
       }
     }
-    this.setTriggerRect();
+    // this.setTriggerRect();
+  }
+  did = false;
+  componentDidUpdate(prevProps, prevState) {
+    if (!this.did) {
+      this.did = true;
+      this.setTriggerRect();
+    } else {
+      this.did = false;
+    }
   }
 
   setScrollOffset = () => {
-    this.documentScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    this.documentScrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+    this.documentScrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    this.documentScrollLeft =
+      document.documentElement.scrollLeft || document.body.scrollLeft;
   };
 
   setContentRect = () => {
@@ -153,7 +165,12 @@ class Tooltip extends PureComponent {
   }
 
   setTriggerRect = () => {
-    const { x, y, height, width } = this.getTriggerNode().getBoundingClientRect();
+    const {
+      x,
+      y,
+      height,
+      width
+    } = this.getTriggerNode().getBoundingClientRect();
     this.setState({
       triggerRect: {
         scrollX: x + this.documentScrollLeft,
@@ -261,7 +278,6 @@ class Tooltip extends PureComponent {
       transformOrigin,
       contentOffset
     } = this.currentPlace;
-
     return (
       <React.Fragment>
         {this.getChildren()}
@@ -269,9 +285,9 @@ class Tooltip extends PureComponent {
           <Layer
             ref={ref => (this.layerRef = ref)}
             defaultStyles={defaultStyles}
-            className={`wjc-tooltip-layer ${placement ? `wjc-tooltip-${placement}` : ""} ${
-              className ? className : ""
-            }`}
+            className={`wjc-tooltip-layer ${
+              placement ? `wjc-tooltip-${placement}` : ""
+            } ${className ? className : ""}`}
           >
             <Content
               ref={ref => (this.contentRef = ref)}

@@ -182,10 +182,13 @@ class Slider extends PureComponent {
     if (this.props.disabled || !this.state.dragging) return;
     const { sliderLength, sliderStart } = this;
     const handlerOffset = getMousePosition(e, this.props.vertical);
+
+
     if (
       handlerOffset < sliderStart ||
       handlerOffset > sliderStart + sliderLength
     ) {
+      console.log(handlerOffset, sliderStart, sliderLength);
       return;
     }
     const { step, min, max } = this.props;
@@ -213,7 +216,7 @@ class Slider extends PureComponent {
       return (
         <Tooltip
           visible
-          forwardRef={ref => (this.tooltipRef = ref)}
+          ref={ref => (this.tooltipRef = ref)}
           title={tipFormatter ? tipFormatter(this.value) : this.value}
         >
           <Handler {...{ vertical, min, max, value, offset: this.offset }} />

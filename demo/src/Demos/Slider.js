@@ -6,9 +6,9 @@ class Demo extends PureComponent {
     return (
       <div style={{ width: 600, height: 600, margin: 30 }}>
         <Slider
-          defaultValue={[20, 50, 80]}
+          defaultValue={0}
           // tooltipVisible
-          //  tipFormatter={null}
+          // tipFormatter={null}
           // vertical
         />
         <Slider
@@ -17,6 +17,7 @@ class Demo extends PureComponent {
           // tooltipVisible
           //  tipFormatter={null}
           // vertical
+          range
         />
     </div>
     );

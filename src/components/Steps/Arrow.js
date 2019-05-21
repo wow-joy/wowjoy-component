@@ -37,6 +37,7 @@ const Wrap = styled.div`
       transform: rotate(45deg);
       position: absolute;
       right: 8px;
+      top: 0;
       z-index: 2;
       background-color: ${props => props.currentColor};
       transition: inherit;
@@ -50,6 +51,7 @@ const Wrap = styled.div`
       transform: rotate(45deg);
       position: absolute;
       right: 6px;
+      top: 0;
       z-index: 1;
       background-color: #fff;
       transition: inherit;
