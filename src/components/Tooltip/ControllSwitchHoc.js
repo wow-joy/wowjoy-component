@@ -7,7 +7,7 @@ import React, { PureComponent } from "react";
  *
  */
 const ControllSwitchHoc = (translate = {}) => OldComponent => {
-  class NewComponent extends PureComponent {
+  return class HHH extends PureComponent {
     state = {
       value: undefined
     };
@@ -20,28 +20,31 @@ const ControllSwitchHoc = (translate = {}) => OldComponent => {
       const onChange = this.props[textOnChange];
       const defaultValue = this.props[textDefaultValue];
       const componentType = this.checkProps();
-      const {forwardedRef} = this.props;
-
       if (componentType === "controlled") {
         return (
           <OldComponent
-            ref={forwardedRef}
             {...this.props}
-            {...{ [textValue]: value, [textOnChange]: onChange }}
+            {...(this.props.forwardRef ? { ref: this.props.forwardRef } : {})}
+            {...{
+              [textValue]: value,
+              [textOnChange]: onChange,
+              isControlled: true
+            }}
           />
         );
       }
       if (componentType === "uncontrolled") {
         return (
           <OldComponent
-            ref={forwardedRef}
             {...this.props}
+            {...(this.props.forwardRef ? { ref: this.props.forwardRef } : {})}
             {...{
               [textValue]:
-                this.state.value === void 0
+                this.state.value === undefined
                   ? defaultValue
                   : this.state.value,
-              [textOnChange]: this.onChange
+              [textOnChange]: this.onChange,
+              isControlled: false
             }}
           />
         );
@@ -89,9 +92,5 @@ const ControllSwitchHoc = (translate = {}) => OldComponent => {
       }
     };
   };
-
-  return React.forwardRef((props, ref) => {
-    return <NewComponent {...props} forwardedRef={ref} />;
-  });
 };
 export default ControllSwitchHoc;

@@ -29,6 +29,7 @@ import { CheckBox } from "./components/Form";
 import Badge from "./components/Badge";
 import Steps from "./components/Steps";
 import Tooltip from "./components/Tooltip";
+import Slider from "./components/Slider";
 
 const Components = {
   Btn,
@@ -66,7 +67,8 @@ const Components = {
 
   Badge,
   Steps,
-  Tooltip
+  Tooltip,
+  Slider
 };
 export {
   Btn,
@@ -98,6 +100,7 @@ export {
   CheckBox,
   Badge,
   Steps,
-  Tooltip
+  Tooltip,
+  Slider
 };
 export default Components;

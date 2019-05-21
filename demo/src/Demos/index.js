@@ -1,3 +1,4 @@
 import Tooltip from "./Tooltip";
 import ScrollBox from "./ScrollBox";
-export default { Tooltip, ScrollBox };
+import Slider from "./Slider";
+export default { Tooltip, ScrollBox , Slider};

@@ -15,8 +15,11 @@ const Wrap = styled.div`
       display: none;
     }
   }
-  padding-bottom: ${p => (p.showX ? "12px" : 0)};
-  padding-right: ${p => (p.showY ? "12px" : 0)};
+  ${p =>
+    !p.cover &&
+    `padding-bottom: ${p.showX ? "12px" : 0};
+      padding-right: ${p.showY ? "12px" : 0};`}
+
   ${p =>
     p.showX &&
     p.showY &&
@@ -80,8 +83,8 @@ const ScrollBarY = styled.aside`
   background: #fff;
   border-left: 1px solid #dcdcdc;
   border-right: 1px solid #dcdcdc;
-  text-align: center;
-  display: ${p => (p.visible ? "block" : "none")};
+  display: ${p => (p.visible ? "flex" : "none")};
+  justify-content: center;
   padding: 3px 0;
   &:hover > span {
     width: 10px;
@@ -112,13 +115,19 @@ class ScrollBox extends Component {
   componentDidMount() {
     this.reset();
   }
+  reseted = false;
   componentDidUpdate() {
     if (this.props.dynamic) {
-      this.reset();
+      if (!this.reseted) {
+        this.reseted = true;
+        this.reset();
+      } else {
+        this.reseted = false;
+      }
     }
   }
   render() {
-    const { className, defaultStyles, style, children } = this.props;
+    const { className, defaultStyles, style, children, cover } = this.props;
     const showX = (this.state.sliderWidth || 0 - 0) !== 0;
     const showY = (this.state.sliderHeight || 0 - 0) !== 0;
     return (
@@ -131,16 +140,17 @@ class ScrollBox extends Component {
         style={style}
         showX={showX}
         showY={showY}
+        cover={cover}
       >
         <ContentBox>
           <Content ref={el => (this.contentNode = el)}>{children}</Content>
-
           <ScrollBarX
             className={"wjc-scroll-bar wjc-scroll-bar-axis__x"}
             visible={showX}
-            onClick ={this.axisX.clickTo}
+            onClick={this.axisX.clickTo}
           >
             <SliderX
+              className={"wjc-scroll-slider wjc-scroll-slider-axis__x"}
               ref={el => (this.slideNodeX = el)}
               width={this.state.sliderWidth || 0}
               onMouseDown={this.axisX.startSlide}
@@ -150,9 +160,10 @@ class ScrollBox extends Component {
           <ScrollBarY
             className={"wjc-scroll-bar wjc-scroll-bar-axis__y"}
             visible={showY}
-            onClick ={this.axisY.clickTo}
+            onClick={this.axisY.clickTo}
           >
             <SliderY
+              className={"wjc-scroll-slider wjc-scroll-slider-axis__y"}
               ref={el => (this.slideNodeY = el)}
               height={this.state.sliderHeight || 0}
               onMouseDown={this.axisY.startSlide}
@@ -202,7 +213,6 @@ class ScrollBox extends Component {
       width: wrapWidth,
       height: wrapHeight
     } = wrapNode.getBoundingClientRect();
-    console.log(contentNode);
     const contentScrollWidth = contentNode.scrollWidth;
     const contentScrollHeight = contentNode.scrollHeight;
     // expect padding
@@ -219,7 +229,6 @@ class ScrollBox extends Component {
     // compute slider size
     const width = (wrapWidth * wrapWidth) / contentScrollWidth;
     const height = (wrapHeight * wrapHeight) / contentScrollHeight;
-    console.log(contentScrollWidth, wrapWidth);
     const nextState = {
       sliderWidth: showX ? width : 0,
       sliderHeight: showY ? height : 0
@@ -237,9 +246,11 @@ class ScrollBox extends Component {
   };
 
   // method
-  slideTo = (x, y) => {
-    this.slideNodeX.style.transform = `translateX(${x})`;
-    this.slideNodeY.style.transform = `translateY(${y})`;
+  scrollTo = (x, y) => {
+    this.contentNode.parentNode.scrollTo(x, y);
+  };
+  rerender = () => {
+    this.reset();
   };
 }
 function initAxis({
@@ -256,7 +267,7 @@ function initAxis({
     y: 0
   };
   function startSlide(event) {
-    const {pageY, pageX } = event;
+    const { pageY, pageX } = event;
     startPosition = {
       x: pageX,
       y: pageY
@@ -265,7 +276,7 @@ function initAxis({
     window.addEventListener("mouseup", endSlide);
     setInitPosition();
   }
-  function setInitPosition(){
+  function setInitPosition() {
     const { transform } = window.getComputedStyle(slideNode);
     const matrix = transform.match(/[\.\d]+/g) || [];
     initPosition = {
@@ -283,15 +294,14 @@ function initAxis({
     const { x: initX, y: initY } = initPosition;
     if (isY) {
       let delta = event.pageY - startPosition.y + initY;
-      scrollTo(delta)
+      scrollTo(delta);
     } else {
       let delta = event.pageX - startPosition.x + initX;
-      scrollTo(delta)
+      scrollTo(delta);
     }
   }
-  function scrollTo (delta){
+  function scrollTo(delta) {
     if (isY) {
-      console.log('delta', delta)
       const max = wrapSize - sliderSize;
       delta = Math.max(0, Math.min(max, delta));
       slide(`${delta}px`);
@@ -329,32 +339,33 @@ function initAxis({
     }
   }
 
-  function clickTo(event){
-    if(event.target.className.indexOf('wjc-scroll-bar')<0){
-      return 
+  function clickTo(event) {
+    if (event.target.className.indexOf("wjc-scroll-bar") < 0) {
+      return;
     }
-    setInitPosition()
+    setInitPosition();
     let position, _initPosition;
-    if(isY){
-      position =event.nativeEvent.offsetY;
-      _initPosition = initPosition.y
+    if (isY) {
+      position = event.nativeEvent.offsetY;
+      _initPosition = initPosition.y;
     } else {
-      position =event.nativeEvent.offsetX;
-      _initPosition = initPosition.x
+      position = event.nativeEvent.offsetX;
+      _initPosition = initPosition.x;
     }
-    if(position > _initPosition + sliderSize){
-      scrollTo(position - sliderSize)
-    }else {
-      scrollTo(position)
+    if (position > _initPosition + sliderSize) {
+      scrollTo(position - sliderSize);
+    } else {
+      scrollTo(position);
     }
   }
 
-  return { startSlide, scrolling, clickTo};
+  return { startSlide, scrollTo, scrolling, clickTo };
 }
 ScrollBox.propTypes = {
   className: PropTypes.string,
   defaultStyles: PropTypes.string,
   style: PropTypes.object,
-  dynamic: PropTypes.bool
+  dynamic: PropTypes.bool,
+  cover: PropTypes.bool
 };
 export default ScrollBox;
