@@ -1,3 +1,10 @@
+## 3.4.1 (2019/5/21)
+
+### bugfix
+
+- ScrollBox 优化组件结构
+- ScrollBox 修复滚动条出现判断条件
+
 ## 3.4.0 (2019/5/21)
 
 ### Breaking changes
