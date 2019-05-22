@@ -102,7 +102,6 @@ class SlideDown extends PureComponent {
           {content}
           {children && (
             <ControlIcon
-              isActive={isActive}
               ref={el => {
                 this.popControl = el;
               }}
@@ -185,7 +184,7 @@ SlideDown.propTypes = {
   onTransitionEnd: PropTypes.func,
   onBlur: PropTypes.func,
   isActive: PropTypes.bool,
-  ControlComponent: PropTypes.func
+  ControlComponent: PropTypes.oneofType([PropTypes.func, PropTypes.object])
 };
 export default ControllSwitchHoc({
   value: "isActive",
