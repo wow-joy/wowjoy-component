@@ -113,6 +113,7 @@ class ScrollBox extends Component {
 
   componentDidMount() {
     this.reset();
+    window.addEventListener("resize", this.reset)
   }
   reseted = false;
   componentDidUpdate() {
@@ -125,6 +126,10 @@ class ScrollBox extends Component {
       }
     }
   }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.reset)
+  }
+  
   render() {
     const { className, defaultStyles, style, children, cover } = this.props;
     const showX = (this.state.sliderWidth || 0 - 0) !== 0;
@@ -134,8 +139,8 @@ class ScrollBox extends Component {
         ref={el => {
           this.wrapNode = el;
         }}
-        defaultStyles={"wjc-scroll-wrap " + defaultStyles}
-        className={className}
+        defaultStyles={defaultStyles}
+        className={"wjc-scroll-wrap " + className}
         style={style}
         showX={showX}
         showY={showY}
