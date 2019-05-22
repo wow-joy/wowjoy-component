@@ -61,5 +61,5 @@ ReactDom.render(
   <BrowserRouter>
     <Demo />
   </BrowserRouter>,
-  document.querySelector("#demo")
+  document.querySelector('#demo')
 );

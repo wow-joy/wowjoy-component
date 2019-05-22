@@ -1,10 +1,11 @@
 import * as React from "react";
 import styled from "styled-components";
+import initAxis from "./initAxis";
 interface WrapProps {
-  maxHeight: string;
-  maxWidth?: string;
-  hoverControl: boolean;
-  defaultStyles: string;
+  defaultStyles?: string;
+  cover?: boolean;
+  showX?: boolean;
+  showY?: boolean;
 }
 const Wrap = styled.div<WrapProps>`
   overflow: hidden;
@@ -13,7 +14,6 @@ const Wrap = styled.div<WrapProps>`
   & > div {
     width: 100%;
     height: 100%;
-    max-height: ${p => (p.maxHeight !== undefined ? p.maxHeight : "300px")};
     overflow: auto;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
@@ -22,232 +22,291 @@ const Wrap = styled.div<WrapProps>`
     }
   }
   ${p =>
-    p.hoverControl &&
-    ` &>div>.wjc-scroll-bar{
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.3s;
-        background: rgba(222,222,222,0.3);
-        border-radius: 3px;
-        box-shadow: inset 0 0 3px rgba(150,150,150,0.1);
-      }
-      &:hover{
-        &>div>.wjc-scroll-bar{
-          opacity: 1;
-          pointer-event: all;
-        }
-      }
-    `}
-  ${p => p.defaultStyles}
+    !p.cover &&
+    `padding-bottom: ${p.showX ? "12px" : 0};
+      padding-right: ${p.showY ? "12px" : 0};`}
+
+  ${p =>
+    p.showX &&
+    p.showY &&
+    `
+    &::after{
+      content : '';
+      display: block;
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      height: 12px;
+      width: 12px;
+      background:#fff;
+      z-index: 1;
+      border-right: 1px solid #dcdcdc;
+      border-bottom: 1px solid #dcdcdc;
+    }
+  `}
+  ${p => p.defaultStyles};
 `;
-const Content = styled.div``;
-const ScrollBar = styled.aside`
+const Content = styled.div`
+  display: inline-block;
+`;
+interface ScrollBarProps {
+  visible?: boolean;
+}
+const ScrollBarX = styled.aside<ScrollBarProps>`
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12px;
+  overflow: hidden;
+  background: #fff;
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+  display: ${p => (p.visible ? "flex" : "none")};
+  align-items: center;
+  padding: 0 3px;
+  &:hover > span {
+    height: 10px;
+    background: #999;
+    border-radius: 5px;
+  }
+`;
+interface SliderXProps {
+  width?: number;
+  onMouseDown: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+}
+const SliderX = styled.span<SliderXProps>`
+  display: ${p => (p.width - 0 === 0 ? "none" : " inline-block")};
+  background: #c1c1c1;
+  border-radius: 3px;
+  height: 6px;
+  width: ${p => p.width + "px"};
+  cursor: pointer;
+`;
+
+const ScrollBarY = styled.aside<ScrollBarProps>`
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 6px;
+  width: 12px;
   overflow: hidden;
-  display: ${(p: { visible?: boolean }) => (p.visible ? "block" : "none")};
+  background: #fff;
+  border-left: 1px solid #dcdcdc;
+  border-right: 1px solid #dcdcdc;
+  display: ${p => (p.visible ? "flex" : "none")};
+  justify-content: center;
+  padding: 3px 0;
+  &:hover > span {
+    width: 10px;
+    background: #999;
+    border-radius: 5px;
+  }
 `;
-const Slider = styled.span`
-  display: ${(p: { height: number }) =>
-    p.height - 0 === 0 ? "none" : " inline-block"};
-  background: #ccc;
+interface SliderYProps {
+  height?: number;
+  onMouseDown: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+}
+const SliderY = styled.span<SliderYProps>`
+  display: ${p => (p.height - 0 === 0 ? "none" : " inline-block")};
+  background: #c1c1c1;
   border-radius: 3px;
   width: 6px;
   height: ${p => p.height + "px"};
   cursor: pointer;
 `;
-
-const ChromeScroll = styled.div<WrapProps>`
-  overflow: hidden;
-  position: relative;
-  user-select: none;
-  & > div {
-    width: 100%;
-    height: 100%;
-    max-height: ${p => (p.maxHeight !== undefined ? p.maxHeight : "300px")};
-    max-width: ${p => (p.maxWidth !== undefined ? p.maxWidth : "100%")};
-    overflow: auto;
-    &::-webkit-scrollbar {
-      transition: 0.3s;
-      border-radius: 3px;
-      background: rgba(222, 222, 222, 0.3);
-      box-shadow: inset 0 0 3px rgba(150, 150, 150, 0.1);
-      width: 6px;
-      transition: 0.3s;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: rgba(204, 204, 204, 1);
-      border-radius: 3px;
-      width: 6px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-  }
-  ${p =>
-    p.hoverControl &&
-    `& > div {
-      &::-webkit-scrollbar {
-        background: rgba(222, 222, 222, 0);
-        box-shadow: inset 0 0 3px rgba(150, 150, 150, 0);
-      }
-      &::-webkit-scrollbar-thumb {
-        background: rgba(204, 204, 204, 0);
-      }
-    }
-    &:hover {
-      & > div::-webkit-scrollbar {
-        background: rgba(222, 222, 222, 0.3);
-        box-shadow: inset 0 0 3px rgba(150, 150, 150, 0.1);
-      }
-      & > div::-webkit-scrollbar-thumb {
-        background: rgba(204, 204, 204, 1);
-      }
-    }
-  `};
-  ${p => p.defaultStyles};
-`;
 export interface Props {
   className?: string;
   defaultStyles?: string;
-  visible?: boolean;
-  hoverControl?: boolean;
   maxHeight?: string;
   maxWidth?: string;
+  dynamic?: boolean;
+  style?: object;
+  cover?: boolean;
 }
 interface State {
+  sliderWidth: number;
   sliderHeight: number;
 }
-const isChrome = /(Chrome|Safari)/i.test(window.navigator.userAgent);
-class ScrollBox extends React.PureComponent<Props, State> {
-  state = {
-    sliderHeight: 0
-  };
 
-  componentWillReceiveProps(nextProps: Props) {
-    if (!isChrome) {
-      if (nextProps.visible) {
-        this.setHeight();
-        this.addScrollLisenter();
+interface Axis {
+  startSlide: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  scrollTo: (delta: number) => void;
+  scrolling: () => void;
+  clickTo: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+}
+
+class ScrollBox extends React.PureComponent<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      sliderWidth: 0,
+      sliderHeight: 0
+    };
+    this.axisX = {
+      startSlide: null,
+      scrollTo: null,
+      scrolling: null,
+      clickTo: null
+    };
+    this.axisY = {
+      startSlide: null,
+      scrollTo: null,
+      scrolling: null,
+      clickTo: null
+    };
+  }
+  axisX: Axis;
+  axisY: Axis;
+  componentDidMount() {
+    this.reset();
+    window.addEventListener("resize", this.reset);
+  }
+  reseted = false;
+  componentDidUpdate() {
+    if (this.props.dynamic) {
+      if (!this.reseted) {
+        this.reseted = true;
+        this.reset();
+      } else {
+        this.reseted = false;
       }
     }
   }
-  componentDidMount() {
-    if (!isChrome) {
-      this.setHeight();
-      this.addScrollLisenter();
-    }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.reset);
   }
 
   render() {
-    const {
-      className,
-      defaultStyles,
-      children,
-      maxHeight,
-      maxWidth,
-      hoverControl = false
-    } = this.props;
-    if (isChrome) {
-      return (
-        <ChromeScroll
-          defaultStyles={defaultStyles}
-          className={className}
-          maxHeight={maxHeight}
-          maxWidth={maxWidth}
-          hoverControl={hoverControl}
-        >
-          <div>{children}</div>
-        </ChromeScroll>
-      );
-    }
+    const { className, defaultStyles, style, children, cover } = this.props;
+    const showX = (this.state.sliderWidth || 0 - 0) !== 0;
+    const showY = (this.state.sliderHeight || 0 - 0) !== 0;
     return (
       <Wrap
         ref={el => {
           this.wrapNode = el;
         }}
         defaultStyles={defaultStyles}
-        className={className}
-        maxHeight={maxHeight}
-        hoverControl={hoverControl}
+        className={"wjc-scroll-wrap " + className}
+        style={style}
+        showX={showX}
+        showY={showY}
+        cover={cover}
       >
-        <div>
-          <Content ref={el => (this.contentNode = el)}>{children}</Content>
-          <ScrollBar
-            className={"wjc-scroll-bar"}
-            visible={(this.state.sliderHeight || 0 - 0) !== 0}
-          >
-            <Slider
-              ref={el => (this.slideNode = el)}
-              height={this.state.sliderHeight || 0}
-              onMouseDown={this.startSlide}
-            />
-          </ScrollBar>
-        </div>
+        <Content
+          className={"wjc-scroll-content"}
+          ref={el => (this.contentNode = el)}
+        >
+          {children}
+        </Content>
+        <ScrollBarX
+          className={"wjc-scroll-bar wjc-scroll-bar-axis__x"}
+          visible={showX}
+          onClick={this.axisX.clickTo}
+        >
+          <SliderX
+            className={"wjc-scroll-slider wjc-scroll-slider-axis__x"}
+            ref={el => (this.slideNodeX = el)}
+            width={this.state.sliderWidth || 0}
+            onMouseDown={this.axisX.startSlide}
+          />
+        </ScrollBarX>
+
+        <ScrollBarY
+          className={"wjc-scroll-bar wjc-scroll-bar-axis__y"}
+          visible={showY}
+          onClick={this.axisY.clickTo}
+        >
+          <SliderY
+            className={"wjc-scroll-slider wjc-scroll-slider-axis__y"}
+            ref={el => (this.slideNodeY = el)}
+            height={this.state.sliderHeight || 0}
+            onMouseDown={this.axisY.startSlide}
+          />
+        </ScrollBarY>
       </Wrap>
     );
   }
-  slideNode: HTMLElement;
-  wrapNode: HTMLElement;
-  wrapNodeHeight: number;
-  contentNode: HTMLElement;
-  contentNodeHeight: number;
-  addScrollLisenter = () => {
-    this.contentNode.parentNode.addEventListener("scroll", this.scrolling);
+
+  reset = () => {
+    const nextState = this.setRect();
+    this.axisX = new initAxis({
+      contentNode: this.contentNode,
+      sliderSize: nextState.sliderWidth,
+      wrapSize: this.wrapNodeRect.width,
+      contentSize: this.contentNodeRect.width,
+      slideNode: this.slideNodeX,
+      isY: false
+    });
+    this.axisY = new initAxis({
+      contentNode: this.contentNode,
+      sliderSize: nextState.sliderHeight,
+      wrapSize: this.wrapNodeRect.height,
+      contentSize: this.contentNodeRect.height,
+      slideNode: this.slideNodeY,
+      isY: true
+    });
+    this.addScrollLisenter();
   };
-  setHeight = () => {
-    this.contentNodeHeight = this.contentNode.scrollHeight;
-    this.wrapNodeHeight = this.wrapNode.clientHeight;
-    const height =
-      (this.wrapNodeHeight * this.wrapNodeHeight) / this.contentNodeHeight;
-    this.setState({
-      sliderHeight: height >= this.wrapNodeHeight ? 0 : height || 0
+
+  slideNodeX: HTMLElement;
+  slideNodeY: HTMLElement;
+  wrapNode: HTMLElement;
+  contentNode: HTMLElement;
+  addScrollLisenter = () => {
+    this.contentNode.addEventListener("scroll", (...args: []) => {
+      this.axisX.scrolling(...args);
+      this.axisY.scrolling(...args);
     });
   };
 
-  startPosition: {
-    x?: number;
-    y?: number;
-  } = {};
-  initPosition: boolean | number;
-  startSlide = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    this.slideNode = e.target as HTMLElement;
-    this.startPosition = {
-      x: e.pageX,
-      y: e.pageY
+  wrapNodeRect: { width: number; height: number } = { width: 0, height: 0 };
+  contentNodeRect: { width: number; height: number } = { width: 0, height: 0 };
+  setRect = () => {
+    const { wrapNode, contentNode } = this;
+    // get rect
+    let {
+      width: wrapWidth,
+      height: wrapHeight
+    } = wrapNode.getBoundingClientRect();
+    const contentScrollWidth = contentNode.scrollWidth;
+    const contentScrollHeight = contentNode.scrollHeight;
+    // expect padding
+    const showX = contentScrollWidth > wrapWidth;
+    const showY = contentScrollHeight > wrapHeight;
+    if (showX && showY) {
+      wrapHeight -= 18;
+      wrapWidth -= 18;
+    } else {
+      wrapHeight -= 6;
+      wrapWidth -= 6;
+    }
+
+    // compute slider size
+    const width = (wrapWidth * wrapWidth) / contentScrollWidth;
+    const height = (wrapHeight * wrapHeight) / contentScrollHeight;
+    const nextState = {
+      sliderWidth: showX ? width : 0,
+      sliderHeight: showY ? height : 0
     };
-    window.addEventListener("mousemove", this.sliding);
-    window.addEventListener("mouseup", this.endSlide);
-    this.initPosition =
-      this.slideNode.style.transform &&
-      this.slideNode.style.transform.match(/[\.\d]+/g) &&
-      +this.slideNode.style.transform.match(/[\.\d]+/g)[0];
+
+    // set rect to cache
+    this.wrapNodeRect = { width: wrapWidth, height: wrapHeight };
+    this.contentNodeRect = {
+      width: contentScrollWidth,
+      height: contentScrollHeight
+    };
+
+    this.setState(nextState);
+    return nextState;
   };
-  endSlide = () => {
-    this.startPosition = {};
-    window.removeEventListener("mousemove", this.sliding);
-    window.removeEventListener("mouseup", this.endSlide);
+
+  // method
+  scrollTo = (x: number, y: number) => {
+    this.contentNode.scrollTo(x, y);
   };
-  sliding = (e: MouseEvent) => {
-    let delta =
-      e.pageY - Number(this.startPosition.y) + Number(this.initPosition);
-    const maxHeight = this.wrapNodeHeight - this.state.sliderHeight;
-    delta = Math.min(maxHeight, delta);
-    delta = Math.max(0, delta);
-    this.slideNode.style.transform = `translateY(${delta}px)`;
-    (this.contentNode.parentNode as HTMLElement).scrollTo(
-      0,
-      (delta / this.wrapNodeHeight) * this.contentNodeHeight
-    );
-  };
-  scrolling = () => {
-    const delta =
-      ((this.contentNode.parentNode as HTMLElement).scrollTop /
-        this.contentNodeHeight) *
-      this.wrapNodeHeight;
-    this.slideNode.style.transform = `translateY(${delta}px)`;
+  rerender = () => {
+    this.reset();
   };
 }
 

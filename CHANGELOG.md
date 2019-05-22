@@ -1,3 +1,74 @@
+## 3.4.2 (2019/5/22)
+
+### feature
+
+- ScrollBox 添加 `resize` 事件监听
+
+## 3.4.1 (2019/5/21)
+
+### bugfix
+
+- ScrollBox 优化组件结构
+- ScrollBox 修复滚动条出现判断条件
+
+## 3.4.0 (2019/5/21)
+
+### Breaking changes
+
+- ScrollBox 组件重构 api 更新
+- Demo 展示逻辑修改
+
+### bugfix
+
+- Btn 组件 props 覆盖问题
+- Step 组件低版本浏览器适配
+- SwitchControlHoc 修复 ref 传递问题
+
+### todo
+
+- Slider
+
+## 3.3.2 (2019/5/17)
+
+### feature
+
+- 优化 SlideDown 动画效果
+
+## 3.3.1 (2019/5/17)
+
+### feature
+
+- 优化 SlideDown 动画效果
+- 增加 SlideDown 下拉按钮修改的 api
+
+## 3.3.0 (2019/5/13)
+
+### feature
+
+- 新增 Tooltip 组件
+
+## 3.2.1 (2019/5/6)
+
+### bugfix
+
+- 修复 svg 依赖引入 bug
+- 修改样式
+
+## 3.2.0 (2019/4/30)
+
+### feature
+
+- 新增 Steps 组件
+- 新增 Badge 组件
+
+## 3.1.14 (2019/4/28)
+
+### feature
+
+- select 组件 新增 `focus` `blur` 方法
+- select 组件 新增 `onFocus` 钩子
+- pagination 组件 每页数量选择新增输入框
+
 ## 3.1.7 (2019/3/20)
 
 ### bugfix
@@ -100,7 +171,6 @@
 ### doc
 
 - 更新 pagination 文档
--
 
 ## 2.5.2 (2018/10/10)
 

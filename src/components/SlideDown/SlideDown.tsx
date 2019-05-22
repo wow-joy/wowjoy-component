@@ -8,13 +8,15 @@ const Wrap = styled.div<{ defaultStyles: string }>`
 const Content = styled.div`
   cursor: pointer;
   display: flex;
+  align-items: center;
+  position: relative;
 `;
 const SubContent = styled.div<any>`
   display: none;
   transition: 0.4s;
 `;
 
-const Control = styled.i<{ isActive: boolean }>`
+const Control = styled.i<{ isActive?: boolean }>`
   display: flex;
   align-items: center;
   position: relative;
@@ -45,6 +47,7 @@ export interface Props {
   onTransitionEnd: (isSlideDown: boolean) => boolean | void;
   onBlur: (e: MouseEvent) => boolean | void;
   isActive: boolean;
+  ControlComponent: React.ReactType;
 }
 interface State {
   inited: boolean;
@@ -102,9 +105,10 @@ class SlideDown extends React.PureComponent<Props, State> {
       className,
       content,
       children,
-      isActive
+      isActive,
+      ControlComponent
     } = this.props;
-
+    const ControlIcon = ControlComponent || Control;
     return (
       <Wrap
         className={`${className} ${isActive ? "open" : ""}`}
@@ -114,12 +118,7 @@ class SlideDown extends React.PureComponent<Props, State> {
         <Content onClick={this.handleClick} className={"wjc-slideDown-content"}>
           {content}
           {children && (
-            <Control
-              isActive={isActive}
-              ref={el => {
-                this.popControl = el;
-              }}
-            />
+            <ControlIcon ref={(el: HTMLElement) => (this.popControl = el)} />
           )}
         </Content>
         {children && (
@@ -170,9 +169,10 @@ class SlideDown extends React.PureComponent<Props, State> {
       return;
     }
     targetNode.style.overflow = "hidden";
-    targetNode.style.height = targetNode.clientHeight + "px";
-    setTimeout(() => {
-      targetNode.style.height = "0px";
+    const cHeight = targetNode.clientHeight + "px";
+    requestAnimationFrame(() => {
+      targetNode.style.height = cHeight;
+      requestAnimationFrame(() => (targetNode.style.height = "0"));
     });
   };
   handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -191,7 +191,6 @@ class SlideDown extends React.PureComponent<Props, State> {
     }
   };
 }
-
 export default ControllSwitchHoc({
   value: "isActive",
   defaultValue: "defaultIsActive"

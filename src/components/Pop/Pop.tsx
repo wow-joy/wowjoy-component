@@ -74,6 +74,7 @@ export interface Props {
   layer?: boolean;
   onClose?: (e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   autoClose?: boolean | number;
+  onVisibleChange?: (visible: boolean) => void;
 }
 class Pop extends React.PureComponent<Props, {}> {
   mousePosition: { x: number; y: number } = { x: 0, y: 0 };
@@ -95,6 +96,8 @@ class Pop extends React.PureComponent<Props, {}> {
             ? this.mousePosition.y - window.innerHeight / 2 + popBoxHeight / 2
             : 0
         }px`;
+      } else {
+        this.props.onVisibleChange && this.props.onVisibleChange(false);
       }
     }
   }
@@ -172,7 +175,6 @@ class Pop extends React.PureComponent<Props, {}> {
     if (visible && autoClose) {
       setTimeout(this.closeHandle, autoClose);
     }
-
     const Render = (
       <Layer
         onAnimationStart={this.animationStartHandle}
@@ -184,7 +186,11 @@ class Pop extends React.PureComponent<Props, {}> {
         layer={layer}
         onClick={this.layerClick}
       >
-        <PopBox ref={el => (this.popBox = el)} translate={translate}>
+        <PopBox
+          className="wjc-pop-box"
+          ref={el => (this.popBox = el)}
+          translate={translate}
+        >
           {children}
         </PopBox>
       </Layer>

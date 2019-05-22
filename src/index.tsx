@@ -17,15 +17,22 @@ import Dialog, {
   Confirm as Dialog_confirm,
   Alert as Dialog_alert
 } from "./components/Dialog/index";
-import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs";
+import Tabs, {
+  Type1 as Tabs_1,
+  Type2 as Tabs_2
+} from "./components/Tabs/index";
 import Pop from "./components/Pop/index";
-// import Table from "./components/Table";
+import Table from "./components/Table/index";
 import Select from "./components/Select/index";
 import SlideDown from "./components/SlideDown/index";
-// import PopOut from "./components/PopOut";
+import PopOut from "./components/PopOut/index";
 import ScrollBox from "./components/ScrollBox/index";
 import Pagination from "./components/Pagination/index";
-// import { CheckBox } from "./components/Form";
+import { CheckBox } from "./components/Form/index";
+import Badge from "./components/Badge/index";
+import Steps from "./components/Steps/index";
+import Tooltip from "./components/Tooltip/index";
+import Slider from "./components/Slider/index";
 
 const Components: any = {
   Btn,
@@ -57,9 +64,14 @@ const Components: any = {
   Select,
   SlideDown,
   ScrollBox,
-  // PopOut,
-  Pagination
-  // CheckBox
+  PopOut,
+  Pagination,
+  CheckBox,
+
+  Badge,
+  Steps,
+  Tooltip,
+  Slider
 };
 export {
   Btn,
@@ -86,8 +98,12 @@ export {
   Select,
   SlideDown,
   ScrollBox,
-  // PopOut,
-  Pagination
-  // CheckBox
+  PopOut,
+  Pagination,
+  CheckBox,
+  Badge,
+  Steps,
+  Tooltip,
+  Slider
 };
 export default Components;

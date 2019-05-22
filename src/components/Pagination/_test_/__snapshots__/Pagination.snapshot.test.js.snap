@@ -39,7 +39,7 @@ exports[`Pagination renders correctly 1`] = `
     5
   </span>
   <span
-    className="wjc-fast-jump__next sc-bZQynM cQoCtO"
+    className="wjc-fast-jump__next sc-bZQynM blCWLr"
     onClick={[Function]}
     title="向后5页"
   />

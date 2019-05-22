@@ -1,6 +1,6 @@
-# Template
+# Slider
 
-Template 组件
+Slider 组件
 
 ## 使用
 
@@ -8,9 +8,9 @@ Template 组件
 
 ```jsx
 import React from 'react'
-import {Template} from 'wowjoy-component'
+import {Slider} from 'wowjoy-component'
 
-const Foo = () => <Template></Template>
+const Foo = () => <Slider></Slider>
 ```
 
 ## APIs
