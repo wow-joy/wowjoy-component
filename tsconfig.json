@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "es/",
     "sourceMap": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
@@ -20,7 +20,7 @@
       "@media/*": ["./src/media/*"]
     }
   },
-  "include": ["./src/**/*", "./demo/src/**/*"],
+  "include": ["./src/**/*"],
   "exclude": [
     "node_modules",
     "build",
@@ -30,6 +30,8 @@
     "tests/**",
     "src/**/*.test.js",
     "src/**/*.test.ts",
+    "src/**/*.test.jsx",
+    "src/**/*.test.tsx",
     "scripts/**"
   ]
 }

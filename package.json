@@ -29,7 +29,9 @@
   "scripts": {
     "create": "node scripts/createComponent.js",
     "ctest": "node scripts/createTest.js",
-    "build": "nwb build-react-component --copy-files",
+    "build": "nwb build-react-component --no-demo --copy-files && yarn run build:ts && yarn run copy:media",
+    "build:ts": "tsc",
+    "copy:media": "copyfiles src/media/** es/media",
     "clean": "nwb clean-module && nwb clean-demo",
     "start": "nwb serve-react-demo",
     "test": "jest",
@@ -83,6 +85,7 @@
     "@types/react-router-dom": "^4.3.2",
     "@types/react-test-renderer": "^16.8.1",
     "@types/styled-components": "^4.1.14",
+    "copyfiles": "^2.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
