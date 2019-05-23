@@ -1,3 +1,13 @@
+## 3.5.0 (2019/5/23)
+
+### feature
+
+- Typescript 迁移
+
+### bugfix
+
+- 修复 Btn Pagination 垂直居中
+
 ## 3.4.2 (2019/5/22)
 
 ### feature
