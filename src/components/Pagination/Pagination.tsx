@@ -24,10 +24,11 @@ const Wrap = styled.div<WrapProps>`
   ${props => props.defaultStyles};
 `;
 const PageItem = styled.span<PropsSize>`
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0 8px;
   min-width: ${props => props.size};
-  text-align: center;
   cursor: pointer;
   &.active {
     color: ${props => props.theme.mainColor || defaultColor};

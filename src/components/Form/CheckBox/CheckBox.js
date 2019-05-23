@@ -37,4 +37,4 @@ class CheckBox extends React.PureComponent {
   }
 }
 
-export default ControllSwitchHoc()(CheckBox);
+export default ControllSwitchHoc({})(CheckBox);

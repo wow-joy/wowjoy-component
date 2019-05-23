@@ -10,11 +10,13 @@ const { PureComponent } = React;
 export interface State {
   value: any;
 }
-const ControllSwitchHoc = (translate: {
-  value?: string;
-  onChange?: string;
-  defaultValue?: string;
-}) => <Cp extends {}>(OldComponent: React.ReactType<Cp>) => {
+const ControllSwitchHoc = (
+  translate: {
+    value?: string;
+    onChange?: string;
+    defaultValue?: string;
+  } = {}
+) => <Cp extends {}>(OldComponent: React.ReactType<Cp>) => {
   const textValue = translate.value || "value";
   const textOnChange = translate.onChange || "onChange";
   const textDefaultValue = translate.defaultValue || "defaultValue";

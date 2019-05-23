@@ -8,8 +8,8 @@ const Button = styled.span`
   border: 1px solid transparent;
   font-size: 14px;
   cursor: pointer;
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
   line-height: 36px;
   user-select: none;
   ${(props: { defaultStyles?: string }) => props.defaultStyles};
