@@ -5,28 +5,32 @@ import { Type3 as Btn } from "../Btn";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 
 const defaultColor = "#06aea6";
-const Wrap = styled.div`
+interface PropsSize {
+  size?: string;
+}
+interface WrapProps extends PropsSize {
+  defaultStyles?: string;
+}
+const Wrap = styled.div<WrapProps>`
   display: flex;
   align-items: center;
-  line-height: ${(props: { size?: string; defaultStyles?: string }) =>
-    props.size};
+  line-height: ${props => props.size};
   font-size: 14px;
   & > * {
     flex-grow: 0;
     flex-shrink: 0;
-    height: ${(props: { size?: string; defaultStyles?: string }) => props.size};
+    height: ${props => props.size};
   }
-  ${(props: { size?: string; defaultStyles?: string }) => props.defaultStyles};
+  ${props => props.defaultStyles};
 `;
-const PageItem = styled.span`
+const PageItem = styled.span<PropsSize>`
   display: inline-block;
   padding: 0 8px;
-  min-width: ${(props: { size?: string }) => props.size};
+  min-width: ${props => props.size};
   text-align: center;
   cursor: pointer;
   &.active {
-    color: ${(props: { theme?: { mainColor?: string } }) =>
-      props.theme.mainColor || defaultColor};
+    color: ${props => props.theme.mainColor || defaultColor};
   }
   &.wjc-fast-jump__prev,
   &.wjc-fast-jump__next {
@@ -48,8 +52,7 @@ const PageItem = styled.span`
     &::before {
       content: "<<";
       font-size: 12px;
-      color: ${(props: { theme?: { mainColor?: string } }) =>
-        props.theme.mainColor || defaultColor};
+      color: ${props => props.theme.mainColor || defaultColor};
       letter-spacing: -2px;
       transform: scale(0.8, 1.2);
     }
@@ -59,15 +62,14 @@ const PageItem = styled.span`
     &::before {
       content: ">>";
       font-size: 12px;
-      color: ${(props: { theme?: { mainColor?: string } }) =>
-        props.theme.mainColor || defaultColor};
+      color: ${props => props.theme.mainColor || defaultColor};
       letter-spacing: -2px;
       transform: scale(0.8, 1.2);
     }
   }
 `;
-const Left = styled.div`
-  width: ${(props: { size?: string }) => props.size};
+const Left = styled.div<PropsSize>`
+  width: ${props => props.size};
   border: 1px solid #dbdbdb;
   cursor: pointer;
   position: relative;
@@ -90,8 +92,8 @@ const Left = styled.div`
     border-bottom: 3px solid transparent;
   }
 `;
-const Right = styled.div`
-  width: ${(props: { size?: string }) => props.size};
+const Right = styled.div<PropsSize>`
+  width: ${props => props.size};
   border: 1px solid #dbdbdb;
   cursor: pointer;
   position: relative;
@@ -128,18 +130,17 @@ const SelectPageSize = styled(Select)`
     background: #fffbe0;
   }
   li.active {
-    color: ${(props: { theme?: { mainColor?: string } }) =>
-      props.theme.mainColor || defaultColor};
+    color: ${props => props.theme.mainColor || defaultColor};
   }
 `;
-const JumpTo = styled.div`
+const JumpTo = styled.div<PropsSize>`
   display: flex;
   align-items: center;
   margin: 0 10px;
   & > input[type="number"] {
-    height: ${(props: { size?: string }) => props.size};
+    height: ${props => props.size};
     background: transparent;
-    width: ${(props: { size?: string }) => props.size};
+    width: ${props => props.size};
     text-align: center;
     border: 1px solid #dbdbdb;
     margin: 0 7px;
@@ -153,21 +154,21 @@ const JumpTo = styled.div`
   }
 `;
 const Submit = styled(Btn)`
-  line-height: ${(props: { size?: string }) => props.size};
+  line-height: ${props => props.size};
 `;
 export interface Props {
-  className: string;
-  defaultStyles: string;
-  size: string;
-  viewAble: Array<string>;
-  staticStr: Array<string>;
+  className?: string;
+  defaultStyles?: string;
+  size?: string;
+  viewAble?: string[];
+  staticStr?: string[];
   total: number;
   pageSize: number;
-  onChange: (currentPage: number, pageSize: number, total: number) => void;
-  onPageSizeChange: (pageSize: number) => void;
-  siblingViewSize: number;
-  currentPage: number;
-  pageSizeList: Array<number>;
+  onChange?: (currentPage: number, pageSize: number, total: number) => void;
+  onPageSizeChange?: (pageSize: number) => void;
+  siblingViewSize?: number;
+  currentPage?: number;
+  pageSizeList: number[];
 }
 interface State {
   jumpToValue: string;

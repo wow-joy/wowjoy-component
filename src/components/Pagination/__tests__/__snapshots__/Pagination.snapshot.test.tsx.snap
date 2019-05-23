@@ -3,38 +3,45 @@
 exports[`Pagination renders correctly 1`] = `
 <div
   className="wjc-pagination undefined sc-EHOje gNDNVt"
+  size="32px"
 >
   <div
     className="wjc-page-prev disable sc-gzVnrw dydKHp"
     onClick={null}
+    size="32px"
   />
   <span
     className="wjc-page-item active sc-bZQynM cQoCtO"
     onClick={[Function]}
+    size="32px"
   >
     1
   </span>
   <span
     className="wjc-page-item  sc-bZQynM cQoCtO"
     onClick={[Function]}
+    size="32px"
   >
     2
   </span>
   <span
     className="wjc-page-item  sc-bZQynM cQoCtO"
     onClick={[Function]}
+    size="32px"
   >
     3
   </span>
   <span
     className="wjc-page-item  sc-bZQynM cQoCtO"
     onClick={[Function]}
+    size="32px"
   >
     4
   </span>
   <span
     className="wjc-page-item  sc-bZQynM cQoCtO"
     onClick={[Function]}
+    size="32px"
   >
     5
   </span>
@@ -46,12 +53,14 @@ exports[`Pagination renders correctly 1`] = `
   <span
     className="wjc-page-item  sc-bZQynM cQoCtO"
     onClick={[Function]}
+    size="32px"
   >
     10
   </span>
   <div
     className="wjc-page-next  sc-htoDjs fDYsde"
     onClick={[Function]}
+    size="32px"
   />
   <div
     className="wjc-page-count sc-dnqmqq cHIqGk"
@@ -59,7 +68,7 @@ exports[`Pagination renders correctly 1`] = `
     共100条
   </div>
   <div
-    className="wjc-select wjc-page-size__select sc-iwsKbI bgcDVW  sc-bdVaJa kwjcmc"
+    className="wjc-select wjc-page-size__select sc-iwsKbI bgcDVW  sc-bdVaJa fbraGt"
     onClick={[Function]}
   >
     <div
@@ -94,6 +103,7 @@ exports[`Pagination renders correctly 1`] = `
   </div>
   <div
     className="wjc-jump-to sc-gZMcBi hXGulT"
+    size="32px"
   >
     跳至
     <input
@@ -105,7 +115,7 @@ exports[`Pagination renders correctly 1`] = `
     页
   </div>
   <span
-    className="wjc-btn  wjc-jump-to__submit sc-gqjmRU gAsrvk sc-ifAKCX dmsRxv"
+    className="wjc-btn  wjc-jump-to__submit sc-gqjmRU kIqlQS sc-ifAKCX dmsRxv"
     onClick={[Function]}
   >
     确定

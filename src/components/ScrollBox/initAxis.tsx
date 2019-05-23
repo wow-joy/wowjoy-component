@@ -37,7 +37,7 @@ class initAxis {
     x: 0,
     y: 0
   };
-  startSlide(event: React.MouseEvent<HTMLSpanElement, MouseEvent>) {
+  startSlide = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     const { pageY, pageX } = event;
     const { sliding, endSlide, setInitPosition } = this;
     this.startPosition = {
@@ -47,22 +47,22 @@ class initAxis {
     window.addEventListener("mousemove", sliding);
     window.addEventListener("mouseup", endSlide);
     setInitPosition();
-  }
-  setInitPosition() {
+  };
+  setInitPosition = () => {
     const { transform } = window.getComputedStyle(this.slideNode);
     const matrix = transform.match(/[\.\d]+/g) || [];
     this.initPosition = {
       x: +matrix[4] || 0,
       y: +matrix[5] || 0
     };
-  }
+  };
 
-  endSlide() {
+  endSlide = () => {
     this.startPosition = { x: 0, y: 0 };
     window.removeEventListener("mousemove", this.sliding);
     window.removeEventListener("mouseup", this.endSlide);
-  }
-  sliding(event: MouseEvent) {
+  };
+  sliding = (event: MouseEvent) => {
     const { initPosition, startPosition, scrollTo } = this;
     const { x: initX, y: initY } = initPosition;
     if (this.isY) {
@@ -72,8 +72,8 @@ class initAxis {
       let delta = event.pageX - startPosition.x + initX;
       scrollTo(delta);
     }
-  }
-  scrollTo(delta: number) {
+  };
+  scrollTo = (delta: number) => {
     const { wrapSize, sliderSize, slide, contentNode, contentSize } = this;
     if (this.isY) {
       const max = wrapSize - sliderSize;
@@ -92,8 +92,8 @@ class initAxis {
         contentNode.scrollTop
       );
     }
-  }
-  scrolling() {
+  };
+  scrolling = () => {
     const { isY, contentNode, contentSize, wrapSize, slide } = this;
     if (isY) {
       const delta = (contentNode.scrollTop / contentSize) * wrapSize;
@@ -102,8 +102,8 @@ class initAxis {
       const delta = (contentNode.scrollLeft / contentSize) * wrapSize;
       slide(`${delta}px`);
     }
-  }
-  slide(delta: string) {
+  };
+  slide = (delta: string) => {
     const { isY, slideNode } = this;
 
     if (isY) {
@@ -111,9 +111,9 @@ class initAxis {
     } else {
       slideNode.style.transform = `translateX(${delta})`;
     }
-  }
+  };
 
-  clickTo(event: React.MouseEvent<HTMLElement, MouseEvent>) {
+  clickTo = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const { isY, scrollTo, setInitPosition, initPosition, sliderSize } = this;
 
     if ((event.target as HTMLElement).className.indexOf("wjc-scroll-bar") < 0) {
@@ -133,7 +133,7 @@ class initAxis {
     } else {
       scrollTo(position);
     }
-  }
+  };
 }
 
 export default initAxis;

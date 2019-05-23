@@ -24,13 +24,13 @@ const Center = styled.article``;
 const AsideRight = styled.aside``;
 
 export interface Props {
-  className: string;
-  defaultStyles: string;
-  header: React.ReactNode;
-  asideLeft: React.ReactNode;
-  children: React.ReactNode;
-  asideRight: React.ReactNode;
-  footer: React.ReactNode;
+  className?: string;
+  defaultStyles?: string;
+  header?: React.ReactNode;
+  asideLeft?: React.ReactNode;
+  children?: React.ReactNode;
+  asideRight?: React.ReactNode;
+  footer?: React.ReactNode;
 }
 class Layout extends React.PureComponent<Props, {}> {
   render() {

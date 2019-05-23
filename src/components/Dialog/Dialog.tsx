@@ -90,7 +90,7 @@ export interface Props {
   onClick?: (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
     index: number
-  ) => boolean | undefined;
+  ) => boolean | void;
   onClose?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
   showCloseBtn?: boolean;
 }

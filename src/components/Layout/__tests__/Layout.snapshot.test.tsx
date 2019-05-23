@@ -1,14 +1,15 @@
-import React from "react";
-import Layout from "../index.js";
-import renderer from "react-test-renderer";
+import * as React from "react";
+import Layout from "../index";
+import * as renderer from "react-test-renderer";
 import * as TestUtils from "react-dom/test-utils";
 import { MemoryRouter, Route } from "react-router-dom";
 import { mount, configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-configure({ adapter: new Adapter() });
+import * as ReactSixteenAdapter from "enzyme-adapter-react-16";
+const adapter = ReactSixteenAdapter as any;
+configure({ adapter: new adapter.default() });
 
 const { renderIntoDocument } = TestUtils;
-const rendersCorrectly = propName => {
+const rendersCorrectly = (propName: string) => {
   it(`renders ${propName} correctly`, () => {
     const reactObj = <Layout {...{ [propName]: propName + " content" }} />;
     const tree = renderer.create(reactObj).toJSON();

@@ -8,7 +8,7 @@ const targetPath = path.resolve(
   __dirname,
   "../src/components/",
   componentName,
-  "_test_"
+  "__tests__"
 );
 const targetParentPath = path.resolve(
   __dirname,
@@ -60,10 +60,16 @@ const read = (src, callback) => {
 const write = (targetSrc, data) => {
   const writeData = src => {
     if (/\.react\./i.test(path.basename(src))) {
-      src = path.resolve(src, `../${componentName}.react.test${path.extname(src)}`);
+      src = path.resolve(
+        src,
+        `../${componentName}.react.test${path.extname(src)}`
+      );
     }
     if (/\.snapshot\./i.test(path.basename(src))) {
-      src = path.resolve(src, `../${componentName}.snapshot.test${path.extname(src)}`);
+      src = path.resolve(
+        src,
+        `../${componentName}.snapshot.test${path.extname(src)}`
+      );
     }
     console.log(`创建文件 ${src}`);
     fs.writeFile(src, data, { flag: "w+" }, errs => {

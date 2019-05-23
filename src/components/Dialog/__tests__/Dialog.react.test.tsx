@@ -1,51 +1,51 @@
-import React from "react";
-import Dialog from "../index.js";
-import renderer from "react-test-renderer";
-import ReactDOM from "react-dom";
+import * as React from "react";
+import Dialog from "../index";
+import * as ReactDOM from "react-dom";
 import * as TestUtils from "react-dom/test-utils";
 import { mount, configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-configure({ adapter: new Adapter() });
+import * as ReactSixteenAdapter from "enzyme-adapter-react-16";
+const adapter = ReactSixteenAdapter as any;
+configure({ adapter: new adapter.default() });
 
 const { renderIntoDocument } = TestUtils;
 describe("Dialog", () => {
   const reactObj = <Dialog>Dialog Content</Dialog>;
   it("render children correctly", () => {
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.querySelector(".wjc-dialog-content").textContent).toEqual(
       "Dialog Content"
     );
   });
   it("should pass class `.wjc-dialog` to the Dialog", () => {
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.className).toEqual(expect.stringMatching(/wjc-dialog/));
   });
   it("should allow pass className to the Dialog", () => {
     const reactObj = <Dialog className="class-test">Dialog Content</Dialog>;
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.className).toEqual(expect.stringMatching(/class-test/));
   });
   it("should render header", () => {
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.querySelector(".wjc-dialog-header")).not.toEqual(null);
   });
   it("should render content", () => {
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.querySelector(".wjc-dialog-content")).not.toEqual(null);
   });
   it("should render btns", () => {
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.querySelector(".wjc-dialog-btns")).not.toEqual(null);
   });
   it("should render btns's default textContent as `提交` & `取消` ", () => {
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(
       dom.querySelector(".wjc-dialog-btns").children[0].textContent
     ).toEqual("提交");
@@ -54,35 +54,35 @@ describe("Dialog", () => {
     ).toEqual("取消");
   });
   it("should render close btn", () => {
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.querySelector(".wjc-dialog-btn__close")).not.toEqual(null);
   });
   // header
   it("should render default header dom when `header` is empty", () => {
-    const reactObj = <Dialog header={''} />;
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const reactObj = <Dialog header={""} />;
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.querySelector(".wjc-dialog-header")).not.toEqual(null);
   });
   it("should render header as prop.header's return when `header` is a function", () => {
     const reactObj = <Dialog header={() => <div className="test-header" />} />;
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.querySelector(".test-header")).not.toEqual(null);
     expect(dom.querySelector(".wjc-dialog-header")).toEqual(null);
   });
   it("should not render header when `header` is a false", () => {
     const reactObj = <Dialog header={false} />;
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.querySelector(".wjc-dialog-header")).toEqual(null);
   });
   // headerText
   it("should pass headerText into header", () => {
     const reactObj = <Dialog headerText={"test content"} />;
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.querySelector(".wjc-dialog-header").textContent).toEqual(
       "test content"
     );
@@ -97,8 +97,8 @@ describe("Dialog", () => {
         ]}
       />
     );
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(dom.querySelectorAll(".test-btn").length).toEqual(2);
     expect(dom.querySelector(".test-btn1")).not.toEqual(null);
     expect(dom.querySelector(".test-btn2")).not.toEqual(null);
@@ -106,8 +106,8 @@ describe("Dialog", () => {
   // btnsText
   it("should cover default btns text", () => {
     const reactObj = <Dialog btnsText={["test-1", "test-2"]} />;
-    const dialog = renderIntoDocument(reactObj);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(reactObj);
+    const dom = dialog.getDOMNode();
     expect(
       dom.querySelector(".wjc-dialog-btns").children[0].textContent
     ).toEqual("test-1");
@@ -118,7 +118,10 @@ describe("Dialog", () => {
   // onClick
   it("should has click event on btns and pass `(event,index)` as params", done => {
     let count = 0;
-    const clickHandle = (event, index) => {
+    const clickHandle = (
+      event: React.MouseEvent<HTMLSpanElement, MouseEvent>,
+      index: number
+    ) => {
       expect(event.constructor.name).toEqual("SyntheticEvent");
       expect(index).toEqual(count);
       count++;
@@ -143,7 +146,9 @@ describe("Dialog", () => {
   });
   // onClose
   it("should trigger close event on click closeBtn and pass `event` as params", done => {
-    const closeHandle = event => {
+    const closeHandle = (
+      event: React.MouseEvent<HTMLSpanElement, MouseEvent>
+    ) => {
       expect(event.constructor.name).toEqual("SyntheticEvent");
       reactDom.unmount();
       done();
@@ -157,7 +162,9 @@ describe("Dialog", () => {
       .simulate("click");
   });
   it("should trigger close event after click event ", done => {
-    const closeHandle = event => {
+    const closeHandle = (
+      event: React.MouseEvent<HTMLSpanElement, MouseEvent>
+    ) => {
       expect(event.constructor.name).toEqual("SyntheticEvent");
       reactDom.unmount();
       done();
@@ -199,8 +206,8 @@ describe("Dialog", () => {
   });
   // showCloseBtn
   it("should not render close btn when showCloseBtn is false", () => {
-    const dialog = renderIntoDocument(<Dialog showCloseBtn={false} />);
-    const dom = ReactDOM.findDOMNode(dialog);
+    const dialog = mount(<Dialog showCloseBtn={false} />);
+    const dom = dialog.getDOMNode();
     expect(dom.querySelector(".wjc-dialog-btn__close")).toEqual(null);
   });
 });

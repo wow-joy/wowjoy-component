@@ -11,7 +11,7 @@ export interface Props {
   defaultStyles?: string;
 }
 const Hoc = (initSetting: { defaultStyles?: string; className?: string }) => (
-  OldComponent: typeof React.Component
+  OldComponent: React.ReactType
 ) => {
   return class extends React.PureComponent<Props, {}> {
     render() {

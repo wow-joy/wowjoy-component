@@ -25,10 +25,11 @@
     "node_modules",
     "build",
     "build/lib",
-    "es",
-    "lib",
+    "es/**",
+    "lib/**",
     "tests/**",
     "src/**/*.test.js",
-    "src/**/*.test.ts"
+    "src/**/*.test.ts",
+    "scripts/**"
   ]
 }

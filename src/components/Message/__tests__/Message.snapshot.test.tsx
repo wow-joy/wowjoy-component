@@ -1,13 +1,11 @@
-import React from "react";
-import Message from "../index.js";
-import renderer from "react-test-renderer";
+import * as React from "react";
+import Message from "../index";
+import * as renderer from "react-test-renderer";
 import * as TestUtils from "react-dom/test-utils";
-import { MemoryRouter, Route } from "react-router-dom";
 import { mount, configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-configure({ adapter: new Adapter() });
-
-const { renderIntoDocument } = TestUtils;
+import * as ReactSixteenAdapter from "enzyme-adapter-react-16";
+const adapter = ReactSixteenAdapter as any;
+configure({ adapter: new adapter.default() });
 
 describe("Message", () => {
   const reactObj = <Message>Message Content</Message>;

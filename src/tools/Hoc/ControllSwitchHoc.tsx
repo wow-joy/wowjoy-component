@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import * as React from "react";
 /**
  * @description 非受控组件与受控组件的工厂函数
  * @param translate 转译对象 @example {value: 'state', onChange: 'onChangeState' , defaultValue: 'defaultState' }
@@ -6,25 +6,43 @@ import React, { PureComponent } from "react";
  * @returns 新组件
  *
  */
-const ControllSwitchHoc = (translate = {}) => OldComponent => {
-  class NewComponent extends PureComponent {
-    state = {
-      value: undefined
-    };
+const { PureComponent } = React;
+export interface State {
+  value: any;
+}
+const ControllSwitchHoc = (translate: {
+  value?: string;
+  onChange?: string;
+  defaultValue?: string;
+}) => <Cp extends {}>(OldComponent: React.ReactType<Cp>) => {
+  const textValue = translate.value || "value";
+  const textOnChange = translate.onChange || "onChange";
+  const textDefaultValue = translate.defaultValue || "defaultValue";
+  class NewComponent extends PureComponent<Cp, State> {
+    componentType: "controlled" | "uncontrolled" | false;
+    constructor(props: Cp) {
+      super(props);
+      this.state = {
+        value: void 0
+      };
+      this.componentType = this.checkProps();
+    }
+
+    componentWillReceiveProps() {
+      this.componentType = this.checkProps();
+    }
+
     render() {
-      const textValue = translate.value || "value";
-      const textOnChange = translate.onChange || "onChange";
-      const textDefaultValue = translate.defaultValue || "defaultValue";
+      const { props, componentType } = this;
+      const value = (props as any)[textValue];
+      const onChange = (props as any)[textOnChange];
+      const defaultValue = (props as any)[textDefaultValue];
+      const { forwardedRef } = props as any;
 
-      const value = this.props[textValue];
-      const onChange = this.props[textOnChange];
-      const defaultValue = this.props[textDefaultValue];
-      const componentType = this.checkProps();
-      const {forwardedRef} = this.props;
-
+      const Old = OldComponent as any;
       if (componentType === "controlled") {
         return (
-          <OldComponent
+          <Old
             ref={forwardedRef}
             {...this.props}
             {...{ [textValue]: value, [textOnChange]: onChange }}
@@ -33,24 +51,22 @@ const ControllSwitchHoc = (translate = {}) => OldComponent => {
       }
       if (componentType === "uncontrolled") {
         return (
-          <OldComponent
+          <Old
             ref={forwardedRef}
             {...this.props}
             {...{
               [textValue]:
-                this.state.value === void 0
-                  ? defaultValue
-                  : this.state.value,
+                this.state.value === void 0 ? defaultValue : this.state.value,
               [textOnChange]: this.onChange
             }}
           />
         );
       }
     }
-    onChange = (...args) => {
+    onChange = (...args: any[]) => {
       const textOnChange = translate.onChange || "onChange";
 
-      const onChange = this.props[textOnChange];
+      const onChange = (this.props as any)[textOnChange];
 
       const propsOnChangeResult = onChange && onChange(...args);
       if (propsOnChangeResult === false) {
@@ -66,17 +82,14 @@ const ControllSwitchHoc = (translate = {}) => OldComponent => {
       });
     };
     checkProps = () => {
-      const textValue = translate.value || "value";
-      const textDefaultValue = translate.defaultValue || "defaultValue";
-
-      const value = this.props[textValue];
-      const defaultValue = this.props[textDefaultValue];
+      const value = (this.props as any)[textValue];
+      const defaultValue = (this.props as any)[textDefaultValue];
       if (value !== undefined && defaultValue !== undefined) {
         console.error(
-          OldComponent.name +
+          (OldComponent as { name?: string }).name +
             " must be either controlled or uncontrolled (specify either the value prop, or the defaultValue prop, but not both). Decide between using a controlled or uncontrolled input element and remove one of these props. More info: https://fb.me/react-controlled-components" +
             `\n请不要在 <${
-              OldComponent.name
+              (OldComponent as { name?: string }).name
             }> 组件内同时声明\`defaultValue\`和\`value\``
         );
         return false;
@@ -88,10 +101,10 @@ const ControllSwitchHoc = (translate = {}) => OldComponent => {
         return "uncontrolled";
       }
     };
-  };
-
-  return React.forwardRef((props, ref) => {
-    return <NewComponent {...props} forwardedRef={ref} />;
-  });
+  }
+  const RefForwardingFact = (props: Cp, ref: any) => (
+    <NewComponent {...props} forwardedRef={ref} />
+  );
+  return React.forwardRef(RefForwardingFact);
 };
 export default ControllSwitchHoc;

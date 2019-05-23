@@ -18,7 +18,7 @@ export interface BtnBaseProps {
   onClick?: (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => boolean | void;
-  to?: string;
+  to?: string | false;
   history?: { push: (arg0: string) => void };
   defaultStyles?: string;
   className?: string;
@@ -47,14 +47,7 @@ class BtnBase extends React.PureComponent<BtnBaseProps, {}> {
   }
 }
 
-export interface BtnProps {
-  onClick?: (
-    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
-  ) => boolean | undefined;
-  to?: string;
-  history?: { push: (arg0: string) => void };
-  defaultStyles?: string;
-  className?: string;
+export interface BtnProps extends BtnBaseProps {
   children?: React.ReactNode;
 }
 class Btn extends React.PureComponent<BtnProps, {}> {

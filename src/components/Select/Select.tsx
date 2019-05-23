@@ -2,7 +2,12 @@ import * as React from "react";
 import styled, { keyframes, css } from "styled-components";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 const defaultColor = "#06aea6";
-const Wrap = styled.div`
+interface WrapProps {
+  defaultStyles?: string;
+  active?: boolean;
+  theme?: { mainColor: string };
+}
+const Wrap = styled.div<WrapProps>`
   user-select: none;
   border: 1px solid #eaeaea;
   border-radius: 4px;
@@ -12,11 +17,7 @@ const Wrap = styled.div`
   padding: 0 10px;
   position: relative;
   cursor: pointer;
-  ${(p: {
-    defaultStyles?: string;
-    active?: boolean;
-    theme?: { mainColor: string };
-  }) => {
+  ${p => {
     const color = p.theme.mainColor || defaultColor;
     if (p.active) {
       return `
@@ -38,7 +39,7 @@ const Wrap = styled.div`
     margin: auto;
     cursor: pointer;
   }
-  ${props => (props as { defaultStyles?: string }).defaultStyles};
+  ${props => props.defaultStyles};
 `;
 const Content = styled.div`
   display: flex;
@@ -91,7 +92,7 @@ export interface Props {
     value?: any;
     label?: React.ReactNode;
   }>;
-  inputRender?: typeof React.Component;
+  inputRender?: React.ReactType;
   value?: Array<any> | number | string | boolean;
   onChange?: (nextValue: any, index: number, optionItem: object) => void;
   type?: "radio" | "checkbox";

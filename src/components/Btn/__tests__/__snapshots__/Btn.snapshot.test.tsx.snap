@@ -13,7 +13,6 @@ exports[`Btn should not render as link when \`to\` equal false 1`] = `
 <span
   className="wjc-btn undefined sc-bdVaJa ezxaVl"
   onClick={[Function]}
-  to={false}
 >
   this is not a link
 </span>
@@ -24,7 +23,6 @@ initialize {
   "0": Object {
     "attribs": Object {
       "class": "wjc-btn undefined sc-bdVaJa ezxaVl",
-      "to": "https://wow-joy.github.io",
     },
     "children": Array [
       Object {
@@ -57,11 +55,9 @@ initialize {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
-      "to": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
-      "to": undefined,
     },
   },
   "_root": [Circular],

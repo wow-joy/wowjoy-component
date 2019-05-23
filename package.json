@@ -2,9 +2,18 @@
   "name": "wowjoy-component",
   "jest": {
     "verbose": true,
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.[jt]sx?$",
     "transform": {
-      "^.+\\.jsx?$": "babel7-jest"
+      "^.+\\.[tj]sx?$": "babel7-jest"
     },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
     "collectCoverage": false
   },
   "version": "3.4.2",
@@ -40,6 +49,7 @@
     "@babel/plugin-transform-react-constant-elements": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "@svgr/webpack": "^2.0.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^6.26.3",
@@ -65,9 +75,13 @@
     "react-component"
   ],
   "dependencies": {
+    "@types/enzyme": "^3.9.2",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.13",
     "@types/react": "^16.8.14",
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.2",
+    "@types/react-test-renderer": "^16.8.1",
     "@types/styled-components": "^4.1.14",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
