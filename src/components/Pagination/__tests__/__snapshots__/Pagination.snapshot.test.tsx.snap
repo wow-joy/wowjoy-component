@@ -11,47 +11,47 @@ exports[`Pagination renders correctly 1`] = `
     size="32px"
   />
   <span
-    className="wjc-page-item active sc-bZQynM cQoCtO"
+    className="wjc-page-item active sc-bZQynM dEBjGK"
     onClick={[Function]}
     size="32px"
   >
     1
   </span>
   <span
-    className="wjc-page-item  sc-bZQynM cQoCtO"
+    className="wjc-page-item  sc-bZQynM dEBjGK"
     onClick={[Function]}
     size="32px"
   >
     2
   </span>
   <span
-    className="wjc-page-item  sc-bZQynM cQoCtO"
+    className="wjc-page-item  sc-bZQynM dEBjGK"
     onClick={[Function]}
     size="32px"
   >
     3
   </span>
   <span
-    className="wjc-page-item  sc-bZQynM cQoCtO"
+    className="wjc-page-item  sc-bZQynM dEBjGK"
     onClick={[Function]}
     size="32px"
   >
     4
   </span>
   <span
-    className="wjc-page-item  sc-bZQynM cQoCtO"
+    className="wjc-page-item  sc-bZQynM dEBjGK"
     onClick={[Function]}
     size="32px"
   >
     5
   </span>
   <span
-    className="wjc-fast-jump__next sc-bZQynM blCWLr"
+    className="wjc-fast-jump__next sc-bZQynM ggxfYX"
     onClick={[Function]}
     title="向后5页"
   />
   <span
-    className="wjc-page-item  sc-bZQynM cQoCtO"
+    className="wjc-page-item  sc-bZQynM dEBjGK"
     onClick={[Function]}
     size="32px"
   >
@@ -115,7 +115,7 @@ exports[`Pagination renders correctly 1`] = `
     页
   </div>
   <span
-    className="wjc-btn  wjc-jump-to__submit sc-gqjmRU kIqlQS sc-ifAKCX dmsRxv"
+    className="wjc-btn  wjc-jump-to__submit sc-gqjmRU kIqlQS sc-ifAKCX iBIbve"
     onClick={[Function]}
   >
     确定
