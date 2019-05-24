@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "es2/",
-    "sourceMap": false,
+    "sourceMap": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
     "module": "commonjs",
@@ -20,7 +19,7 @@
       "@media/*": ["./src/media/*"]
     }
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "./demo/src/**/*"],
   "exclude": [
     "node_modules",
     "build",

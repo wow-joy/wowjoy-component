@@ -9,13 +9,6 @@ module.exports = {
     esModules: false,
     umd: false
   },
-  babel: {
-    config(config) {
-      console.log(config);
-      return config;
-    }
-  },
-
   webpack: {
     aliases: {
       "@src": path.resolve("src"),

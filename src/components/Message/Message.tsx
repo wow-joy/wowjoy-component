@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-const Wrap = styled.div`
+const Wrap = styled.div<{ defaultStyles?: string }>`
   width: 480px;
   height: 36px;
   line-height: 36px;

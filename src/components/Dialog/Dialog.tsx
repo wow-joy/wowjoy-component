@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Type1 as Btn_1, Type3 as Btn_3 } from "../Btn";
+import { Type1 as Btn_1, Type3 as Btn_3 } from "../Btn/index";
 import styled from "styled-components";
 
-const Wrap = styled.div`
+const Wrap = styled.div<{ defaultStyles?: string }>`
   width: 560px;
   position: relative;
   background: #fff;

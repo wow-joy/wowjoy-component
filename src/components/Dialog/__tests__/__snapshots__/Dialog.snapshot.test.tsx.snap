@@ -20,13 +20,13 @@ exports[`Dialog renders correctly 1`] = `
     className="wjc-dialog-btns sc-EHOje cuidGM"
   >
     <span
-      className="wjc-btn   sc-bdVaJa iZYPEn"
+      className="wjc-btn   sc-bdVaJa ZcgUq"
       onClick={[Function]}
     >
       提交
     </span>
     <span
-      className="wjc-btn   sc-bdVaJa bxAlkH"
+      className="wjc-btn   sc-bdVaJa bEhwZH"
       onClick={[Function]}
     >
       取消

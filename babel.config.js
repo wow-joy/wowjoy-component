@@ -2,6 +2,23 @@ module.exports = api => {
   console.log(api.env());
   return {
     env: {
+      test: {
+        presets: [
+          [
+            "@babel/preset-env",
+            {
+              modules: "commonjs",
+              debug: false,
+              targets: {
+                node: "current"
+              }
+            }
+          ],
+          "@babel/preset-typescript",
+          "@babel/preset-react"
+        ],
+        plugins: ["@babel/plugin-proposal-class-properties"]
+      },
       es: {
         presets: [
           "@babel/preset-typescript",

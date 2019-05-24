@@ -94,7 +94,7 @@ const Left = styled.div<PropsSize>`
   }
 `;
 const Right = styled.div<PropsSize>`
-  width: ${props => props.size};
+  width: ${(props: PropsSize) => props.size};
   border: 1px solid #dbdbdb;
   cursor: pointer;
   position: relative;
@@ -154,7 +154,7 @@ const JumpTo = styled.div<PropsSize>`
     }
   }
 `;
-const Submit = styled(Btn)`
+const Submit = styled(Btn)<PropsSize>`
   line-height: ${props => props.size};
 `;
 export interface Props {
@@ -175,9 +175,12 @@ interface State {
   jumpToValue: string;
 }
 class Pagination extends React.PureComponent<Props, State> {
-  state = {
-    jumpToValue: ""
-  };
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      jumpToValue: ""
+    };
+  }
 
   componentWillMount() {
     if (!this.props.pageSize) {

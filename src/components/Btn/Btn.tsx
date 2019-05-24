@@ -1,18 +1,20 @@
 import * as React from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
-
-const Button = styled.span`
+interface ButtonProps {
+  defaultStyles?: string;
+}
+const Button = styled.span<ButtonProps>`
   height: 36px;
   padding: 0 20px;
   border: 1px solid transparent;
   font-size: 14px;
   cursor: pointer;
-  display: flex;
+  display: inline-block;
   align-items: center;
   line-height: 36px;
   user-select: none;
-  ${(props: { defaultStyles?: string }) => props.defaultStyles};
+  ${props => props.defaultStyles};
 `;
 export interface BtnBaseProps {
   onClick?: (
@@ -24,7 +26,7 @@ export interface BtnBaseProps {
   className?: string;
 }
 class BtnBase extends React.PureComponent<BtnBaseProps, {}> {
-  clickHandle = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+  clickHandle = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const { onClick, to } = this.props;
     if (onClick && onClick(e) === false) {
       return;

@@ -3,8 +3,13 @@
   "jest": {
     "verbose": true,
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.[jt]sx?$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/es/",
+      "<rootDir>/lib/"
+    ],
     "transform": {
-      "^.+\\.[tj]sx?$": "babel7-jest"
+      "^.+\\.(j|t)sx?$": "babel7-jest"
     },
     "moduleFileExtensions": [
       "ts",

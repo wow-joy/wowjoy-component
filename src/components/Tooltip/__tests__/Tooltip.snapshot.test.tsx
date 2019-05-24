@@ -1,9 +1,8 @@
 import * as React from "react";
 import Tooltip from "../index";
 import { mount, configure } from "enzyme";
-import * as ReactSixteenAdapter from "enzyme-adapter-react-16";
-const adapter = ReactSixteenAdapter as any;
-configure({ adapter: new adapter.default() });
+import * as adapter from "enzyme-adapter-react-16";
+configure({ adapter: new (adapter as any).default() });
 
 describe("Tooltip", () => {
   const reactObj = <Tooltip>Tooltip Content</Tooltip>;

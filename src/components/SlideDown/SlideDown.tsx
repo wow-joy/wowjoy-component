@@ -37,17 +37,18 @@ const Control = styled.i<{ isActive?: boolean }>`
   }
 `;
 export interface Props {
-  className: string;
-  defaultStyles: string;
-  content: React.ReactNode;
-  onChange: (isActive: boolean) => boolean | void;
-  onSubClick: (
+  className?: string;
+  defaultStyles?: string;
+  children?: React.ReactNode;
+  content?: React.ReactNode;
+  onChange?: (isActive: boolean) => boolean | void;
+  onSubClick?: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => boolean | void;
-  onTransitionEnd: (isSlideDown: boolean) => boolean | void;
-  onBlur: (e: MouseEvent) => boolean | void;
-  isActive: boolean;
-  ControlComponent: React.ReactType;
+  onTransitionEnd?: (isSlideDown: boolean) => boolean | void;
+  onBlur?: (e: MouseEvent) => boolean | void;
+  isActive?: boolean;
+  ControlComponent?: React.ReactType;
 }
 interface State {
   inited: boolean;
@@ -118,7 +119,10 @@ class SlideDown extends React.PureComponent<Props, State> {
         <Content onClick={this.handleClick} className={"wjc-slideDown-content"}>
           {content}
           {children && (
-            <ControlIcon ref={(el: HTMLElement) => (this.popControl = el)} />
+            <ControlIcon
+              isActive={isActive}
+              ref={(el: HTMLElement) => (this.popControl = el)}
+            />
           )}
         </Content>
         {children && (

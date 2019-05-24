@@ -60,7 +60,7 @@ const Components: any = {
 
   Pop,
 
-  // Table,
+  Table,
   Select,
   SlideDown,
   ScrollBox,
@@ -94,7 +94,7 @@ export {
   Tabs_1,
   Tabs_2,
   Pop,
-  // Table,
+  Table,
   Select,
   SlideDown,
   ScrollBox,

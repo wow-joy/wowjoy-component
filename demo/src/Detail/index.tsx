@@ -2,7 +2,7 @@ import * as React from "react";
 // import Components from "@es";
 // import { Btn_1 as Btn1, Tooltip } from "@es";
 // import styled from "styled-components";
-import Demos from "../Demos";
+import Demos from "../Demos/index";
 import Components from "@src";
 import { Btn_1 as Btn1, Tooltip } from "@src";
 import styled, { createGlobalStyle } from "styled-components";
