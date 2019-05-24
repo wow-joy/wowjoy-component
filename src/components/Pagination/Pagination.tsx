@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import Select from "../Select";
-import { Type3 as Btn } from "../Btn";
+import Select from "../Select/index";
+import { Type3 as Btn } from "../Btn/index";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
 
 const defaultColor = "#06aea6";

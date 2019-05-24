@@ -29,9 +29,9 @@
   "scripts": {
     "create": "node scripts/createComponent.js",
     "ctest": "node scripts/createTest.js",
-    "build": "nwb build-react-component --no-demo --copy-files && yarn run build:ts && yarn run copy:media",
-    "build:ts": "tsc",
-    "copy:media": "copyfiles src/media/** es/media",
+    "build": "yarn run clean&&yarn build:es && yarn build:lib",
+    "build:es": "set NODE_ENV=es&& npx babel src --out-dir es --copy-files --extensions \".js,.jsx,.tsx\"",
+    "build:lib": "set NODE_ENV=lib&& npx babel src --out-dir lib --copy-files --extensions \".js,.jsx,.tsx\"",
     "clean": "nwb clean-module && nwb clean-demo",
     "start": "nwb serve-react-demo",
     "test": "jest",
@@ -46,7 +46,6 @@
     "styled-components": "^4.x"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/plugin-transform-react-constant-elements": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
@@ -62,7 +61,6 @@
     "@types/react-test-renderer": "^16.8.1",
     "@types/styled-components": "^4.1.14",
     "awesome-typescript-loader": "^5.2.1",
-    "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
@@ -80,6 +78,7 @@
     "source-map-loader": "^0.2.4",
     "styled-components": "4.x",
     "typescript": "^3.4.4",
+    "typescript-plugin-styled-components": "^1.4.3",
     "url-parse": "1.4.4"
   },
   "author": "manglobe",
@@ -89,5 +88,9 @@
   "keywords": [
     "react-component"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "babel-plugin-styled-components": "^1.10.0"
+  }
 }

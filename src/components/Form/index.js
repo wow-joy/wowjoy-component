@@ -1,5 +1,5 @@
 import Form from "./Form";
-import Hoc from "../../tools/Hoc";
+import Hoc from "../../tools/Hoc/index";
 import type1 from "./types/type1";
 import CheckBox from "./CheckBox";
 

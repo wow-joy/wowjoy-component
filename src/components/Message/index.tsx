@@ -1,5 +1,5 @@
 import Message from './Message';
-import Hoc from "../../tools/Hoc";
+import Hoc from "../../tools/Hoc/index";
 import doubt from "./types/doubt";
 import error from "./types/error";
 import info from "./types/info";
