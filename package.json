@@ -16,7 +16,7 @@
     ],
     "collectCoverage": false
   },
-  "version": "3.5.6",
+  "version": "3.5.7",
   "description": "wowjoy-component React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -46,6 +46,8 @@
     "styled-components": "^4.x"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/plugin-transform-react-constant-elements": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
@@ -62,6 +64,7 @@
     "@types/styled-components": "^4.1.14",
     "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^23.6.0",
+    "babel-plugin-styled-components": "^1.10.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel7-jest": "^1.0.1",
@@ -88,9 +91,5 @@
   "keywords": [
     "react-component"
   ],
-  "dependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "babel-plugin-styled-components": "^1.10.0"
-  }
+  "dependencies": {}
 }
