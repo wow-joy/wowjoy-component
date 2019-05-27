@@ -20,6 +20,7 @@ const ControllSwitchHoc = (
   const textValue = translate.value || "value";
   const textOnChange = translate.onChange || "onChange";
   const textDefaultValue = translate.defaultValue || "defaultValue";
+  const { name } = OldComponent as { name?: string };
   class NewComponent extends PureComponent<Cp, State> {
     componentType: "controlled" | "uncontrolled" | false;
     constructor(props: Cp) {
@@ -27,11 +28,20 @@ const ControllSwitchHoc = (
       this.state = {
         value: void 0
       };
-      this.componentType = this.checkProps();
+      this.componentType = this.checkProps(props);
     }
 
-    componentWillReceiveProps() {
-      this.componentType = this.checkProps();
+    componentWillReceiveProps(nextProps: Cp) {
+      const nextComponentType = this.checkProps(nextProps);
+      if (
+        this.componentType === "controlled" &&
+        nextComponentType === "uncontrolled"
+      ) {
+        console.error(
+          `Can't change \`${name}\` from controlled to uncontrolled`
+        );
+      }
+      this.componentType = nextComponentType;
     }
 
     render() {
@@ -83,23 +93,21 @@ const ControllSwitchHoc = (
         value: value
       });
     };
-    checkProps = () => {
-      const value = (this.props as any)[textValue];
-      const defaultValue = (this.props as any)[textDefaultValue];
-      if (value !== undefined && defaultValue !== undefined) {
+    checkProps = (props: any) => {
+      const value = props[textValue];
+      const defaultValue = props[textDefaultValue];
+      if (value !== void 0 && defaultValue !== void 0) {
         console.error(
-          (OldComponent as { name?: string }).name +
+          name +
             " must be either controlled or uncontrolled (specify either the value prop, or the defaultValue prop, but not both). Decide between using a controlled or uncontrolled input element and remove one of these props. More info: https://fb.me/react-controlled-components" +
-            `\n请不要在 <${
-              (OldComponent as { name?: string }).name
-            }> 组件内同时声明\`defaultValue\`和\`value\``
+            `\n请不要在 <${name}> 组件内同时声明\`defaultValue\`和\`value\``
         );
         return false;
       }
-      if (value !== undefined && defaultValue === undefined) {
+      if (value !== void 0 && defaultValue === void 0) {
         return "controlled";
       }
-      if (value === undefined) {
+      if (value === void 0) {
         return "uncontrolled";
       }
     };

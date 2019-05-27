@@ -1,6 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
 import initAxis from "./initAxis";
+import ChromeScroll from "./ChromeScroll";
+const isWebkit = /webkit/i.test(window.navigator.userAgent);
 interface WrapProps {
   defaultStyles?: string;
   cover?: boolean;
@@ -11,16 +13,6 @@ const Wrap = styled.div<WrapProps>`
   overflow: hidden;
   position: relative;
   user-select: none;
-  & > div {
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
   ${p =>
     !p.cover &&
     `padding-bottom: ${p.showX ? "12px" : 0};
@@ -46,11 +38,21 @@ const Wrap = styled.div<WrapProps>`
   `}
   ${p => p.defaultStyles};
 `;
+
 const Content = styled.div`
   display: inline-block;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 interface ScrollBarProps {
   visible?: boolean;
+  showOuterBorder?: boolean;
 }
 const ScrollBarX = styled.aside<ScrollBarProps>`
   position: absolute;
@@ -61,11 +63,11 @@ const ScrollBarX = styled.aside<ScrollBarProps>`
   overflow: hidden;
   background: #fff;
   border-top: 1px solid #dcdcdc;
-  border-bottom: 1px solid #dcdcdc;
+  ${p => p.showOuterBorder && `border-bottom: 1px solid #dcdcdc;`}
   display: ${p => (p.visible ? "flex" : "none")};
   align-items: center;
   padding: 0 3px;
-  &:hover > span {
+  &:active > span {
     height: 10px;
     background: #999;
     border-radius: 5px;
@@ -93,11 +95,11 @@ const ScrollBarY = styled.aside<ScrollBarProps>`
   overflow: hidden;
   background: #fff;
   border-left: 1px solid #dcdcdc;
-  border-right: 1px solid #dcdcdc;
+  ${p => p.showOuterBorder && `border-right: 1px solid #dcdcdc;`}
   display: ${p => (p.visible ? "flex" : "none")};
   justify-content: center;
   padding: 3px 0;
-  &:hover > span {
+  &:active > span {
     width: 10px;
     background: #999;
     border-radius: 5px;
@@ -118,11 +120,11 @@ const SliderY = styled.span<SliderYProps>`
 export interface Props {
   className?: string;
   defaultStyles?: string;
-  maxHeight?: string;
-  maxWidth?: string;
   dynamic?: boolean;
   style?: object;
   cover?: boolean;
+  showOuterBorder?: boolean;
+  unUseNative?: boolean;
 }
 interface State {
   sliderWidth: number;
@@ -139,6 +141,9 @@ interface Axis {
 class ScrollBox extends React.PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
+    if (this.useNative) {
+      return;
+    }
     this.state = {
       sliderWidth: 0,
       sliderHeight: 0
@@ -156,14 +161,23 @@ class ScrollBox extends React.PureComponent<Props, State> {
       clickTo: null
     };
   }
+  get useNative() {
+    return isWebkit && !this.props.unUseNative;
+  }
   axisX: Axis;
   axisY: Axis;
   componentDidMount() {
+    if (this.useNative) {
+      return;
+    }
     this.reset();
     window.addEventListener("resize", this.reset);
   }
   reseted = false;
   componentDidUpdate() {
+    if (this.useNative) {
+      return;
+    }
     if (this.props.dynamic) {
       if (!this.reseted) {
         this.reseted = true;
@@ -174,11 +188,35 @@ class ScrollBox extends React.PureComponent<Props, State> {
     }
   }
   componentWillUnmount() {
+    if (this.useNative) {
+      return;
+    }
     window.removeEventListener("resize", this.reset);
   }
 
   render() {
-    const { className, defaultStyles, style, children, cover } = this.props;
+    const {
+      className,
+      defaultStyles,
+      style,
+      children,
+      cover,
+      showOuterBorder
+    } = this.props;
+
+    if (this.useNative) {
+      return (
+        <ChromeScroll
+          className={className}
+          defaultStyles={defaultStyles}
+          style={style}
+          ref={el => (this.ChromeScroll = el)}
+          showOuterBorder={showOuterBorder}
+        >
+          {children}
+        </ChromeScroll>
+      );
+    }
     const showX = (this.state.sliderWidth || 0 - 0) !== 0;
     const showY = (this.state.sliderHeight || 0 - 0) !== 0;
     return (
@@ -203,6 +241,7 @@ class ScrollBox extends React.PureComponent<Props, State> {
           className={"wjc-scroll-bar wjc-scroll-bar-axis__x"}
           visible={showX}
           onClick={this.axisX.clickTo}
+          showOuterBorder={showOuterBorder}
         >
           <SliderX
             className={"wjc-scroll-slider wjc-scroll-slider-axis__x"}
@@ -216,6 +255,7 @@ class ScrollBox extends React.PureComponent<Props, State> {
           className={"wjc-scroll-bar wjc-scroll-bar-axis__y"}
           visible={showY}
           onClick={this.axisY.clickTo}
+          showOuterBorder={showOuterBorder}
         >
           <SliderY
             className={"wjc-scroll-slider wjc-scroll-slider-axis__y"}
@@ -301,9 +341,14 @@ class ScrollBox extends React.PureComponent<Props, State> {
     return nextState;
   };
 
+  ChromeScroll: ChromeScroll;
   // method
   scrollTo = (x: number, y: number) => {
-    this.contentNode.scrollTo(x, y);
+    if (this.useNative) {
+      this.ChromeScroll.scrollTo(x, y);
+    } else {
+      this.contentNode.scrollTo(x, y);
+    }
   };
   rerender = () => {
     this.reset();

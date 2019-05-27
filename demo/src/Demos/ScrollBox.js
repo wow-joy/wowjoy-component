@@ -61,9 +61,10 @@ class Demo extends Component {
         <button onClick={this.onRerender}>点击重新计算滚动条</button>
         <ScrollBox
           dynamic={this.state.dynamic}
+          showOuterBorder
           cover={this.state.cover}
           ref={el => (this.scrollRef1 = el)}
-          style={{ width: "200px", height: "200px" }}
+          style={{ width: "300px", height: "300px" }}
         >
           {this.state.scroll1Arr.map((ele, index) => (
             <i key={index}>{index + 1}</i>
@@ -75,7 +76,7 @@ class Demo extends Component {
         <br />
         <br />
         <br />
-        <ScrollBox style={{ width: "200px", height: "200px" }}>
+        <ScrollBox style={{ width: "300px", height: "300px" }}>
           {Array(100)
             .fill("")
             .map((ele, index) => (
@@ -85,7 +86,7 @@ class Demo extends Component {
         <br />
         <br />
         <br />
-        <ScrollBox style={{ width: "200px", height: "200px" }}>
+        <ScrollBox style={{ width: "300px", height: "300px" }}>
           {Array(100)
             .fill("")
             .map((ele, index) => (

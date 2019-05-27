@@ -1,2 +1,2 @@
-import ScrollBox from './ScrollBox';
-export default ScrollBox
+import ScrollBox from "./ScrollBox";
+export default ScrollBox;
