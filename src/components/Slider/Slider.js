@@ -160,7 +160,6 @@ class Slider extends PureComponent {
       // 点击在滑动块上需要重新获取滑动块中心点位置，因为鼠标不一定直接点在中心点
       // TODO: 后面可能需要用到这个drageOffset
       const handlePosition = getHandleCenterPosition(e.target, vertical);
-      console.log({ handlePosition, position });
       this.dragOffset = position - handlePosition;
       position = handlePosition;
     } else {
@@ -188,7 +187,6 @@ class Slider extends PureComponent {
       handlerOffset < sliderStart ||
       handlerOffset > sliderStart + sliderLength
     ) {
-      console.log(handlerOffset, sliderStart, sliderLength);
       return;
     }
     const { step, min, max } = this.props;

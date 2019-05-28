@@ -78,7 +78,6 @@ class Range extends PureComponent {
   sliderRef;
   handlerRefs = [];
   componentDidMount() {
-    console.log(this.handlerRefs);
     this.addDocumentEvent();
   }
 
@@ -159,7 +158,6 @@ class Range extends PureComponent {
   onMouseDown = e => {
     const { value, step, min, max, vertical } = this.props;
     let position = getMousePosition(e, vertical);
-    console.log({ position });
     if (isEventFromHandler(e, this.handlerRefs)) {
       // 点击在滑动块上需要重新获取滑动块中心点位置，因为鼠标不一定直接点在中心点
       const handlePosition = getHandleCenterPosition(e.target, vertical);
