@@ -62,6 +62,7 @@ class Demo extends Component {
         <ScrollBox
           dynamic={this.state.dynamic}
           showOuterBorder
+          unUseNative
           cover={this.state.cover}
           ref={el => (this.scrollRef1 = el)}
           style={{ width: "300px", height: "300px" }}

@@ -6,7 +6,10 @@ interface WrapProps {
 }
 
 const Wrap = styled.div<WrapProps>`
-  overflow: hidden;
+  overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   ${p => p.defaultStyles}
 `;
 
@@ -26,13 +29,15 @@ const Content = styled.div<ContentProps>`
       width: 12px;
       box-shadow: -1px 0 0px #dcdcdc;
       ${p =>
-        p.showOuterBorder && `box-shadow: -1px 0 0px #dcdcdc,1px 0 0px #dcdcdc`}
+        p.showOuterBorder &&
+        `box-shadow: -1px 0 0px #dcdcdc,1px 0 0px #dcdcdc;`}
     }
     &:horizontal {
       height: 12px;
       box-shadow: 0 -1px 0px #dcdcdc;
       ${p =>
-        p.showOuterBorder && `box-shadow: 0 -1px 0px #dcdcdc,0 1px 0px #dcdcdc`}
+        p.showOuterBorder &&
+        `box-shadow: 0 -1px 0px #dcdcdc,0 1px 0px #dcdcdc;`}
     }
   }
   &::-webkit-scrollbar-corner {
@@ -41,24 +46,24 @@ const Content = styled.div<ContentProps>`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #999;
-    border-radius: 612px;
+    background: #c1c1c1;
+    border-radius: 12px;
     border: 3px solid #fff;
-    &:vertical {
-      border-left: 3px solid #fff;
-      border-right: 3px solid #fff;
+    &:hover {
+      background: #999;
+      cursor: pointer;
     }
     &:vertical:hover {
-      border-left: 0px solid #fff;
-      border-right: 0px solid #fff;
-      border-top: 3px solid #fff;
-      border-bottom: 3px solid #fff;
+      box-shadow: inset 0 3px 0px #fff, inset 0 -3px 0px #fff,
+        inset 0 2px 0px #fff, inset 0 -2px 0px #fff, inset 0 1px 0px #fff,
+        inset 0 -1px 0px #fff;
+      border: 0;
     }
     &:horizontal:hover {
-      border-top: 0px solid #fff;
-      border-bottom: 0px solid #fff;
-      border-left: 3px solid #fff;
-      border-right: 3px solid #fff;
+      box-shadow: inset 3px 0 0px #fff, inset -3px 0 0px #fff,
+        inset 2px 0 0px #fff, inset -2px 0 0px #fff, inset 1px 0 0px #fff,
+        inset -1px 0 0px #fff;
+      border: 0;
     }
   }
 `;
