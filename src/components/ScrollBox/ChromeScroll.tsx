@@ -83,7 +83,6 @@ class ChromeScroll extends React.PureComponent<Props> {
       children,
       showOuterBorder
     } = this.props;
-    console.log(showOuterBorder);
     return (
       <Wrap
         defaultStyles={defaultStyles}
