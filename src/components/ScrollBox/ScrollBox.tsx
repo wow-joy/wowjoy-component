@@ -67,11 +67,17 @@ const ScrollBarX = styled.aside<ScrollBarProps>`
   display: ${p => (p.visible ? "flex" : "none")};
   align-items: center;
   padding: 0 3px;
+  &> span:hover {
+    height: 10px;
+    background: #999;
+    border-radius: 5px;
+  }
   &:active > span {
     height: 10px;
     background: #999;
     border-radius: 5px;
   }
+
 `;
 interface SliderXProps {
   width?: number;
@@ -99,6 +105,11 @@ const ScrollBarY = styled.aside<ScrollBarProps>`
   display: ${p => (p.visible ? "flex" : "none")};
   justify-content: center;
   padding: 3px 0;
+  &> span:hover {
+    width: 10px;
+    background: #999;
+    border-radius: 5px;
+  }
   &:active > span {
     width: 10px;
     background: #999;
