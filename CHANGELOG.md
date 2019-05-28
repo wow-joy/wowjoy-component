@@ -1,3 +1,9 @@
+## 3.5.11 (2019/5/28)
+
+### bugfix
+
+- remove console.log
+
 ## 3.5.10 (2019/5/28)
 
 ### feature
