@@ -6,6 +6,7 @@ interface WrapProps {
 }
 
 const Wrap = styled.div<WrapProps>`
+  overflow: hidden;
   ${p => p.defaultStyles}
 `;
 
