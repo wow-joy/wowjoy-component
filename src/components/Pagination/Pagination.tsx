@@ -304,7 +304,11 @@ class Pagination extends React.PureComponent<Props, State> {
           </JumpTo>
         )}
         {viewAble.includes("submit") && (
-          <Submit className={"wjc-jump-to__submit"} onClick={this.submitJumpTo}>
+          <Submit
+            className={"wjc-jump-to__submit"} 
+            onClick={this.submitJumpTo}
+            size={size}
+          >
             {staticStr[5]}
           </Submit>
         )}
