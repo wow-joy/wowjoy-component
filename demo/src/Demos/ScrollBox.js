@@ -6,7 +6,7 @@ class Demo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scroll1Arr: Array(100).fill(""),
+      scroll1Arr: Array(50).fill(""),
       dynamic: false,
       value: ""
     };
@@ -62,7 +62,7 @@ class Demo extends Component {
         <ScrollBox
           dynamic={this.state.dynamic}
           showOuterBorder
-          unUseNative
+          // unUseNative
           cover={this.state.cover}
           ref={el => (this.scrollRef1 = el)}
           style={{ width: "300px", height: "300px" }}

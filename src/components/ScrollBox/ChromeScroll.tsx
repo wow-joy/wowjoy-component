@@ -17,7 +17,7 @@ interface ContentProps {
   showOuterBorder?: boolean;
 }
 const Content = styled.div<ContentProps>`
-  display: inline-block;
+  display: block;
   width: 100%;
   height: 100%;
   overflow: auto;
