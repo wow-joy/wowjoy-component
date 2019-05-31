@@ -10,20 +10,23 @@ const { PureComponent } = React;
 export interface State {
   value: any;
 }
-const ControllSwitchHoc = (
-  translate: {
-    value?: string;
-    onChange?: string;
-    defaultValue?: string;
-  } = {}
-) => <Cp extends {}>(OldComponent: React.ReactType<Cp>) => {
-  const textValue = translate.value || "value";
-  const textOnChange = translate.onChange || "onChange";
-  const textDefaultValue = translate.defaultValue || "defaultValue";
+
+type DynamicProps = { [key: string]: any };
+
+const ControllSwitchHoc = ({
+  value: textValue = "value",
+  onChange: textOnChange = "onChange",
+  defaultValue: textDefaultValue = "defaultValue"
+}: {
+  value?: string;
+  onChange?: string;
+  defaultValue?: string;
+} = {}) => <OldComponentProps extends {}>(OldComponent: React.ComponentType<OldComponentProps>) => {
   const { name } = OldComponent as { name?: string };
-  class NewComponent extends PureComponent<Cp, State> {
+  type NewProps = OldComponentProps & DynamicProps;
+  class NewComponent extends PureComponent<NewProps, State> {
     componentType: "controlled" | "uncontrolled" | false;
-    constructor(props: Cp) {
+    constructor(props: NewProps) {
       super(props);
       this.state = {
         value: void 0
@@ -31,7 +34,7 @@ const ControllSwitchHoc = (
       this.componentType = this.checkProps(props);
     }
 
-    componentWillReceiveProps(nextProps: Cp) {
+    componentWillReceiveProps(nextProps: NewProps) {
       const nextComponentType = this.checkProps(nextProps);
       if (
         this.componentType === "controlled" &&
@@ -46,24 +49,15 @@ const ControllSwitchHoc = (
 
     render() {
       const { props, componentType } = this;
-      const value = (props as any)[textValue];
-      const onChange = (props as any)[textOnChange];
-      const defaultValue = (props as any)[textDefaultValue];
-      const { forwardedRef } = props as any;
+      const defaultValue = props[textDefaultValue];
+      const { forwardedRef } = props;
 
-      const Old = OldComponent as any;
       if (componentType === "controlled") {
-        return (
-          <Old
-            ref={forwardedRef}
-            {...this.props}
-            {...{ [textValue]: value, [textOnChange]: onChange }}
-          />
-        );
+        return <OldComponent ref={forwardedRef} {...this.props} />;
       }
       if (componentType === "uncontrolled") {
         return (
-          <Old
+          <OldComponent
             ref={forwardedRef}
             {...this.props}
             {...{
@@ -76,8 +70,6 @@ const ControllSwitchHoc = (
       }
     }
     onChange = (...args: any[]) => {
-      const textOnChange = translate.onChange || "onChange";
-
       const onChange = (this.props as any)[textOnChange];
 
       const propsOnChangeResult = onChange && onChange(...args);
@@ -112,9 +104,12 @@ const ControllSwitchHoc = (
       }
     };
   }
-  const RefForwardingFact = (props: Cp, ref: any) => (
-    <NewComponent {...props} forwardedRef={ref} />
+  return React.forwardRef(
+    (
+      props: Pick<DynamicProps, Exclude<keyof DynamicProps, "ref">> & OldComponentProps,
+      ref: any
+    ) => <NewComponent {...props as any} forwardedRef={ref} />
   );
-  return React.forwardRef(RefForwardingFact);
 };
+
 export default ControllSwitchHoc;

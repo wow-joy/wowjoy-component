@@ -5,7 +5,7 @@ class Demo extends React.PureComponent {
     return (
       <div>
         <SlideDown content={<span>点击这里进行控制</span>}>
-          这里是展示内容{" "}
+          这里是展示内容
         </SlideDown>
       </div>
     );

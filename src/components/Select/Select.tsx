@@ -1,13 +1,15 @@
 import * as React from "react";
 import styled, { keyframes, css } from "styled-components";
 import ControllSwitchHoc from "../../tools/Hoc/ControllSwitchHoc";
+import ScrollBox from "../ScrollBox/index";
 const defaultColor = "#06aea6";
 interface WrapProps {
   defaultStyles?: string;
-  active?: boolean;
+  active?: boolean | string;
   theme?: { mainColor: string };
 }
-const Wrap = styled.div<WrapProps>`
+const Wrap = styled.label<WrapProps>`
+  display: block;
   user-select: none;
   border: 1px solid #eaeaea;
   border-radius: 4px;
@@ -19,7 +21,7 @@ const Wrap = styled.div<WrapProps>`
   cursor: pointer;
   ${p => {
     const color = p.theme.mainColor || defaultColor;
-    if (p.active) {
+    if (p.active && p.active !== "init") {
       return `
          box-shadow: inset 0 0 4px ${color};
          border-color: ${color};`;
@@ -46,13 +48,15 @@ const Content = styled.div`
   align-items: center;
 `;
 const slideDown = keyframes`
-  from{ transform: scaleY(0.8); opacity: 0};
-  to{ transform: scaleY(1); opacity: 1};
+  0%{ transform: scaleY(0); opacity: 0};
+  1%{ transform: scaleY(0.8); opacity: 0};
+  100%{ transform: scaleY(1); opacity: 1};
 `;
 
 const slideUp = keyframes`
-  from{ transform: scaleY(1); opacity: 1};
-  to{ transform: scaleY(0.8); opacity: 0};
+  0%{ transform: scaleY(1); opacity: 1};
+  99%{ transform: scaleY(0.8); opacity: 0};
+  100%{ transform: scaleY(0); opacity: 0};
 `;
 
 const slideDownAnime = css`
@@ -61,22 +65,40 @@ const slideDownAnime = css`
 const slideUpAnime = css`
   animation: ${slideUp} 0.3s forwards;
 `;
-
-const DropDown = styled.ul`
-  border: 1px solid #eaeaea;
-  box-shadow: 0px 1px 3px #eaeaea;
+export interface DropDownProps {
+  visible?: boolean | string;
+  onClick?: (e: React.MouseEvent) => void;
+}
+const DropDown = styled(ScrollBox)<DropDownProps>`
+  display: block;
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   width: 100%;
+  z-index: 10;
+  transform: scaleY(0);
   margin-top: 2px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0px 1px 3px #eaeaea;
   background: #fff;
   transform-origin: 0 0;
-  display: none;
-  ${(p: { visible?: boolean }) => (p.visible ? slideDownAnime : slideUpAnime)};
+  &.top {
+    top: auto;
+    bottom: 100%;
+    box-shadow: 0px -1px 3px #eaeaea;
+    transform-origin: 0 100%;
+    margin-top: 0px;
+    margin-bottom: 2px;
+  }
+  ${(p: { visible?: boolean | string }) => {
+    if (p.visible === "init") {
+      return "";
+    }
+    return p.visible ? slideDownAnime : slideUpAnime;
+  }};
 `;
-const Option = styled.li`
+const Option = styled.div`
   padding: 6px 10px;
   width: 100%;
   display: block;
@@ -87,7 +109,7 @@ const Option = styled.li`
 export interface Props {
   className?: string;
   defaultStyles?: string;
-  options?: Array<{
+  options: Array<{
     labelRender?: (checkIsActive: boolean) => React.ReactNode;
     value?: any;
     label?: React.ReactNode;
@@ -100,42 +122,60 @@ export interface Props {
   onSelect?: (optionItem: {}, index: number) => boolean | void;
 }
 interface State {
-  dropDownVisible: boolean;
+  dropDownVisible: boolean | string;
+  direction: string;
 }
 class Select extends React.PureComponent<Props, State> {
+  wrapNode: HTMLElement = null;
+  dropDownNode: any = null;
   state = {
-    dropDownVisible: false
+    dropDownVisible: "init",
+    direction: "bottom"
   };
-  dropDownNode: HTMLElement = null;
+  componentDidMount() {
+    window.addEventListener("mousedown", this.blur);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("mousedown", this.blur);
+  }
+
   blur = (e: Event) => {
     if (this.props.onBlur && this.props.onBlur(e) === false) {
       return;
     }
-    this.setState({
-      dropDownVisible: false
-    });
+    if (this.state.dropDownVisible !== "init") {
+      this.setState({
+        dropDownVisible: false
+      });
+    }
   };
-  componentDidMount() {
-    window.addEventListener("click", this.blur);
+  get dropdownDirection() {
+    const screenHeight = window.innerHeight;
+    const { top, height } = this.wrapNode.getBoundingClientRect();
+    const dropDownNode = this.wrapNode.querySelector(".wjc-select-list");
+    const dropDownHeight = dropDownNode.scrollHeight;
+    if (top + height + dropDownHeight > screenHeight) {
+      return "top";
+    }
+    return "bottom";
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("click", this.blur);
-  }
   toggleDropDownMenu = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.stopPropagation();
-    this.setState(prevState => {
-      if (!prevState.dropDownVisible) {
-        this.dropDownNode.style.display = "block";
-      }
-      return {
-        dropDownVisible: !prevState.dropDownVisible
-      };
-    });
+    const direction = this.dropdownDirection;
+    const { dropDownVisible } = this.state;
+    if (dropDownVisible && dropDownVisible !== "init") {
+      this.setState({
+        dropDownVisible: false
+      });
+    } else {
+      this.setState({
+        dropDownVisible: true,
+        direction: direction
+      });
+    }
   };
-
-  stopPropagation = (e: React.MouseEvent<HTMLElement, MouseEvent>) =>
-    e.stopPropagation();
+  stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
 
   getNextValue = (
     optionItem: {
@@ -172,21 +212,12 @@ class Select extends React.PureComponent<Props, State> {
     ) {
       return;
     }
-
     const nextValue = this.getNextValue(optionItem, type);
-
     this.props.onChange(nextValue, index, optionItem);
-
     if (type === "radio") {
       this.setState({
         dropDownVisible: false
       });
-    }
-  };
-
-  animationEndHandle = () => {
-    if (!this.state.dropDownVisible) {
-      this.dropDownNode.style.display = "none";
     }
   };
 
@@ -196,14 +227,15 @@ class Select extends React.PureComponent<Props, State> {
       defaultStyles,
       inputRender: InputNode,
       options = [],
-      type = "radio"
+      type = "radio",
+      value
     } = this.props;
     const inputNodeValue =
       type === "checkbox"
-        ? ((this.props.value as Array<any>) || []).map(ele =>
+        ? ((value as Array<any>) || []).map(ele =>
             options.find(option => option.value === ele)
           )
-        : options.find(ele => ele.value === this.props.value);
+        : options.find(option => option.value === value);
     const checkIsActive = (value: any) => {
       const { value: PropValue } = this.props;
       return type !== "checkbox"
@@ -216,18 +248,22 @@ class Select extends React.PureComponent<Props, State> {
         className={`wjc-select ${className} ${
           this.state.dropDownVisible ? "open" : ""
         }`}
-        onClick={this.toggleDropDownMenu}
+        onMouseDown={this.toggleDropDownMenu}
         active={this.state.dropDownVisible}
+        ref={el => {
+          this.wrapNode = el;
+        }}
       >
-        <Content>{InputNode && <InputNode value={inputNodeValue} />}</Content>
+        <Content>
+          {InputNode ? <InputNode value={inputNodeValue} /> : inputNodeValue}
+        </Content>
         <DropDown
-          className={"wjc-select-list"}
+          className={"wjc-select-list " + this.state.direction}
           ref={el => {
             this.dropDownNode = el;
           }}
           visible={this.state.dropDownVisible}
           onClick={this.stopPropagation}
-          onAnimationEnd={this.animationEndHandle}
         >
           {options.map((optionItem, index) => (
             <Option

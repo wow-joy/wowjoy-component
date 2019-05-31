@@ -2,107 +2,109 @@
 
 exports[`Pagination renders correctly 1`] = `
 <div
-  className="wjc-pagination undefined sc-EHOje gNDNVt"
+  className="wjc-pagination undefined sc-VigVT ibPKkt"
   size="32px"
 >
   <div
-    className="wjc-page-prev disable sc-gzVnrw dydKHp"
+    className="wjc-page-prev disable sc-fjdhpX fTsgqO"
     onClick={null}
     size="32px"
   />
   <span
-    className="wjc-page-item active sc-bZQynM dEBjGK"
+    className="wjc-page-item active sc-jTzLTM grAjqv"
     onClick={[Function]}
     size="32px"
   >
     1
   </span>
   <span
-    className="wjc-page-item  sc-bZQynM dEBjGK"
+    className="wjc-page-item  sc-jTzLTM grAjqv"
     onClick={[Function]}
     size="32px"
   >
     2
   </span>
   <span
-    className="wjc-page-item  sc-bZQynM dEBjGK"
+    className="wjc-page-item  sc-jTzLTM grAjqv"
     onClick={[Function]}
     size="32px"
   >
     3
   </span>
   <span
-    className="wjc-page-item  sc-bZQynM dEBjGK"
+    className="wjc-page-item  sc-jTzLTM grAjqv"
     onClick={[Function]}
     size="32px"
   >
     4
   </span>
   <span
-    className="wjc-page-item  sc-bZQynM dEBjGK"
+    className="wjc-page-item  sc-jTzLTM grAjqv"
     onClick={[Function]}
     size="32px"
   >
     5
   </span>
   <span
-    className="wjc-fast-jump__next sc-bZQynM ggxfYX"
+    className="wjc-fast-jump__next sc-jTzLTM cstEbC"
     onClick={[Function]}
     title="向后5页"
   />
   <span
-    className="wjc-page-item  sc-bZQynM dEBjGK"
+    className="wjc-page-item  sc-jTzLTM grAjqv"
     onClick={[Function]}
     size="32px"
   >
     10
   </span>
   <div
-    className="wjc-page-next  sc-htoDjs fDYsde"
+    className="wjc-page-next  sc-jzJRlG dqsEcs"
     onClick={[Function]}
     size="32px"
   />
   <div
-    className="wjc-page-count sc-dnqmqq cHIqGk"
+    className="wjc-page-count sc-cSHVUG iQSDnp"
   >
     共100条
   </div>
-  <div
-    className="wjc-select wjc-page-size__select sc-iwsKbI bgcDVW  sc-bdVaJa fbraGt"
-    onClick={[Function]}
+  <label
+    className="wjc-select wjc-page-size__select sc-kAzzGY iWQSKM open sc-htoDjs blWXuY"
+    onMouseDown={[Function]}
   >
     <div
-      className="sc-bwzfXH fNOhzS"
+      className="sc-dnqmqq gwXewl"
     >
       10条/页
     </div>
-    <ul
-      className="wjc-select-list sc-htpNat caZwnp"
-      onAnimationEnd={[Function]}
-      onClick={[Function]}
+    <div
+      className="wjc-scroll-wrap wjc-select-list bottom sc-iwsKbI erHPrK sc-bdVaJa jdWcsB"
     >
-      <li
-        className="active sc-bxivhb cdHdp"
-        onClick={[Function]}
+      <div
+        className="wjc-scroll-content sc-bwzfXH jXPYfG"
       >
-        10条/页
-      </li>
-      <li
-        className="sc-bxivhb cdHdp"
-        onClick={[Function]}
-      >
-        20条/页
-      </li>
-      <li
-        className="sc-bxivhb cdHdp"
-        onClick={[Function]}
-      >
-        30条/页
-      </li>
-    </ul>
-  </div>
+        <div
+          className="active sc-gZMcBi gDwCcq"
+          onClick={[Function]}
+        >
+          10条/页
+        </div>
+        <div
+          className="sc-gZMcBi gDwCcq"
+          onClick={[Function]}
+        >
+          20条/页
+        </div>
+        <div
+          className="sc-gZMcBi gDwCcq"
+          onClick={[Function]}
+        >
+          30条/页
+        </div>
+      </div>
+    </div>
+  </label>
   <div
-    className="wjc-jump-to sc-gZMcBi hXGulT"
+    className="wjc-jump-to sc-chPdSV fNRlki"
     size="32px"
   >
     跳至
@@ -115,7 +117,7 @@ exports[`Pagination renders correctly 1`] = `
     页
   </div>
   <span
-    className="wjc-btn  wjc-jump-to__submit sc-gqjmRU gAsrvk sc-ifAKCX dknzQm"
+    className="wjc-btn  wjc-jump-to__submit sc-kgoBCf cckznw sc-gqjmRU haScJE"
     onClick={[Function]}
   >
     确定

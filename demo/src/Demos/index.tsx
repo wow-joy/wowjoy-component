@@ -4,4 +4,5 @@ import Slider from "./Slider";
 import Pagination from "./Pagination";
 import SlideDown from "./SlideDown";
 import Btn from "./Btn";
-export default { Tooltip, ScrollBox, Slider, Pagination, SlideDown, Btn };
+import Select from "./Select";
+export default { Tooltip, ScrollBox, Slider, Pagination, SlideDown, Btn, Select };

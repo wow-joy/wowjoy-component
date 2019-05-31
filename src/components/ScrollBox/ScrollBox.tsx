@@ -40,7 +40,7 @@ const Wrap = styled.div<WrapProps>`
 `;
 
 const Content = styled.div`
-  display: inline-block;
+  display: block;
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -212,7 +212,8 @@ class ScrollBox extends React.PureComponent<Props, State> {
       style,
       children,
       cover,
-      showOuterBorder
+      showOuterBorder,
+      ...otherProps
     } = this.props;
 
     if (this.useNative) {
@@ -237,6 +238,7 @@ class ScrollBox extends React.PureComponent<Props, State> {
         }}
         defaultStyles={defaultStyles}
         className={"wjc-scroll-wrap " + className}
+        {...otherProps}
         style={style}
         showX={showX}
         showY={showY}
