@@ -129,8 +129,8 @@ class Dialog extends React.PureComponent<Props, {}> {
 
     return (
       <Wrap
-        defaultStyles={defaultStyles}
         className={"wjc-dialog " + (className || "")}
+        defaultStyles={defaultStyles}
       >
         {showCloseBtn && (
           <CloseBtn
