@@ -1,7 +1,9 @@
-import React from "react";
+import * as React from "react";
 import styled from "styled-components";
 
-const StyledTrack = styled.div`
+export const StyledTrack = styled.div.attrs<{ positionStyle: React.CSSProperties }>(props => ({
+  style: props.positionStyle
+}))<{ vertical?: boolean; positionStyle: React.CSSProperties }>`
   position: absolute;
   ${p => (p.vertical ? `width: 4px;` : `height: 4px;`)}
   background-color: #91d5ff;
@@ -9,10 +11,17 @@ const StyledTrack = styled.div`
   transition: background-color 0.3s ease;
 `;
 
-const Track = props => {
-  const { className, included, vertical, offset, length } = props;
+interface Props {
+  className: string;
+  vertical: boolean;
+  offset: number;
+  length: number;
+}
 
-  const positonStyle = vertical
+const Track = (props: Props) => {
+  const { className, vertical, offset, length } = props;
+
+  const positionStyle = vertical
     ? {
         bottom: `${offset}%`,
         height: `${length}%`
@@ -22,14 +31,14 @@ const Track = props => {
         width: `${length}%`
       };
 
-  return included ? (
+  return (
     <StyledTrack
       className={`wjc-slider-track ${className || ""}`}
-      style={positonStyle}
+      positionStyle={positionStyle}
       vertical={vertical}
       {...{ vertical, length }}
     />
-  ) : null;
+  );
 };
 
 export default Track;

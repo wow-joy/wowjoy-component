@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Btn_1 as Btn1, Tooltip } from "@es";
+import { Btn_1 as Btn1, Tooltip } from "@src";
 import styled from "styled-components";
 
 const Cell = styled.div`
@@ -60,9 +60,7 @@ class Test extends Component {
         <Btn1 onClick={() => this.setState({ visible2: !this.state.visible2 })}>
           显示/隐藏 整个Toolip
         </Btn1>
-        <Btn1 onClick={() => this.setState({ visible: !this.state.visible })}>
-          操作受控
-        </Btn1>
+        <Btn1 onClick={() => this.setState({ visible: !this.state.visible })}>操作受控</Btn1>
         {this.state.visible2 && (
           <Tooltip
             // theme="light"
@@ -74,7 +72,7 @@ class Test extends Component {
             title={
               "hello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello worldhello world hello world"
             }
-            placement="right"
+            // placement="right"
           >
             <Btn1 defaultStyles={`margin:100px;`}>test22</Btn1>
           </Tooltip>
@@ -98,4 +96,4 @@ class Test extends Component {
   }
 }
 
-export default Test
+export default Test;

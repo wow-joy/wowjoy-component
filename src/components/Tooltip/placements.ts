@@ -1,11 +1,51 @@
 import { ARROW_OFFSET, ARROW_WIDTH, ARROW_HEIGHT } from "./constant";
 
-function formatPlacement(s) {
+export interface triggerRect {
+  scrollX: number;
+  scrollY: number;
+  width: number;
+  height: number;
+  x: number;
+  y: number;
+}
+export interface contentRect {
+  width: number;
+  height: number;
+}
+
+export type placement =
+  | "top"
+  | "left"
+  | "right"
+  | "bottom"
+  | "topLeft"
+  | "leftTop"
+  | "rightTop"
+  | "topRight"
+  | "leftBottom"
+  | "bottomLeft"
+  | "bottomRight"
+  | "rightBottom";
+
+export type direction = "left" | "right" | "top" | "bottom";
+
+function formatPlacement(s: any): [direction, direction?] {
   const m = s.match(/[A-Z]/);
   return m ? [s.slice(0, m.index), s.toLowerCase().slice(m.index)] : [s];
 }
 
-const placementsMap = ({
+type placementOpt = {
+  arrowStyle: string;
+  contentOffset: [number, number];
+  transformOrigin: [number, number];
+};
+type placementsMap = (opt: {
+  triggerRect: triggerRect;
+  contentRect: contentRect;
+  arrowPointAtCenter: boolean;
+}) => Record<placement, () => placementOpt>;
+
+const placementsMap: placementsMap = ({
   triggerRect: { scrollX, scrollY, width: tWidth, height: tHeight },
   contentRect: { width: cWidth, height: cHeight },
   arrowPointAtCenter
@@ -18,10 +58,7 @@ const placementsMap = ({
           left: 50%;
           margin-left: -6px;
         `,
-        contentOffset: [
-          scrollX - (cWidth - tWidth) / 2,
-          scrollY - cHeight - ARROW_HEIGHT
-        ],
+        contentOffset: [scrollX - (cWidth - tWidth) / 2, scrollY - cHeight - ARROW_HEIGHT],
         transformOrigin: [cWidth / 2, cHeight + ARROW_HEIGHT]
       };
     },
@@ -29,9 +66,7 @@ const placementsMap = ({
       return {
         arrowStyle: `
           top: 100%;
-          left: ${
-            arrowPointAtCenter ? tWidth / 2 - ARROW_WIDTH : ARROW_OFFSET
-          }px;
+          left: ${arrowPointAtCenter ? tWidth / 2 - ARROW_WIDTH : ARROW_OFFSET}px;
         `,
         contentOffset: [scrollX, scrollY - cHeight - ARROW_HEIGHT],
         transformOrigin: [
@@ -44,20 +79,11 @@ const placementsMap = ({
       return {
         arrowStyle: `
           top: 100%;
-          right: ${
-            arrowPointAtCenter
-              ? tWidth / 2 - ARROW_WIDTH
-              : ARROW_OFFSET - ARROW_WIDTH
-          }px;
+          right: ${arrowPointAtCenter ? tWidth / 2 - ARROW_WIDTH : ARROW_OFFSET - ARROW_WIDTH}px;
         `,
-        contentOffset: [
-          scrollX - (cWidth - tWidth),
-          scrollY - cHeight - ARROW_HEIGHT
-        ],
+        contentOffset: [scrollX - (cWidth - tWidth), scrollY - cHeight - ARROW_HEIGHT],
         transformOrigin: [
-          arrowPointAtCenter
-            ? cWidth - tWidth / 2
-            : cWidth - ARROW_OFFSET - ARROW_WIDTH,
+          arrowPointAtCenter ? cWidth - tWidth / 2 : cWidth - ARROW_OFFSET - ARROW_WIDTH,
           cHeight + ARROW_HEIGHT
         ]
       };
@@ -69,10 +95,7 @@ const placementsMap = ({
           left: 50%;
           margin-left: -6px;
         `,
-        contentOffset: [
-          scrollX - (cWidth - tWidth) / 2,
-          scrollY + tHeight + ARROW_HEIGHT
-        ],
+        contentOffset: [scrollX - (cWidth - tWidth) / 2, scrollY + tHeight + ARROW_HEIGHT],
         transformOrigin: [cWidth / 2, -ARROW_HEIGHT]
       };
     },
@@ -80,9 +103,7 @@ const placementsMap = ({
       return {
         arrowStyle: `
           bottom: 100%;
-          left: ${
-            arrowPointAtCenter ? tWidth / 2 - ARROW_WIDTH : ARROW_OFFSET
-          }px;
+          left: ${arrowPointAtCenter ? tWidth / 2 - ARROW_WIDTH : ARROW_OFFSET}px;
         `,
         contentOffset: [scrollX, scrollY + tHeight + ARROW_HEIGHT],
         transformOrigin: [
@@ -95,14 +116,9 @@ const placementsMap = ({
       return {
         arrowStyle: `
           bottom: 100%;
-          right: ${
-            arrowPointAtCenter ? tWidth / 2 - ARROW_WIDTH : ARROW_OFFSET
-          }px;
+          right: ${arrowPointAtCenter ? tWidth / 2 - ARROW_WIDTH : ARROW_OFFSET}px;
         `,
-        contentOffset: [
-          scrollX - (cWidth - tWidth),
-          scrollY + tHeight + ARROW_HEIGHT
-        ],
+        contentOffset: [scrollX - (cWidth - tWidth), scrollY + tHeight + ARROW_HEIGHT],
         transformOrigin: [cWidth - ARROW_OFFSET - ARROW_WIDTH, -ARROW_HEIGHT]
       };
     },
@@ -113,10 +129,7 @@ const placementsMap = ({
           top: 50%;
           margin-top: -6px;
         `,
-        contentOffset: [
-          scrollX + tWidth + ARROW_HEIGHT,
-          scrollY - (cHeight - tHeight) / 2
-        ],
+        contentOffset: [scrollX + tWidth + ARROW_HEIGHT, scrollY - (cHeight - tHeight) / 2],
         transformOrigin: [0, cHeight / 2 - ARROW_WIDTH]
       };
     },
@@ -124,9 +137,7 @@ const placementsMap = ({
       return {
         arrowStyle: `
           right: 100%;
-          top: ${
-            arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET
-          }px;
+          top: ${arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET}px;
         `,
         contentOffset: [scrollX + tWidth + ARROW_HEIGHT, scrollY],
         transformOrigin: [0, arrowPointAtCenter ? tHeight / 2 : ARROW_OFFSET]
@@ -136,18 +147,10 @@ const placementsMap = ({
       return {
         arrowStyle: `
           right: 100%;
-          bottom: ${
-            arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET
-          }px;
+          bottom: ${arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET}px;
         `,
-        contentOffset: [
-          scrollX + tWidth + ARROW_HEIGHT,
-          scrollY + tHeight - cHeight
-        ],
-        transformOrigin: [
-          0,
-          arrowPointAtCenter ? tHeight / 2 : cHeight - ARROW_OFFSET
-        ]
+        contentOffset: [scrollX + tWidth + ARROW_HEIGHT, scrollY + tHeight - cHeight],
+        transformOrigin: [0, arrowPointAtCenter ? tHeight / 2 : cHeight - ARROW_OFFSET]
       };
     },
     left() {
@@ -157,10 +160,7 @@ const placementsMap = ({
           top: 50%;
           margin-top: -6px;
         `,
-        contentOffset: [
-          scrollX - cWidth - ARROW_HEIGHT,
-          scrollY + (tHeight - cHeight) / 2
-        ],
+        contentOffset: [scrollX - cWidth - ARROW_HEIGHT, scrollY + (tHeight - cHeight) / 2],
         transformOrigin: [cWidth, cHeight / 2 - ARROW_WIDTH]
       };
     },
@@ -168,64 +168,54 @@ const placementsMap = ({
       return {
         arrowStyle: `
           left: 100%;
-          top: ${
-            arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET
-          }px;
+          top: ${arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET}px;
         `,
         contentOffset: [scrollX - cWidth - ARROW_HEIGHT, scrollY],
-        transformOrigin: [
-          cWidth,
-          arrowPointAtCenter ? tHeight / 2 : ARROW_OFFSET
-        ]
+        transformOrigin: [cWidth, arrowPointAtCenter ? tHeight / 2 : ARROW_OFFSET]
       };
     },
     leftBottom() {
       return {
         arrowStyle: `
           left: 100%;
-          bottom: ${
-            arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET
-          }px;
+          bottom: ${arrowPointAtCenter ? tHeight / 2 - ARROW_WIDTH : ARROW_OFFSET}px;
         `,
-        contentOffset: [
-          scrollX - cWidth - ARROW_HEIGHT,
-          scrollY + tHeight - cHeight
-        ],
-        transformOrigin: [
-          cWidth,
-          arrowPointAtCenter ? tHeight / 2 : cHeight - ARROW_OFFSET
-        ]
+        contentOffset: [scrollX - cWidth - ARROW_HEIGHT, scrollY + tHeight - cHeight],
+        transformOrigin: [cWidth, arrowPointAtCenter ? tHeight / 2 : cHeight - ARROW_OFFSET]
       };
     }
   };
 };
 
-const gapMap = {
-  left: "left",
-  right: "left",
-  top: "top",
-  bottom: "top"
-};
+enum gapMap {
+  left = "left",
+  right = "left",
+  top = "top",
+  bottom = "top"
+}
 const shadowOffset = {
   left: ["1px", 0],
   right: ["-1px", 0],
   top: [0, "1px"],
   bottom: [0, "-1px"]
 };
-const reverse = {
-  left: "right",
-  right: "left",
-  top: "bottom",
-  bottom: "top"
-};
+enum reverse {
+  left = "right",
+  right = "left",
+  top = "bottom",
+  bottom = "top"
+}
 
 function reverseDirection(
-  [direction, conetntDirection],
+  [direction, conetntDirection]: [direction, direction],
   {
     triggerRect,
     contentRect,
     triggerRect: { x, y, width: tWidth, height: tHeight },
     contentRect: { width: cWidth, height: cHeight }
+  }: {
+    triggerRect: triggerRect;
+    contentRect: contentRect;
   }
 ) {
   if (!Object.values({ ...triggerRect, ...contentRect }).some(a => a !== 0)) {
@@ -250,25 +240,33 @@ function reverseDirection(
   return [direction, conetntDirection];
 }
 
-export default (placement, { autoAdjustOverflow, arrowPointAtCenter }) => {
+export type getPlacement = (opt: {
+  triggerRect: triggerRect;
+  contentRect: contentRect;
+}) => Omit<placementOpt, "transformOrigin"> & {
+  popBoxStyle: string;
+  borderDerectionClass: direction;
+  transformOrigin: string;
+};
+type getPlacements = (
+  placement: placement,
+  opt: { autoAdjustOverflow: boolean; arrowPointAtCenter: boolean }
+) => getPlacement;
+
+const getPlacements: getPlacements = (placement, { autoAdjustOverflow, arrowPointAtCenter }) => {
   let [direction, conetntDirection] = formatPlacement(placement);
   return ({ triggerRect, contentRect }) => {
     let newPlacement = placement;
     let newDirection = direction;
     let newConetntDirection = conetntDirection;
     if (autoAdjustOverflow) {
-      [newDirection, newConetntDirection] = reverseDirection(
-        [direction, conetntDirection],
-        {
-          triggerRect,
-          contentRect
-        }
-      );
+      [newDirection, newConetntDirection] = reverseDirection([direction, conetntDirection], {
+        triggerRect,
+        contentRect
+      });
       newPlacement = `${newDirection}${
-        newConetntDirection
-          ? newConetntDirection.replace(/\w/, m => m.toUpperCase())
-          : ""
-      }`;
+        newConetntDirection ? newConetntDirection.replace(/\w/, m => m.toUpperCase()) : ""
+      }` as placement;
     }
     const getPlacement = placementsMap({
       triggerRect,
@@ -280,17 +278,13 @@ export default (placement, { autoAdjustOverflow, arrowPointAtCenter }) => {
     return {
       ...currentPlacement,
       borderDerectionClass: newDirection,
-      arrowStyle: `${
-        currentPlacement.arrowStyle
-      }filter: drop-shadow(${shadowOffset[newDirection].join(
-        " "
-      )} 1px rgba(0, 0, 0, 0.1));`,
-      popBoxStyle: `margin-${gapMap[newDirection]}: ${
-        leftOrTop ? "-5px" : "5px"
-      };`,
-      transformOrigin: currentPlacement.transformOrigin
-        .map(a => a + "px")
-        .join(" ")
+      arrowStyle: `${currentPlacement.arrowStyle}filter: drop-shadow(${shadowOffset[
+        newDirection
+      ].join(" ")} 1px rgba(0, 0, 0, 0.1));`,
+      popBoxStyle: `margin-${gapMap[newDirection]}: ${leftOrTop ? "-5px" : "5px"};`,
+      transformOrigin: currentPlacement.transformOrigin.map(a => a + "px").join(" ")
     };
   };
 };
+
+export default getPlacements;

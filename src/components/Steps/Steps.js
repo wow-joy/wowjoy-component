@@ -64,11 +64,9 @@ class Steps extends PureComponent {
             stepNumber: initial + i + 1,
             current: current === i,
             status:
-              child.props.status ||
-              (status && current === i ? status : this.getStatus(current, i)),
+              child.props.status || (status && current === i ? status : this.getStatus(current, i)),
             nextStatus:
-              (children[i + 1] && children[i + 1].props.status) ||
-              this.getStatus(current, i + 1)
+              (children[i + 1] && children[i + 1].props.status) || this.getStatus(current, i + 1)
           })
         : child;
     });
