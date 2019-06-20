@@ -17,6 +17,8 @@ interface Props {
 }
 class Detail extends React.Component<Props> {
   name: string;
+
+  state = { visible: true };
   render() {
     const { match } = this.props;
     const name = match.params.name.replace(

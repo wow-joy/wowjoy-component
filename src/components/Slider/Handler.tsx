@@ -1,7 +1,16 @@
-import React, { PureComponent } from "react";
+import * as React from "react";
 import styled from "styled-components";
 
-const StyledHandler = styled.div`
+export const StyledHandler = styled.div.attrs<{ positionStyle: React.CSSProperties }>(props => ({
+  style: props.positionStyle
+}))<{
+  className: string;
+  vertical: boolean;
+  disabledSlider?: boolean;
+  tabIndex?: number;
+  clickFocused: boolean;
+  positionStyle: React.CSSProperties;
+}>`
   position: absolute;
   ${p =>
     p.vertical ? `margin-left: -5px;margin-bottom: -7px;` : `margin-top: -5px;margin-left:-7px;`}
@@ -9,11 +18,10 @@ const StyledHandler = styled.div`
   height: 14px;
   background-color: #fff;
   border-radius: 50%;
-  box-shadow: 0;
   cursor: pointer;
   transition: border-color 0.3s, box-shadow 0.6s;
   ${p =>
-    p.disabled
+    p.disabledSlider
       ? `border: 2px solid rgba(0,0,0,0.25);cursor: not-allowed;`
       : `border: 2px solid #91d5ff;`}
   ${p => p.clickFocused && `outline: none; box-shadow:0 0 0 5px rgba(24,144,255,0.2);`}
@@ -24,11 +32,21 @@ const StyledHandler = styled.div`
   }
 `;
 
-class Handler extends PureComponent {
+interface Props {
+  className?: string;
+  vertical?: boolean;
+  offset: number;
+  disabled?: boolean;
+  tabIndex?: number;
+  dragging: boolean;
+  handleFocusChange?: (visible: boolean) => void;
+}
+
+class Handler extends React.PureComponent<Props, { clickFocused: boolean }> {
   state = {
     clickFocused: false
   };
-
+  handlerNode: HTMLDivElement | null;
   componentDidMount() {
     document.addEventListener("mouseup", this.handleMouseUp);
   }
@@ -37,21 +55,13 @@ class Handler extends PureComponent {
     document.removeEventListener("mouseup", this.handleMouseUp);
   }
 
-  setHandleRef = node => {
-    this.handlerNode = node;
-  };
-
-  setClickFocus(focused) {
+  setClickFocus(focused: boolean) {
     this.setState({ clickFocused: focused });
     this.props.handleFocusChange && this.props.handleFocusChange(focused);
   }
 
   handleMouseUp = () => {
-    if (document.activeElement === this.handlerNode) {
-      this.setClickFocus(true);
-    } else {
-      this.setClickFocus(false);
-    }
+    this.setClickFocus(document.activeElement === this.handlerNode);
   };
 
   handleMouseDown = () => {
@@ -59,7 +69,7 @@ class Handler extends PureComponent {
   };
 
   handleBlur = () => {
-    this.props.dragging && this.setClickFocus(false);
+    this.setClickFocus(false);
   };
 
   handleKeyDown = () => {
@@ -71,6 +81,11 @@ class Handler extends PureComponent {
     this.focus();
   };
 
+  clickBlur = () => {
+    this.setClickFocus(false);
+    this.blur();
+  };
+
   focus() {
     this.handlerNode.focus();
   }
@@ -80,38 +95,27 @@ class Handler extends PureComponent {
   }
 
   render() {
-    const {
-      className,
-      vertical,
-      offset,
-      disabled,
-      min,
-      max,
-      value,
-      tabIndex,
-      dragging,
-      ...restProps
-    } = this.props;
+    const { className, vertical, offset, disabled, tabIndex } = this.props;
     const { clickFocused } = this.state;
 
     let _tabIndex = tabIndex || 0;
     if (disabled || tabIndex === null) {
       _tabIndex = null;
     }
+    const positionStyle = vertical ? { bottom: `${offset}%` } : { left: `${offset}%` };
 
-    const postionStyle = vertical ? { bottom: `${offset}%` } : { left: `${offset}%` };
     return (
       <StyledHandler
-        className={`wjc-slider-handler ${className || ""}`}
-        ref={this.setHandleRef}
-        tabIndex={_tabIndex}
-        onBlur={this.handleBlur}
+        ref={ref => (this.handlerNode = ref)}
+        // onBlur={this.handleBlur}
         onMouseDown={this.handleMouseDown}
-        style={postionStyle}
         {...{
-          vertical,
+          className,
+          positionStyle,
           clickFocused,
-          ...restProps
+          vertical,
+          disabledSlider: disabled,
+          ...(disabled ? {} : { tabIndex: _tabIndex })
         }}
       />
     );

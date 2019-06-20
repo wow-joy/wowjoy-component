@@ -1,11 +1,56 @@
 import { ARROW_OFFSET, ARROW_WIDTH, ARROW_HEIGHT } from "./constant";
 
-function formatPlacement(s) {
-  const m = s.match(/[A-Z]/);
-  return m ? [s.slice(0, m.index), s.toLowerCase().slice(m.index)] : [s];
+export interface triggerRect {
+  scrollX: number;
+  scrollY: number;
+  width: number;
+  height: number;
+  x: number;
+  y: number;
+}
+export interface contentRect {
+  width: number;
+  height: number;
 }
 
-const placementsMap = ({
+export type placement =
+  | "top"
+  | "left"
+  | "right"
+  | "bottom"
+  | "topLeft"
+  | "leftTop"
+  | "rightTop"
+  | "topRight"
+  | "leftBottom"
+  | "bottomLeft"
+  | "bottomRight"
+  | "rightBottom";
+
+export type direction = "left" | "right" | "top" | "bottom";
+
+function formatPlacement(s: placement): [direction, direction?] {
+  const m = s.match(/[A-Z]/);
+  return m
+    ? [
+        s.slice(0, m.index) as direction,
+        s.toLowerCase().slice(m.index) as direction
+      ]
+    : [s as direction];
+}
+
+type placementOpt = {
+  arrowStyle: string;
+  contentOffset: [number, number];
+  transformOrigin: [number, number];
+};
+type placementsMap = (opt: {
+  triggerRect: triggerRect;
+  contentRect: contentRect;
+  arrowPointAtCenter: boolean;
+}) => Record<placement, () => placementOpt>;
+
+const placementsMap: placementsMap = ({
   triggerRect: { scrollX, scrollY, width: tWidth, height: tHeight },
   contentRect: { width: cWidth, height: cHeight },
   arrowPointAtCenter
@@ -200,32 +245,35 @@ const placementsMap = ({
   };
 };
 
-const gapMap = {
-  left: "left",
-  right: "left",
-  top: "top",
-  bottom: "top"
-};
+enum gapMap {
+  left = "left",
+  right = "left",
+  top = "top",
+  bottom = "top"
+}
 const shadowOffset = {
   left: ["1px", 0],
   right: ["-1px", 0],
   top: [0, "1px"],
   bottom: [0, "-1px"]
 };
-const reverse = {
-  left: "right",
-  right: "left",
-  top: "bottom",
-  bottom: "top"
-};
+enum reverse {
+  left = "right",
+  right = "left",
+  top = "bottom",
+  bottom = "top"
+}
 
 function reverseDirection(
-  [direction, conetntDirection],
+  [direction, conetntDirection]: [direction, direction],
   {
     triggerRect,
     contentRect,
     triggerRect: { x, y, width: tWidth, height: tHeight },
     contentRect: { width: cWidth, height: cHeight }
+  }: {
+    triggerRect: triggerRect;
+    contentRect: contentRect;
   }
 ) {
   if (!Object.values({ ...triggerRect, ...contentRect }).some(a => a !== 0)) {
@@ -250,7 +298,23 @@ function reverseDirection(
   return [direction, conetntDirection];
 }
 
-export default (placement, { autoAdjustOverflow, arrowPointAtCenter }) => {
+export type getPlacement = (opt: {
+  triggerRect: triggerRect;
+  contentRect: contentRect;
+}) => Omit<placementOpt, "transformOrigin"> & {
+  popBoxStyle: string;
+  borderDerectionClass: direction;
+  transformOrigin: string;
+};
+type getPlacements = (
+  placement: placement,
+  opt: { autoAdjustOverflow: boolean; arrowPointAtCenter: boolean }
+) => getPlacement;
+
+const getPlacements: getPlacements = (
+  placement,
+  { autoAdjustOverflow, arrowPointAtCenter }
+) => {
   let [direction, conetntDirection] = formatPlacement(placement);
   return ({ triggerRect, contentRect }) => {
     let newPlacement = placement;
@@ -268,7 +332,7 @@ export default (placement, { autoAdjustOverflow, arrowPointAtCenter }) => {
         newConetntDirection
           ? newConetntDirection.replace(/\w/, m => m.toUpperCase())
           : ""
-      }`;
+      }` as placement;
     }
     const getPlacement = placementsMap({
       triggerRect,
@@ -294,3 +358,5 @@ export default (placement, { autoAdjustOverflow, arrowPointAtCenter }) => {
     };
   };
 };
+
+export default getPlacements;
