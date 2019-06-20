@@ -85,7 +85,7 @@
     "react-test-renderer": "^16.7.0",
     "source-map-loader": "^0.2.4",
     "styled-components": "4.x",
-    "typescript": "^3.4.4",
+    "typescript": "^3.5.2",
     "typescript-plugin-styled-components": "^1.4.3",
     "url-parse": "1.4.4"
   },
