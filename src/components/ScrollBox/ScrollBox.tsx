@@ -364,6 +364,12 @@ class ScrollBox extends React.PureComponent<Props, State> {
     }
   };
   rerender = () => {
+    if (this.useNative) {
+      console.error(
+        "Current browser was using ChromeScroll, methd`rerender` won't work now"
+      );
+      return;
+    }
     this.reset();
   };
 }

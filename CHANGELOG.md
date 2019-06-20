@@ -1,3 +1,13 @@
+## 3.5.15 (2019/6/20)
+
+### feature
+
+- Slider Tooltip 迁移到 ts
+
+### bugfix
+
+- ScrollBox 增加 rerender 提示
+
 ## 3.5.14 (2019/5/31)
 
 ### bugfix
