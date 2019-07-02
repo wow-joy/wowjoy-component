@@ -104,12 +104,8 @@ const pop = (Component: React.ReactElement) =>
         popDisplayDom.style.opacity = "0";
       },
       destroy() {
-        const destroy = () => {
-          ReactDOM.unmountComponentAtNode(popDisplayDom);
-          popDisplayDom.parentNode.removeChild(popDisplayDom);
-        };
-        transitionendCallbacks.add(destroy);
-        eventHandle.hide();
+        ReactDOM.unmountComponentAtNode(popDisplayDom);
+        popDisplayDom.parentNode.removeChild(popDisplayDom);
       }
     };
 
