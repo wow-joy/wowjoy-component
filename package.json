@@ -21,7 +21,7 @@
     ],
     "collectCoverage": false
   },
-  "version": "3.5.17",
+  "version": "3.5.18",
   "description": "wowjoy-component React component",
   "main": "lib/index.js",
   "module": "es/index.js",
