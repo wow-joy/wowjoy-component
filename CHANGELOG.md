@@ -1,3 +1,9 @@
+## 3.5.19 (2019/7/2)
+
+### bugfix
+
+- fix tools/Pop `destory` 的行为
+
 ## 3.5.18 (2019/7/2)
 
 ### feature
