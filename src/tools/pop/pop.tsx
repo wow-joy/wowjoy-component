@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 // import style from "./pop.css";
 import pubSub from "../pubSub";
 import styled from "styled-components";
@@ -15,7 +15,7 @@ import { render } from "react-dom";
  *  @param {autoClose} 自动关闭的等候时间
  *  @param {onClose} 关闭事件句柄，`return false` 可以阻止关闭事件
  *
- *  @returns {  show, hide, destroy }
+ *  @returns {show, hide, destroy}
  */
 
 const Wrap = styled.div`
@@ -25,7 +25,10 @@ const Wrap = styled.div`
   transform: translate(-50%, -50%);
   z-index: 1001;
 `;
-const Layer = styled.div`
+interface LayerProps {
+  layer: boolean;
+}
+const Layer = styled.div<LayerProps>`
   position: absolute;
   top: 0;
   bottom: 0;
@@ -38,7 +41,12 @@ const Layer = styled.div`
       ? `background: rgba(0, 0, 0, 0.6);pointer-event:all`
       : `background: rgba(0, 0, 0, 0);pointer-event:none`};
 `;
-class PopWrap extends Component {
+export interface Props {
+  className?: string;
+  layer?: boolean;
+  closeHandle?: () => void;
+}
+class PopWrap extends React.Component<Props> {
   render() {
     const { className, layer = true, closeHandle, children } = this.props;
     const Main = <Wrap>{children}</Wrap>;
@@ -53,14 +61,24 @@ class PopWrap extends Component {
   }
 }
 
-const pop = Component =>
+interface Fn extends Props {
+  container: HTMLElement;
+  autoClose: number;
+  onClose: (self: PopInstance) => void | boolean;
+}
+type PopInstance = {
+  show: () => void;
+  hide: () => void;
+  destroy: () => void;
+};
+const pop = (Component: React.ReactElement) =>
   function({
     className,
     container = document.body,
     layer,
     autoClose,
     onClose
-  }) {
+  }: Fn) {
     const popDisplayDom = document.createElement("div");
     popDisplayDom.style.transition = "0.3s";
     container.appendChild(popDisplayDom);
@@ -70,25 +88,22 @@ const pop = Component =>
       transitionendCallbacks.publish
     );
 
-    const eventHandle = {
+    const eventHandle: PopInstance = {
       show() {
         popDisplayDom.style.display = "block";
         transitionendCallbacks.clear();
-        setTimeout(() => (popDisplayDom.style.opacity = 1));
+        setTimeout(() => (popDisplayDom.style.opacity = "1"));
       },
       hide() {
-        if (onClose && onClose() === false) {
+        if (onClose && onClose(eventHandle) === false) {
           return false;
         }
         transitionendCallbacks.add(
           () => (popDisplayDom.style.display = "none")
         );
-        popDisplayDom.style.opacity = 0;
+        popDisplayDom.style.opacity = "0";
       },
       destroy() {
-        if (this.hide() === false) {
-          return false;
-        }
         const destroy = () => {
           ReactDOM.unmountComponentAtNode(popDisplayDom);
           popDisplayDom.parentNode.removeChild(popDisplayDom);
@@ -114,9 +129,7 @@ const pop = Component =>
     if (autoClose) {
       setTimeout(eventHandle.hide, autoClose);
     }
-    return {
-      ...eventHandle
-    };
+    return eventHandle;
   };
 
 export default pop;
