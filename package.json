@@ -92,9 +92,11 @@
     "typescript-plugin-styled-components": "^1.4.3",
     "url-parse": "1.4.4"
   },
-  "pre-commit": [
-    "lint-staged"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,md,json}": [
       "prettier --write",
