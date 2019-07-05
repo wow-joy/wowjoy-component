@@ -17,10 +17,7 @@ import Dialog, {
   Confirm as Dialog_confirm,
   Alert as Dialog_alert
 } from "./components/Dialog/index";
-import Tabs, {
-  Type1 as Tabs_1,
-  Type2 as Tabs_2
-} from "./components/Tabs/index";
+import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs/index";
 import Pop from "./components/Pop/index";
 import Table from "./components/Table/index";
 import Select from "./components/Select/index";
@@ -31,7 +28,7 @@ import Pagination from "./components/Pagination/index";
 import { CheckBox } from "./components/Form/index";
 import Badge from "./components/Badge/index";
 import Steps from "./components/Steps/index";
-import Tooltip from "./components/Tooltip/index";
+import Tooltip, { SimpleTooltip } from "./components/Tooltip/index";
 import Slider from "./components/Slider/index";
 
 const Components: any = {
@@ -71,6 +68,7 @@ const Components: any = {
   Badge,
   Steps,
   Tooltip,
+  SimpleTooltip,
   Slider
 };
 export {
@@ -104,6 +102,7 @@ export {
   Badge,
   Steps,
   Tooltip,
+  SimpleTooltip,
   Slider
 };
 export default Components;

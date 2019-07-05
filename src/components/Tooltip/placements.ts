@@ -1,12 +1,12 @@
-import { ARROW_OFFSET, ARROW_WIDTH, ARROW_HEIGHT } from "./constant";
+import { ARROW_HEIGHT, ARROW_OFFSET, ARROW_WIDTH } from "./constant";
 
 export interface triggerRect {
   scrollX: number;
   scrollY: number;
   width: number;
   height: number;
-  x: number;
-  y: number;
+  left: number;
+  top: number;
 }
 export interface contentRect {
   width: number;
@@ -29,11 +29,15 @@ export type placement =
 
 export type direction = "left" | "right" | "top" | "bottom";
 
-function formatPlacement(s: placement): [direction, direction?] {
+export function formatPlacement(s: placement): [direction, direction?] {
   const m = s.match(/[A-Z]/);
   return m
     ? [s.slice(0, m.index) as direction, s.toLowerCase().slice(m.index) as direction]
     : [s as direction];
+}
+
+export function convertToPlacement(dirs: [direction, direction?]): placement {
+  return `${dirs[0]}${dirs[1] ? dirs[1].replace(/\w/, m => m.toUpperCase()) : ""}` as placement;
 }
 
 type placementOpt = {
@@ -60,8 +64,8 @@ const placementsMap: placementsMap = ({
           left: 50%;
           margin-left: -6px;
         `,
-        contentOffset: [scrollX - (cWidth - tWidth) / 2, scrollY - cHeight - ARROW_HEIGHT],
-        transformOrigin: [cWidth / 2, cHeight + ARROW_HEIGHT]
+        contentOffset: [scrollX - (cWidth - tWidth) / 2, scrollY - cHeight],
+        transformOrigin: [cWidth / 2, cHeight]
       };
     },
     topLeft() {
@@ -72,9 +76,9 @@ const placementsMap: placementsMap = ({
         `,
         contentOffset: [
           arrowPointAtCenter ? scrollX + tWidth / 2 - ARROW_OFFSET - ARROW_WIDTH : scrollX,
-          scrollY - cHeight - ARROW_HEIGHT
+          scrollY - cHeight
         ],
-        transformOrigin: [ARROW_OFFSET + ARROW_WIDTH, cHeight + ARROW_HEIGHT]
+        transformOrigin: [ARROW_OFFSET + ARROW_WIDTH, cHeight]
       };
     },
     topRight() {
@@ -87,9 +91,9 @@ const placementsMap: placementsMap = ({
           arrowPointAtCenter
             ? scrollX + tWidth / 2 - cWidth / 2 - ARROW_OFFSET - ARROW_WIDTH
             : scrollX - (cWidth - tWidth),
-          scrollY - cHeight - ARROW_HEIGHT
+          scrollY - cHeight
         ],
-        transformOrigin: [cWidth - ARROW_OFFSET - ARROW_WIDTH, cHeight + ARROW_HEIGHT]
+        transformOrigin: [cWidth - ARROW_OFFSET - ARROW_WIDTH, cHeight]
       };
     },
     bottom() {
@@ -99,8 +103,8 @@ const placementsMap: placementsMap = ({
           left: 50%;
           margin-left: -6px;
         `,
-        contentOffset: [scrollX - (cWidth - tWidth) / 2, scrollY + tHeight + ARROW_HEIGHT],
-        transformOrigin: [cWidth / 2, -ARROW_HEIGHT]
+        contentOffset: [scrollX - (cWidth - tWidth) / 2, scrollY + tHeight],
+        transformOrigin: [cWidth / 2, 0]
       };
     },
     bottomLeft() {
@@ -111,9 +115,9 @@ const placementsMap: placementsMap = ({
         `,
         contentOffset: [
           arrowPointAtCenter ? scrollX + tWidth / 2 - ARROW_OFFSET - ARROW_WIDTH : scrollX,
-          scrollY + tHeight + ARROW_HEIGHT
+          scrollY + tHeight
         ],
-        transformOrigin: [ARROW_OFFSET + ARROW_WIDTH, -ARROW_HEIGHT]
+        transformOrigin: [ARROW_OFFSET + ARROW_WIDTH, 0]
       };
     },
     bottomRight() {
@@ -126,9 +130,9 @@ const placementsMap: placementsMap = ({
           arrowPointAtCenter
             ? scrollX + tWidth / 2 - cWidth / 2 - ARROW_OFFSET - ARROW_WIDTH
             : scrollX - (cWidth - tWidth),
-          scrollY + tHeight + ARROW_HEIGHT
+          scrollY + tHeight
         ],
-        transformOrigin: [cWidth - ARROW_OFFSET - ARROW_WIDTH, -ARROW_HEIGHT]
+        transformOrigin: [cWidth - ARROW_OFFSET - ARROW_WIDTH, 0]
       };
     },
     right() {
@@ -138,7 +142,7 @@ const placementsMap: placementsMap = ({
           top: 50%;
           margin-top: -6px;
         `,
-        contentOffset: [scrollX + tWidth + ARROW_HEIGHT, scrollY - (cHeight - tHeight) / 2],
+        contentOffset: [scrollX + tWidth, scrollY - (cHeight - tHeight) / 2],
         transformOrigin: [0, cHeight / 2 - ARROW_WIDTH]
       };
     },
@@ -149,10 +153,10 @@ const placementsMap: placementsMap = ({
           top: ${ARROW_OFFSET}px;
         `,
         contentOffset: [
-          scrollX + tWidth + ARROW_HEIGHT,
-          arrowPointAtCenter ? scrollY + tHeight / 2 - ARROW_OFFSET - ARROW_HEIGHT : scrollY
+          scrollX + tWidth,
+          arrowPointAtCenter ? scrollY + tHeight / 2 - ARROW_OFFSET : scrollY
         ],
-        transformOrigin: [-ARROW_HEIGHT, ARROW_WIDTH + ARROW_OFFSET]
+        transformOrigin: [0, ARROW_WIDTH + ARROW_OFFSET]
       };
     },
     rightBottom() {
@@ -162,12 +166,12 @@ const placementsMap: placementsMap = ({
           bottom: ${ARROW_OFFSET}px;
         `,
         contentOffset: [
-          scrollX + tWidth + ARROW_HEIGHT,
+          scrollX + tWidth,
           arrowPointAtCenter
-            ? scrollY + tHeight / 2 + ARROW_HEIGHT + ARROW_OFFSET - cHeight
+            ? scrollY + tHeight / 2 + ARROW_OFFSET - cHeight
             : scrollY - cHeight + tHeight
         ],
-        transformOrigin: [-ARROW_HEIGHT, cHeight - ARROW_OFFSET - ARROW_HEIGHT]
+        transformOrigin: [0, cHeight - ARROW_OFFSET]
       };
     },
     left() {
@@ -177,7 +181,7 @@ const placementsMap: placementsMap = ({
           top: 50%;
           margin-top: -6px;
         `,
-        contentOffset: [scrollX - cWidth - ARROW_HEIGHT, scrollY + (tHeight - cHeight) / 2],
+        contentOffset: [scrollX - cWidth, scrollY + (tHeight - cHeight) / 2],
         transformOrigin: [cWidth, cHeight / 2 - ARROW_WIDTH]
       };
     },
@@ -188,10 +192,10 @@ const placementsMap: placementsMap = ({
           top: ${ARROW_OFFSET}px;
         `,
         contentOffset: [
-          scrollX - cWidth - ARROW_HEIGHT,
-          arrowPointAtCenter ? scrollY + tHeight / 2 - ARROW_OFFSET - ARROW_HEIGHT : scrollY
+          scrollX - cWidth,
+          arrowPointAtCenter ? scrollY + tHeight / 2 - ARROW_OFFSET : scrollY
         ],
-        transformOrigin: [cWidth + ARROW_HEIGHT, ARROW_WIDTH + ARROW_OFFSET]
+        transformOrigin: [cWidth, ARROW_WIDTH + ARROW_OFFSET]
       };
     },
     leftBottom() {
@@ -201,112 +205,114 @@ const placementsMap: placementsMap = ({
           bottom: ${ARROW_OFFSET}px;
         `,
         contentOffset: [
-          scrollX - cWidth - ARROW_HEIGHT,
+          scrollX - cWidth,
           arrowPointAtCenter
-            ? scrollY + tHeight / 2 + ARROW_HEIGHT + ARROW_OFFSET - cHeight
+            ? scrollY + tHeight / 2 + ARROW_OFFSET - cHeight
             : scrollY - cHeight + tHeight
         ],
-        transformOrigin: [cWidth + ARROW_HEIGHT, cHeight - ARROW_WIDTH - ARROW_OFFSET]
+        transformOrigin: [cWidth, cHeight - ARROW_WIDTH - ARROW_OFFSET]
       };
     }
   };
 };
 
-enum gapMap {
+export enum gapMap {
   left = "left",
   right = "left",
   top = "top",
   bottom = "top"
 }
-const shadowOffset = {
+export const shadowOffset = {
   left: ["1px", 0],
   right: ["-1px", 0],
   top: [0, "1px"],
   bottom: [0, "-1px"]
 };
-enum reverse {
+export enum reverse {
   left = "right",
   right = "left",
   top = "bottom",
   bottom = "top"
 }
 
-function reverseDirection(
-  [direction, conetntDirection]: [direction, direction],
+export function reverseDirection(
+  [direction, conetntDirection]: [direction, direction?],
   {
-    triggerRect,
-    contentRect,
-    triggerRect: { x, y, width: tWidth, height: tHeight },
+    triggerRect: { left, top, width: tWidth, height: tHeight },
     contentRect: { width: cWidth, height: cHeight }
   }: {
     triggerRect: triggerRect;
     contentRect: contentRect;
   }
-) {
-  if (!Object.values({ ...triggerRect, ...contentRect }).some(a => a !== 0)) {
-    return [direction, conetntDirection];
-  }
+): [direction, direction?] {
+  const outerWidth = window.innerWidth;
+  const outerHeight = window.innerHeight;
+  // if (getContainer) {
+  //   const { left, top } = getContainer().getBoundingClientRect();
+  //   left = left - left;
+  //   top = top - top;
+  // }
+  // if (!Object.values({ ...triggerRect, ...contentRect }).some(a => a !== 0)) {
+  //   return [direction, conetntDirection];
+  // }
   if (
-    (direction === "left" && cWidth > x - 10) ||
-    (direction === "right" && cWidth + tWidth + x > window.innerWidth - 10) ||
-    (direction === "top" && cHeight > y - 10) ||
-    (direction === "bottom" && cHeight + tHeight + y > window.innerHeight - 10)
+    (direction === "left" && cWidth > left - 10) ||
+    (direction === "right" && cWidth + tWidth + left > outerWidth - 10) ||
+    (direction === "top" && cHeight > top - 10) ||
+    (direction === "bottom" && cHeight + tHeight + top > outerHeight - 10)
   ) {
     direction = reverse[direction];
   }
   if (
-    (conetntDirection === "left" && cWidth + x > window.innerWidth - 10) ||
-    (conetntDirection === "right" && cWidth > x + tWidth) ||
-    (conetntDirection === "top" && cHeight + y > window.innerHeight) ||
-    (conetntDirection === "bottom" && cHeight > tHeight + y)
+    (conetntDirection === "left" && cWidth + left > outerWidth - 10) ||
+    (conetntDirection === "right" && cWidth > left + tWidth) ||
+    (conetntDirection === "top" && cHeight + top > outerHeight - 10) ||
+    (conetntDirection === "bottom" && cHeight > tHeight + top)
   ) {
     conetntDirection = reverse[conetntDirection];
   }
   return [direction, conetntDirection];
 }
 
-export type getPlacement = (opt: {
-  triggerRect: triggerRect;
-  contentRect: contentRect;
-}) => Omit<placementOpt, "transformOrigin"> & {
+export type CurrentPlace = Omit<placementOpt, "transformOrigin"> & {
   popBoxStyle: string;
   borderDerectionClass: direction;
   transformOrigin: string;
 };
+export type GetPlacement = (opt: {
+  triggerRect: triggerRect;
+  contentRect: contentRect;
+  outerWidth?: number;
+  outerHeight?: number;
+  getContainer?: () => HTMLElement;
+}) => CurrentPlace;
 type getPlacements = (
   placement: placement,
-  opt: { autoAdjustOverflow: boolean; arrowPointAtCenter: boolean }
-) => getPlacement;
+  opt?: {
+    arrowPointAtCenter?: boolean;
+    arrowMargin?: number;
+  }
+) => GetPlacement;
 
-const getPlacements: getPlacements = (placement, { autoAdjustOverflow, arrowPointAtCenter }) => {
-  let [direction, conetntDirection] = formatPlacement(placement);
+const getPlacements: getPlacements = (placement, { arrowPointAtCenter, arrowMargin } = {}) => {
+  let [direction] = formatPlacement(placement);
   return ({ triggerRect, contentRect }) => {
-    let newPlacement = placement;
-    let newDirection = direction;
-    let newConetntDirection = conetntDirection;
-    if (autoAdjustOverflow) {
-      [newDirection, newConetntDirection] = reverseDirection([direction, conetntDirection], {
-        triggerRect,
-        contentRect
-      });
-      newPlacement = `${newDirection}${
-        newConetntDirection ? newConetntDirection.replace(/\w/, m => m.toUpperCase()) : ""
-      }` as placement;
-    }
     const getPlacement = placementsMap({
       triggerRect,
       contentRect,
       arrowPointAtCenter
-    })[newPlacement];
+    })[placement];
     const currentPlacement = getPlacement();
-    const leftOrTop = newDirection === "left" || newDirection === "top";
+    const leftOrTop = direction === "left" || direction === "top";
     return {
       ...currentPlacement,
-      borderDerectionClass: newDirection,
-      arrowStyle: `${currentPlacement.arrowStyle}filter: drop-shadow(${shadowOffset[
-        newDirection
-      ].join(" ")} 1px rgba(0, 0, 0, 0.1));`,
-      popBoxStyle: `margin-${gapMap[newDirection]}: ${leftOrTop ? "-5px" : "5px"};`,
+      borderDerectionClass: direction,
+      arrowStyle: `${currentPlacement.arrowStyle}filter: drop-shadow(${shadowOffset[direction].join(
+        " "
+      )} 1px rgba(0, 0, 0, 0.1));`,
+      popBoxStyle: `margin-${gapMap[direction]}: ${
+        leftOrTop ? `-${ARROW_HEIGHT + arrowMargin}px` : `${ARROW_HEIGHT + arrowMargin}px`
+      };`,
       transformOrigin: currentPlacement.transformOrigin.map(a => a + "px").join(" ")
     };
   };

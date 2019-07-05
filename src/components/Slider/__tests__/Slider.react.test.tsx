@@ -39,14 +39,16 @@ describe("Slider", () => {
   it("render handler current position", () => {
     const wrapper = mount(<Slider defaultValue={[60]} min={20} max={200} step={10} />);
     expect(
-      getComputedStyle(wrapper.getDOMNode().querySelector(".wjc-slider-handler")).left
+      getComputedStyle(wrapper.getDOMNode().querySelector(".wjc-slider-handler").parentElement).left
     ).toEqual(expect.stringMatching(/22.2{1,}%/));
     const wrapper2 = mount(<Slider defaultValue={[20, 33]} />);
     expect(
-      getComputedStyle(wrapper2.getDOMNode().querySelector(".wjc-slider-handler-1")).left
+      getComputedStyle(wrapper2.getDOMNode().querySelector(".wjc-slider-handler-1").parentElement)
+        .left
     ).toEqual("20%");
     expect(
-      getComputedStyle(wrapper2.getDOMNode().querySelector(".wjc-slider-handler-2")).left
+      getComputedStyle(wrapper2.getDOMNode().querySelector(".wjc-slider-handler-2").parentElement)
+        .left
     ).toEqual("33%");
   });
   it("should render 1 hanler while defaultValue is number", () => {
@@ -94,7 +96,8 @@ describe("Slider", () => {
         .hasClass("wjc-slider-vertical")
     ).toBe(true);
     expect(
-      getComputedStyle(wrapper.getDOMNode().querySelector(".wjc-slider-handler")).bottom
+      getComputedStyle(wrapper.getDOMNode().querySelector(".wjc-slider-handler").parentElement)
+        .bottom
     ).toEqual("80%");
   });
 });

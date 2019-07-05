@@ -347,10 +347,6 @@ class Range extends React.PureComponent<Props, State> {
   };
 
   onFocus = (e: React.FocusEvent) => {
-    if (this.clickOnSlider) {
-      this.clickOnSlider = false;
-      return false;
-    }
     const { onFocus, vertical } = this.props;
     if (isEventFromHandler(e, this.handlerRefs)) {
       const handlerPosition = getHandleCenterPosition(e.target, vertical);
@@ -362,10 +358,8 @@ class Range extends React.PureComponent<Props, State> {
   };
 
   onBlur = (e: React.FocusEvent) => {
-    if (this.clickOnSlider) {
-      this.clickOnSlider = false;
-      return false;
-    }
+    e.stopPropagation();
+    e.preventDefault();
     const { onBlur } = this.props;
     this.onEnd();
     onBlur && onBlur(e);

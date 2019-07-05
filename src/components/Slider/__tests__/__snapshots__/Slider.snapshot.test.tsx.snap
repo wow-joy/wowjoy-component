@@ -4,12 +4,12 @@ exports[`Slider renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "wjc-slider wjc-slider-with-marks    sc-iwsKbI QFSlz",
+      "class": "wjc-slider wjc-slider-with-marks    sc-jTzLTM gpeMXq",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "wjc-slider-rail sc-bZQynM icqhCw",
+          "class": "wjc-slider-rail sc-iwsKbI iPdind",
         },
         "children": Array [],
         "name": "div",
@@ -32,18 +32,18 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "wjc-slider-markbox sc-gzVnrw drdPPB",
+                "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -72,13 +72,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                       "style": "left: 30%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -107,13 +107,13 @@ initialize {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Object {
                       "attribs": Object {
-                        "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                        "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                         "style": "left: 57.49999999999999%;",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {
-                            "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                            "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                           },
                           "children": Array [
                             Object {
@@ -179,13 +179,13 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -214,13 +214,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                       "style": "left: 57.49999999999999%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -263,13 +263,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                       "style": "left: 16.25%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -321,13 +321,13 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -358,13 +358,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                       "style": "left: 30%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -395,13 +395,13 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                        "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                         "style": "left: 16.25%;",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {
-                            "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                            "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                           },
                           "children": Array [
                             Object {
@@ -466,30 +466,306 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa levWZk",
-                  "style": "left: -12.5%;",
-                  "tabindex": "0",
+                  "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+                  "style": "left: -12.5%; position: absolute;",
                 },
-                "children": Array [],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Object {
-                  "attribs": Object {
-                    "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa levWZk",
-                    "style": "left: 12.5%;",
-                    "tabindex": "0",
-                  },
-                  "children": Array [],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Object {
+                "children": Array [
+                  Object {
                     "attribs": Object {
-                      "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa levWZk",
-                      "style": "left: 50%;",
+                      "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
                       "tabindex": "0",
                     },
                     "children": Array [],
                     "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "10%",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                  },
+                  Object {
+                    "attribs": Object {
+                      "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "10%",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                        "tabindex": "0",
+                      },
+                      "children": Array [],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "tabindex": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "tabindex": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+                    "style": "left: 12.5%; position: absolute;",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                        "tabindex": "0",
+                      },
+                      "children": Array [],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": Object {
+                        "attribs": Object {
+                          "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "30%",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "tabindex": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "tabindex": undefined,
+                      },
+                    },
+                    Object {
+                      "attribs": Object {
+                        "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "30%",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": Object {
+                        "attribs": Object {
+                          "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                          "tabindex": "0",
+                        },
+                        "children": Array [],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                          "tabindex": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                          "tabindex": undefined,
+                        },
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+                      "style": "left: 50%; position: absolute;",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                          "tabindex": "0",
+                        },
+                        "children": Array [],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": Object {
+                          "attribs": Object {
+                            "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                          },
+                          "children": Array [
+                            Object {
+                              "data": "60%",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                          "tabindex": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                          "tabindex": undefined,
+                        },
+                      },
+                      Object {
+                        "attribs": Object {
+                          "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "60%",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": Object {
+                          "attribs": Object {
+                            "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                            "tabindex": "0",
+                          },
+                          "children": Array [],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                            "tabindex": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                            "tabindex": undefined,
+                          },
+                        },
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": null,
                     "parent": [Circular],
@@ -498,12 +774,10 @@ initialize {
                     "x-attribsNamespace": Object {
                       "class": undefined,
                       "style": undefined,
-                      "tabindex": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
                       "style": undefined,
-                      "tabindex": undefined,
                     },
                   },
                   "parent": [Circular],
@@ -512,12 +786,10 @@ initialize {
                   "x-attribsNamespace": Object {
                     "class": undefined,
                     "style": undefined,
-                    "tabindex": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "class": undefined,
                     "style": undefined,
-                    "tabindex": undefined,
                   },
                 },
                 "parent": [Circular],
@@ -526,12 +798,10 @@ initialize {
                 "x-attribsNamespace": Object {
                   "class": undefined,
                   "style": undefined,
-                  "tabindex": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
                   "style": undefined,
-                  "tabindex": undefined,
                 },
               },
               "parent": [Circular],
@@ -596,18 +866,18 @@ initialize {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Object {
             "attribs": Object {
-              "class": "wjc-slider-markbox sc-gzVnrw drdPPB",
+              "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                   "style": "left: 16.25%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -636,13 +906,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -671,13 +941,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                       "style": "left: 57.49999999999999%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -743,13 +1013,13 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -778,13 +1048,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -827,13 +1097,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -885,13 +1155,13 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                   "style": "left: 57.49999999999999%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -922,13 +1192,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -959,13 +1229,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                       "style": "left: 16.25%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -1030,30 +1300,306 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa levWZk",
-                "style": "left: -12.5%;",
-                "tabindex": "0",
+                "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+                "style": "left: -12.5%; position: absolute;",
               },
-              "children": Array [],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Object {
-                "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa levWZk",
-                  "style": "left: 12.5%;",
-                  "tabindex": "0",
-                },
-                "children": Array [],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Object {
+              "children": Array [
+                Object {
                   "attribs": Object {
-                    "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa levWZk",
-                    "style": "left: 50%;",
+                    "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
                     "tabindex": "0",
                   },
                   "children": Array [],
                   "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "10%",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "10%",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                      "tabindex": "0",
+                    },
+                    "children": Array [],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+                  "style": "left: 12.5%; position: absolute;",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                      "tabindex": "0",
+                    },
+                    "children": Array [],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "30%",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                  },
+                  Object {
+                    "attribs": Object {
+                      "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "30%",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                        "tabindex": "0",
+                      },
+                      "children": Array [],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "tabindex": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "tabindex": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+                    "style": "left: 50%; position: absolute;",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                        "tabindex": "0",
+                      },
+                      "children": Array [],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": Object {
+                        "attribs": Object {
+                          "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "60%",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "tabindex": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "tabindex": undefined,
+                      },
+                    },
+                    Object {
+                      "attribs": Object {
+                        "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "60%",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": Object {
+                        "attribs": Object {
+                          "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                          "tabindex": "0",
+                        },
+                        "children": Array [],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                          "tabindex": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                          "tabindex": undefined,
+                        },
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": null,
                   "parent": [Circular],
@@ -1062,12 +1608,10 @@ initialize {
                   "x-attribsNamespace": Object {
                     "class": undefined,
                     "style": undefined,
-                    "tabindex": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "class": undefined,
                     "style": undefined,
-                    "tabindex": undefined,
                   },
                 },
                 "parent": [Circular],
@@ -1076,12 +1620,10 @@ initialize {
                 "x-attribsNamespace": Object {
                   "class": undefined,
                   "style": undefined,
-                  "tabindex": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
                   "style": undefined,
-                  "tabindex": undefined,
                 },
               },
               "parent": [Circular],
@@ -1090,12 +1632,10 @@ initialize {
               "x-attribsNamespace": Object {
                 "class": undefined,
                 "style": undefined,
-                "tabindex": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
                 "style": undefined,
-                "tabindex": undefined,
               },
             },
             "parent": [Circular],
@@ -1123,7 +1663,7 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "wjc-slider-rail sc-bZQynM icqhCw",
+            "class": "wjc-slider-rail sc-iwsKbI iPdind",
           },
           "children": Array [],
           "name": "div",
@@ -1159,18 +1699,18 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "wjc-slider-markbox sc-gzVnrw drdPPB",
+            "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
           },
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                 "style": "left: 16.25%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                   },
                   "children": Array [
                     Object {
@@ -1199,13 +1739,13 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -1234,13 +1774,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -1306,13 +1846,13 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                 "style": "left: 30%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                   },
                   "children": Array [
                     Object {
@@ -1341,13 +1881,13 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                   "style": "left: 57.49999999999999%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -1390,13 +1930,13 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                   "style": "left: 16.25%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -1448,13 +1988,13 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                 "style": "left: 57.49999999999999%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                   },
                   "children": Array [
                     Object {
@@ -1485,13 +2025,13 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -1522,13 +2062,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -1593,30 +2133,306 @@ initialize {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Object {
             "attribs": Object {
-              "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa levWZk",
-              "style": "left: -12.5%;",
-              "tabindex": "0",
+              "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+              "style": "left: -12.5%; position: absolute;",
             },
-            "children": Array [],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": Object {
-              "attribs": Object {
-                "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa levWZk",
-                "style": "left: 12.5%;",
-                "tabindex": "0",
-              },
-              "children": Array [],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Object {
+            "children": Array [
+              Object {
                 "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa levWZk",
-                  "style": "left: 50%;",
+                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
                   "tabindex": "0",
                 },
                 "children": Array [],
                 "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "10%",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+              },
+              Object {
+                "attribs": Object {
+                  "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                },
+                "children": Array [
+                  Object {
+                    "data": "10%",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                    "tabindex": "0",
+                  },
+                  "children": Array [],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+                "style": "left: 12.5%; position: absolute;",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                    "tabindex": "0",
+                  },
+                  "children": Array [],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "30%",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "30%",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                      "tabindex": "0",
+                    },
+                    "children": Array [],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+                  "style": "left: 50%; position: absolute;",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                      "tabindex": "0",
+                    },
+                    "children": Array [],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "60%",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                  },
+                  Object {
+                    "attribs": Object {
+                      "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "60%",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                        "tabindex": "0",
+                      },
+                      "children": Array [],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "tabindex": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "tabindex": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
                 "parent": [Circular],
@@ -1625,12 +2441,10 @@ initialize {
                 "x-attribsNamespace": Object {
                   "class": undefined,
                   "style": undefined,
-                  "tabindex": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
                   "style": undefined,
-                  "tabindex": undefined,
                 },
               },
               "parent": [Circular],
@@ -1639,12 +2453,10 @@ initialize {
               "x-attribsNamespace": Object {
                 "class": undefined,
                 "style": undefined,
-                "tabindex": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
                 "style": undefined,
-                "tabindex": undefined,
               },
             },
             "parent": [Circular],
@@ -1653,12 +2465,10 @@ initialize {
             "x-attribsNamespace": Object {
               "class": undefined,
               "style": undefined,
-              "tabindex": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
               "style": undefined,
-              "tabindex": undefined,
             },
           },
           "parent": [Circular],
@@ -1684,7 +2494,7 @@ initialize {
           "parent": [Circular],
           "prev": Object {
             "attribs": Object {
-              "class": "wjc-slider-rail sc-bZQynM icqhCw",
+              "class": "wjc-slider-rail sc-iwsKbI iPdind",
             },
             "children": Array [],
             "name": "div",
@@ -1722,18 +2532,18 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "wjc-slider-markbox sc-gzVnrw drdPPB",
+          "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
         },
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+              "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
               "style": "left: 16.25%;",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                  "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                 },
                 "children": Array [
                   Object {
@@ -1762,13 +2572,13 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                 "style": "left: 30%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                   },
                   "children": Array [
                     Object {
@@ -1797,13 +2607,13 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                   "style": "left: 57.49999999999999%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -1869,13 +2679,13 @@ initialize {
           },
           Object {
             "attribs": Object {
-              "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+              "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
               "style": "left: 30%;",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                  "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                 },
                 "children": Array [
                   Object {
@@ -1904,13 +2714,13 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                 "style": "left: 57.49999999999999%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                   },
                   "children": Array [
                     Object {
@@ -1953,13 +2763,13 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                 "style": "left: 16.25%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                   },
                   "children": Array [
                     Object {
@@ -2011,13 +2821,13 @@ initialize {
           },
           Object {
             "attribs": Object {
-              "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+              "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
               "style": "left: 57.49999999999999%;",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                  "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                 },
                 "children": Array [
                   Object {
@@ -2048,13 +2858,13 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                 "style": "left: 30%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                   },
                   "children": Array [
                     Object {
@@ -2085,13 +2895,13 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                   "style": "left: 16.25%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -2156,30 +2966,306 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa levWZk",
-            "style": "left: -12.5%;",
-            "tabindex": "0",
+            "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+            "style": "left: -12.5%; position: absolute;",
           },
-          "children": Array [],
-          "name": "div",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": Object {
-            "attribs": Object {
-              "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa levWZk",
-              "style": "left: 12.5%;",
-              "tabindex": "0",
-            },
-            "children": Array [],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": Object {
+          "children": Array [
+            Object {
               "attribs": Object {
-                "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa levWZk",
-                "style": "left: 50%;",
+                "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
                 "tabindex": "0",
               },
               "children": Array [],
               "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                },
+                "children": Array [
+                  Object {
+                    "data": "10%",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+              },
+              "children": Array [
+                Object {
+                  "data": "10%",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                  "tabindex": "0",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {
+              "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+              "style": "left: 12.5%; position: absolute;",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                  "tabindex": "0",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "30%",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+              },
+              Object {
+                "attribs": Object {
+                  "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                },
+                "children": Array [
+                  Object {
+                    "data": "30%",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                    "tabindex": "0",
+                  },
+                  "children": Array [],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+                "style": "left: 50%; position: absolute;",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                    "tabindex": "0",
+                  },
+                  "children": Array [],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "60%",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "60%",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                      "tabindex": "0",
+                    },
+                    "children": Array [],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "tabindex": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
@@ -2188,12 +3274,10 @@ initialize {
               "x-attribsNamespace": Object {
                 "class": undefined,
                 "style": undefined,
-                "tabindex": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
                 "style": undefined,
-                "tabindex": undefined,
               },
             },
             "parent": [Circular],
@@ -2202,12 +3286,10 @@ initialize {
             "x-attribsNamespace": Object {
               "class": undefined,
               "style": undefined,
-              "tabindex": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
               "style": undefined,
-              "tabindex": undefined,
             },
           },
           "parent": [Circular],
@@ -2216,12 +3298,10 @@ initialize {
           "x-attribsNamespace": Object {
             "class": undefined,
             "style": undefined,
-            "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
             "style": undefined,
-            "tabindex": undefined,
           },
         },
         "parent": [Circular],
@@ -2247,7 +3327,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "wjc-slider-rail sc-bZQynM icqhCw",
+                "class": "wjc-slider-rail sc-iwsKbI iPdind",
               },
               "children": Array [],
               "name": "div",
@@ -2293,30 +3373,306 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa levWZk",
-          "style": "left: -12.5%;",
-          "tabindex": "0",
+          "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+          "style": "left: -12.5%; position: absolute;",
         },
-        "children": Array [],
-        "name": "div",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": Object {
-          "attribs": Object {
-            "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa levWZk",
-            "style": "left: 12.5%;",
-            "tabindex": "0",
-          },
-          "children": Array [],
-          "name": "div",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": Object {
+        "children": Array [
+          Object {
             "attribs": Object {
-              "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa levWZk",
-              "style": "left: 50%;",
+              "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
               "tabindex": "0",
             },
             "children": Array [],
             "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+              },
+              "children": Array [
+                Object {
+                  "data": "10%",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "tabindex": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "tabindex": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+            },
+            "children": Array [
+              Object {
+                "data": "10%",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                "tabindex": "0",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+            "style": "left: 12.5%; position: absolute;",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                "tabindex": "0",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                },
+                "children": Array [
+                  Object {
+                    "data": "30%",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+              },
+              "children": Array [
+                Object {
+                  "data": "30%",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                  "tabindex": "0",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {
+              "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+              "style": "left: 50%; position: absolute;",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                  "tabindex": "0",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "60%",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+              },
+              Object {
+                "attribs": Object {
+                  "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                },
+                "children": Array [
+                  Object {
+                    "data": "60%",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                    "tabindex": "0",
+                  },
+                  "children": Array [],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "span",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
             "parent": [Circular],
@@ -2325,12 +3681,10 @@ initialize {
             "x-attribsNamespace": Object {
               "class": undefined,
               "style": undefined,
-              "tabindex": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
               "style": undefined,
-              "tabindex": undefined,
             },
           },
           "parent": [Circular],
@@ -2339,29 +3693,27 @@ initialize {
           "x-attribsNamespace": Object {
             "class": undefined,
             "style": undefined,
-            "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
             "style": undefined,
-            "tabindex": undefined,
           },
         },
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "wjc-slider-markbox sc-gzVnrw drdPPB",
+            "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
           },
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                 "style": "left: 16.25%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                   },
                   "children": Array [
                     Object {
@@ -2390,13 +3742,13 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -2425,13 +3777,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -2497,13 +3849,13 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                 "style": "left: 30%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                   },
                   "children": Array [
                     Object {
@@ -2532,13 +3884,13 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                   "style": "left: 57.49999999999999%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -2581,13 +3933,13 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                   "style": "left: 16.25%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -2639,13 +3991,13 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                 "style": "left: 57.49999999999999%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                   },
                   "children": Array [
                     Object {
@@ -2676,13 +4028,13 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -2713,13 +4065,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -2806,7 +4158,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-rail sc-bZQynM icqhCw",
+                  "class": "wjc-slider-rail sc-iwsKbI iPdind",
                 },
                 "children": Array [],
                 "name": "div",
@@ -2854,31 +4206,213 @@ initialize {
         "x-attribsNamespace": Object {
           "class": undefined,
           "style": undefined,
-          "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
           "style": undefined,
-          "tabindex": undefined,
         },
       },
       Object {
         "attribs": Object {
-          "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa levWZk",
-          "style": "left: 12.5%;",
-          "tabindex": "0",
+          "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+          "style": "left: 12.5%; position: absolute;",
         },
-        "children": Array [],
-        "name": "div",
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+              "tabindex": "0",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+              },
+              "children": Array [
+                Object {
+                  "data": "30%",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "tabindex": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "tabindex": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+            },
+            "children": Array [
+              Object {
+                "data": "30%",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                "tabindex": "0",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "span",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa levWZk",
-            "style": "left: 50%;",
-            "tabindex": "0",
+            "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+            "style": "left: 50%; position: absolute;",
           },
-          "children": Array [],
-          "name": "div",
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                "tabindex": "0",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                },
+                "children": Array [
+                  Object {
+                    "data": "60%",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+              },
+              "children": Array [
+                Object {
+                  "data": "60%",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                  "tabindex": "0",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "span",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": null,
           "parent": [Circular],
@@ -2887,40 +4421,130 @@ initialize {
           "x-attribsNamespace": Object {
             "class": undefined,
             "style": undefined,
-            "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
             "style": undefined,
-            "tabindex": undefined,
           },
         },
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa levWZk",
-            "style": "left: -12.5%;",
-            "tabindex": "0",
+            "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+            "style": "left: -12.5%; position: absolute;",
           },
-          "children": Array [],
-          "name": "div",
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                "tabindex": "0",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                },
+                "children": Array [
+                  Object {
+                    "data": "10%",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+              },
+              "children": Array [
+                Object {
+                  "data": "10%",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                  "tabindex": "0",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "span",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": [Circular],
           "parent": [Circular],
           "prev": Object {
             "attribs": Object {
-              "class": "wjc-slider-markbox sc-gzVnrw drdPPB",
+              "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                   "style": "left: 16.25%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -2949,13 +4573,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -2984,13 +4608,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                       "style": "left: 57.49999999999999%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -3056,13 +4680,13 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -3091,13 +4715,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -3140,13 +4764,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -3198,13 +4822,13 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                   "style": "left: 57.49999999999999%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                     },
                     "children": Array [
                       Object {
@@ -3235,13 +4859,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -3272,13 +4896,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                       "style": "left: 16.25%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -3365,7 +4989,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-rail sc-bZQynM icqhCw",
+                    "class": "wjc-slider-rail sc-iwsKbI iPdind",
                   },
                   "children": Array [],
                   "name": "div",
@@ -3413,73 +5037,345 @@ initialize {
           "x-attribsNamespace": Object {
             "class": undefined,
             "style": undefined,
-            "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
             "style": undefined,
-            "tabindex": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
           "style": undefined,
-          "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
           "style": undefined,
-          "tabindex": undefined,
         },
       },
       Object {
         "attribs": Object {
-          "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa levWZk",
-          "style": "left: 50%;",
-          "tabindex": "0",
+          "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+          "style": "left: 50%; position: absolute;",
         },
-        "children": Array [],
-        "name": "div",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
-        "parent": [Circular],
-        "prev": Object {
-          "attribs": Object {
-            "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa levWZk",
-            "style": "left: 12.5%;",
-            "tabindex": "0",
-          },
-          "children": Array [],
-          "name": "div",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": [Circular],
-          "parent": [Circular],
-          "prev": Object {
+        "children": Array [
+          Object {
             "attribs": Object {
-              "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa levWZk",
-              "style": "left: -12.5%;",
+              "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
               "tabindex": "0",
             },
             "children": Array [],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+              },
+              "children": Array [
+                Object {
+                  "data": "60%",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "tabindex": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "tabindex": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+            },
+            "children": Array [
+              Object {
+                "data": "60%",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                "tabindex": "0",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+            "style": "left: 12.5%; position: absolute;",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                "tabindex": "0",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                },
+                "children": Array [
+                  Object {
+                    "data": "30%",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "tabindex": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+              },
+              "children": Array [
+                Object {
+                  "data": "30%",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                  "tabindex": "0",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "attribs": Object {
+              "class": "wjc-tooltip wjc-slider-tooltip-handler sc-htoDjs iCctth",
+              "style": "left: -12.5%; position: absolute;",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                  "tabindex": "0",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "10%",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                },
+              },
+              Object {
+                "attribs": Object {
+                  "class": "wjc-tooltip-content sc-bZQynM ggWywv",
+                },
+                "children": Array [
+                  Object {
+                    "data": "10%",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                    "tabindex": "0",
+                  },
+                  "children": Array [],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "tabindex": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
             "next": [Circular],
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "wjc-slider-markbox sc-gzVnrw drdPPB",
+                "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -3508,13 +5404,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                       "style": "left: 30%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -3543,13 +5439,13 @@ initialize {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Object {
                       "attribs": Object {
-                        "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                        "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                         "style": "left: 57.49999999999999%;",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {
-                            "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                            "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                           },
                           "children": Array [
                             Object {
@@ -3615,13 +5511,13 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -3650,13 +5546,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                       "style": "left: 57.49999999999999%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -3699,13 +5595,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                       "style": "left: 16.25%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -3757,13 +5653,13 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-dnqmqq hIzCRh",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                       },
                       "children": Array [
                         Object {
@@ -3794,13 +5690,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
                       "style": "left: 30%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                         },
                         "children": Array [
                           Object {
@@ -3831,13 +5727,13 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-dnqmqq kOFUbF",
+                        "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
                         "style": "left: 16.25%;",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {
-                            "class": "wjc-slider-mark-text sc-htoDjs cViIAw",
+                            "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
                           },
                           "children": Array [
                             Object {
@@ -3924,7 +5820,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-rail sc-bZQynM icqhCw",
+                      "class": "wjc-slider-rail sc-iwsKbI iPdind",
                     },
                     "children": Array [],
                     "name": "div",
@@ -3972,36 +5868,30 @@ initialize {
             "x-attribsNamespace": Object {
               "class": undefined,
               "style": undefined,
-              "tabindex": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
               "style": undefined,
-              "tabindex": undefined,
             },
           },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
             "style": undefined,
-            "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
             "style": undefined,
-            "tabindex": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
           "style": undefined,
-          "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
           "style": undefined,
-          "tabindex": undefined,
         },
       },
     ],

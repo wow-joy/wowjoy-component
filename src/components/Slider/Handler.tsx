@@ -1,19 +1,15 @@
 import * as React from "react";
 import styled from "styled-components";
 
-export const StyledHandler = styled.div.attrs<{ positionStyle: React.CSSProperties }>(props => ({
-  style: props.positionStyle
-}))<{
+export const StyledHandler = styled.div<{
   className: string;
   vertical: boolean;
   disabledSlider?: boolean;
   tabIndex?: number;
   clickFocused: boolean;
-  positionStyle: React.CSSProperties;
+  positionStyle?: React.CSSProperties;
 }>`
-  position: absolute;
-  ${p =>
-    p.vertical ? `margin-left: -5px;margin-bottom: -7px;` : `margin-top: -5px;margin-left:-7px;`}
+  // position: absolute;
   width: 14px;
   height: 14px;
   background-color: #fff;
@@ -46,7 +42,7 @@ class Handler extends React.PureComponent<Props, { clickFocused: boolean }> {
   state = {
     clickFocused: false
   };
-  handlerNode: HTMLDivElement | null;
+  handlerNode: HTMLDivElement;
   componentDidMount() {
     document.addEventListener("mouseup", this.handleMouseUp);
   }
@@ -102,7 +98,6 @@ class Handler extends React.PureComponent<Props, { clickFocused: boolean }> {
     if (disabled || tabIndex === null) {
       _tabIndex = null;
     }
-    const positionStyle = vertical ? { bottom: `${offset}%` } : { left: `${offset}%` };
 
     return (
       <StyledHandler
@@ -111,7 +106,6 @@ class Handler extends React.PureComponent<Props, { clickFocused: boolean }> {
         onMouseDown={this.handleMouseDown}
         {...{
           className,
-          positionStyle,
           clickFocused,
           vertical,
           disabledSlider: disabled,

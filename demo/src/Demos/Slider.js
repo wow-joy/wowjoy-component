@@ -1,6 +1,14 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { Slider, Btn_1 as Btn } from "@src";
+import styled, { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  body{
+    width:200vw !important;
+    height:200vh !important;
+  }
+`;
 
 const marks = {
   // 0: "0°C",
@@ -27,6 +35,7 @@ class Demo extends PureComponent {
   render() {
     return (
       <div style={{ width: 600, height: 600, margin: 30 }}>
+        <GlobalStyle />
         <Slider
           min={33}
           onChange={e => {

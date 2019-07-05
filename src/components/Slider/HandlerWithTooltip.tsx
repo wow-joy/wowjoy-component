@@ -1,6 +1,6 @@
 import * as React from "react";
-import Tooltip from "../../components/Tooltip";
-import Handler from "./Handler";
+import { SimpleTooltip as Tooltip } from "../../components/Tooltip";
+import Handler, { StyledHandler } from "./Handler";
 
 interface Props {
   value: number;
@@ -26,8 +26,7 @@ export default class HandlerWithTooltip extends React.PureComponent<Props, State
     clickFocused: false
   };
 
-  handlerRef: any;
-  tootipRef: any;
+  handlerRef: Handler;
 
   handleVisibleChange = (visible: boolean) => {
     this.setState({ visible });
@@ -47,6 +46,7 @@ export default class HandlerWithTooltip extends React.PureComponent<Props, State
       disabled
     } = this.props;
     const { visible, clickFocused } = this.state;
+    const positionStyle = vertical ? { bottom: `${offset}%` } : { left: `${offset}%` };
 
     return (
       <Tooltip
@@ -55,9 +55,16 @@ export default class HandlerWithTooltip extends React.PureComponent<Props, State
         }
         placement={tooltipPlacement}
         title={tipFormatter ? tipFormatter(value) : value}
-        ref={ref => (this.tootipRef = ref)}
         onVisibleChange={this.handleVisibleChange}
         getContainer={getTooltipPopupContainer}
+        style={{ ...positionStyle, position: "absolute" }}
+        className={"wjc-slider-tooltip-handler"}
+        defaultStyles={
+          vertical
+            ? `margin-left: -5px;margin-bottom: -7px;`
+            : `margin-top: -5px;margin-left: -7px;`
+        }
+        arrowMargin={6}
       >
         <Handler
           {...{ className, vertical, offset, dragging, disabled }}

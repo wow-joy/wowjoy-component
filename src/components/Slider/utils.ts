@@ -13,7 +13,6 @@ export function isEventFromHandler(
   try {
     return Object.keys(handles).some(key => e.target === findDOMNode(handles[key]));
   } catch (err) {
-    console.error(err);
     return false;
   }
 }
