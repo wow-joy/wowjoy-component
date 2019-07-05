@@ -46,10 +46,7 @@ export interface HocProps {
   setContentRect: () => void;
 }
 
-export type SimpleProps = BaseProps &
-  HocProps & {
-    noWrapper: boolean;
-  };
+export type SimpleProps = BaseProps & HocProps;
 
 export type ComplexProps = BaseProps &
   HocProps & {

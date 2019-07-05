@@ -143,7 +143,6 @@ class Test extends Component {
         <br />
         <SimpleTooltip
           // visible
-          // noWrapper
           title="qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"
           placement="rightTop"
           onVisibleChange={e => {

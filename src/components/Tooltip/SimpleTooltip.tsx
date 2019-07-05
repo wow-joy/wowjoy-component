@@ -138,12 +138,6 @@ const Wrap = styled.span<{ tipText: React.ReactNode; placement: placement; defau
   ${p => p.defaultStyles}
 `;
 
-const NoWrapper = styled.span`
-  .noWrapper {
-    background-color: red;
-  }
-`;
-
 interface State {
   axisX: direction;
   axisY: direction;
@@ -151,9 +145,6 @@ interface State {
 }
 
 class SimpleTooltip extends React.PureComponent<SimpleProps, State> {
-  static defaultProps = {
-    noWrapper: false
-  };
   constructor(props: SimpleProps) {
     super(props);
     const [axisX, axisY] = formatPlacement(props.placement);
@@ -214,23 +205,12 @@ class SimpleTooltip extends React.PureComponent<SimpleProps, State> {
       tipMouseLeave,
       contentDisplay,
       duration,
-      noWrapper,
       style,
       arrowMargin,
       theme
     } = this.props;
     const { axisX, axisY, transformOrigin } = this.state;
 
-    if (noWrapper) {
-      const A = styled(props => children as React.ReactElement)`
-        background-color: red;
-      `;
-      return React.createElement(A, {});
-      // React.cloneElement(children as React.ReactElement, {
-      //   className: "noWrapper",
-      //   ref: triggerRef
-      // })
-    }
     return (
       <Wrap
         tipText={title}
