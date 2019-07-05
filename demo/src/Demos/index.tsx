@@ -5,4 +5,16 @@ import Pagination from "./Pagination";
 import SlideDown from "./SlideDown";
 import Btn from "./Btn";
 import Select from "./Select";
-export default { Tooltip, ScrollBox, Slider, Pagination, SlideDown, Btn, Select };
+import Dialog from "./Dialog";
+import Badge from "./Badge";
+export default {
+  Tooltip,
+  ScrollBox,
+  Slider,
+  Pagination,
+  SlideDown,
+  Btn,
+  Select,
+  Dialog,
+  Badge
+};

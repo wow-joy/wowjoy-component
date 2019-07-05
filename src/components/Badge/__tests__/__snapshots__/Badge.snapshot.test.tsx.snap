@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Template renders correctly 1`] = `
+<div
+  className="wjc-badge   sc-bdVaJa VxzjQ"
+>
+  Template Content
+  <div
+    className="wjc-badge-count sc-bxivhb hqOToY"
+  />
+</div>
+`;

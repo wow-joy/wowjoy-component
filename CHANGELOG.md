@@ -1,3 +1,26 @@
+## 3.5.19 (2019/7/2)
+
+### bugfix
+
+- fix tools/Pop `destory` 的行为
+
+## 3.5.18 (2019/7/2)
+
+### feature
+
+- 迁移 tools/Pop 至 ts
+- 为 tools/Pop 添加 onClick 参数 self
+
+## 3.5.17 (2019/6/25)
+
+### bugfix
+
+- Pop 修改定位方式
+
+### feature
+
+- 删除 Pop 动画
+
 ## 3.5.16 (2019/6/20)
 
 ### bugfix

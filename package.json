@@ -21,7 +21,7 @@
     ],
     "collectCoverage": false
   },
-  "version": "3.5.16",
+  "version": "3.5.19",
   "description": "wowjoy-component React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -77,8 +77,11 @@
     "cryptiles": "4.x",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
+    "husky": "^3.0.0",
     "jest": "^23.6.0",
+    "lint-staged": "^9.0.2",
     "nwb": "^0.23.0",
+    "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
@@ -88,6 +91,17 @@
     "typescript": "^3.5.2",
     "typescript-plugin-styled-components": "^1.4.3",
     "url-parse": "1.4.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,md,json}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "author": "manglobe",
   "homepage": "https://github.com/wow-joy/wowjoy-component",

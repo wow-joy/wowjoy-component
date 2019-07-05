@@ -1,8 +1,53 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import styled from "styled-components";
+import { tuple } from "../_util/type";
 
-const Wrap = styled.div`
+const BadgeTypes = tuple(
+  "success",
+  "error",
+  "processing",
+  "warning",
+  "default"
+);
+export type BadgeType = (typeof BadgeTypes)[number];
+
+export interface StatusColor {
+  [key: string]: string;
+}
+const statusColor: StatusColor = {
+  success: "#52c41a",
+  error: "#f5222d",
+  processing: "#1890ff",
+  warning: "#faad14",
+  default: "#d9d9d9"
+};
+
+interface WrapProps {
+  defaultStyles?: string;
+}
+interface StatusDotProps {
+  status?: BadgeType;
+}
+interface StatusNodeProps extends StatusDotProps {
+  text?: string;
+}
+
+interface BaseCountProps {
+  color?: string;
+  dot?: boolean;
+  offset?: [number, number];
+  count?: number;
+  title?: string;
+  children?: React.ReactNode;
+}
+
+export interface BadgeProps extends BaseCountProps, WrapProps, StatusNodeProps {
+  className?: string;
+  showZero?: boolean;
+  overflowCount?: number;
+}
+
+const Wrap = styled.span<WrapProps>`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -17,15 +62,7 @@ const Wrap = styled.div`
   ${props => props.defaultStyles};
 `;
 
-const statusColor = {
-  success: "#52c41a",
-  error: "#f5222d",
-  processing: "#1890ff",
-  warning: "#faad14",
-  default: "#d9d9d9"
-};
-
-const StatusDot = styled.div`
+const StatusDot = styled.span<StatusDotProps>`
   position: relative;
   top: -1px;
   display: inline-block;
@@ -42,7 +79,7 @@ const StatusText = styled.span`
   font-size: 14px;
 `;
 
-const Count = styled.div`
+const Count = styled.span<BaseCountProps>`
   background-color: ${props => (props.color ? props.color : "#f5222d")};
   ${props =>
     props.dot
@@ -69,7 +106,15 @@ const Count = styled.div`
   transform-origin: 100% 0%;
   cursor: pointer;
 `;
-const BaseCount = ({ color, dot, offset, count, title, children }) => (
+
+const BaseCount = ({
+  color,
+  dot,
+  offset,
+  count,
+  title,
+  children
+}: BaseCountProps) => (
   <Count
     className="wjc-badge-count"
     color={color}
@@ -81,13 +126,19 @@ const BaseCount = ({ color, dot, offset, count, title, children }) => (
     {children}
   </Count>
 );
-const StatusNode = ({ status, text }) => (
+const StatusNode = ({ status, text }: StatusNodeProps) => (
   <React.Fragment>
     <StatusDot className="badge-status-dot" status={status} />
     <StatusText className="badge-status-text">{text}</StatusText>
   </React.Fragment>
 );
-class Badge extends PureComponent {
+
+class Badge extends React.PureComponent<BadgeProps> {
+  static defaultProps = {
+    overflowCount: 99,
+    dot: false,
+    showZero: false
+  };
   render() {
     const {
       className,
@@ -112,8 +163,7 @@ class Badge extends PureComponent {
     return (
       <Wrap
         defaultStyles={defaultStyles}
-        className={`wjc-badge ${status ? ` wjc-status` : ""} ${className ||
-          ""}`}
+        className={`wjc-badge ${status ? `wjc-status ` : ""}${className || ""}`}
       >
         {!status && children}
         {status ? <StatusNode status={status} text={text} /> : countNode}
@@ -122,44 +172,4 @@ class Badge extends PureComponent {
   }
 }
 
-Badge.defaultProps = {
-  overflowCount: 99,
-  dot: false,
-  showZero: false
-};
-
-Badge.propTypes = {
-  className: PropTypes.string,
-  defaultStyles: PropTypes.string,
-  color: PropTypes.string,
-  count: PropTypes.number,
-  dot: PropTypes.bool,
-  showZero: PropTypes.bool,
-  offset: PropTypes.arrayOf(function(
-    propValue,
-    key,
-    componentName,
-    location,
-    propFullName
-  ) {
-    if (key > 1) {
-      return new Error(
-        `offset should be an Array like [ number, number ], but length > 2`
-      );
-    }
-    if (typeof propValue[key] !== "number") {
-      return new Error(
-        "Invalid prop `" +
-          propFullName +
-          "` supplied to" +
-          " `" +
-          componentName +
-          "`. offset should be an Array like [ number, number ]."
-      );
-    }
-  }),
-  status: PropTypes.string,
-  text: PropTypes.string,
-  title: PropTypes.string
-};
 export default Badge;
