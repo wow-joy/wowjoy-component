@@ -34,7 +34,7 @@
   "scripts": {
     "create": "node scripts/createComponent.js",
     "ctest": "node scripts/createTest.js",
-    "build": "yarn run clean&&yarn build:es && yarn build:lib",
+    "build": "npm run clean&&npm build:es && npm build:lib",
     "build:es": "cross-env NODE_ENV=es npx babel src --out-dir es --copy-files --extensions \".js,.jsx,.ts,.tsx\"",
     "build:lib": "cross-env NODE_ENV=lib npx babel src --out-dir lib --copy-files --extensions \".js,.jsx,.ts,.tsx\"",
     "clean": "nwb clean-module && nwb clean-demo",
