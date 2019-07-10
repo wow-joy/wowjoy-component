@@ -1,12 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Template renders correctly 1`] = `
-<div
-  className="wjc-badge   sc-bdVaJa VxzjQ"
+exports[`Badge renders as dot correctly 1`] = `
+<span
+  className="wjc-badge  sc-bdVaJa VxzjQ"
 >
-  Template Content
-  <div
-    className="wjc-badge-count sc-bxivhb hqOToY"
+  <span
+    className="wjc-badge-count sc-bxivhb jjoJHs"
   />
-</div>
+</span>
 `;

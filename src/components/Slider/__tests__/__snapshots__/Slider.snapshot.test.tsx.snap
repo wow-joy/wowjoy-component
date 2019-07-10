@@ -4,12 +4,12 @@ exports[`Slider renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "wjc-slider wjc-slider-with-marks    sc-jTzLTM gpeMXq",
+      "class": "wjc-slider wjc-slider-with-marks    sc-VigVT fLiUvb",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "wjc-slider-rail sc-iwsKbI iPdind",
+          "class": "wjc-slider-rail sc-dnqmqq jBaznM",
         },
         "children": Array [],
         "name": "div",
@@ -32,18 +32,18 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
+                "class": "wjc-slider-markbox sc-iwsKbI fkvLVV",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -72,13 +72,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                       "style": "left: 30%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -107,13 +107,13 @@ initialize {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Object {
                       "attribs": Object {
-                        "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                        "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                         "style": "left: 57.49999999999999%;",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {
-                            "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                            "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                           },
                           "children": Array [
                             Object {
@@ -179,13 +179,13 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -214,13 +214,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                       "style": "left: 57.49999999999999%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -263,13 +263,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                       "style": "left: 16.25%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -321,13 +321,13 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -358,13 +358,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                       "style": "left: 30%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -395,13 +395,13 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                        "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                         "style": "left: 16.25%;",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {
-                            "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                            "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                           },
                           "children": Array [
                             Object {
@@ -866,18 +866,18 @@ initialize {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Object {
             "attribs": Object {
-              "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
+              "class": "wjc-slider-markbox sc-iwsKbI fkvLVV",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                   "style": "left: 16.25%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -906,13 +906,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -941,13 +941,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                       "style": "left: 57.49999999999999%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -1013,13 +1013,13 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -1048,13 +1048,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -1097,13 +1097,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -1155,13 +1155,13 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                   "style": "left: 57.49999999999999%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -1192,13 +1192,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -1229,13 +1229,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                       "style": "left: 16.25%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -1663,7 +1663,7 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "wjc-slider-rail sc-iwsKbI iPdind",
+            "class": "wjc-slider-rail sc-dnqmqq jBaznM",
           },
           "children": Array [],
           "name": "div",
@@ -1699,18 +1699,18 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
+            "class": "wjc-slider-markbox sc-iwsKbI fkvLVV",
           },
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                 "style": "left: 16.25%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                    "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                   },
                   "children": Array [
                     Object {
@@ -1739,13 +1739,13 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -1774,13 +1774,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -1846,13 +1846,13 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                 "style": "left: 30%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                    "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                   },
                   "children": Array [
                     Object {
@@ -1881,13 +1881,13 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                   "style": "left: 57.49999999999999%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -1930,13 +1930,13 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                   "style": "left: 16.25%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -1988,13 +1988,13 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                 "style": "left: 57.49999999999999%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                    "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                   },
                   "children": Array [
                     Object {
@@ -2025,13 +2025,13 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -2062,13 +2062,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -2494,7 +2494,7 @@ initialize {
           "parent": [Circular],
           "prev": Object {
             "attribs": Object {
-              "class": "wjc-slider-rail sc-iwsKbI iPdind",
+              "class": "wjc-slider-rail sc-dnqmqq jBaznM",
             },
             "children": Array [],
             "name": "div",
@@ -2532,18 +2532,18 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
+          "class": "wjc-slider-markbox sc-iwsKbI fkvLVV",
         },
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+              "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
               "style": "left: 16.25%;",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                  "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                 },
                 "children": Array [
                   Object {
@@ -2572,13 +2572,13 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                 "style": "left: 30%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                    "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                   },
                   "children": Array [
                     Object {
@@ -2607,13 +2607,13 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                   "style": "left: 57.49999999999999%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -2679,13 +2679,13 @@ initialize {
           },
           Object {
             "attribs": Object {
-              "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+              "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
               "style": "left: 30%;",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                  "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                 },
                 "children": Array [
                   Object {
@@ -2714,13 +2714,13 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                 "style": "left: 57.49999999999999%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                    "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                   },
                   "children": Array [
                     Object {
@@ -2763,13 +2763,13 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                 "style": "left: 16.25%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                    "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                   },
                   "children": Array [
                     Object {
@@ -2821,13 +2821,13 @@ initialize {
           },
           Object {
             "attribs": Object {
-              "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+              "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
               "style": "left: 57.49999999999999%;",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                  "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                 },
                 "children": Array [
                   Object {
@@ -2858,13 +2858,13 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                 "style": "left: 30%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                    "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                   },
                   "children": Array [
                     Object {
@@ -2895,13 +2895,13 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                   "style": "left: 16.25%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -3327,7 +3327,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "wjc-slider-rail sc-iwsKbI iPdind",
+                "class": "wjc-slider-rail sc-dnqmqq jBaznM",
               },
               "children": Array [],
               "name": "div",
@@ -3702,18 +3702,18 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
+            "class": "wjc-slider-markbox sc-iwsKbI fkvLVV",
           },
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                 "style": "left: 16.25%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                    "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                   },
                   "children": Array [
                     Object {
@@ -3742,13 +3742,13 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -3777,13 +3777,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -3849,13 +3849,13 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                 "style": "left: 30%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                    "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                   },
                   "children": Array [
                     Object {
@@ -3884,13 +3884,13 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                   "style": "left: 57.49999999999999%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -3933,13 +3933,13 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                   "style": "left: 16.25%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -3991,13 +3991,13 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                 "style": "left: 57.49999999999999%;",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                    "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                   },
                   "children": Array [
                     Object {
@@ -4028,13 +4028,13 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -4065,13 +4065,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -4158,7 +4158,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-rail sc-iwsKbI iPdind",
+                  "class": "wjc-slider-rail sc-dnqmqq jBaznM",
                 },
                 "children": Array [],
                 "name": "div",
@@ -4533,18 +4533,18 @@ initialize {
           "parent": [Circular],
           "prev": Object {
             "attribs": Object {
-              "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
+              "class": "wjc-slider-markbox sc-iwsKbI fkvLVV",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                  "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                   "style": "left: 16.25%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -4573,13 +4573,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -4608,13 +4608,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                       "style": "left: 57.49999999999999%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -4680,13 +4680,13 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                  "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                   "style": "left: 30%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -4715,13 +4715,13 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -4764,13 +4764,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -4822,13 +4822,13 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                  "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                   "style": "left: 57.49999999999999%;",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                      "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                     },
                     "children": Array [
                       Object {
@@ -4859,13 +4859,13 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -4896,13 +4896,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                       "style": "left: 16.25%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -4989,7 +4989,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-rail sc-iwsKbI iPdind",
+                    "class": "wjc-slider-rail sc-dnqmqq jBaznM",
                   },
                   "children": Array [],
                   "name": "div",
@@ -5364,18 +5364,18 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "wjc-slider-markbox sc-gZMcBi dofBwW",
+                "class": "wjc-slider-markbox sc-iwsKbI fkvLVV",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 16.25%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -5404,13 +5404,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                       "style": "left: 30%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -5439,13 +5439,13 @@ initialize {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Object {
                       "attribs": Object {
-                        "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                        "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                         "style": "left: 57.49999999999999%;",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {
-                            "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                            "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                           },
                           "children": Array [
                             Object {
@@ -5511,13 +5511,13 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                    "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                     "style": "left: 30%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -5546,13 +5546,13 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                      "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                       "style": "left: 57.49999999999999%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -5595,13 +5595,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                      "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                       "style": "left: 16.25%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -5653,13 +5653,13 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-VigVT iTCTEH",
+                    "class": "wjc-slider-dot wjc-slider-dot-3  sc-gqjmRU dMnNmb",
                     "style": "left: 57.49999999999999%;",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                        "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                       },
                       "children": Array [
                         Object {
@@ -5690,13 +5690,13 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-VigVT bqYzyp",
+                      "class": "wjc-slider-dot wjc-slider-dot-2 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                       "style": "left: 30%;",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                          "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                         },
                         "children": Array [
                           Object {
@@ -5727,13 +5727,13 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-VigVT bqYzyp",
+                        "class": "wjc-slider-dot wjc-slider-dot-1 wjc-slider-dot-active sc-gqjmRU cNVOzE",
                         "style": "left: 16.25%;",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {
-                            "class": "wjc-slider-mark-text sc-gqjmRU cyCXpJ",
+                            "class": "wjc-slider-mark-text sc-gZMcBi iUBJiz",
                           },
                           "children": Array [
                             Object {
@@ -5820,7 +5820,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-rail sc-iwsKbI iPdind",
+                      "class": "wjc-slider-rail sc-dnqmqq jBaznM",
                     },
                     "children": Array [],
                     "name": "div",
