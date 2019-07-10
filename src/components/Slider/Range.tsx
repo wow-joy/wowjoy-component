@@ -367,13 +367,19 @@ class Range extends React.PureComponent<Props, State> {
 
   getHandlerProps = (v: number, i: number) => {
     const { vertical, tooltipVisible, disabled } = this.props;
+    const offset = this.calcOffset(v);
+    const positionStyle = vertical ? { bottom: `${offset}%` } : { left: `${offset}%` };
+    const handlerStyle = vertical
+      ? `margin-left: -5px;margin-bottom: -7px;`
+      : `margin-top: -5px;margin-left: -7px;`;
     return {
       key: i,
       className: `wjc-slider-handler wjc-slider-handler-${i + 1}`,
       vertical,
       value: v,
       disabled,
-      offset: this.calcOffset(v),
+      positionStyle,
+      handlerStyle,
       dragging: this.state.handler === i,
       tooltipVisible
     };
@@ -388,6 +394,7 @@ class Range extends React.PureComponent<Props, State> {
           <Handler
             key={i}
             ref={ref => (this.handlerRefs[i] = ref)}
+            style={{ position: "absolute" }}
             {...this.getHandlerProps(v, i)}
           />
         );
