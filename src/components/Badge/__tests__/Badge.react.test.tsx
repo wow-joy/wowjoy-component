@@ -14,6 +14,7 @@ describe("Badge", () => {
   });
   it("badge is a dot", () => {
     const badge = mount(<Badge count={10} dot />);
-    expect(badge.find(".wjc-badge-count").length).toBe(1);
+    const dom = badge.getDOMNode();
+    expect(dom.querySelector(".wjc-badge-count")).not.toEqual(null);
   });
 });
