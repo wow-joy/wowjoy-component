@@ -1,3 +1,9 @@
+## 3.5.21 (2019/7/10)
+
+### bugfix
+
+- fix Slider's style bug while tipFormatter was null
+
 ## 3.5.20 (2019/7/10)
 
 ### bugfix
@@ -8,7 +14,7 @@
 
 - Badge 改 ts
 - Tooltip 新增 SimpleTooltip, Slider use SimpleTooltip
- 
+
 ### dependencies
 
 - add husky for code format when pre-commit
