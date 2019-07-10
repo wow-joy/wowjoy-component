@@ -1,3 +1,18 @@
+## 3.5.20 (2019/7/10)
+
+### bugfix
+
+- fix build script
+
+### feature
+
+- Badge 改 ts
+- Tooltip 新增 SimpleTooltip, Slider use SimpleTooltip
+ 
+### dependencies
+
+- add husky for code format when pre-commit
+
 ## 3.5.19 (2019/7/2)
 
 ### bugfix
