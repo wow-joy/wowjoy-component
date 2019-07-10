@@ -1,13 +1,16 @@
 import * as React from "react";
 import styled from "styled-components";
 
-export const StyledHandler = styled.div<{
+export const StyledHandler = styled.div.attrs<{ positionStyle: React.CSSProperties }>(props => ({
+  style: props.positionStyle
+}))<{
   className: string;
   vertical: boolean;
   disabledSlider?: boolean;
   tabIndex?: number;
   clickFocused: boolean;
   positionStyle?: React.CSSProperties;
+  defaultStyles: string;
 }>`
   // position: absolute;
   width: 14px;
@@ -26,16 +29,19 @@ export const StyledHandler = styled.div<{
     outline: none;
     box-shadow: 0 0 0 5px rgba(24, 144, 255, 0.2);
   }
+  ${p => p.defaultStyles}
 `;
 
 interface Props {
   className?: string;
   vertical?: boolean;
-  offset: number;
   disabled?: boolean;
   tabIndex?: number;
   dragging: boolean;
   handleFocusChange?: (visible: boolean) => void;
+  style?: React.CSSProperties;
+  positionStyle?: React.CSSProperties;
+  handlerStyle?: string;
 }
 
 class Handler extends React.PureComponent<Props, { clickFocused: boolean }> {
@@ -91,7 +97,15 @@ class Handler extends React.PureComponent<Props, { clickFocused: boolean }> {
   }
 
   render() {
-    const { className, vertical, offset, disabled, tabIndex } = this.props;
+    const {
+      className,
+      vertical,
+      disabled,
+      tabIndex,
+      positionStyle,
+      handlerStyle,
+      style
+    } = this.props;
     const { clickFocused } = this.state;
 
     let _tabIndex = tabIndex || 0;
@@ -103,9 +117,12 @@ class Handler extends React.PureComponent<Props, { clickFocused: boolean }> {
       <StyledHandler
         ref={ref => (this.handlerNode = ref)}
         // onBlur={this.handleBlur}
+        defaultStyles={handlerStyle}
         onMouseDown={this.handleMouseDown}
         {...{
           className,
+          style,
+          positionStyle,
           clickFocused,
           vertical,
           disabledSlider: disabled,
