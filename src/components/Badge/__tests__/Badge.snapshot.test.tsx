@@ -16,4 +16,18 @@ describe("Badge", () => {
     const tree = renderer.create(reactObj).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("should add defaultStyles", () => {
+    const tree = renderer
+      .create(
+        <Badge
+          count={9}
+          defaultStyles={`
+      border: 1px dashed red;
+    `}
+        />
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

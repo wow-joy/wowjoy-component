@@ -26,6 +26,10 @@ class Demo extends React.PureComponent {
           <A href="#" />
         </Badge>
         <Space />
+        <Badge count={100} title="custome title">
+          <A href="#" />
+        </Badge>
+        <Space />
         <Badge count={100} />
         <Space />
         <Badge status="success" />
