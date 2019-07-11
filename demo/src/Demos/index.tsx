@@ -7,6 +7,7 @@ import Btn from "./Btn";
 import Select from "./Select";
 import Dialog from "./Dialog";
 import Badge from "./Badge";
+import Icon from "./Icon";
 
 export default {
   Tooltip,
@@ -17,5 +18,6 @@ export default {
   Btn,
   Select,
   Dialog,
-  Badge
+  Badge,
+  Icon
 };
