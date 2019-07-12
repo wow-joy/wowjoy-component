@@ -122,16 +122,20 @@ export interface Props {
   onSelect?: (optionItem: {}, index: number) => boolean | void;
 }
 interface State {
-  dropDownVisible: boolean | string;
+  dropDownVisible: "init" | boolean;
   direction: string;
 }
 class Select extends React.PureComponent<Props, State> {
   wrapNode: HTMLElement = null;
   dropDownNode: any = null;
-  state = {
-    dropDownVisible: "init",
-    direction: "bottom"
-  };
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      dropDownVisible: "init",
+      direction: "bottom"
+    };
+  }
+
   componentDidMount() {
     window.addEventListener("mousedown", this.blur);
   }
@@ -230,23 +234,23 @@ class Select extends React.PureComponent<Props, State> {
       type = "radio",
       value
     } = this.props;
-    const inputNodeValue =
-      type === "checkbox"
-        ? ((value as Array<any>) || []).map(ele =>
-            options.find(option => option.value === ele)
-          )
-        : options.find(option => option.value === value);
+    const isCheckbox = type === "checkbox";
+    const inputNodeValue = isCheckbox
+      ? ((value as Array<any>) || []).map(ele =>
+          options.find(option => option.value === ele)
+        )
+      : options.find(option => option.value === value);
     const checkIsActive = (value: any) => {
       const { value: PropValue } = this.props;
-      return type !== "checkbox"
+      return !isCheckbox
         ? PropValue === value
         : (PropValue as Array<any>).includes(value);
     };
     return (
       <Wrap
         defaultStyles={defaultStyles}
-        className={`wjc-select ${className} ${
-          this.state.dropDownVisible ? "open" : ""
+        className={`wjc-select ${className || ""} ${
+          this.state.dropDownVisible === true ? "open" : ""
         }`}
         onMouseDown={this.toggleDropDownMenu}
         active={this.state.dropDownVisible}

@@ -8,7 +8,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <div style={{ marginTop: "70vh" }}>
+      <div style={{ marginTop: "80vh" }}>
         <Select
           options={[
             {

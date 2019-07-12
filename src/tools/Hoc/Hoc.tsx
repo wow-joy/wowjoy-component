@@ -6,25 +6,32 @@ import * as React from "react";
  * @returns 新组件
  *
  */
-export interface Props {
-  className?: string;
-  defaultStyles?: string;
-}
-const Hoc = (initSetting: { defaultStyles?: string; className?: string }) => (
-  OldComponent: React.ReactType
+const Hoc = (initSetting: { defaultStyles?: string; className?: string }) => <
+  OldProps extends {}
+>(
+  OldComponent: React.ComponentType<OldProps>
 ) => {
-  return class extends React.PureComponent<Props, {}> {
+  type Props = OldProps & {
+    className?: string;
+    defaultStyles?: string;
+    forwardedRef?: () => any | string;
+  };
+  class NewComponent extends React.PureComponent<Props, {}> {
     render() {
-      let { className, defaultStyles } = this.props;
+      let { className, defaultStyles, forwardedRef } = this.props;
       // 为组件添加默认样式处理，className属性使用叠加处理，其余属性使用覆盖处理
-      const initedProps = {
+      const initedProps: Props = {
         ...initSetting,
         ...this.props,
         className: (initSetting.className || "") + " " + (className || ""),
         defaultStyles: initSetting.defaultStyles + defaultStyles
       };
-      return <OldComponent {...initedProps} />;
+      return <OldComponent ref={forwardedRef} {...initedProps} />;
     }
-  };
+  }
+
+  return React.forwardRef((props: Props, ref: () => any | string) => (
+    <NewComponent {...props} forwardedRef={ref} />
+  ));
 };
 export default Hoc;

@@ -6,6 +6,7 @@ import SlideDown from "./SlideDown";
 import Btn from "./Btn";
 import Select from "./Select";
 import Dialog from "./Dialog";
+import Message from "./Message";
 import Badge from "./Badge";
 
 export default {
@@ -17,5 +18,6 @@ export default {
   Btn,
   Select,
   Dialog,
+  Message,
   Badge
 };
