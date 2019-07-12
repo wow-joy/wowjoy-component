@@ -24,6 +24,7 @@ const statusColor: StatusColor = {
 
 interface WrapProps {
   defaultStyles?: string;
+  notWrapper?: boolean;
 }
 interface StatusDotProps {
   status?: BadgeType;
@@ -39,6 +40,7 @@ interface BaseCountProps {
   count?: number;
   title?: string;
   children?: React.ReactNode;
+  notWrapper?: boolean;
 }
 
 export interface BadgeProps extends BaseCountProps, WrapProps, StatusNodeProps {
@@ -60,6 +62,15 @@ const Wrap = styled.span<WrapProps>`
   color: unset;
   line-height: 1;
   ${props => props.defaultStyles};
+  ${props =>
+    props.notWrapper &&
+    `
+    .wjc-badge-count{
+      position: relative;
+      display: inline-block;
+      transform: none;
+    }
+  `}
 `;
 
 const StatusDot = styled.span<StatusDotProps>`
@@ -163,6 +174,7 @@ class Badge extends React.PureComponent<BadgeProps> {
     return (
       <Wrap
         defaultStyles={defaultStyles}
+        notWrapper={!children}
         className={`wjc-badge ${status ? `wjc-status ` : ""}${className || ""}`}
       >
         {!status && children}

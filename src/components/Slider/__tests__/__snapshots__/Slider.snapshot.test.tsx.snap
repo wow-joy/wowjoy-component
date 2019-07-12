@@ -472,7 +472,7 @@ initialize {
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                      "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                       "tabindex": "0",
                     },
                     "children": Array [],
@@ -535,7 +535,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                        "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                         "tabindex": "0",
                       },
                       "children": Array [],
@@ -573,7 +573,7 @@ initialize {
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                        "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                         "tabindex": "0",
                       },
                       "children": Array [],
@@ -636,7 +636,7 @@ initialize {
                       "parent": [Circular],
                       "prev": Object {
                         "attribs": Object {
-                          "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                          "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                           "tabindex": "0",
                         },
                         "children": Array [],
@@ -674,7 +674,7 @@ initialize {
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                          "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                           "tabindex": "0",
                         },
                         "children": Array [],
@@ -737,7 +737,7 @@ initialize {
                         "parent": [Circular],
                         "prev": Object {
                           "attribs": Object {
-                            "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                            "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                             "tabindex": "0",
                           },
                           "children": Array [],
@@ -1306,7 +1306,7 @@ initialize {
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                    "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                     "tabindex": "0",
                   },
                   "children": Array [],
@@ -1369,7 +1369,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                      "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                       "tabindex": "0",
                     },
                     "children": Array [],
@@ -1407,7 +1407,7 @@ initialize {
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                      "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                       "tabindex": "0",
                     },
                     "children": Array [],
@@ -1470,7 +1470,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                        "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                         "tabindex": "0",
                       },
                       "children": Array [],
@@ -1508,7 +1508,7 @@ initialize {
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                        "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                         "tabindex": "0",
                       },
                       "children": Array [],
@@ -1571,7 +1571,7 @@ initialize {
                       "parent": [Circular],
                       "prev": Object {
                         "attribs": Object {
-                          "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                          "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                           "tabindex": "0",
                         },
                         "children": Array [],
@@ -2139,7 +2139,7 @@ initialize {
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                   "tabindex": "0",
                 },
                 "children": Array [],
@@ -2202,7 +2202,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                    "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                     "tabindex": "0",
                   },
                   "children": Array [],
@@ -2240,7 +2240,7 @@ initialize {
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                    "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                     "tabindex": "0",
                   },
                   "children": Array [],
@@ -2303,7 +2303,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                      "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                       "tabindex": "0",
                     },
                     "children": Array [],
@@ -2341,7 +2341,7 @@ initialize {
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                      "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                       "tabindex": "0",
                     },
                     "children": Array [],
@@ -2404,7 +2404,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                        "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                         "tabindex": "0",
                       },
                       "children": Array [],
@@ -2972,7 +2972,7 @@ initialize {
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                 "tabindex": "0",
               },
               "children": Array [],
@@ -3035,7 +3035,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                   "tabindex": "0",
                 },
                 "children": Array [],
@@ -3073,7 +3073,7 @@ initialize {
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                  "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                   "tabindex": "0",
                 },
                 "children": Array [],
@@ -3136,7 +3136,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                    "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                     "tabindex": "0",
                   },
                   "children": Array [],
@@ -3174,7 +3174,7 @@ initialize {
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                    "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                     "tabindex": "0",
                   },
                   "children": Array [],
@@ -3237,7 +3237,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                      "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                       "tabindex": "0",
                     },
                     "children": Array [],
@@ -3379,7 +3379,7 @@ initialize {
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+              "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
               "tabindex": "0",
             },
             "children": Array [],
@@ -3442,7 +3442,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                 "tabindex": "0",
               },
               "children": Array [],
@@ -3480,7 +3480,7 @@ initialize {
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                 "tabindex": "0",
               },
               "children": Array [],
@@ -3543,7 +3543,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                  "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                   "tabindex": "0",
                 },
                 "children": Array [],
@@ -3581,7 +3581,7 @@ initialize {
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                  "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                   "tabindex": "0",
                 },
                 "children": Array [],
@@ -3644,7 +3644,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                    "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                     "tabindex": "0",
                   },
                   "children": Array [],
@@ -4220,7 +4220,7 @@ initialize {
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+              "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
               "tabindex": "0",
             },
             "children": Array [],
@@ -4283,7 +4283,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                 "tabindex": "0",
               },
               "children": Array [],
@@ -4321,7 +4321,7 @@ initialize {
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                 "tabindex": "0",
               },
               "children": Array [],
@@ -4384,7 +4384,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                  "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                   "tabindex": "0",
                 },
                 "children": Array [],
@@ -4436,7 +4436,7 @@ initialize {
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                 "tabindex": "0",
               },
               "children": Array [],
@@ -4499,7 +4499,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                   "tabindex": "0",
                 },
                 "children": Array [],
@@ -5061,7 +5061,7 @@ initialize {
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+              "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
               "tabindex": "0",
             },
             "children": Array [],
@@ -5124,7 +5124,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa hIyDXt",
+                "class": "wjc-slider-handler wjc-slider-handler-3 sc-bdVaJa jwkNjq",
                 "tabindex": "0",
               },
               "children": Array [],
@@ -5164,7 +5164,7 @@ initialize {
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                 "tabindex": "0",
               },
               "children": Array [],
@@ -5227,7 +5227,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa hIyDXt",
+                  "class": "wjc-slider-handler wjc-slider-handler-2 sc-bdVaJa jwkNjq",
                   "tabindex": "0",
                 },
                 "children": Array [],
@@ -5267,7 +5267,7 @@ initialize {
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                  "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                   "tabindex": "0",
                 },
                 "children": Array [],
@@ -5330,7 +5330,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa hIyDXt",
+                    "class": "wjc-slider-handler wjc-slider-handler-1 sc-bdVaJa jwkNjq",
                     "tabindex": "0",
                   },
                   "children": Array [],

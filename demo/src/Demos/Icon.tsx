@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Badge } from "@src";
+import { CheckCircle } from "@src/components/Icon";
 import styled from "styled-components";
 
 const Wrap = styled.div`
@@ -22,18 +22,8 @@ class Demo extends React.PureComponent {
   render() {
     return (
       <Wrap>
-        <Badge count={100}>
-          <A href="#" />
-        </Badge>
+        <CheckCircle style={{color: 'red'}} />
         <Space />
-        <Badge count={100} title="custome title">
-          <A href="#" />
-        </Badge>
-        <Space />
-        <Badge count={100} />
-        <Space />
-        <Badge status="success" />
-        <Badge status="error" />
       </Wrap>
     );
   }

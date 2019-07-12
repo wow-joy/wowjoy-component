@@ -2,10 +2,22 @@
 
 exports[`Badge renders as dot correctly 1`] = `
 <span
-  className="wjc-badge  sc-bdVaJa VxzjQ"
+  className="wjc-badge  sc-bdVaJa cffnHn"
 >
   <span
     className="wjc-badge-count sc-bxivhb jjoJHs"
   />
+</span>
+`;
+
+exports[`Badge should add defaultStyles 1`] = `
+<span
+  className="wjc-badge  sc-bdVaJa bXgOCn"
+>
+  <span
+    className="wjc-badge-count sc-bxivhb hqOToY"
+  >
+    9
+  </span>
 </span>
 `;

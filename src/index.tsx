@@ -17,7 +17,10 @@ import Dialog, {
   Confirm as Dialog_confirm,
   Alert as Dialog_alert
 } from "./components/Dialog/index";
-import Tabs, { Type1 as Tabs_1, Type2 as Tabs_2 } from "./components/Tabs/index";
+import Tabs, {
+  Type1 as Tabs_1,
+  Type2 as Tabs_2
+} from "./components/Tabs/index";
 import Pop from "./components/Pop/index";
 import Table from "./components/Table/index";
 import Select from "./components/Select/index";
@@ -30,6 +33,7 @@ import Badge from "./components/Badge/index";
 import Steps from "./components/Steps/index";
 import Tooltip, { SimpleTooltip } from "./components/Tooltip/index";
 import Slider from "./components/Slider/index";
+import * as Icon from "./components/Icon";
 
 const Components: any = {
   Btn,
@@ -37,7 +41,6 @@ const Components: any = {
   Btn_2,
   Btn_3,
   Btn_disabled,
-
   Layout,
   Message,
   Message_doubt,
@@ -45,18 +48,14 @@ const Components: any = {
   Message_info,
   Message_success,
   Message_warn,
-
   Dialog,
   Dialog_1,
   Dialog_confirm,
   Dialog_alert,
-
   Tabs,
   Tabs_1,
   Tabs_2,
-
   Pop,
-
   Table,
   Select,
   SlideDown,
@@ -64,12 +63,12 @@ const Components: any = {
   PopOut,
   Pagination,
   CheckBox,
-
   Badge,
   Steps,
   Tooltip,
   SimpleTooltip,
-  Slider
+  Slider,
+  Icon
 };
 export {
   Btn,
@@ -103,6 +102,7 @@ export {
   Steps,
   Tooltip,
   SimpleTooltip,
-  Slider
+  Slider,
+  Icon
 };
 export default Components;

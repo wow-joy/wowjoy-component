@@ -8,6 +8,7 @@ import Select from "./Select";
 import Dialog from "./Dialog";
 import Message from "./Message";
 import Badge from "./Badge";
+import Icon from "./Icon";
 
 export default {
   Tooltip,
@@ -19,5 +20,6 @@ export default {
   Select,
   Dialog,
   Message,
-  Badge
+  Badge,
+  Icon
 };
