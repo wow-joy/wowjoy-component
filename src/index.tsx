@@ -34,6 +34,7 @@ import Steps from "./components/Steps/index";
 import Tooltip, { SimpleTooltip } from "./components/Tooltip/index";
 import Slider from "./components/Slider/index";
 import * as Icon from "./components/Icon";
+import Snack from "./components/Snack";
 
 const Components: any = {
   Btn,
@@ -68,7 +69,8 @@ const Components: any = {
   Tooltip,
   SimpleTooltip,
   Slider,
-  Icon
+  Icon,
+  Snack
 };
 export {
   Btn,
@@ -103,6 +105,7 @@ export {
   Tooltip,
   SimpleTooltip,
   Slider,
-  Icon
+  Icon,
+  Snack
 };
 export default Components;
