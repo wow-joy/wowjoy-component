@@ -9,6 +9,7 @@ import Dialog from "./Dialog";
 import Message from "./Message";
 import Badge from "./Badge";
 import Icon from "./Icon";
+import Snack from "./Snack";
 
 export default {
   Tooltip,
@@ -21,5 +22,6 @@ export default {
   Dialog,
   Message,
   Badge,
-  Icon
+  Icon,
+  Snack
 };
