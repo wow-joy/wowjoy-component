@@ -20,11 +20,10 @@ class Demo extends React.PureComponent {
   a: any = null;
   b: any = null;
   componentDidMount() {
-      
-      console.log(this.a);
-      console.log(this.b);
+    console.log(this.a);
+    console.log(this.b);
   }
-  
+
   render() {
     return (
       <div>
@@ -36,10 +35,7 @@ class Demo extends React.PureComponent {
           onClose={() => false}
           ref={el => (this.a = el)}
         ></Message_warn>
-        <Message onClose={() => false}
-                  ref={el => (this.b = el)}
-
-        ></Message>
+        <Message onClose={() => false} ref={el => (this.b = el)}></Message>
       </div>
     );
   }

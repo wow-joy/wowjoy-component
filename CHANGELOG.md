@@ -1,3 +1,9 @@
+## 3.5.22 (2019/7/16)
+
+### bugfix
+
+- add object-reset-plugins
+
 ## 3.5.21 (2019/7/10)
 
 ### bugfix
