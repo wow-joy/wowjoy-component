@@ -11,13 +11,11 @@ export default function createSvgIcon(
   path: React.ReactElement,
   displayName: string
 ) {
-  const Component = React.memo(
-    React.forwardRef((props: Props, ref) => (
-      <SvgIcon {...props} ref={ref}>
-        {path}
-      </SvgIcon>
-    ))
-  );
+  const Component = React.forwardRef((props: Props, ref) => (
+    <SvgIcon {...props} ref={ref}>
+      {path}
+    </SvgIcon>
+  ));
   if (process.env.NODE_ENV !== "production") {
     Component.displayName = `${displayName}Icon`;
   }
