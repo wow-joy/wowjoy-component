@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Btn_1 as Btn1, ScrollBox } from "@src";
-import styled from "styled-components";
+import { ScrollBox } from "@src";
 
 class Demo extends Component {
   constructor(props) {

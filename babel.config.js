@@ -17,7 +17,7 @@ module.exports = api => {
           "@babel/preset-typescript",
           "@babel/preset-react"
         ],
-        plugins: ["@babel/plugin-proposal-class-properties"]
+        plugins: ["@babel/plugin-proposal-object-rest-spread", "@babel/plugin-proposal-class-properties"]
       },
       es: {
         presets: [
@@ -36,6 +36,7 @@ module.exports = api => {
         ],
         plugins: [
           "babel-plugin-styled-components",
+          "@babel/plugin-proposal-object-rest-spread",
           "@babel/plugin-proposal-class-properties"
         ]
       },
@@ -56,6 +57,7 @@ module.exports = api => {
         ],
         plugins: [
           "babel-plugin-styled-components",
+          "@babel/plugin-proposal-object-rest-spread",
           "@babel/plugin-proposal-class-properties"
         ]
       }
