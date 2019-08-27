@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { keyframes } from "styled-components";
-import { CheckCircle, CloseCircle } from "@src/components/Icon";
+import { CheckCircle, CloseCircle } from "../Icon";
 import { tuple } from "../_util/type";
 
 const Types = tuple("success", "error");
