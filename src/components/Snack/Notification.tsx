@@ -1,11 +1,12 @@
 import * as React from "react";
 import styled from "styled-components";
+import { Notice, NotificationProps, State } from "./index.d";
 
-const Wrap = styled.div`
+const Wrap = styled.div<{ top: number }>`
   position: fixed;
   width: 100%;
   text-align: center;
-  top: 200px;
+  top: ${p => p.top}px;
   color: #fff;
   font-size: 12px;
   display: flex;
@@ -15,15 +16,8 @@ const Wrap = styled.div`
   pointer-events: none;
   z-index: 1002;
 `;
-interface Notice {
-  key: string | number;
-  content: React.ReactElement;
-}
-interface State {
-  notices: Notice[];
-  [key: string]: any;
-}
-class Notification extends React.Component {
+
+class Notification extends React.Component<NotificationProps> {
   state: State = {
     notices: []
   };
@@ -39,7 +33,11 @@ class Notification extends React.Component {
   };
   render() {
     const { notices } = this.state;
-    return <Wrap>{notices.map(item => item.content)}</Wrap>;
+    return (
+      <Wrap top={this.props.top} className="notification-wrap">
+        {notices.map(item => item.content)}
+      </Wrap>
+    );
   }
 }
 

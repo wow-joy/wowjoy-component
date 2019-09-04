@@ -2,7 +2,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import Notification from "./Notification";
 import Snack, { SnackType } from "./Snack";
-import { Resolver } from "dns";
+import globalConfig from "./config";
+import { Config } from "./index.d";
 
 let key: number = 0;
 const container: HTMLDivElement = document.createElement("div");
@@ -18,12 +19,19 @@ function getInstance(callback: (ins: Notification) => any): void {
       notificationInstance = instance;
       callback(notificationInstance);
     }
-    ReactDOM.render(<Notification ref={ref as any} />, container);
+    ReactDOM.render(
+      <Notification ref={ref as any} top={globalConfig.top} />,
+      container
+    );
   }
 }
 
 function createSnack(type: SnackType) {
-  return (msg: string, duration: number = 4000, onClose?: () => any) => {
+  return (
+    msg: string,
+    duration: number = globalConfig.duration,
+    onClose?: () => any
+  ) => {
     key++;
     return new Promise(resolve => {
       getInstance(instance => {
@@ -53,7 +61,11 @@ function createSnack(type: SnackType) {
 
 const snack = {
   success: createSnack("success"),
-  error: createSnack("error")
+  error: createSnack("error"),
+  config: function(config: Config) {
+    globalConfig.top = config.top || globalConfig.top;
+    globalConfig.duration = config.duration || globalConfig.duration;
+  }
 };
 
 export default snack;

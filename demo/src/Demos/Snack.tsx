@@ -4,6 +4,11 @@ import { Snack } from "@src";
 import { SnackType } from "@src/components/Snack/Snack";
 import styled from "styled-components";
 
+Snack.config({
+  top: 500,
+  duration: 1000
+})
+
 const Wrap = styled.div`
   margin: 40px;
 `;
