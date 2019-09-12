@@ -7,7 +7,7 @@ import styled from "styled-components";
 Snack.config({
   top: 500,
   duration: 1000
-})
+});
 
 const Wrap = styled.div`
   margin: 40px;
@@ -35,6 +35,10 @@ class Demo extends React.PureComponent {
         <Btn_1 onClick={this.handleClick("success")}>success</Btn_1>
         <Space />
         <Btn_1 onClick={this.handleClick("error")}>error</Btn_1>
+        <Space />
+        <Btn_1 onClick={this.handleClick("info")}>info</Btn_1>
+        <Space />
+        <Btn_1 onClick={this.handleClick("warning")}>warning</Btn_1>
       </Wrap>
     );
   }

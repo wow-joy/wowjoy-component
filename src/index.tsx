@@ -34,6 +34,7 @@ import Steps from "./components/Steps/index";
 import Tooltip, { SimpleTooltip } from "./components/Tooltip/index";
 import Slider from "./components/Slider/index";
 import * as Icon from "./components/Icon";
+import createSvgIcon from "./components/_util/createSvgIcon";
 import Snack from "./components/Snack";
 
 const Components: any = {
@@ -70,6 +71,7 @@ const Components: any = {
   SimpleTooltip,
   Slider,
   Icon,
+  createSvgIcon,
   Snack
 };
 export {
@@ -106,6 +108,7 @@ export {
   SimpleTooltip,
   Slider,
   Icon,
+  createSvgIcon,
   Snack
 };
 export default Components;

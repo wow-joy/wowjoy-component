@@ -1,9 +1,9 @@
 import * as React from "react";
 import styled, { keyframes } from "styled-components";
-import { CheckCircle, CloseCircle } from "../Icon";
+import { CheckCircle, CloseCircle, InfoCircle, WarningCircle } from "../Icon";
 import { tuple } from "../_util/type";
 
-const Types = tuple("success", "error");
+const Types = tuple("success", "error", "info", "warning");
 
 export type SnackType = (typeof Types)[number];
 
@@ -15,6 +15,14 @@ const TypeIcons = {
   error: {
     icon: CloseCircle,
     color: "#f36969"
+  },
+  info: {
+    icon: InfoCircle,
+    color: "#45a8e6"
+  },
+  warning: {
+    icon: WarningCircle,
+    color: "#ff9b54"
   }
 };
 

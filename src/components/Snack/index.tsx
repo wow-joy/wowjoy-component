@@ -62,6 +62,8 @@ function createSnack(type: SnackType) {
 const snack = {
   success: createSnack("success"),
   error: createSnack("error"),
+  info: createSnack("info"),
+  warning: createSnack("warning"),
   config: function(config: Config) {
     globalConfig.top = config.top || globalConfig.top;
     globalConfig.duration = config.duration || globalConfig.duration;
