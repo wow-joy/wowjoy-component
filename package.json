@@ -21,7 +21,7 @@
     ],
     "collectCoverage": false
   },
-  "version": "3.5.28",
+  "version": "3.5.29",
   "description": "wowjoy-component React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -31,6 +31,7 @@
     "lib",
     "umd"
   ],
+  "sideEffects": false,
   "scripts": {
     "create": "node scripts/createComponent.js",
     "ctest": "node scripts/createTest.js",

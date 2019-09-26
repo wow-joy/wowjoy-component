@@ -31,6 +31,9 @@ class Notification extends React.Component<NotificationProps> {
       notices: prevState.notices.filter((item: Notice) => item.key !== key)
     }));
   };
+  destroy = () => {
+    this.setState({ notices: [] });
+  };
   render() {
     const { notices } = this.state;
     return (

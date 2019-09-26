@@ -41,19 +41,20 @@ function createSnack(type: SnackType) {
             instance.remove(key);
           };
         })(key);
+        const content = (
+          <Snack
+            key={key}
+            type={type}
+            msg={msg}
+            duration={duration}
+            onClose={close}
+          />
+        );
         instance.add({
           key,
-          content: (
-            <Snack
-              key={key}
-              type={type}
-              msg={msg}
-              duration={duration}
-              onClose={close}
-            />
-          )
+          content
         });
-        resolve();
+        resolve(content);
       });
     });
   };
@@ -67,6 +68,11 @@ const snack = {
   config: function(config: Config) {
     globalConfig.top = config.top || globalConfig.top;
     globalConfig.duration = config.duration || globalConfig.duration;
+  },
+  destroy: function() {
+    getInstance((ins: Notification) => {
+      ins.destroy();
+    });
   }
 };
 
