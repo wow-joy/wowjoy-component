@@ -56,14 +56,22 @@ const fadeOut = keyframes`
 `;
 const Wrap = styled.div<{ visible: boolean; type: SnackType }>`
   background: ${props => TypeIcons[props.type].color};
-  padding: 10px 20px;
+  padding: 16px 30px;
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 3px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  color: #fff;
   animation: ${props => (props.visible ? fadeIn : fadeOut)} 1s ease;
+  .snack-icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  .snack-msg {
+    font-size: 14px;
+  }
 `;
 
 class Snack extends React.Component<Props> {
@@ -90,8 +98,8 @@ class Snack extends React.Component<Props> {
         onAnimationEnd={this.handleAnimationEnd}
         visible={visible}
       >
-        <Icon style={{ color: "#fff", marginRight: 10 }} />
-        <span>{msg}</span>
+        <Icon className="snack-icon" />
+        <span className="snack-msg">{msg}</span>
       </Wrap>
     );
   }
