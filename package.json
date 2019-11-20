@@ -35,6 +35,7 @@
   "scripts": {
     "create": "node scripts/createComponent.js",
     "ctest": "node scripts/createTest.js",
+    "now-build": "nwb build-react-component --copy-files",
     "build": "npm run clean && npm run build:es && npm run build:lib",
     "build:es": "cross-env NODE_ENV=es npx babel src --out-dir es --copy-files --extensions \".js,.jsx,.ts,.tsx\"",
     "build:lib": "cross-env NODE_ENV=lib npx babel src --out-dir lib --copy-files --extensions \".js,.jsx,.ts,.tsx\"",
