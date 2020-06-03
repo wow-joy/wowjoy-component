@@ -77,9 +77,11 @@ class SlideDown extends React.PureComponent<Props, State> {
     this.setState({
       inited: true
     });
-    if (this.props.isActive) {
+
+    if (this.subNode && this.props.isActive) {
       this.subNode.style.display = "block";
     }
+
     setTimeout(() => {
       window.addEventListener("click", this.onBlur);
     });
