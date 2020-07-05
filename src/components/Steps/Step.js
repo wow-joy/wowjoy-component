@@ -4,26 +4,26 @@ import PropTypes from "prop-types";
 import Arrow from "./Arrow";
 
 const THEME = {
-  default: "#06AEA6"
+  default: "#06AEA6",
 };
 
 const statusStyles = {
   finish: {
     color: THEME.default,
     borderColor: THEME.default,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
   process: {
     color: "#fff",
     borderColor: THEME.default,
-    backgroundColor: THEME.default
+    backgroundColor: THEME.default,
   },
   wait: {
     color: "rgba(0, 0, 0, 0.25)",
     borderColor: "rgba(0, 0, 0, 0.25)",
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
-  error: { color: "#f5222d", borderColor: "#f5222d", backgroundColor: "#fff" }
+  error: { color: "#f5222d", borderColor: "#f5222d", backgroundColor: "#fff" },
 };
 const Title = styled.div`
   display: flex;
@@ -67,12 +67,12 @@ const Icon = styled.div`
   line-height: 14px;
 `;
 const Content = styled.div`
-  ${props => props.stepDirection === "horizontal" && `min-height: 48px;`}
+  ${(props) => props.stepDirection === "horizontal" && `min-height: 48px;`}
   ${Title} {
-    ${props => props.isError && `color:#f5222d;`}
+    ${(props) => props.isError && `color:#f5222d;`}
   }
   ${Description} {
-    ${props => props.isError && `color:#f5222d;`}
+    ${(props) => props.isError && `color:#f5222d;`}
   }
 `;
 const ProgressDot = styled.div`
@@ -83,58 +83,58 @@ const ProgressDot = styled.div`
   border-radius: 5px;
 `;
 const Wrap = styled.div`
-  ${props => props.defaultStyles};
+  ${(props) => props.defaultStyles};
   position: relative;
   display: inline-block;
   flex: 1;
   display: flex;
   border-radius: 1px;
-  flex-direction: ${props => (props.isContentVertical ? "column" : "row")};
-  overflow: ${props =>
+  flex-direction: ${(props) => (props.isContentVertical ? "column" : "row")};
+  overflow: ${(props) =>
     (props.stepDirection === "vertical" && props.stepType === "dot") ||
     (props.stepDirection === "horizontal" && props.isContentVertical)
       ? "visible"
       : "hidden"};
   margin-right: 9px;
   &:last-child {
-    ${props =>
+    ${(props) =>
       props.stepType !== "arrow" &&
       ` flex: none;
       margin-right: 0px;`}
   }
   ${Icon} {
-    width: ${props => props.themeSize}px;
-    height: ${props => props.themeSize}px;
-    line-height: ${props => props.themeSize}px;
-    border-radius: ${props => props.themeSize}px;
-    ${props => props.status && statusStyles[props.status]}
-    ${props =>
+    width: ${(props) => props.themeSize}px;
+    height: ${(props) => props.themeSize}px;
+    line-height: ${(props) => props.themeSize}px;
+    border-radius: ${(props) => props.themeSize}px;
+    ${(props) => props.status && statusStyles[props.status]}
+    ${(props) =>
       props.stepDirection === "horizontal" &&
       props.isContentVertical &&
       `margin-left: 18px;`}
-    ${props =>
+    ${(props) =>
       props.stepType === "dot" &&
       `border:none;background-color:transparent;color:unset;`}
   }
   ${Content} {
     display: flex;
     flex-direction: column;
-    ${props =>
+    ${(props) =>
       props.labelPlacement === "upAndDown" &&
       `position: absolute;
       height: 68px;
       top: -34px;
       justify-content: space-between;`}
-    ${props =>
+    ${(props) =>
       props.stepDirection === "horizontal" &&
       props.isContentVertical &&
       `width: ${props.themeSize + 36}px;
       margin-top: ${props.stepType === "dot" ? "5px" : "8px"};
       text-align: center;`}
-      ${props => props.stepDirection === "vertical" && `min-height: 48px;`}
+      ${(props) => props.stepDirection === "vertical" && `min-height: 48px;`}
     ${Title} {
-      height: ${props => props.themeSize}px;
-      ${props =>
+      height: ${(props) => props.themeSize}px;
+      ${(props) =>
         props.stepDirection === "horizontal" && props.isContentVertical
           ? `padding-right: 0px;
           width: auto;
@@ -149,8 +149,9 @@ const Wrap = styled.div`
           width: min-content;`}
     }
     ${Description} {
-      ${props => props.stepDirection === "vertical" && `padding-bottom: 10px;`}
-      ${props =>
+      ${(props) =>
+        props.stepDirection === "vertical" && `padding-bottom: 10px;`}
+      ${(props) =>
         props.stepDirection === "horizontal" &&
         props.isContentVertical &&
         `font-family: STHeitiSC-Light;
@@ -161,7 +162,7 @@ const Wrap = styled.div`
     }
   }
   &:not(:last-child) {
-    ${props =>
+    ${(props) =>
       props.stepType !== "arrow" &&
       props.stepDirection === "vertical" &&
       `&::before {
@@ -190,7 +191,7 @@ const Wrap = styled.div`
             : "#e8e8e8"
         };
       }`}
-    ${props =>
+    ${(props) =>
       props.stepType !== "arrow" &&
       props.stepDirection === "horizontal" &&
       props.isContentVertical &&
@@ -218,7 +219,7 @@ const Wrap = styled.div`
         };
       }`}
     ${Title} {
-      ${props =>
+      ${(props) =>
         props.stepType !== "arrow" &&
         props.stepDirection === "horizontal" &&
         !props.isContentVertical &&
@@ -241,14 +242,14 @@ const Wrap = styled.div`
 `;
 
 class Step extends PureComponent {
-  wrapIconProps = icon => {
+  wrapIconProps = (icon) => {
     const { stepNumber, title, status, description } = this.props;
     return typeof icon === "function"
       ? icon(this.currentIcon, {
           index: stepNumber,
           status,
           title,
-          description
+          description,
         })
       : icon;
   };
@@ -258,7 +259,8 @@ class Step extends PureComponent {
     const StatusIcon =
       status === "process" || status === "wait"
         ? stepNumber
-        : require(`../../media/steps_${status}.svg`).ReactComponent;
+        : require(`../Icon/Step${status[0].toUpperCase() + status.substr(1)}`)
+            .default;
     const currentIcon =
       typeof StatusIcon === "number" ? (
         StatusIcon
@@ -344,6 +346,6 @@ Step.propTypes = {
   nextStatus: PropTypes.oneOf(["finish", "process", "wait", "error"]),
   description: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   icon: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.func]),
-  title: PropTypes.oneOfType([PropTypes.node, PropTypes.string])
+  title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
 };
 export default Step;
