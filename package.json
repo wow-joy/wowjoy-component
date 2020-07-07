@@ -21,7 +21,7 @@
     ],
     "collectCoverage": false
   },
-  "version": "3.5.31",
+  "version": "3.5.32",
   "description": "wowjoy-component React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -44,10 +44,10 @@
     "restart": "npm run build && npm start",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "@svgr/webpack": "^4.0.0",
     "react": "16.x",
     "react-dom": "16.x",
     "react-router-dom": "4.x",
