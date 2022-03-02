@@ -95,7 +95,7 @@
     "styled-components": "4.x",
     "typescript": "^3.5.2",
     "typescript-plugin-styled-components": "^1.4.3",
-    "url-parse": "1.4.4"
+    "url-parse": "1.5.9"
   },
   "husky": {
     "hooks": {
